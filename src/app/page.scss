@@ -1,0 +1,24 @@
+
+.main{	
+
+}
+html{
+	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;
+}
+.information{
+	scroll-snap-type: y mandatory;
+	
+}
+
+.btn-help{
+	width: 200px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #BF7F1D;
+    border-radius: 99px;
+    font-size: var(--font-size-sm);
+	font-weight: 700;
+}

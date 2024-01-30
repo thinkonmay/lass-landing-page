@@ -1,0 +1,26 @@
+
+
+.header{
+	background: var(--Neutral-50, #F9FAFB);
+
+	.wrapperHeader{
+		height: 78px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.right{
+			list-style-type: none;
+			display: flex;
+			align-items: center;
+			gap: 40px;
+	
+			.link{
+				font-size: var(--font-size-md);
+				font-weight: 600;
+			}
+		}
+	}
+
+	
+}

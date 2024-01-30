@@ -1,0 +1,146 @@
+@tailwind base;
+/*@tailwind components;*/
+/*@tailwind utilities;*/
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+:root {
+  --font-size-xs: 1.2rem;
+  --font-size-sm: 1.4rem;
+  --font-size-md: 1.6rem;
+  --font-size-lg: 1.8rem;
+  --font-size-xl: 2rem;
+
+  --font-display-xs: 2.4rem;
+  --font-display-sm: 3rem;
+  --font-display-md: 3.6rem;
+  --font-display-lg: 4.8rem;
+  --font-display-xl: 6rem;
+  --font-display-2xl: 7.2rem;
+
+  --green-100:#EEFFFE;
+  --green-200:#C8FFFD;
+  --green-300:#A1FFFC;
+  --green-400:#7BFFFB;
+  --green-500:#55FFFA;
+  --green-600:#3DDEDA;
+  --green-700:#28BCB8;
+  --green-800:#179A96;
+  --green-900:#0B7875;
+  --green-bold:#035654;
+
+  --light-blue-100:#E8F3FF;
+  --light-blue-200:#BEDEFF;
+  --light-blue-300:#94C9FF;
+  --light-blue-400:#6AB4FF;
+  --light-blue-500:#40A0FF;
+  --light-blue-600:#1685F5;
+  --light-blue-700:#0066CC;
+  --light-blue-800:#0052A3;
+  --light-blue-900:#003D7A;
+  --light-blue-bold:#002952;
+
+  --dark-blue-100: #F6F6FF;
+  --dark-blue-200: #E7E6FF;
+  --dark-blue-300: #D7D7FF;
+  --dark-blue-400:#C8C7FF ;
+  --dark-blue-500: #B9B7FF;
+  --dark-blue-600: #A9A8FF;
+  --dark-blue-700:#7F7DE7 ;
+  --dark-blue-800: #5351BE;
+  --dark-blue-900: #302E96;
+  --dark-blue-bold: #16156D;
+
+
+  --purple-100:#F7E5FF;
+  --purple-200:#E8B7FF;
+  --purple-300:#D98AFF;
+  --purple-400:#CA5CFF;
+  --purple-500:#BC2EFF;
+  --purple-600:#AD00FF;
+  --purple-700:#9100D6;
+  --purple-800:#7600AD;
+  --purple-900:#5A0085;
+  --purple-bold: #3E005C;
+
+  --Neutral-25:#FCFCFD;
+  --Neutral-50:#F9FAFB;
+  --Neutral-100:#F2F4F7;
+  --Neutral-200:#EAECF0;
+  --Neutral-300:#D0D5DD;
+  --Neutral-400:#98A2B3;
+  --Neutral-500:#667085;
+  --Neutral-600:#475467;
+  --Neutral-700:#344054;
+  --Neutral-800:#1D2939;
+  --Neutral-900:#101828;
+
+}
+
+
+@media (min-width: 1px) and (max-width: 767px) {
+
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+html,
+body {
+    /* width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    overflow: hidden;
+    font-size: 10px;
+    font-family: Roboto, sans-serif; */
+    font-size: 10px;
+    /*font-family: Inter,sans-serif;*/
+    /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;*/
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.btn{
+  display: flex;
+  padding: 10px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  color: white;
+  border-radius: 200px;
+  background: var(--Neutral-900, #101828);
+
+
+}
