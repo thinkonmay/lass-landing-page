@@ -1,3 +1,4 @@
+import Icon from '../icon';
 import './footer.scss'
 
 
@@ -7,16 +8,19 @@ function Footer() {
 		<div className="footer ">
 			<div className="mainContent grid wide">
 				<div className="left">
-					<div className="icon"></div>
+					<div className='logo'>
+						<Icon width={138} height={68} src='logo-black'></Icon>
+						<span>Laptop as a Service</span>
+					</div>
 
 					<div className="email">
 						<span className="text">Đăng ký Email để nhận các thông tin mới nhất về dịch vụ của Thinkmay</span>
 
 						<div className="ctnBtn">
-							<div className="input">Email của bạn</div>
-							<div className="btn">
+							<input className="input" placeholder='Email của bạn'></input>
+							<button className="btn register">
 								Đăng ký
-							</div>
+							</button>
 						</div>
 					</div>
 				</div>	
@@ -25,9 +29,9 @@ function Footer() {
 					<div className="thinkmay">
 						<h6>Thinkmay</h6>
 						<ul>
-							<li><a href=""></a></li>
-							<li><a href=""></a></li>
-							<li><a href=""></a></li>
+							<li>+960 798 5454</li>
+							<li>huyhoangdo@contact.thinkmay.net</li>
+							<li>Hoa Lac, Ha Noi, Viet Nam</li>
 						</ul>
 					</div>
 					<div className="services">
