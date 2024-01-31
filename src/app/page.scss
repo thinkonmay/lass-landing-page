@@ -1,6 +1,38 @@
 
 .main{	
 
+    .reason{
+        background: var(--Neutral-50, #F9FAFB);
+        padding: 10rem 0px;
+
+        .mainContent{
+
+            .top{
+                display: flex;
+                justify-content: space-between;
+                align-items: end;
+                h2{
+                    color: var(--Neutral-900, #101828);
+                    /* Display md/Bold */
+                    font-size: 36px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 44px; /* 122.222% */
+                    letter-spacing: -0.72px;
+                }
+
+                .specialText{
+                    color: #28BCB8;
+                    /* Display md/Bold */
+                    font-size: 36px;
+                    font-weight: 700;
+                    line-height: 44px;
+                    letter-spacing: -0.72px;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
 }
 html{
 	scroll-snap-type: y mandatory;
@@ -22,3 +54,5 @@ html{
     font-size: var(--font-size-sm);
 	font-weight: 700;
 }
+
+

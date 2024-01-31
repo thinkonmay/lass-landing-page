@@ -1,3 +1,4 @@
+import Icon from '../icon';
 import './header.scss'
 import Image from 'next/image'
 
@@ -12,9 +13,9 @@ function Header() {
 
 				<ul className='right'>
 					<li><a className='link' href="">Dịch vụ</a></li>
-					<li><a className='link' href="">Dịch vụ</a></li>
-					<li><a className='link' href="">Dịch vụ</a></li>
-					<button className='btn'>Cloud gaming services</button>
+					<li><a className='link' href="">Về Thinkmay</a></li>
+					<li><a className='link' href="">Liên hệ</a></li>
+					<button className='btn'>Cloud gaming services <Icon className={"mb-[1px]"} src='game'/> </button>
 				</ul>
 			
 		</div>
