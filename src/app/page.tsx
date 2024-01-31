@@ -9,6 +9,7 @@ import Footer from '../components/footer/Footer'
 import HeroSection from '../components/herosection/Herosection'
 import Icon from '../components/icon'
 import Products from '../components/products/Products'
+import Testimonials from '../components/testimonials/Testimonials'
 
 type Selection = 'GAMING' | 'ENTERPRISE' | 'UNKOWN'
 const REDIRECT_PAGE = "https://app.thinkmay.net/"
@@ -51,6 +52,7 @@ export default function Home() {
         <HeroSection></HeroSection>
         <Reason></Reason>
         <Products></Products>
+        <Testimonials></Testimonials>
       </div>
       <Footer></Footer>
     </main>
