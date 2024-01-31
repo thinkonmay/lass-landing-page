@@ -10,12 +10,11 @@
             .top{
                 display: flex;
                 justify-content: space-between;
-                align-items: end;
+                align-items: flex-start;
                 h2{
                     color: var(--Neutral-900, #101828);
                     /* Display md/Bold */
                     font-size: 36px;
-                    font-style: normal;
                     font-weight: 700;
                     line-height: 44px; /* 122.222% */
                     letter-spacing: -0.72px;
@@ -29,6 +28,61 @@
                     line-height: 44px;
                     letter-spacing: -0.72px;
                     text-transform: uppercase;
+                }
+            }
+
+            .bottom{
+                position: relative;
+                overflow: hidden;
+                height: 518px;
+                margin-top: 10rem;
+                
+                .ctnCards{
+                    position: absolute;
+                    display: flex;
+                    gap: 3.2rem;
+                    right: 0;
+                    left: 0;
+                    top: 0;
+                }
+                .card{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    
+                    padding: 3.2rem;
+                    border-radius: 20px;
+                    background: #FFF;
+
+                    .subTitle{
+                        color: var(--Neutral-900, #101828);
+                        /* Text lg/Semibold */
+                        font-size: var(--font-size-lg);
+                        font-weight: 600;
+                        line-height: 28px; /* 155.556% */
+                    }
+                    .title{
+                        margin: 1.2rem 0    ;
+                        color: var(--Neutral-Black, #000);
+                        /* Display sm/Bold */
+                        font-size: var(--font-display-sm);
+                        font-weight: 700;
+                        line-height: 38px;
+                    }
+                    .text{
+                        color: var(--Neutral-900, #101828);
+                        /* Text lg/Regular */
+                        font-size: var(--font-size-lg);
+                        font-weight: 400;
+                        line-height: 28px; /* 155.556% */
+                    }
+                    .ctnLinks{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1.8rem;
+
+                        margin-top: auto;
+                    }
                 }
             }
         }

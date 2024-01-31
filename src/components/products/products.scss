@@ -221,4 +221,29 @@
 			}
 		}
 	}
+
+	.imgBg{
+		position: relative;
+		.logo{
+			position: absolute;
+			top: 15%;
+			right: 0;
+			left: 0;
+			display: flex;
+			.wrapperLogo{
+				display: flex;
+				align-items: flex-end;
+				gap: 4px;
+			}
+			span{
+				color: var(--Neutral-White, #FFF);
+				text-align: center;
+				font-size: 16.364px;
+				font-style: italic;
+				font-weight: 400;
+				line-height: 13.636px; /* 83.333% */
+			}
+		}
+
+	}
 }

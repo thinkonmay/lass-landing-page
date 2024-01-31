@@ -123,9 +123,14 @@ const Introduce =()=>{
 			</div>
 
 
-			<div>
+			<div className='imgBg'>
+				<div className='logo'>
+					<div className="wrapperLogo">
+						<Icon width={105} height={58} src='logo-white'></Icon>
+						<span className=''>Laptop as a Service</span>
+					</div>
+				</div>
 				<Image width={1440} className='w-[100vw]' height={1080} alt='img-mockup' src={"/macbook-mockup.png"}></Image>
-
 			</div>
 
 			<div className='titleContent'>
