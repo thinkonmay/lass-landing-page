@@ -1,3 +1,4 @@
+import Icon from '../icon';
 import './testimonials.scss'
 
 
@@ -5,7 +6,7 @@ function Testimonials() {
 
 	const Feedback = () => {
 
-		return <div className='feedback'>
+		return <div className='feedback l-6'>
 			<p className='text'>“Bán hàng uy tín, tư vấn kỹ, nhiệt tình.
 				Mua ở đây giá tốt hơn những chỗ khác mà chất lượng rất tốt. Cần hỗ trợ gì là đều giải quyết nhanh gọn.
 				Sẽ giới thiệu cho bạn bè”</p>
@@ -25,15 +26,20 @@ function Testimonials() {
 	return (
 		<div className='testimonials'>
 			<div className='feedbacks'>
-				<div className='grid wide'>
-					<h2>Đánh giá từ khách hàng của <span className="specicalText">Thinkmay</span></h2>
+				<div className='ctnFeedbacks'>
+					<div className="content">
+						<div className='grid wide'>
+							<h2>Đánh giá từ khách hàng của <span className="specicalText">Thinkmay</span></h2>
+				
+						</div>
 
-				</div>
-				<div className="wrapperFeedback">
-					<Feedback></Feedback>
-					<Feedback></Feedback>
-					<Feedback></Feedback>
-					<Feedback></Feedback>
+						<div className="wrapperFeedback grid wide">
+							<Feedback></Feedback>
+							<Feedback></Feedback>
+							<Feedback></Feedback>
+							<Feedback></Feedback>
+						</div>
+					</div>
 				</div>
 
 				<div className="feedbackForm grid wide">
@@ -57,6 +63,11 @@ function Testimonials() {
 
 							<button className="btn btn-send">Gửi</button>
 						</form>
+
+						<div className="logo">
+							<Icon width={105} height={51} src='logo-black'/>
+							<span>Laptop as a Service</span>
+						</div>
 					</div>
 				</div>
 			</div>

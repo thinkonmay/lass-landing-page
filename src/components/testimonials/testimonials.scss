@@ -5,6 +5,7 @@
 	padding-bottom: 6rem;
 	margin-bottom: 6rem;
 	.feedbacks{
+		
 		h2{	
 			margin-bottom: 6.6rem;
 			color: var(--Neutral-900, #101828);
@@ -20,8 +21,20 @@
 			line-height: 44px; /* 122.222% */
 			letter-spacing: -0.72px;
 			}
+		}	
+		.ctnFeedbacks{
+			
+		}
+		.content{
+			height: 380px;
+			position: relative;
+			overflow: hidden;
+			
 		}
 		.wrapperFeedback{
+			position: absolute;
+			right: 0;
+			left: 0;
 			display: flex;
 			gap: 2.4rem;
 		}
@@ -93,6 +106,7 @@
 
 
 		.form{
+			position: relative;
 			.top{
 				.title{
 					color:  #000000;
@@ -150,6 +164,24 @@
 					font-weight: 500;
 					line-height: 28px; /* 155.556% */
 					margin-top: 2.6rem;
+				}
+			}
+
+			.logo{
+				position: absolute;
+				right: -14%;
+				bottom: 10%;
+				display: flex;
+				gap: 4px;
+				align-items: flex-end;
+				
+				span{
+					font-size: var(--font-display-);
+					font-style: italic;
+					font-weight: 400;
+					line-height: 14px;
+					letter-spacing: 0em;
+
 				}
 			}
 		}
