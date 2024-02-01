@@ -85,15 +85,14 @@
 				background: var(--Neutral-50);
 
 				.decoration.reverse{
-					left: -7px;
+					left: -12px;
 
 				}
 				.decoration{
 					position: absolute;
-					right: -7px;
+					right: -2px;
 					top: 50%;
-					transform: translateY(-50%);
-					transform: rotate(45deg);
+					transform:  rotate(45deg) translateY(-50%);
 					width: 16px;
 					height: 16px;
 					background: var(--Neutral-300);
