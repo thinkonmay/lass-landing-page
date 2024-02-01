@@ -68,7 +68,7 @@ export default function Guide() {
 						))	
 					}
 
-					<div className="decoration"></div>
+					<div className={reverse? 'decoration reverse' : 'decoration'}></div>
 				</ul>
 				<div className='icon'>
 					<Icon src={icon} width={24} height={24} />

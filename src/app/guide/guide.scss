@@ -84,6 +84,10 @@
 				gap: 0.8rem;
 				background: var(--Neutral-50);
 
+				.decoration.reverse{
+					left: -7px;
+
+				}
 				.decoration{
 					position: absolute;
 					right: -7px;
