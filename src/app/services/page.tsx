@@ -82,7 +82,7 @@ const SwitchBtn = () => {
 	console.log(checked);
 	return(
 		<div className="switchBtn l-6">
-			<button onClick={()=>{console.log('object');setChecked('macbook')}}  className={checked =='macbook' ?'btnChecked' :''}>Macbook</button>
+			<button onClick={()=>{setChecked('macbook')}}  className={checked =='macbook' ?'btnChecked' :''}>Macbook</button>
 			<button onClick={()=>{setChecked('thinkpad')}} className={checked =='thinkpad' ?'btnChecked' :''}>Thinkpad</button>
 
 			<div className="checked checkedRight"></div>
