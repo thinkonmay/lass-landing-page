@@ -1,7 +1,6 @@
 
 
 .contact{
-    border-top: 1px solid var(--Neutral-200);
 	
 	.logo{
 		display: flex;
@@ -44,11 +43,8 @@
 	}
 	.feedbackForm{
 		display: flex;
-		gap: 8.8rem;
-		
 		margin: 10rem auto;
-		padding: 6rem;
-		
+		margin-top: 0;
 		.img{
 			
 		}

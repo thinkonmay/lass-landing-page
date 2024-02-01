@@ -1,11 +1,11 @@
 import Image from 'next/image'
 
-import './contact.scss'
+import './guide.scss'
 import Icon from '../../components/icon'
 import Breadcrumb from '../../components/breadcrumb/Breadcumb'
 
 
-export default function Contact() {
+export default function Guide() {
 	
 
 	return (
