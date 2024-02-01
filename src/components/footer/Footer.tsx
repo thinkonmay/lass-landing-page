@@ -29,10 +29,16 @@ function Footer() {
 					<div className="thinkmay">
 						<h6>Thinkmay</h6>
 						<ul>
-							<li>+960 798 5454</li>
-							<li>huyhoangdo@contact.thinkmay.net</li>
-							<li>Hoa Lac, Ha Noi, Viet Nam</li>
-						</ul>
+								<li><Icon src='phone' width={32} height={32}/>+960 798 5454</li>
+								<li><Icon src='mail' width={32} height={32}/>huyhoangdo@contact.thinkmay.net</li>
+								<li><Icon src='location-marker' width={32} height={32}/>Hoa Lac, Ha Noi, Viet Nam</li>
+
+								<div className='flex gap-4'>
+									<Icon width={32} height={32} src='facebook'></Icon>
+									<Icon width={32} height={32} src='discord'></Icon>
+									<Icon width={32} height={32} src='linkedin'></Icon>
+								</div>
+							</ul>
 					</div>
 					<div className="services">
 						<h6>Dịch vụ</h6>

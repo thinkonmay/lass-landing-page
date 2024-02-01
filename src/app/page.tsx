@@ -47,14 +47,14 @@ export default function Home() {
 
   return (
     <main className="main">
-      <Header></Header>
+      {/*<Header></Header>*/}
       <div className='content'>
         <HeroSection></HeroSection>
         <Reason></Reason>
         <Products></Products>
         <Testimonials></Testimonials>
       </div>
-      <Footer></Footer>
+      {/*<Footer></Footer>*/}
     </main>
   )
 }
