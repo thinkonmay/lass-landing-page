@@ -114,7 +114,7 @@ const Introduce =()=>{
 						<div className='columnContent'>Vừa (1.5 - 2.2 kg)</div>
 					</div><div className="rowContent">
 						<div className='columnContent'>Thời lượng Pin</div>
-						<div className='columnContent'>Cao (> 10h)</div>
+						<div className='columnContent'>{"Cao (> 10h)"}</div>
 						<div className='columnContent'>Thấp (2 - 3h)</div>
 						<div className='columnContent'>Vừa (4 - 5h)</div>
 						<div className='columnContent'>Vừa (4 - 5h)</div>
