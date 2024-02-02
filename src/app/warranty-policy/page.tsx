@@ -4,9 +4,14 @@ import './warranty-policy.scss'
 import Icon from '../../components/icon'
 import Breadcrumb from '../../components/breadcrumb/Breadcumb'
 
+interface IContent{
+	category: string, 
+	contents: IContent[], 
+	type?: 'first' | 'second' | 'third' | undefined
+}
 
 export default function WarrantyPolicy() {
-	const policys = [
+	const policys: IContent[] = [
 		{
 			category: 'I. Phạm vi - Thời gian - Điều kiện áp dụng ',
 			type:'first',
@@ -126,8 +131,8 @@ export default function WarrantyPolicy() {
 
 	]
 
-	const Content = ({ category, contents, type }) => {
-
+	const Content = ( props: IContent) => {
+		const { category, contents, type } = props
 		return (
 			<div className='content'>
 				<h3 className={type =='second' ? 'secondTitle' : type =='third' ? 'thirdTitle' : ''}>{category}</h3>

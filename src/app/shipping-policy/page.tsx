@@ -46,7 +46,7 @@ export default function ShippingPolicy() {
 
 	]
 
-	const Content = ({category, contents}) =>{
+	const Content = ({category, contents}:{category: string, contents: string[]}) =>{
 
 		return (
 			<div className='content'>
