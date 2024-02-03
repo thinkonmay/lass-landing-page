@@ -5,6 +5,54 @@ import Breadcrumb from '../../../../components/breadcrumb/Breadcumb'
 import Icon from '../../../../components/icon'
 
 
+interface Option {
+	option: string,
+	sub?: string,
+	status?: 'chose' | 'disable' | 'normal',
+	info: {
+		main: string,
+		sub: string,
+
+		price: string
+	}
+}
+const listOptions: Option[] = [
+	{
+		option: 'Adobe Toolset for Graphic Design / Video Editor:',
+		info: {
+			main: '1 Năm bản quyền bộ công cụ Adobe ',
+			sub: '(Tài khoản được Thinkmay cung cấp)',
+			price: '+ 2.000.000 VNĐ'
+		}
+	},
+	{
+		option: 'Onedrive Cloud Storage và Office 365:',
+		info: {
+			main: '1 năm sử dụng dịch vụ OneDrive và Microsoft Office',
+			sub: '(Kích hoạt trên tài khoản Microsoft của người dùng)',
+			price: '+ 500.000 VNĐ'
+		}
+	},
+	{
+		option: 'Steam Account - Cloud Gaming:',
+		info: {
+			main: '1 năm Steam bản quyền với tối đa 5 Game theo yêu cầu',
+			sub: ' (Sử dụng trên Thinkmay Cloud PC)',
+			price: ' + 500.000 VNĐ'
+		}
+	},
+	{
+		option: 'Dịch vụ bảo hành',
+		sub: ' (khuyến khích với Laptop cũ):',
+		info: {
+			main: 'Sửa chữa tất cả các lỗi phần cứng trong 1 năm',
+			sub: ' (Bao gồm cả lỗi do người dùng gây ra) (Người dùng chịu 25% chi phí sửa chữa)',
+			price: ' + 2.000.000 VNĐ'
+		}
+	}
+
+]
+
 export default function Order() {
 
 
@@ -82,13 +130,50 @@ export default function Order() {
 								Lựa chọn thêm các gói dịch vụ riêng lẻ (không bắt buộc)
 							</h5>
 							<p className='subTitle'>
-							Tuỳ chỉnh thoải mái, tạo ra chiếc Laptop dành riêng cho bạn. 
+								Tuỳ chỉnh thoải mái, tạo ra chiếc Laptop dành riêng cho bạn.
 							</p>
 
 
 							<div className="ctnOptions">
-								<Option></Option>
+								{
+									listOptions.map(option => (
+										<Option {...option} ></Option>
+
+									))
+								}
+								<div className='option disable'>
+
+									<h6 className='name'>Tất cả các gói dịch vụ Thinkmay:</h6>
+
+									<div className="content">
+										<div className="info">
+										Tất cả các gói dịch vụ trong 1 năm 
+
+											<span className='subInfo'> (Bao gồm tất cả các dịch vụ đã được liệt kê ở trên)</span>
+										</div>
+
+										<div className="price">
+											 +4.000.000 VNĐ
+											
+											 {/*Tiết kiệm 1.000.000*/}
+										</div>
+
+									</div>
+								</div>
+
 							</div>
+
+							<hr className='my-[32px]'/>
+							
+							<div className="totalPrice">
+								<h6 className="text">Tổng thanh toán:</h6>
+								<div className='ctnPrice'>
+									<h5 className='price'> 19.000.000 VNĐ</h5>
+									<p className="subText">*Chưa bao gồm phí vận chuyển</p>
+								</div>
+							</div>
+							
+							<button className="btn-buy">Xác nhận mua hàng <Icon src='shopping-cart'></Icon></button>
 						</div>
 					</div>
 
@@ -98,7 +183,6 @@ export default function Order() {
 
 			</div>
 
-			<Success></Success>
 		</>
 	)
 
@@ -106,22 +190,24 @@ export default function Order() {
 }
 
 
-const Option = () => {
+const Option = (props: Option) => {
+	const { info, option, sub, status } = props
 
+	console.log(status);
 	return (
 
-		<div className='option'>
+		<div className={status =='disable' ? 'disable option':'option'}>
 
-			<h6 className='name'>Adobe Toolset for Graphic Design / Video Editor:</h6>
+			<h6 className='name'>{option} <span>{sub}</span></h6>
 
-			<div className="content">
+			<div className={ status =='chose' ? 'chose content ' : 'content chose'}>
 				<div className="info">
-					1 Năm bản quyền bộ công cụ Adobe
+					{info.main}
 
-					<span className='subInfo'> (Tài khoản được Thinkmay cung cấp)</span>
+					<span className='subInfo'>{info.sub}</span>
 				</div>
 
-				<div className="price"> + 2.000.000 VNĐ</div>
+				<div className="price"> {info.price}</div>
 
 			</div>
 		</div>
@@ -129,10 +215,10 @@ const Option = () => {
 }
 
 
-const Success = () =>{
+const Success = () => {
 
 
-	return(
+	return (
 		<div className='successScreen grid wide'>
 			<Breadcrumb></Breadcrumb>
 
@@ -140,9 +226,9 @@ const Success = () =>{
 				<Icon src='payment-success' width={176} height={176}></Icon>
 				<h2>Đặt hàng thành công!</h2>
 
-				<p>Chân thành cảm ơn bạn đã đặt hàng tại Thinkmay. 
-					Chúng tôi đã nhận được đơn đặt hàng của bạn và sẽ bắt đầu xử lý ngay lập tức (Tối đa 1 ngày làm việc). 
-					Để đảm bảo quá trình mua sắm của bạn diễn ra thuận lợi, 
+				<p>Chân thành cảm ơn bạn đã đặt hàng tại Thinkmay.
+					Chúng tôi đã nhận được đơn đặt hàng của bạn và sẽ bắt đầu xử lý ngay lập tức (Tối đa 1 ngày làm việc).
+					Để đảm bảo quá trình mua sắm của bạn diễn ra thuận lợi,
 					chúng tôi sẽ liên lạc hoặc gửi email thông báo cho bạn để xác nhận và thông báo về thay đổi của đơn hàng (nếu có).
 				</p>
 				<p>Nếu bạn có bất kỳ câu hỏi hoặc cần hỗ trợ, vui lòng liên hệ với chúng tôi tại đây.</p>
