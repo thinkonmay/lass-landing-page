@@ -79,7 +79,7 @@ export const Introduce =()=>{
 		<div className="introduce">
 			<div className="table grid wide">
 				<h2>
-					Đa dạng đáp ứng <span>mọi nhu cầu của bạn</span> <br/> trong tầm giá 10 đến 25 triệu
+					Đáp ứng <span>mọi nhu cầu của bạn</span> <br/> trong tầm giá 10 đến 25 triệu
 				</h2>
 
 				<div className="wrapperTable">
