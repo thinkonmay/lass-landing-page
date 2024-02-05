@@ -51,6 +51,13 @@ const reasons = [{
   ],
 },{
   subtitle: '',
+  title: 'Tương thích phần mềm',
+  content: [
+    'Window là điều hành cho máy tính phổ biến nhất hiện tại, tuy nhiên, rất nhiều phần mềm chỉ hoạt động trên Window và không hoạt động trên MacOS',
+    'Với thinkmay Cloud PC, bạn có thể dùng bất kì phần mềm Window nào trên máy Mac',
+  ],
+},{
+  subtitle: '',
   title: 'Hỗ trợ người dùng',
   content: [
     'Từ trước tới nay, việc mua laptop luôn là một trải nghiệm rủi ro - đôi khi chiếc laptop bạn mua phù hợp với nhu cầu của bạn, và đôi khi chúng không',
