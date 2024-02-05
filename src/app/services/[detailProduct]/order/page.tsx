@@ -3,6 +3,7 @@ import Image from 'next/image'
 import './order.scss'
 import Breadcrumb from '../../../../components/breadcrumb/Breadcumb'
 import Icon from '../../../../components/icon'
+import { IGuide, guides } from '../../../guide/page'
 
 
 interface Option {
@@ -147,15 +148,15 @@ export default function Order() {
 
 									<div className="content">
 										<div className="info">
-										Tất cả các gói dịch vụ trong 1 năm 
+											Tất cả các gói dịch vụ trong 1 năm
 
 											<span className='subInfo'> (Bao gồm tất cả các dịch vụ đã được liệt kê ở trên)</span>
 										</div>
 
 										<div className="price">
-											 +4.000.000 VNĐ
-											
-											 {/*Tiết kiệm 1.000.000*/}
+											+4.000.000 VNĐ
+
+											{/*Tiết kiệm 1.000.000*/}
 										</div>
 
 									</div>
@@ -163,8 +164,8 @@ export default function Order() {
 
 							</div>
 
-							<hr className='my-[32px]'/>
-							
+							<hr className='my-[32px]' />
+
 							<div className="totalPrice">
 								<h6 className="text">Tổng thanh toán:</h6>
 								<div className='ctnPrice'>
@@ -172,7 +173,7 @@ export default function Order() {
 									<p className="subText">*Chưa bao gồm phí vận chuyển</p>
 								</div>
 							</div>
-							
+
 							<button className="btn-buy">Xác nhận mua hàng <Icon src='shopping-cart'></Icon></button>
 						</div>
 					</div>
@@ -193,14 +194,13 @@ export default function Order() {
 const Option = (props: Option) => {
 	const { info, option, sub, status } = props
 
-	console.log(status);
 	return (
 
-		<div className={status =='disable' ? 'disable option':'option'}>
+		<div className={status == 'disable' ? 'disable option' : 'option'}>
 
 			<h6 className='name'>{option} <span>{sub}</span></h6>
 
-			<div className={ status =='chose' ? 'chose content ' : 'content chose'}>
+			<div className={status == 'chose' ? 'chose content ' : 'content '}>
 				<div className="info">
 					{info.main}
 
@@ -236,4 +236,44 @@ const Success = () => {
 			</div>
 		</div>
 	)
+}
+
+
+const GuideModal = () => {
+
+	const Content = (props :IGuide)=>{
+		const {category, icon, contents, reverse} = props
+		return(
+			<div className='guide'>
+				<h5 className="title">{category}</h5>
+				<ul>
+					{
+						contents.map((item)=>(
+							<li>{item}</li>
+						))
+					}
+				</ul>
+			</div>
+		)
+	}
+
+	return (
+		<div className="guideModal">
+			<div className='title l-8'>
+				<h2>Vận chuyển - Thanh toán</h2>
+				<p>
+					Cảm ơn bạn đã tin tưởng & lựa chọn sản phẩm - dịch vụ tại Thinkmay.
+					Chúng tôi sẽ cố gắng giúp bạn có được những sản phẩm tốt nhất với thời gian nhanh nhất.
+				</p>
+			</div>
+
+			<div className="ctnGuides">
+				{guides.map(guide =>(
+					<Content {...guide}></Content>
+				))}
+			</div>
+		</div>
+
+	)
+
 }
