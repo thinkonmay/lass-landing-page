@@ -30,8 +30,6 @@ function Products() {
 				</div>
 
 			</div>
-			<Introduce></Introduce>
-		
 		</>
 	 );
 }
@@ -74,7 +72,7 @@ const ToggleSwitch = () => {
 
 
 
-const Introduce =()=>{
+export const Introduce =()=>{
 
 
 	return(

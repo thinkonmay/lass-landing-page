@@ -8,8 +8,11 @@ import Header from '../components/header/Header'
 import Footer from '../components/footer/Footer'
 import HeroSection from '../components/herosection/Herosection'
 import Icon from '../components/icon'
-import Products from '../components/products/Products'
+import Products, { Introduce } from '../components/products/Products'
 import Testimonials from '../components/testimonials/Testimonials'
+import Policy from '@/components/policy/policy'
+import Warranty from '@/components/warranty/warranty'
+import Guide from '@/components/guide/guide'
 
 type Selection = 'GAMING' | 'ENTERPRISE' | 'UNKOWN'
 const REDIRECT_PAGE = "https://app.thinkmay.net/"
@@ -51,7 +54,9 @@ export default function Home() {
       <div className='content'>
         <HeroSection></HeroSection>
         <Reason></Reason>
+			  <Introduce></Introduce>
         <Products></Products>
+        <Guide></Guide>
         <Testimonials></Testimonials>
       </div>
       {/*<Footer></Footer>*/}

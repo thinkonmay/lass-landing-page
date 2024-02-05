@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
 import './guide.scss'
-import Icon from '../../components/icon'
-import Breadcrumb from '../../components/breadcrumb/Breadcumb'
+import Icon from '../icon'
+import Breadcrumb from '../breadcrumb/Breadcumb'
 
  
 export interface IGuide{
@@ -87,7 +87,6 @@ export default function Guide() {
 	return (
 
 		<>
-			<Breadcrumb></Breadcrumb>
 			<div className='guide'>
 				<div className="mainContent grid wide">
 					<div className='title l-8'>

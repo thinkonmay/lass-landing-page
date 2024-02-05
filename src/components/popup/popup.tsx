@@ -1,23 +1,11 @@
-
 "use client"
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
-import { IGuide, guides } from '../../app/guide/page';
 import './popup.scss';
+import Guide from '../guide/guide';
 
 
-Modal.setAppElement('#root');
-const customStyles = {
-	content: {
-	  top: '50%',
-	  left: '50%',
-	  right: 'auto',
-	  bottom: 'auto',
-	  marginRight: '-50%',
-	  transform: 'translate(-50%, -50%)',
-	},
-  };
   
 function Popup() {
 	const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -45,21 +33,6 @@ function Popup() {
 }
 const GuideModal = () => {
 
-	const Content = (props :IGuide)=>{
-		const {category, icon, contents, reverse} = props
-		return(
-			<div className='guide'>
-				<h5 className="titleGuide">{category}</h5>
-				<ul>
-					{
-						contents.map((item)=>(
-							<li>{item}</li>
-						))
-					}
-				</ul>
-			</div>
-		)
-	}
 
 	return (
 		<div className="guideModal thinkmayScroll">
@@ -72,9 +45,7 @@ const GuideModal = () => {
 			</div>
 
 			<div className="ctnGuides">
-				{guides.map(guide =>(
-					<Content {...guide}></Content>
-				))}
+				<Guide></Guide>
 			</div>
 		</div>
 
