@@ -9,17 +9,16 @@ function HeroSection() {
 			<div className="slide1">
 				<div className='mainContent grid wide'>
 					<div className="left col l-6">
-						<span className='brand'>MACBOOK AIR & THINKPAD</span>
+						<span className='brand'>Laptop as a Service</span>
 
 						<h1>
 							Bạn đang tìm kiếm một chiếc laptop mỏng nhẹ, 
-							nhưng vẫn có thể cân được <TextTransform></TextTransform>
+							nhưng vẫn có thể <TextTransform></TextTransform>
 						</h1>
 
 						<p className='subText'>
-							Với mỗi chiếc Laptop bạn mua từ Thinkmay, 
-							chúng tôi sẵn sàng cung cấp 1 năm sử dụng Window CloudPC 
-							cùng nhiều phần mềm và game bản quyền khác.
+							Laptop, Cloud PC và phần mềm bản quyền, tất cả được đóng bên trong một gói dịch vụ Laptop as a Service. <br/>
+							Để khi bạn cầm trong tay chiếc laptop, bạn không cần phải nghĩ nhiều về cấu hình phần cứng. <br/>
 						</p>
 
 						<button style={{paddingLeft: 32, paddingRight: 32}} className=" pl-[32px] pr-[32px] btn">Khám phá ngay <Icon src='shopping-cart'></Icon></button>
@@ -42,7 +41,7 @@ const TextTransform = () =>{
 
 	return(
 		<span className='textTransform'>
-			GTA V
+			làm đồ họa, dựng phim, thiết kế kiến trúc và chơi game	
 		</span>
 	)
 }

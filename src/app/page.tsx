@@ -64,12 +64,23 @@ export default function Home() {
   )
 }
 
+const reasons = [{
+  
+
+
+}]
 
 const Reason = () => {
-
-
-  const Card = () => {
-    return (
+  return (
+    <div className='reason'>
+      <div className='mainContent'>
+        <div className="top  grid wide ">
+          <h2 className='l-6'>Tại sao nên lựa chọn <span className='specialText'>Thinkmay</span> là địa điểm tốt nhất để mua Laptop?</h2>
+          <a className='inline-flex gap-4' href='#'>Xem Dịch vụ <Icon src='arrow-right'></Icon></a>
+        </div>
+        <div className="bottom ">
+          <div className="ctnCards grid wide">
+            {reasons.map(x => 
       <div className='card l-4'>
         <div>
           <Icon src='mi-laptop' className='text-black' width={66} height={66} />
@@ -89,23 +100,7 @@ const Reason = () => {
             <a className='inline-flex gap-4' href="">Xem tất cả các mẫu <Icon src='arrow-right'></Icon></a>
           </div>
       </div>
-    )
-  }
-
-  return (
-    <div className='reason'>
-      <div className='mainContent'>
-        <div className="top  grid wide ">
-          <h2 className='l-6'>Tại sao nên lựa chọn <span className='specialText'>Thinkmay</span> là địa điểm tốt nhất để mua Laptop?</h2>
-          <a className='inline-flex gap-4' href='#'>Xem Dịch vụ <Icon src='arrow-right'></Icon></a>
-        </div>
-        <div className="bottom ">
-          <div className="ctnCards grid wide">
-            <Card></Card>
-            <Card></Card>
-            <Card></Card>
-            <Card></Card>
-            <Card></Card>
+              )}
           </div>
         </div>
       </div>
