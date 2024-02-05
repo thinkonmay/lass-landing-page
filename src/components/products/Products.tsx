@@ -52,7 +52,7 @@ const Product = () =>{
 
 			<div className="ctnButtons">
 				<button className='btnSeeMore'>Xem thêm</button>
-				<Link href="/servies/product">Mua ngay</Link>
+				<Link href="/services/product">Mua ngay</Link>
 			</div>
 		</div>
 	)
