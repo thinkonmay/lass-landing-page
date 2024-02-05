@@ -79,43 +79,32 @@ export const Introduce =()=>{
 		<div className="introduce">
 			<div className="table grid wide">
 				<h2>
-					Đa dạng đáp ứng <span>mọi nhu cầu của bạn</span>
+					Đa dạng đáp ứng <span>mọi nhu cầu của bạn</span> <br/> trong tầm giá 10 đến 25 triệu
 				</h2>
 
 				<div className="wrapperTable">
 					<div className="rowContent" style={{borderTop: 'unset'}}>
 						<div className='columnContent'>Tiêu chí</div>
-						<div className='columnContent'>Thinkmay</div>
-						<div className='columnContent'>LAPTOP GAMING</div>
 						<div className='columnContent'>ULTRABOOK</div>
-						<div className='columnContent'>LAPTOP CAO CẤP</div>
+						<div className='columnContent'>LAPTOP GAMING</div>
+						<div className='columnContent'>Thinkmay</div>
 					</div>
 					<div className="rowContent">
-						<div className='columnContent'>Giá cả</div>
-						<div className='columnContent'>15 - 20 triệu</div>
-						<div className='columnContent'>15 - 20 triệu</div>
-						<div className='columnContent'> 15 triệu</div>
-						<div className='columnContent'>30 - 40 triệu</div>
-					</div>
-					<div className="rowContent">
-						<div className='columnContent'>Cấu hình và sức mạnh</div>
+						<div className='columnContent'>Hiệu năng đồ họa</div>
+						<div className='columnContent'>không có GPU</div>
+						<div className='columnContent'>GPU di động</div>
 						<div className='columnContent'>GPU mạnh mẽ</div>
-						<div className='columnContent'>Cấu hình vừa đủ </div>
-						<div className='columnContent'>Không có GPU rời</div>
-						<div className='columnContent'>Hiệu suất mạnh mẽ</div>
 					</div>
 					<div className="rowContent">
 						<div className='columnContent'>Trọng lượng</div>
-						<div className='columnContent'>Mỏng nhẹ (1 - 2 kg)</div>
-						<div className='columnContent'>Nặng (2.5 - 3.5 kg)</div>
-						<div className='columnContent'>Nhẹ (1.1 - 1.7 kg)</div>
-						<div className='columnContent'>Vừa (1.5 - 2.2 kg)</div>
+						<div className='columnContent'>Mỏng nhẹ </div>
+						<div className='columnContent'>Dày và Nặng </div>
+						<div className='columnContent'>Mỏng Nhẹ</div>
 					</div><div className="rowContent">
 						<div className='columnContent'>Thời lượng Pin</div>
-						<div className='columnContent'>{"Cao (> 10h)"}</div>
+						<div className='columnContent'>Cao (10h)</div>
 						<div className='columnContent'>Thấp (2 - 3h)</div>
-						<div className='columnContent'>Vừa (4 - 5h)</div>
-						<div className='columnContent'>Vừa (4 - 5h)</div>
+						<div className='columnContent'>Cao (10h)</div>
 					</div>
 				</div>
 			</div>

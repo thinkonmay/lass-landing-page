@@ -22,7 +22,7 @@ function Header() {
 					<li><Link className='link' href="/services">Dịch vụ</Link></li>
 					<li><Link className='link' href="/#">Về Thinkmay</Link></li>
 					<li><Link className='link' href="/contact">Liên hệ</Link></li>
-					<button className='btn'>Cloud gaming services <Icon className={"mb-[1px]"} src='game'/> </button>
+					<button className='btn'>CloudPC portal<Icon className={"mb-[1px]"} src='game'/> </button>
 				</ul>
 			
 		</div>
