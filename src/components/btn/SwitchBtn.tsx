@@ -8,7 +8,6 @@ interface ISwitchBtn {
 	const { productShow, setProductShow } = props
 
 
-	console.log(productShow);
 	return (
 		<div className="switchBtn l-6">
 			<button onClick={() => { setProductShow('macbook') }} className={productShow == 'macbook' ? 'btnChecked' : ''}>Macbook</button>
