@@ -4,7 +4,6 @@
     .reason{
         background: var(--Neutral-50, #F9FAFB);
         padding: 10rem 0px;
-
         .mainContent{
 
             .top{
@@ -36,6 +35,7 @@
                 overflow: hidden;
                 height: 518px;
                 margin-top: 10rem;
+                overflow-x: auto;
                 
                 .ctnCards{
                     position: absolute;

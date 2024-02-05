@@ -37,6 +37,7 @@ export default function Home() {
 
 const reasons = [{
   subtitle: '',
+  icon:'mi-laptop',
   title: 'Dịch vụ Cloud PC',
   content: [
     'Cloud PC - công nghệ giúp bạn có thể kết nối với những chiếc \"siêu máy tính\" từ xa thông qua internet',
@@ -44,6 +45,7 @@ const reasons = [{
   ],
 },{
   subtitle: '',
+  icon:'shield',
   title: 'Bản quyền phần mềm',
   content: [
     'Người dùng laptop tại Việt Nam luôn đối diện với rủi ro khi sử dụng phần mềm crack - mất dữ liệu, mã độc,v.v..',
@@ -51,6 +53,7 @@ const reasons = [{
   ],
 },{
   subtitle: '',
+  icon:'link',
   title: 'Tương thích phần mềm',
   content: [
     'Window là điều hành cho máy tính phổ biến nhất hiện tại, tuy nhiên, rất nhiều phần mềm chỉ hoạt động trên Window và không hoạt động trên MacOS',
@@ -58,6 +61,7 @@ const reasons = [{
   ],
 },{
   subtitle: '',
+  icon:'bell-outline',
   title: 'Hỗ trợ người dùng',
   content: [
     'Từ trước tới nay, việc mua laptop luôn là một trải nghiệm rủi ro - đôi khi chiếc laptop bạn mua phù hợp với nhu cầu của bạn, và đôi khi chúng không',
@@ -74,12 +78,12 @@ const Reason = () => {
           <h2 className='l-6'> Điều gì khiến <span className='specialText'>Thinkmay</span> khác biệt?</h2>
           <a className='inline-flex gap-4' href='#'>Xem Dịch vụ <Icon src='arrow-right'></Icon></a>
         </div>
-        <div className="bottom ">
-          <div className="ctnCards grid wide">
+        <div className="bottom thinkmayScroll">
+          <div className="ctnCards grid wide ">
             {reasons.map(x => 
               <div className='card l-4'>
                 <div>
-                  <Icon src='mi-laptop' className='text-black' width={66} height={66} />
+                  <Icon src={x.icon} className='text-black' width={66} height={66} />
                   <div className="info">
                     <span className='subTitle'>{x.subtitle}</span>
                     <h3 className='title'>{x.title}</h3>
