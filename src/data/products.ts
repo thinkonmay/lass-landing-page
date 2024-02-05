@@ -12,7 +12,7 @@ interface IProduct {
 const products : IProduct[] = [{
 	name: 'MacBook Air 2020 13"',
 	subText: 'Cao cấp',
-	price: 18000000,
+	price: 19000000,
 	spec: [
 		'Chất lượng hoàn thiện tinh tế',
 		'Lời lượng pin cao nhất trong các dòng laptop',
@@ -22,7 +22,7 @@ const products : IProduct[] = [{
 },{
 	name: 'MacBook Air 2018 13" (Second hand)',
 	subText: 'Entry-level',
-	price: 13500000,
+	price: 9000000,
 	spec: [
 		'Chất lượng hoàn thiện tinh tế',
 		'Lời lượng pin trung bình',
