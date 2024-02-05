@@ -4,6 +4,7 @@ import './grid.css'
 import './globals.css'
 import Header from '../components/header/Header'
 import Footer from '../components/footer/Footer'
+import Popup from '../components/popup/popup'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,10 +24,12 @@ export default function RootLayout({
           className={inter.className}
     >
       <body 
+       id="root"
       >
       <Header/>
         {children}
       <Footer></Footer>
+      <Popup></Popup>
       </body>
     </html>
   )
