@@ -7,7 +7,7 @@ import Breadcrumb from '../../components/breadcrumb/Breadcumb'
 import { Dispatch, SetStateAction, useState } from 'react'
 import Link from 'next/link'
 import SwitchBtn from '../../components/btn/SwitchBtn'
-import * as products from "@/data/products"
+import {IProduct, products} from "@/data/products"
 import { formatPrice } from '../../utils/formatPrice'
 
 
@@ -33,7 +33,7 @@ export default function Services() {
 					{productShow == 'macbook' ? <MacbookBanner></MacbookBanner> : <ThinkpadBanner></ThinkpadBanner>}
 
 					<div className="wrapperProducts row">
-						{products[productShow].map(p => (
+						{products.filter(x=> x.type == productShow).map(p => (
 							<Product {...p}></Product>
 						))}
 					</div>
@@ -75,7 +75,7 @@ const ThinkpadBanner = () => {
 
 	)
 }
-const Product = (props: products.IProduct) => {
+const Product = (props: IProduct) => {
 
 	return (
 		<div className='productCard col '>
@@ -88,7 +88,7 @@ const Product = (props: products.IProduct) => {
 
 			<div className="ctnButtons">
 				<Link href="/services/product" className='btnSeeMore'>Xem thêm</Link>
-				<Link className='inline-flex gap-4' href="/services/product/order">Mua ngay <Icon src='arrow-right'></Icon></Link>
+				<Link className='inline-flex gap-4' href={`/services/${props.slug}/order`}>Mua ngay <Icon src='arrow-right'></Icon></Link>
 			</div>
 			<hr />
 

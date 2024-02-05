@@ -4,7 +4,7 @@ import Icon from '../icon';
 import './products.scss'
 import { useState } from 'react';
 import Link from 'next/link';
-import * as products from "@/data/products"
+import {IProduct, products} from "@/data/products"
 import { formatPrice } from '../../utils/formatPrice';
 import SwitchBtn from '../btn/SwitchBtn';
 
@@ -27,7 +27,7 @@ function Products() {
 
 
 					<div className="wrapperProducts row">
-						{products[productShow].map(p =>(
+						{products.filter(x=> x.type== productShow).map(p =>(
 							<Product {...p}></Product>
 						))}
 					</div>
@@ -41,7 +41,7 @@ function Products() {
 export default Products;
 
 
-const Product = (props:products.IProduct) =>{
+const Product = (props:IProduct) =>{
 
 	return (
 		<div className='productCard col l-6'>
@@ -54,7 +54,7 @@ const Product = (props:products.IProduct) =>{
 
 			<div className="ctnButtons">
 				<Link  href="/services/product" className='btnSeeMore'>Xem thêm</Link>
-				<Link className='inline-flex gap-4' href="/services/product/order">Mua ngay <Icon src='arrow-right'></Icon></Link>
+				<Link className='inline-flex gap-4' href={`/services/${props.slug}/order`}>Mua ngay <Icon src='arrow-right'></Icon></Link>
 			</div>
 		</div>
 	)
