@@ -7,6 +7,8 @@ import Breadcrumb from '../../components/breadcrumb/Breadcumb'
 import { Dispatch, SetStateAction, useState } from 'react'
 import Link from 'next/link'
 import SwitchBtn from '../../components/btn/SwitchBtn'
+import * as products from "@/data/products"
+import { formatPrice } from '../../utils/formatPrice'
 
 
 export default function Services() {
@@ -28,19 +30,12 @@ export default function Services() {
 						</p>
 					</div>
 					<SwitchBtn productShow={productShow} setProductShow={setProductShow}></SwitchBtn>
-					<div className="ctnImages">
-						<div className='l-5'>
-							<Image width={510} height={476} alt='img' className='h-full' src={'/services-macbook-1.png'} />
-						</div>
-						<div className='l-7'>
-							<Image width={746} height={476} alt='img' className='h-full' src={'/services-macbook-2.png'} />
-
-						</div>
-					</div>
+					{productShow == 'macbook' ? <MacbookBanner></MacbookBanner> : <ThinkpadBanner></ThinkpadBanner>}
 
 					<div className="wrapperProducts row">
-						<Product></Product>
-						<Product></Product>
+						{products[productShow].map(p => (
+							<Product {...p}></Product>
+						))}
 					</div>
 				</div>
 			</div>
@@ -49,17 +44,47 @@ export default function Services() {
 
 
 }
+const MacbookBanner = () => {
 
-const Product = () => {
+	return (
+		<div className="ctnImages">
+			<div className='l-5'>
+				<Image width={510} height={476} alt='img' className='h-full' src={'/services-macbook-1.png'} />
+			</div>
+			<div className='l-7'>
+				<Image width={746} height={476} alt='img' className='h-full' src={'/services-macbook-2.png'} />
+
+			</div>
+		</div>
+
+	)
+}
+
+const ThinkpadBanner = () => {
+
+	return (
+		<div className="ctnImages">
+			<div className='l-6'>
+				<Image width={620} height={476} alt='img' className='h-full' src={'/thinkpad-banner-1.png'} />
+			</div>
+			<div className='l-6'>
+				<Image width={620} height={476} alt='img' className='h-full' src={'/thinkpad-banner-2.png'} />
+
+			</div>
+		</div>
+
+	)
+}
+const Product = (props: products.IProduct) => {
 
 	return (
 		<div className='productCard col '>
-			<div><Image src={"/macbook.png"} width={360} height={160} alt='img'></Image></div>
+			<div><Image src={"/" + props.imgSrc + ".png"} width={360} height={160} alt='img'></Image></div>
 
-			<h4 className='name'>MacBook Air 2020 13” (New 98%)</h4>
-			<p className='subText'>Chip M1</p>
+			<h4 className='name'>{props.name}</h4>
+			<p className='subText'>{props.subText}</p>
 
-			<h6 className="pricing"> 15.000.000 VNĐ</h6>
+			<h6 className="pricing">{formatPrice(props.price)} VNĐ</h6>
 
 			<div className="ctnButtons">
 				<Link href="/services/product" className='btnSeeMore'>Xem thêm</Link>
@@ -68,11 +93,10 @@ const Product = () => {
 			<hr />
 
 			<ul className="subInfo">
-				<li>Touch ID</li>
-				<li>Màn hình Retina 13,3 inch có đèn nền LED</li>
-				<li>Chip Apple M1</li>
-				<li>Ổ lưu trữ lên đến 2TB</li>
-				<li>1,29 kg</li>
+				{props?.spec?.map(s => (
+					<li>{s}</li>
+
+				))}
 			</ul>
 		</div>
 	)
