@@ -78,7 +78,7 @@ const Reason = () => {
           <h2 className='l-6'> Điều gì khiến <span className='specialText'>Thinkmay</span> khác biệt?</h2>
           <a className='inline-flex gap-4' href='#'>Xem Dịch vụ <Icon src='arrow-right'></Icon></a>
         </div>
-        <div className="bottom thinkmayScroll">
+        <div className="bottom ">
           <div className="ctnCards grid wide ">
             {reasons.map(x => 
               <div className='card l-4'>
