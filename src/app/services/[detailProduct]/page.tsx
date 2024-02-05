@@ -19,7 +19,7 @@ export default function DetailProduct() {
 					<div className="ctnProduct">
 						<div className="left">
 							<div>
-								<Image width={600} height={600} src={"/macbook.png"}></Image>
+								<Image width={600} height={600} alt="img" src={"/macbook.png"}></Image>
 							</div>
 
 							<div className="slides">
