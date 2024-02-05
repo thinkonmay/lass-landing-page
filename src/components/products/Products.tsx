@@ -93,7 +93,7 @@ export const Introduce =()=>{
 					</div>
 					<div className="rowContent">
 						<div className='columnContent'>Hiệu năng đồ họa</div>
-						<div className='columnContent'>không có GPU</div>
+						<div className='columnContent'>Không có GPU</div>
 						<div className='columnContent'>GPU di động</div>
 						<div className='columnContent'>GPU mạnh mẽ</div>
 					</div>
