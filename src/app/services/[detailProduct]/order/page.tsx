@@ -3,7 +3,7 @@ import Image from 'next/image'
 import './order.scss'
 import Breadcrumb from '../../../../components/breadcrumb/Breadcumb'
 import Icon from '../../../../components/icon'
-import { IGuide, guides } from '../../../guide/page'
+import { IGuide, guides } from '../../../../components/guide/guide'
 
 
 interface Option {

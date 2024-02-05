@@ -191,8 +191,11 @@
 		.ctnText{
 			display: flex;
 			justify-content: center;
-			gap: 3.3rem;
-
+			gap: 3.3rem;	
+			.text{
+				display: flex;
+				gap: 0.8rem;
+			}
 			h3{	
 				color: white;
 				font-size: var(--font-size-xl);
