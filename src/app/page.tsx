@@ -1,4 +1,3 @@
-'use client'
 
 import Image from 'next/image'
 import './page.scss'
@@ -13,39 +12,11 @@ import Testimonials from '../components/testimonials/Testimonials'
 import Policy from '@/components/policy/policy'
 import Warranty from '@/components/warranty/warranty'
 import Guide from '@/components/guide/guide'
+import Link from 'next/link'
 
-type Selection = 'GAMING' | 'ENTERPRISE' | 'UNKOWN'
-const REDIRECT_PAGE = "https://app.thinkmay.net/"
 
 export default function Home() {
-  const router = useRouter()
-  const [selection, setSelection] = useState<Selection>('ENTERPRISE')
 
-  useEffect(() => {
-    const result = localStorage.getItem('SELECTION')
-    console.log(result)
-    switch (result) {
-      case 'ENTERPRISE':
-        setSelection('ENTERPRISE')
-        break;
-      case 'GAMING':
-        setSelection('UNKOWN')
-        break;
-      default:
-        setSelection('UNKOWN')
-        break;
-    }
-  }, [])
-
-  const gamingSelect = async () => {
-    localStorage.setItem('SELECTION', 'GAMING')
-    router.push(`${REDIRECT_PAGE}`)
-  }
-
-  const enterpriseSelect = async () => {
-    localStorage.setItem('SELECTION', 'ENTERPRISE')
-    setSelection('ENTERPRISE')
-  }
 
 
   return (
@@ -63,6 +34,7 @@ export default function Home() {
     </main>
   )
 }
+
 
 
 const Reason = () => {
@@ -97,7 +69,7 @@ const Reason = () => {
       <div className='mainContent'>
         <div className="top  grid wide ">
           <h2 className='l-6'>Tại sao nên lựa chọn <span className='specialText'>Thinkmay</span> là địa điểm tốt nhất để mua Laptop?</h2>
-          <a className='inline-flex gap-4' href='#'>Xem Dịch vụ <Icon src='arrow-right'></Icon></a>
+          <Link className='inline-flex gap-4' href='services'>Xem Dịch vụ <Icon src='arrow-right'></Icon></Link>
         </div>
         <div className="bottom ">
           <div className="ctnCards grid wide">

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Icon from '../icon';
 import './products.scss'
 import { useState } from 'react';
+import Link from 'next/link';
 
 
 function Products() {
@@ -50,7 +51,7 @@ const Product = () =>{
 
 			<div className="ctnButtons">
 				<button className='btnSeeMore'>Xem thêm</button>
-				<a href="">Mua ngay</a>
+				<Link href="/servies/product">Mua ngay</Link>
 			</div>
 		</div>
 	)
