@@ -20,7 +20,7 @@ function HeroSection() {
 
 						<p className='subText'>
 							Laptop, Cloud PC và phần mềm bản quyền, tất cả được đóng bên trong một gói dịch vụ Laptop as a Service. <br/>
-							Để khi bạn cầm trong tay chiếc laptop, bạn không cần phải nghĩ nhiều về cấu hình phần cứng. <br/>
+							Để khi bạn cầm trong tay chiếc laptop, bạn không cần phải nghĩ nhiều về cấu hình phần cứng và tương thích phần mềm. <br/>
 						</p>
 
 						<Link href={"/services"}  style={{paddingLeft: 32, paddingRight: 32}} className="btn-explore pl-[32px] pr-[32px] btn">Khám phá ngay <Icon src='shopping-cart'></Icon></Link>

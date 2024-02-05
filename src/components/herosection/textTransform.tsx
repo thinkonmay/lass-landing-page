@@ -4,7 +4,7 @@
 
 	return(
 		<span className='textTransform'>
-			GTA V
+			làm đồ họa, dựng phim, thiết kế kiến trúc và chơi game	
 		</span>
 	)
 }

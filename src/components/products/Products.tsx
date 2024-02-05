@@ -81,7 +81,7 @@ export const Introduce =()=>{
 		<div className="introduce">
 			<div className="table grid wide">
 				<h2>
-					Đáp ứng <span>mọi nhu cầu của bạn</span> <br/> trong tầm giá 10 đến 25 triệu
+					Lựa chọn laptop <span>hoàn hảo nhất</span> <br/> trong tầm giá 10 đến 25 triệu
 				</h2>
 
 				<div className="wrapperTable">
@@ -89,7 +89,7 @@ export const Introduce =()=>{
 						<div className='columnContent'>Tiêu chí</div>
 						<div className='columnContent'>ULTRABOOK</div>
 						<div className='columnContent'>LAPTOP GAMING</div>
-						<div className='columnContent'>Thinkmay</div>
+						<div className='columnContent'>THINKMAY</div>
 					</div>
 					<div className="rowContent">
 						<div className='columnContent'>Hiệu năng đồ họa</div>
@@ -107,6 +107,11 @@ export const Introduce =()=>{
 						<div className='columnContent'>Cao (10h)</div>
 						<div className='columnContent'>Thấp (2 - 3h)</div>
 						<div className='columnContent'>Cao (10h)</div>
+					</div><div className="rowContent">
+						<div className='columnContent'>Chất lượng hoàn thiện</div>
+						<div className='columnContent'>Tuyệt vời</div>
+						<div className='columnContent'>Trung bình - thấp</div>
+						<div className='columnContent'>Tuyệt vời</div>
 					</div>
 				</div>
 			</div>
@@ -125,18 +130,18 @@ export const Introduce =()=>{
 			<div className='titleContent'>
 				<div className='ctnText'>
 					<h3>Sức mạnh</h3>
-					<h3>Độ bền/nhẹ</h3>
-					<h3>Giá cả</h3>
+					<h3>Hoàn thiện</h3>
+					<h3>Mức giá</h3>
 
 				</div>
 				<h2>
-					Với Thinkmay Laptop as a Service, bạn có tất cả trong một. 
-					Giá cả <span className='specialText'>phải chăng</span>, 
-					sức mạnh <span className='specialText'>vượt trội</span>, 
-					trọng lượng <span className='specialText'>nhẹ</span>, 
-					thời lượng pin <span  className='specialText'> dài</span>, 
-					màn hình <span className='specialText'> sắc nét</span>, 
-					và chất lượng bàn phím <span className='specialText'>cao cấp</span>.
+					Với Thinkmay Laptop as a Service, bạn có tất cả trong một. <br/>
+					Giá cả <span className='specialText'>phù hợp</span>, <br/>
+					sức mạnh <span className='specialText'>vượt trội</span>, <br/>
+					hoàn thiện <span className='specialText'>cao cấp</span>, <br/>
+					trọng lượng <span className='specialText'>siêu nhẹ</span>, <br/>
+					thời lượng pin <span  className='specialText'>lâu dài</span>, <br/>
+					màn hình <span className='specialText'> sắc nét</span>, <br/>
 				</h2>
 			</div>
 		</div>
