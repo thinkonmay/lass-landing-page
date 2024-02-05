@@ -4,8 +4,14 @@ import './guide.scss'
 import Icon from '../../components/icon'
 import Breadcrumb from '../../components/breadcrumb/Breadcumb'
 
-
-const guides = [
+ 
+export interface IGuide{
+	category:  string,
+	icon:string,
+	contents: string [],
+	reverse?: boolean
+}
+export const guides:IGuide[] = [
 	{
 		category: '1. Khám phá sản phẩm trên website',
 		icon:'mi-laptop',
@@ -57,8 +63,8 @@ const guides = [
 ]
 export default function Guide() {
 
-	const Content = ({category, contents, icon, reverse}) => {
-
+	const Content = (props: IGuide) => {
+		const {category, contents, icon, reverse} = props
 		return (
 			<div className={reverse? 'rowGuide reverse' : 'rowGuide'}>
 				<ul className={contents.length > 1 ? 'listTypeDisc': 'deteils'}>
