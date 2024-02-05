@@ -4,9 +4,14 @@ import Icon from '../icon';
 import './products.scss'
 import { useState } from 'react';
 import Link from 'next/link';
-
+import * as products from "@/data/products"
+import { formatPrice } from '../../utils/formatPrice';
+import { SwitchBtn } from '../../app/services/page';
 
 function Products() {
+	const [productShow, setProductShow] = useState<'macbook'|'thinkpad'>('macbook')
+
+
 	return ( 
 		<>
 			<div className='products'>
@@ -14,20 +19,17 @@ function Products() {
 					<div className="top">
 						<div className="nav">
 							<h2>Khám phá các dòng sản phẩm</h2>
-							<a className='inline-flex gap-4' href="">Xem tất cả các mẫu <Icon src='arrow-right'></Icon></a>
+							<Link className='inline-flex gap-4' href="/services">Xem tất cả các mẫu <Icon src='arrow-right'></Icon></Link>
 
 						</div>
-						<div className="switch">
-							{/*<ToggleSwitch></ToggleSwitch>*/}
-							<button className='btn'>MACBOOK</button>
-							<button className='btn'>THINKPAD</button>
-						</div>
+						<SwitchBtn	productShow={productShow} setProductShow={setProductShow}></SwitchBtn>
 					</div>
 
 
 					<div className="wrapperProducts row">
-						<Product></Product>
-						<Product></Product>
+						{products[productShow].map(p =>(
+							<Product {...p}></Product>
+						))}
 					</div>
 				</div>
 
@@ -39,37 +41,39 @@ function Products() {
 export default Products;
 
 
-const Product = () =>{
+const Product = (props:products.IProduct) =>{
 
 	return (
 		<div className='productCard col l-6'>
-			<div><Image src={"/macbook.png"} width={360} height={160} alt='img'></Image></div>
+			<div><Image src={'/'+props.imgSrc +'.png'} width={360} height={160} alt='img'></Image></div>
 
-			<h4 className='name'>MacBook Air 2020 13” (New 98%)</h4>
-			<p className='subText'>Chip M1</p>
+			<h4 className='name'>{props.name}</h4>
+			<p className='subText'>{props.subText}</p>
 
-			<h6 className="pricing"> 15.000.000 VNĐ</h6>
+			<h6 className="pricing">{formatPrice(props.price)} VNĐ</h6>
 
 			<div className="ctnButtons">
-				<button className='btnSeeMore'>Xem thêm</button>
-				<Link href="/services/product">Mua ngay</Link>
+				<Link  href="/services/product" className='btnSeeMore'>Xem thêm</Link>
+				<Link className='inline-flex gap-4' href="/services/product/order">Mua ngay <Icon src='arrow-right'></Icon></Link>
 			</div>
 		</div>
 	)
 }
 
 const ToggleSwitch = () => {
-	const [isChecked, setIsChecked] = useState(false);
-  
-	const handleToggle = () => {
-	  setIsChecked(!isChecked);
-	};
-  
-	return (
-	  <div className={`toggle-switch ${isChecked ? 'checked' : ''}`} onClick={handleToggle}>
-		<div className="slider">test</div>
-	  </div>
-	);
+	const [checked, setChecked] = useState<'macbook'|'thinkpad'>('macbook')
+
+
+	console.log(checked);
+	return(
+		<div className="switchBtn l-6">
+			<button onClick={()=>{setChecked('macbook')}}  className={checked =='macbook' ?'btnChecked' :''}>Macbook</button>
+			<button onClick={()=>{setChecked('thinkpad')}} className={checked =='thinkpad' ?'btnChecked' :''}>Thinkpad</button>
+
+			<div className="checked checkedRight"></div>
+		</div>
+
+	)
   };
 
 

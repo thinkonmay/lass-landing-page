@@ -30,8 +30,7 @@
 		}
 		
 		.wrapperProducts{
-			margin-top: 10rem;
-
+			transition: all ease-in-out 0.3s;
 			.productCard{
 				display: flex;
 				flex-direction: column;
@@ -72,17 +71,6 @@
 					gap: 2.4rem;
 
 					margin-top: 3.4rem;
-				}
-				.btnSeeMore{
-					border-radius: 200px;
-					border: 1px solid var(--Neutral-900, #101828);
-
-					font-size: var(--font-size-md);
-					font-weight: 500;
-					display: flex;
-					padding: 8px 16px;
-					justify-content: center;
-					align-items: center;
 				}
 			}
 
