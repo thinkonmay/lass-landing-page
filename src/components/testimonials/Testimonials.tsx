@@ -8,7 +8,8 @@ const discord = [{
 
 		'Cảm nhận về bên ngoài dịch vụ thì ngược lại, có hơi khó khăn chút. Đầu tiên là về giá cả, giá cloud của thinkmay khá là cao, dù được bù lại là thời gian chơi rất lâu và nhiều tuy nhiên nhiêu đó là chưa đủ để đánh vào người dùng thấp và trung bình, khi mà giá cả ảnh hưởng đến suy nghĩ mua hay không. Thứ hai là truyền thông, mình thấy mảng này không nổi trội lắm. Thứ 3 là cộng đồng, vui vẻ, hòa đồng và đang mở rộng rất tốt, người mới vào cũng dễ dàng hòa nhập được. Mình chấm 3.5/5',
 		
-		'Đánh giá tổng quan của mình là 8/10. Dự án rất triển vọng và có tiềm năng phát triển cao. Bên cạnh đó là những vấn đề còn tồn đọng cần được khắc phục để tạo tiền đề cho tương lai. Năm mới sắp đến chúc cho thinkmay sang năm mới càng phát triển, để khi nhìn lại năm trước có thể thấy mình đã đi xa tới nhường nào.']
+		'Đánh giá tổng quan của mình là 8/10. Dự án rất triển vọng và có tiềm năng phát triển cao. Bên cạnh đó là những vấn đề còn tồn đọng cần được khắc phục để tạo tiền đề cho tương lai. Năm mới sắp đến chúc cho thinkmay sang năm mới càng phát triển, để khi nhìn lại năm trước có thể thấy mình đã đi xa tới nhường nào.'
+	]
 },{
 	feedback : [
 		'Yay feedback một lần rồi nhưng giờ quay lại =))))) Lần này là rất muốn rcm mọi người nếu được hãy đầu tư gói 359k nhó, nếu ai định gắn bó dài hơi.',
@@ -18,7 +19,12 @@ const discord = [{
 	]
 },{
 	feedback : [
-		'Sau 1 tháng thuê lại cảm giác qua nhiều update. Cảm nhận thấy phần ổn định delay tốt hơn, chơi mượt hơn. FPS cũng không limit ở 60 nữa. Nên màn 144hz chơi khá ổn. Về phần tay cầm mình trải nghiệm thì thiếu phần rung. Mình chơi các cloud khác thì khi connect tay cầm thì khi chơi tay cầm có rung. Ổn nhé'
+		'Sau 1 tháng thuê lại cảm giác qua nhiều update. Cảm nhận thấy phần ổn định delay tốt hơn, chơi mượt hơn. FPS cũng không limit ở 60 nữa. Nên màn 144hz chơi khá ổn.',
+		'Về phần tay cầm mình trải nghiệm thì thiếu phần rung. Mình chơi các cloud khác thì khi connect tay cầm thì khi chơi tay cầm có rung. Ổn nhé'
+	]
+},{
+	feedback : [
+		'mua từ 2/1/2024 feedback ngắn gọn cloud gaming mượt ác không delay + tay cầm quá ok, với giá tiền phù hợp cấu hình mạnh nhân viên chất lượng 100/10 🤪'
 	]
 },{
 	feedback : [
