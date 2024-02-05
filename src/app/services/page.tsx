@@ -17,7 +17,7 @@ export default function Services() {
 			<div className='services '>
 				<div className="mainContent grid wide">
 					<div className='title l-8'>
-						<h2>Khám phá bộ sưu tập Laptop tại <span>Thinkmay</span></h2>
+						<h2>Những lựa chọn Laptop tại <span>Thinkmay</span></h2>
 						<p>
 							Hãy khám phá và lựa chọn máy tính phù hợp với nhu cầu công việc và giải trí của bạn.
 							Nếu bạn còn phân vân thì đội ngũ tư vấn của chúng tôi luôn sẵn sàng hỗ trợ bạn chọn lựa.
