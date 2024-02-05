@@ -138,4 +138,8 @@ a:hover{
   background: var(--Neutral-900, #101828);
 
 
+  &:hover{
+    filter: invert(1);
+    outline: 2px solid ;
+  }
 }
