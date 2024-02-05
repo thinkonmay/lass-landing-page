@@ -129,9 +129,10 @@ export const Introduce =()=>{
 
 			<div className='titleContent'>
 				<div className='ctnText'>
-					<h3>Sức mạnh</h3>
-					<h3>Hoàn thiện</h3>
-					<h3>Mức giá</h3>
+					
+					<div className="text"><Icon src='check' width={36} height={36}/> <h3>Sức mạnh</h3></div>
+					<div className="text"><Icon src='check' width={36} height={36}/> <h3>Hoàn thiện</h3></div>
+					<div className="text"><Icon src='check' width={36} height={36}/> <h3>Mức giá</h3></div>
 
 				</div>
 				<h2>
