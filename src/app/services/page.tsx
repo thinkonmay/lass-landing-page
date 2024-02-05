@@ -6,6 +6,7 @@ import Icon from '../../components/icon'
 import Breadcrumb from '../../components/breadcrumb/Breadcumb'
 import { Dispatch, SetStateAction, useState } from 'react'
 import Link from 'next/link'
+import SwitchBtn from '../../components/btn/SwitchBtn'
 
 
 export default function Services() {
@@ -78,22 +79,3 @@ const Product = () => {
 }
 
 
-interface ISwitchBtn {
-	productShow: 'macbook' | 'thinkpad',
-	setProductShow: Dispatch<SetStateAction<"macbook" | "thinkpad">>
-}
-export const SwitchBtn = (props: ISwitchBtn) => {
-	const { productShow, setProductShow } = props
-
-
-	console.log(productShow);
-	return (
-		<div className="switchBtn l-6">
-			<button onClick={() => { setProductShow('macbook') }} className={productShow == 'macbook' ? 'btnChecked' : ''}>Macbook</button>
-			<button onClick={() => { setProductShow('thinkpad') }} className={productShow == 'thinkpad' ? 'btnChecked' : ''}>Thinkpad</button>
-
-			<div className={productShow == 'thinkpad' ? "checked checkedRight" : "checked"}></div>
-		</div>
-
-	)
-}

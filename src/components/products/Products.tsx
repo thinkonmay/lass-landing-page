@@ -6,7 +6,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import * as products from "@/data/products"
 import { formatPrice } from '../../utils/formatPrice';
-import { SwitchBtn } from '../../app/services/page';
+import SwitchBtn from '../btn/SwitchBtn';
 
 function Products() {
 	const [productShow, setProductShow] = useState<'macbook'|'thinkpad'>('macbook')
