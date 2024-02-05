@@ -20,6 +20,15 @@
 				color: var(--Neutral-900);
 				font-weight: 600;
 			}
+			.btn-link{
+				font-size: var(--font-size-md);
+				color: #fff;
+				font-weight: 400;
+
+				&:hover{
+					text-decoration: none;
+				}
+			}
 		}
 	}
 	.logo{

@@ -1,7 +1,28 @@
+import Link from 'next/link';
 import Icon from '../icon';
 import './footer.scss'
 
 
+
+interface ILink {
+	link:string,
+	icon:string,
+}
+
+const listLinks =[
+	{
+		link:'https://fb.com/thinkonmay',
+		icon: 'facebook'
+	},
+	{
+		icon:'discord',
+		link: 'https://discord.gg/fGdU9DQpej'
+	},
+	{
+		icon:'linkedin',
+		link: 'https://www.linkedin.com/company/91315236/'
+	}
+]
 function Footer() {
 	return ( 
 		<>
@@ -34,9 +55,12 @@ function Footer() {
 								<li><Icon src='location-marker' width={32} height={32}/>Hoa Lac, Ha Noi, Viet Nam</li>
 
 								<div className='flex gap-4'>
-									<Icon width={32} height={32} src='facebook'></Icon>
-									<Icon width={32} height={32} src='discord'></Icon>
-									<Icon width={32} height={32} src='linkedin'></Icon>
+									{listLinks.map(link =>(
+										<a href={link.link}>
+											<Icon width={32} height={32} src={link.icon}></Icon>
+
+										</a>
+									))}
 								</div>
 							</ul>
 					</div>
@@ -44,11 +68,11 @@ function Footer() {
 						<h6>Dịch vụ</h6>
 
 						<ul>
-							<li>Về chúng tôi</li>
-							<li>Hướng dẫn mua hàng</li>
-							<li>Chính sách bảo hành</li>
-							<li>Chính sách vận chuyển</li>
-							<li>Liên hệ</li>
+							{/*<li><Link href={"/conntact"}>Về chúng tôi</Link></li>*/}
+							<li><Link href={"/procedure"}>Hướng dẫn mua hàng</Link></li>
+							<li><Link href={"/warranty-policy"}>Chính sách bảo hành</Link></li>
+							<li><Link href={"/shipping-policy"}>Chính sách vận chuyển</Link></li>
+							<li><Link href={"/contact"}>Liên hệ</Link></li>
 						</ul>
 					</div>
 				</div>
