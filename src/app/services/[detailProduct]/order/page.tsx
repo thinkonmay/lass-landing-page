@@ -4,6 +4,9 @@ import './order.scss'
 import Breadcrumb from '../../../../components/breadcrumb/Breadcumb'
 import Icon from '../../../../components/icon'
 import { IGuide, guides } from '../../../../components/guide/guide'
+import { findProduct } from '../../../../utils/findProduct'
+import { notFound } from 'next/navigation'
+import { formatPrice } from '../../../../utils/formatPrice'
 
 
 interface Option {
@@ -14,7 +17,7 @@ interface Option {
 		main: string,
 		sub: string,
 
-		price: string
+		price: number
 	}
 }
 const listOptions: Option[] = [
@@ -23,7 +26,7 @@ const listOptions: Option[] = [
 		info: {
 			main: '1 Năm bản quyền bộ công cụ Adobe ',
 			sub: '(Tài khoản được Thinkmay cung cấp)',
-			price: '+ 2.000.000 VNĐ'
+			price: 2000000 
 		}
 	},
 	{
@@ -31,7 +34,7 @@ const listOptions: Option[] = [
 		info: {
 			main: '1 năm sử dụng dịch vụ OneDrive và Microsoft Office',
 			sub: '(Kích hoạt trên tài khoản Microsoft của người dùng)',
-			price: '+ 500.000 VNĐ'
+			price: 500000 
 		}
 	},
 	{
@@ -39,7 +42,7 @@ const listOptions: Option[] = [
 		info: {
 			main: '1 năm Steam bản quyền với tối đa 5 Game theo yêu cầu',
 			sub: ' (Sử dụng trên Thinkmay Cloud PC)',
-			price: ' + 500.000 VNĐ'
+			price: 500000 
 		}
 	},
 	{
@@ -48,14 +51,27 @@ const listOptions: Option[] = [
 		info: {
 			main: 'Sửa chữa tất cả các lỗi phần cứng trong 1 năm',
 			sub: ' (Bao gồm cả lỗi do người dùng gây ra) (Người dùng chịu 25% chi phí sửa chữa)',
-			price: ' + 2.000.000 VNĐ'
+			price: 2000000 
 		}
 	}
 
 ]
+interface IOrder {
+	params: {
+		detailProduct: string
+	}
+}
+const getProduct =  (slug: string) =>{
+	const res =  findProduct(slug)
+	if(!res) notFound()
+	return res
+}
+export default function Order(props: IOrder) {
 
-export default function Order() {
+	const {params:{detailProduct}} = props
+	const foundProduct = getProduct(detailProduct)
 
+	
 
 
 	return (
@@ -102,10 +118,10 @@ export default function Order() {
 
 								<div className="spec">
 									<div className="img">
-										<Image src={"/macbook.png"} width={80} height={80} alt='img' />
+										<Image src={"/"+ foundProduct.imgSrc+ ".png"} width={80} height={80} alt='img' />
 									</div>
 									<div className='detail'>
-										<h5 className="name">MacBook Air 2020 13” (New 98%)</h5>
+										<h5 className="name">{foundProduct.name}</h5>
 
 										<div className='subInfo'>
 											<span className='text'>Màu: Đồng</span>
@@ -116,7 +132,7 @@ export default function Order() {
 								</div>
 
 								<span className="price">
-									15.000.000 VNĐ
+									{formatPrice(foundProduct.price)}VNĐ
 								</span>
 							</div>
 
@@ -154,8 +170,11 @@ export default function Order() {
 										</div>
 
 										<div className="price">
-											+4.000.000 VNĐ
-
+											+
+											{
+												formatPrice(4000000)
+											}
+											VNĐ
 											{/*Tiết kiệm 1.000.000*/}
 										</div>
 
@@ -207,7 +226,7 @@ const Option = (props: Option) => {
 					<span className='subInfo'>{info.sub}</span>
 				</div>
 
-				<div className="price"> {info.price}</div>
+				<div className="price"> +{formatPrice(info.price)} VNĐ</div>
 
 			</div>
 		</div>

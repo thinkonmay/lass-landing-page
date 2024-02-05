@@ -5,11 +5,24 @@ import './detail-product.scss'
 import Icon from '../../../components/icon'
 import Breadcrumb from '../../../components/breadcrumb/Breadcumb'
 import { useState } from 'react'
+import { notFound } from 'next/navigation'
+import { findProduct } from '../../../utils/findProduct'
+import { formatPrice } from '../../../utils/formatPrice'
+import Link from 'next/link'
+interface IDetailProduct {
+	params: {
+		detailProduct: string
+	}
+}
+const getProduct =  (slug: string) =>{
+	const res =  findProduct(slug)
+	if(!res) notFound()
+	return res
+}
+export default function DetailProduct(props: IDetailProduct) {
+	const {params:{detailProduct}} = props
 
-
-export default function DetailProduct() {
-
-
+	const foundProduct = getProduct(detailProduct)
 	return (
 
 		<>
@@ -19,7 +32,7 @@ export default function DetailProduct() {
 					<div className="ctnProduct">
 						<div className="left">
 							<div>
-								<Image width={600} height={600} alt="img" src={"/macbook.png"}></Image>
+								<Image width={600} height={600} alt="img" src={"/"+ foundProduct.imgSrc+ ".png"}></Image>
 							</div>
 
 							<div className="slides">
@@ -30,11 +43,11 @@ export default function DetailProduct() {
 							</div>
 						</div>
 						<div className="right">
-							<h3 className='productName'>MacBook Air 2020 13” (New 98%)</h3>
+							<h3 className='productName'>{foundProduct.name}</h3>
 
 							<ColorPicker ></ColorPicker>
-							<h3 className="price"> 15.000.000 VNĐ</h3>
-							<p className='subText'>(Hàng chính hãng, bảo hành 1 năm từ Apple)</p>
+							<h3 className="price"> {formatPrice(foundProduct.price)} VNĐ</h3>
+							<p className='subText'>{foundProduct.subText}</p>
 
 							<ul className="bonus">
 								<h4>Dịch vụ miễn phí đi kèm:</h4>
@@ -46,7 +59,7 @@ export default function DetailProduct() {
 
 							</ul>
 
-							<button className="btn-buy">Đặt hàng ngay <Icon src='shopping-cart'></Icon></button>
+							<Link href={`/services/${foundProduct.slug}/order`} className="btn-buy">Đặt hàng ngay <Icon src='shopping-cart'></Icon></Link>
 						</div>
 					</div>
 
