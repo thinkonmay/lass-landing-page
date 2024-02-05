@@ -3,9 +3,9 @@
  const TextTransform = () =>{
 
 	return(
-		<h1 className='textTransform'>
+		<span className='textTransform'>
 			GTA V
-		</h1>
+		</span>
 	)
 }
 
