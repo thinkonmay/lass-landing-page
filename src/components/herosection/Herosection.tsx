@@ -1,6 +1,8 @@
 import Icon from '../icon';
 import './herosection.scss'
 import Image from 'next/image'
+import TextTransform from './textTransform';
+import Link from 'next/link';
 
 
 function HeroSection() {
@@ -22,7 +24,7 @@ function HeroSection() {
 							cùng nhiều phần mềm và game bản quyền khác.
 						</p>
 
-						<button style={{paddingLeft: 32, paddingRight: 32}} className=" pl-[32px] pr-[32px] btn">Khám phá ngay <Icon src='shopping-cart'></Icon></button>
+						<Link href={"/services"}  style={{paddingLeft: 32, paddingRight: 32}} className="btn-explore pl-[32px] pr-[32px] btn">Khám phá ngay <Icon src='shopping-cart'></Icon></Link>
 					</div>
 					<div className="right">
 						<Image alt='Hero section image' width={793} height={480} src={'/macbook.png'}/>
@@ -38,12 +40,4 @@ function HeroSection() {
 
 
 
-const TextTransform = () =>{
-
-	return(
-		<span className='textTransform'>
-			GTA V
-		</span>
-	)
-}
 export default HeroSection;

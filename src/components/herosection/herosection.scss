@@ -6,7 +6,14 @@
 	overflow: hidden;
 	
 	padding: 12rem 0px 18rem 0px;
-
+	.btn-explore{
+		width: max-content;
+		padding: 1.4rem 3.2rem;
+		font-size: var(--font-size-lg);
+		&:hover{
+			text-decoration: none;
+		}
+	}
 	.slide1{
 		width: 100%;
 		position: relative;
