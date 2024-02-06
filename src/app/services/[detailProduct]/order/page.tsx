@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image'
 
 import './order.scss'
@@ -7,12 +8,13 @@ import { IGuide, guides } from '../../../../components/guide/guide'
 import { findProduct } from '../../../../utils/findProduct'
 import { notFound } from 'next/navigation'
 import { formatPrice } from '../../../../utils/formatPrice'
+import { useState } from 'react'
 
 
 interface Option {
 	option: string,
 	sub?: string,
-	status?: 'chose' | 'disable' | 'normal',
+	id: number,
 	info: {
 		main: string,
 		sub: string,
@@ -20,9 +22,15 @@ interface Option {
 		price: number
 	}
 }
+
+interface IOptionProps extends Option{
+	status?: 'chose' | 'disable' | 'normal',
+
+}
 const listOptions: Option[] = [
 	{
 		option: 'Adobe Toolset for Graphic Design / Video Editor:',
+		id: Math.random(),
 		info: {
 			main: '1 Năm bản quyền bộ công cụ Adobe ',
 			sub: '(Tài khoản được Thinkmay cung cấp)',
@@ -31,6 +39,7 @@ const listOptions: Option[] = [
 	},
 	{
 		option: 'Onedrive Cloud Storage và Office 365:',
+		id: Math.random(),
 		info: {
 			main: '1 năm sử dụng dịch vụ OneDrive và Microsoft Office',
 			sub: '(Kích hoạt trên tài khoản Microsoft của người dùng)',
@@ -39,6 +48,7 @@ const listOptions: Option[] = [
 	},
 	{
 		option: 'Steam Account - Cloud Gaming:',
+		id: Math.random(),
 		info: {
 			main: '1 năm Steam bản quyền với tối đa 5 Game theo yêu cầu',
 			sub: ' (Sử dụng trên Thinkmay Cloud PC)',
@@ -47,6 +57,7 @@ const listOptions: Option[] = [
 	},
 	{
 		option: 'Dịch vụ bảo hành',
+		id: Math.random(),
 		sub: ' (khuyến khích với Laptop cũ):',
 		info: {
 			main: 'Sửa chữa tất cả các lỗi phần cứng trong 1 năm',
@@ -66,13 +77,45 @@ const getProduct =  (slug: string) =>{
 	if(!res) notFound()
 	return res
 }
-export default function Order(props: IOrder) {
 
+interface SelectedOption {
+	[id: number]: number
+}
+export default function Order(props: IOrder) {
 	const {params:{detailProduct}} = props
 	const foundProduct = getProduct(detailProduct)
+	const [totalPrice, setTotalPrice] = useState<number>(foundProduct.price)
 
-	
+	const [selectedOptions, setSelectedOptions] = useState<SelectedOption>({0: '',}) 
 
+	const handleSelectOption = (option:Option) =>{
+
+
+		if(option.id in selectedOptions){
+			setSelectedOptions(prev =>{
+				const newVal = {...prev}
+				delete newVal[option.id]
+
+				return newVal
+
+			});
+		}
+		const newVal = {[option.id]: option.info.price}
+		setSelectedOptions(prev => ({...prev, newVal}))
+		
+
+		//set total price:
+
+		setTotalPrice(old =>{
+			let newPrice= old 
+			for (const key in selectedOptions) {
+				const foundPrice = selectedOptions[key]
+				newPrice += foundPrice				
+			}
+
+			return newPrice
+		})
+	}
 
 	return (
 
@@ -188,7 +231,7 @@ export default function Order(props: IOrder) {
 							<div className="totalPrice">
 								<h6 className="text">Tổng thanh toán:</h6>
 								<div className='ctnPrice'>
-									<h5 className='price'> 19.000.000 VNĐ</h5>
+									<h5 className='price'>{formatPrice(totalPrice)} VNĐ</h5>
 									<p className="subText">*Chưa bao gồm phí vận chuyển</p>
 								</div>
 							</div>
@@ -210,7 +253,7 @@ export default function Order(props: IOrder) {
 }
 
 
-const Option = (props: Option) => {
+const Option = (props: IOptionProps) => {
 	const { info, option, sub, status } = props
 
 	return (
