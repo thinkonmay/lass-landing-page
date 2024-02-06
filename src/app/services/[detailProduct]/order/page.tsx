@@ -14,7 +14,7 @@ import { useState } from 'react'
 interface Option {
 	option: string,
 	sub?: string,
-	id: number,
+	id: number | 'all',
 	info: {
 		main: string,
 		sub: string,
@@ -23,46 +23,47 @@ interface Option {
 	}
 }
 
-interface IOptionProps extends Option{
-	status?: 'chose' | 'disable' | 'normal',
-
+type StatusOption = 'chose' | 'disable' | 'normal'
+interface IOptionProps extends Option {
+	status?: StatusOption,
+	handleSelectOption: () => void
 }
 const listOptions: Option[] = [
 	{
 		option: 'Adobe Toolset for Graphic Design / Video Editor:',
-		id: Math.random(),
+		id:1,
 		info: {
 			main: '1 Năm bản quyền bộ công cụ Adobe ',
 			sub: '(Tài khoản được Thinkmay cung cấp)',
-			price: 2000000 
+			price: 2000000
 		}
 	},
 	{
 		option: 'Onedrive Cloud Storage và Office 365:',
-		id: Math.random(),
+		id: 2,
 		info: {
 			main: '1 năm sử dụng dịch vụ OneDrive và Microsoft Office',
 			sub: '(Kích hoạt trên tài khoản Microsoft của người dùng)',
-			price: 500000 
+			price: 500000
 		}
 	},
 	{
 		option: 'Steam Account - Cloud Gaming:',
-		id: Math.random(),
+		id: 3,
 		info: {
 			main: '1 năm Steam bản quyền với tối đa 5 Game theo yêu cầu',
 			sub: ' (Sử dụng trên Thinkmay Cloud PC)',
-			price: 500000 
+			price: 500000
 		}
 	},
 	{
 		option: 'Dịch vụ bảo hành',
-		id: Math.random(),
+		id: 4,
 		sub: ' (khuyến khích với Laptop cũ):',
 		info: {
 			main: 'Sửa chữa tất cả các lỗi phần cứng trong 1 năm',
 			sub: ' (Bao gồm cả lỗi do người dùng gây ra) (Người dùng chịu 25% chi phí sửa chữa)',
-			price: 2000000 
+			price: 2000000
 		}
 	}
 
@@ -72,51 +73,76 @@ interface IOrder {
 		detailProduct: string
 	}
 }
-const getProduct =  (slug: string) =>{
-	const res =  findProduct(slug)
-	if(!res) notFound()
+const getProduct = (slug: string) => {
+	const res = findProduct(slug)
+	if (!res) notFound()
 	return res
 }
 
-interface SelectedOption {
-	[id: number]: number
+type SelectedOption = {
+	[id: number ]: number
+}|{
+	all: number
 }
 export default function Order(props: IOrder) {
-	const {params:{detailProduct}} = props
+	const { params: { detailProduct } } = props
 	const foundProduct = getProduct(detailProduct)
 	const [totalPrice, setTotalPrice] = useState<number>(foundProduct.price)
 
-	const [selectedOptions, setSelectedOptions] = useState<SelectedOption>({0: '',}) 
+	const [selectedOptions, setSelectedOptions] = useState<SelectedOption>({ 0: 0 })
 
-	const handleSelectOption = (option:Option) =>{
+	const handleSelectOption = (option: Option) => {
 
 
-		if(option.id in selectedOptions){
-			setSelectedOptions(prev =>{
-				const newVal = {...prev}
-				delete newVal[option.id]
+		//remove
+		if (option.id in selectedOptions) {
+			setSelectedOptions(prev => {
+				const newVal = { ...prev }
+				//delete newVal[option.id]
 
 				return newVal
 
 			});
 		}
-		const newVal = {[option.id]: option.info.price}
-		setSelectedOptions(prev => ({...prev, newVal}))
-		
+		//add
+		if(option.id == 'all'){
+			setSelectedOptions({all : 4000000})
+		}else{
+			const newVal = { [option.id]: option.info.price }
+			setSelectedOptions(prev => (
+				{
+					...prev,
+					...newVal
+				}
+			))
+			
+		}
+
 
 		//set total price:
 
-		setTotalPrice(old =>{
-			let newPrice= old 
+		setTotalPrice(old => {
+			let newPrice = old
 			for (const key in selectedOptions) {
-				const foundPrice = selectedOptions[key]
-				newPrice += foundPrice				
+				//const foundPrice = selectedOptions[key]
+				//newPrice = +foundPrice + +newPrice
 			}
 
 			return newPrice
 		})
 	}
+	
+	const checkStatusOption = (id: 'all'|number) =>{
+		let status: StatusOption = 'normal'
+		if(id in selectedOptions){
+			status ='chose'
+		}
+		else if(true){
 
+		}
+		return status
+
+	}
 	return (
 
 		<>
@@ -161,7 +187,7 @@ export default function Order(props: IOrder) {
 
 								<div className="spec">
 									<div className="img">
-										<Image src={"/"+ foundProduct.imgSrc+ ".png"} width={80} height={80} alt='img' />
+										<Image src={"/" + foundProduct.imgSrc + ".png"} width={80} height={80} alt='img' />
 									</div>
 									<div className='detail'>
 										<h5 className="name">{foundProduct.name}</h5>
@@ -197,7 +223,11 @@ export default function Order(props: IOrder) {
 							<div className="ctnOptions">
 								{
 									listOptions.map(option => (
-										<Option {...option} ></Option>
+										<Option  
+										//handleSelectOption={()=>handleSelectOption(option)} 
+										handleSelectOption={()=>{}} 
+										{...option} 
+										></Option>
 
 									))
 								}
@@ -254,11 +284,11 @@ export default function Order(props: IOrder) {
 
 
 const Option = (props: IOptionProps) => {
-	const { info, option, sub, status } = props
+	const { info, option, sub, status, handleSelectOption } = props
 
 	return (
 
-		<div className={status == 'disable' ? 'disable option' : 'option'}>
+		<div onClick={handleSelectOption} className={status == 'disable' ? 'disable option' : 'option'}>
 
 			<h6 className='name'>{option} <span>{sub}</span></h6>
 
@@ -303,14 +333,14 @@ const Success = () => {
 
 const GuideModal = () => {
 
-	const Content = (props :IGuide)=>{
-		const {category, icon, contents, reverse} = props
-		return(
+	const Content = (props: IGuide) => {
+		const { category, icon, contents, reverse } = props
+		return (
 			<div className='guide'>
 				<h5 className="title">{category}</h5>
 				<ul>
 					{
-						contents.map((item)=>(
+						contents.map((item) => (
 							<li>{item}</li>
 						))
 					}
@@ -330,7 +360,7 @@ const GuideModal = () => {
 			</div>
 
 			<div className="ctnGuides">
-				{guides.map(guide =>(
+				{guides.map(guide => (
 					<Content {...guide}></Content>
 				))}
 			</div>
