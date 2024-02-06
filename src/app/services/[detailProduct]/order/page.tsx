@@ -31,7 +31,7 @@ interface IOptionProps extends Option {
 const listOptions: Option[] = [
 	{
 		option: 'Adobe Toolset for Graphic Design / Video Editor:',
-		id:1,
+		id: 1,
 		info: {
 			main: '1 Năm bản quyền bộ công cụ Adobe ',
 			sub: '(Tài khoản được Thinkmay cung cấp)',
@@ -68,6 +68,15 @@ const listOptions: Option[] = [
 	}
 
 ]
+const specialOption: Option = {
+	option: 'Tất cả các gói dịch vụ Thinkmay:',
+	id: 'all',
+	info: {
+		main: 'Tất cả các gói dịch vụ trong 1 năm',
+		sub: '(Bao gồm tất cả các dịch vụ đã được liệt kê ở trên)',
+		price: 4000000
+	}
+}
 interface IOrder {
 	params: {
 		detailProduct: string
@@ -80,8 +89,8 @@ const getProduct = (slug: string) => {
 }
 
 type SelectedOption = {
-	[id: number ]: number
-}|{
+	[id: number]: number
+} | {
 	all: number
 }
 export default function Order(props: IOrder) {
@@ -91,54 +100,90 @@ export default function Order(props: IOrder) {
 
 	const [selectedOptions, setSelectedOptions] = useState<SelectedOption>({ 0: 0 })
 
+	//const handleSelectOption = (option: Option) => {
+
+
+	//	//remove
+	//	if (option.id in selectedOptions) {
+	//		setSelectedOptions(prev => {
+	//			const newVal = { ...prev }
+	//			//delete newVal[option.id]
+
+	//			return newVal
+
+	//		});
+	//	}
+	//	//add
+	//	if(option.id == 'all'){
+	//		setSelectedOptions({all : 4000000})
+	//	}else{
+	//		const newVal = { [option.id]: option.info.price }
+	//		setSelectedOptions(prev => (
+	//			{
+	//				...prev,
+	//				...newVal
+	//			}
+	//		))
+
+	//	}
+
+
+	//	//set total price:
+
+	//	setTotalPrice(old => {
+	//		let newPrice = old
+	//		for (const key in selectedOptions) {
+	//			//const foundPrice = selectedOptions[key]
+	//			//newPrice = +foundPrice + +newPrice
+	//		}
+
+	//		return newPrice
+	//	})
+	//}
 	const handleSelectOption = (option: Option) => {
+		// Calculate the new total price
+		let newTotalPrice = totalPrice;
 
-
-		//remove
+		// Remove option if it's already selected
 		if (option.id in selectedOptions) {
-			setSelectedOptions(prev => {
-				const newVal = { ...prev }
-				//delete newVal[option.id]
+			const { [option.id]: removedOptionPrice, ...updatedOptions } = selectedOptions;
+			setSelectedOptions(updatedOptions);
+			newTotalPrice -= removedOptionPrice;
+		} else {
+			// Add the price of the selected option
+			if (option.id === 'all') {
+				// For the 'all' option
+				setSelectedOptions({ 'all': 4000000 });
+				newTotalPrice = 4000000 + foundProduct.price;
+			} else {
 
-				return newVal
+				if ('all' in selectedOptions) {
+					setSelectedOptions({ [option.id]: option.info.price })
+					newTotalPrice = option.info.price + foundProduct.price;
 
-			});
-		}
-		//add
-		if(option.id == 'all'){
-			setSelectedOptions({all : 4000000})
-		}else{
-			const newVal = { [option.id]: option.info.price }
-			setSelectedOptions(prev => (
-				{
-					...prev,
-					...newVal
+				} else {
+					newTotalPrice += option.info.price;
+					setSelectedOptions(prev => ({
+						...prev,
+						[option.id]: option.info.price
+					}));
 				}
-			))
-			
-		}
-
-
-		//set total price:
-
-		setTotalPrice(old => {
-			let newPrice = old
-			for (const key in selectedOptions) {
-				//const foundPrice = selectedOptions[key]
-				//newPrice = +foundPrice + +newPrice
 			}
-
-			return newPrice
-		})
-	}
-	
-	const checkStatusOption = (id: 'all'|number) =>{
-		let status: StatusOption = 'normal'
-		if(id in selectedOptions){
-			status ='chose'
 		}
-		else if(true){
 
+		// Update the total price
+		setTotalPrice(newTotalPrice);
+	};
+	const checkStatusOption = (id: 'all' | number) => {
+		let status: StatusOption = 'normal'
+		if (id in selectedOptions) {
+			status = 'chose'
+		}
+		if (typeof id == 'number' && 'all' in selectedOptions) {
+			status = 'disable'
+		}
+		else if (id == 'all' && !('all' in selectedOptions)) {
+			status = 'disable'
 		}
 		return status
 
@@ -223,29 +268,33 @@ export default function Order(props: IOrder) {
 							<div className="ctnOptions">
 								{
 									listOptions.map(option => (
-										<Option  
-										//handleSelectOption={()=>handleSelectOption(option)} 
-										handleSelectOption={()=>{}} 
-										{...option} 
+										<Option
+											handleSelectOption={() => handleSelectOption(option)}
+											//handleSelectOption={()=>{}} 
+											status={checkStatusOption(option.id)}
+											{...option}
 										></Option>
 
 									))
 								}
-								<div className='option disable'>
+								<div
+									className={checkStatusOption('all') == 'disable' ? 'option disable' : 'option'}
+									onClick={() => handleSelectOption(specialOption)}
+								>
 
-									<h6 className='name'>Tất cả các gói dịch vụ Thinkmay:</h6>
+									<h6 className='name'>{specialOption.option}</h6>
 
-									<div className="content">
+									<div className={checkStatusOption('all') == 'chose' ? 'content chose' : 'content'}>
 										<div className="info">
-											Tất cả các gói dịch vụ trong 1 năm
+											{specialOption.info.main}
 
-											<span className='subInfo'> (Bao gồm tất cả các dịch vụ đã được liệt kê ở trên)</span>
+											<span className='subInfo'>{specialOption.info.sub}</span>
 										</div>
 
 										<div className="price">
 											+
 											{
-												formatPrice(4000000)
+												formatPrice(specialOption.info.price)
 											}
 											VNĐ
 											{/*Tiết kiệm 1.000.000*/}
@@ -288,7 +337,7 @@ const Option = (props: IOptionProps) => {
 
 	return (
 
-		<div onClick={handleSelectOption} className={status == 'disable' ? 'disable option' : 'option'}>
+		<div onClick={handleSelectOption} className={status == 'disable' ? 'option disable' : 'option'}>
 
 			<h6 className='name'>{option} <span>{sub}</span></h6>
 

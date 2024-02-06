@@ -266,15 +266,15 @@
 
 		}
 		
-		.option + .disable{
-			opacity: 0.3;
-
-		}
 		
 		.option{
 			display: flex;
 			flex-direction: column;
 			gap: 1.6rem;
+			&.disable{
+				opacity: 0.3;
+	
+			}
 			.chose{
 				border: 2px solid #0066CC !important;
 	
