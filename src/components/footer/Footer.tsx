@@ -27,7 +27,7 @@ function Footer() {
 	return ( 
 		<>
 		<div className="footer ">
-			<div className="mainContent grid wide">
+			<div className="mainContent grid wide row">
 				<div className="left">
 					<div className='logo'>
 						<Icon width={138} height={68} src='logo-black'></Icon>
