@@ -84,13 +84,30 @@ export default function Guide() {
 			</div>
 		)
 	}
+	const ContentMobile = (props: IGuide) =>{
+		const {category, contents}=props
+		return (
+			<div className='content'>
+				<h3>{category}</h3>
 
+				<ul>
+					{
+						contents.map((ctn, i) =>(<li>
+							{i+1}. {ctn}
+						</li>))
+					}
+					<li></li>
+				</ul>
+
+			</div>
+		)
+	}
 	return (
 
 		<>
 			<div className='guide'>
 				<div className="mainContent grid wide">
-					<div className='title l-8'>
+					<div className='title l-8 m-12 c-12 '>
 						<h2>Vận chuyển - Thanh toán</h2>
 						<p>
 							Cảm ơn bạn đã tin tưởng & lựa chọn sản phẩm - dịch vụ tại Thinkmay.
@@ -98,7 +115,7 @@ export default function Guide() {
 						</p>
 					</div>
 
-					<div className="wrapperGuides">
+					<div className="wrapperGuidesDesktop">
 						{guides.map((guide, i) =>(
 							<>
 								<div className="space">
@@ -109,6 +126,13 @@ export default function Guide() {
 							</>
 						))}
 						
+					</div>
+
+					<div className="wrapperGuidesMobile">
+						{guides.map((guide, i) =>(
+								<ContentMobile {...guide}></ContentMobile>
+							))}
+
 					</div>
 				</div>
 
