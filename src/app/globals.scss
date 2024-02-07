@@ -13,6 +13,9 @@
   margin: 0;
   font-size: 1.2rem;
 }
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 576px;
+
 
 :root {
   --font-size-xs: 1.2rem;
@@ -20,13 +23,14 @@
   --font-size-md: 1.6rem;
   --font-size-lg: 1.8rem;
   --font-size-xl: 2rem;
-
+  --gutter-mobile: 1.5rem;
   --font-display-xs: 2.4rem;
   --font-display-sm: 3rem;
   --font-display-md: 3.6rem;
   --font-display-lg: 4.8rem;
   --font-display-xl: 6rem;
   --font-display-2xl: 7.2rem;
+
 
   --green-100:#EEFFFE;
   --green-200:#C8FFFD;
