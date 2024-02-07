@@ -59,6 +59,8 @@
 
 @media (1px < width < 768px) {
 	.header{
+		position: relative;
+		overflow-x: clip;
 		.logo{
 			display: flex;
 			.wrapperLogo{
@@ -91,6 +93,9 @@
 				display: flex;
 
 				.content{
+					position: absolute;
+					z-index: 999;
+					inset:0;
 					color: black;
 					padding:  0 var(--gutter-mobile);
 					display: flex;
@@ -98,9 +103,7 @@
 					height: 100vh;
 					width: 100vw;
 					background: var(--Neutral-50);
-					position: absolute;
-					z-index: 999;
-					inset:0;
+					
 					transition: all ease-in-out 0.3s;
 					transform: translateX(100%);
 
