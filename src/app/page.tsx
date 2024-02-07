@@ -75,13 +75,15 @@ const Reason = () => {
     <div className='reason'>
       <div className='mainContent'>
         <div className="top  grid wide ">
-          <h2 className='l-6'> Điều gì khiến <span className='specialText'>Thinkmay</span> khác biệt?</h2>
-          <a className='inline-flex gap-4' href='#'>Xem Dịch vụ <Icon src='arrow-right'></Icon></a>
+          <h2 className='l-6 c-12 '> Điều gì khiến <span className='specialText'>Thinkmay</span> khác biệt?</h2>
+          <div className='l-2 c-0'>
+            <a className=' inline-flex gap-4' href='#'>Xem Dịch vụ <Icon src='arrow-right'></Icon></a>
+          </div>
         </div>
         <div className="bottom ">
           <div className="ctnCards grid wide ">
             {reasons.map(x => 
-              <div className='card l-4'>
+              <div className='card l-4 m-12 c-12'>
                 <div>
                   <Icon src={x.icon} className='text-black' width={66} height={66} />
                   <div className="info">

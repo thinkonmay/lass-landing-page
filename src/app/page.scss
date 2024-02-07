@@ -88,25 +88,102 @@
         }
     }
 }
-html{
-	scroll-snap-type: y mandatory;
-	scroll-behavior: smooth;
-}
-.information{
-	scroll-snap-type: y mandatory;
-	
-}
-
-.btn-help{
-	width: 200px;
-    height: 56px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #BF7F1D;
-    border-radius: 99px;
-    font-size: var(--font-size-sm);
-	font-weight: 700;
-}
 
 
+@media (1px < width < 768px) {
+    .main{	
+
+        .reason{
+            background: var(--Neutral-50, #F9FAFB);
+            padding: 6rem 0px;
+            .mainContent{
+    
+                .top{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    padding: 0 var(--gutter-mobile);
+
+                    h2{
+                        color: var(--Neutral-900, #101828);
+                        /* Display md/Bold */
+                       //styleName: Display xs/Bold;
+                        font-size: var(--font-display-xs);
+                        font-weight: 700;
+                        line-height: 32px;
+                        letter-spacing: 0em;
+                        text-align: left;
+
+                    }
+    
+                    .specialText{
+                        color: #28BCB8;
+                        /* Display md/Bold */
+                        font-size: var(--font-display-xs);
+                        font-weight: 700;
+                        line-height: 32px;
+                        letter-spacing: 0em;
+                        text-align: left;
+                    }
+                }
+    
+                .bottom{
+                    position: relative;
+                    overflow: hidden;
+                    height: 518px;
+                    margin-top: 0rem;
+                    overflow-x: auto;
+                    
+                    .ctnCards{
+                        position: absolute;
+                        display: flex;
+                        gap: 1.6rem;
+                        right: 0;
+                        left: 0;
+                        top: 0;
+                    }
+                    .card{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        
+                        padding: 3.2rem;
+                        border-radius: 20px;
+                        background: #FFF;
+    
+                        .subTitle{
+                            color: var(--Neutral-900, #101828);
+                            /* Text lg/Semibold */
+                            font-size: var(--font-size-lg);
+                            font-weight: 600;
+                            line-height: 28px; /* 155.556% */
+                        }
+                        .title{
+                            margin: 1.2rem 0    ;
+                            color: var(--Neutral-Black, #000);
+                            /* Display sm/Bold */
+                            font-size: var(--font-display-sm);
+                            font-weight: 700;
+                            line-height: 38px;
+                        }
+                        .text{
+                            color: var(--Neutral-900, #101828);
+                            /* Text lg/Regular */
+                            font-size: var(--font-size-lg);
+                            font-weight: 400;
+                            line-height: 28px; /* 155.556% */
+                        }
+                        .ctnLinks{
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1.8rem;
+    
+                            margin-top: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
