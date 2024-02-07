@@ -100,52 +100,14 @@ export default function Order(props: IOrder) {
 
 	const [selectedOptions, setSelectedOptions] = useState<SelectedOption>({ 0: 0 })
 
-	//const handleSelectOption = (option: Option) => {
 
-
-	//	//remove
-	//	if (option.id in selectedOptions) {
-	//		setSelectedOptions(prev => {
-	//			const newVal = { ...prev }
-	//			//delete newVal[option.id]
-
-	//			return newVal
-
-	//		});
-	//	}
-	//	//add
-	//	if(option.id == 'all'){
-	//		setSelectedOptions({all : 4000000})
-	//	}else{
-	//		const newVal = { [option.id]: option.info.price }
-	//		setSelectedOptions(prev => (
-	//			{
-	//				...prev,
-	//				...newVal
-	//			}
-	//		))
-
-	//	}
-
-
-	//	//set total price:
-
-	//	setTotalPrice(old => {
-	//		let newPrice = old
-	//		for (const key in selectedOptions) {
-	//			//const foundPrice = selectedOptions[key]
-	//			//newPrice = +foundPrice + +newPrice
-	//		}
-
-	//		return newPrice
-	//	})
-	//}
 	const handleSelectOption = (option: Option) => {
 		// Calculate the new total price
 		let newTotalPrice = totalPrice;
 
 		// Remove option if it's already selected
 		if (option.id in selectedOptions) {
+			//@ts-ignore
 			const { [option.id]: removedOptionPrice, ...updatedOptions } = selectedOptions;
 			setSelectedOptions(updatedOptions);
 			newTotalPrice -= removedOptionPrice;
