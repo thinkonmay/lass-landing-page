@@ -19,7 +19,10 @@ function Products() {
 					<div className="top">
 						<div className="nav">
 							<h2>Khám phá các dòng sản phẩm</h2>
-							<Link className='inline-flex gap-4' href="/services">Xem tất cả các mẫu <Icon src='arrow-right'></Icon></Link>
+							<div className='l-2 c-0'>
+								<Link className=' inline-flex gap-4' href="/services">Xem tất cả các mẫu <Icon src='arrow-right'></Icon></Link>
+
+							</div>
 
 						</div>
 						<SwitchBtn	productShow={productShow} setProductShow={setProductShow}></SwitchBtn>
@@ -44,7 +47,7 @@ export default Products;
 const Product = (props:IProduct) =>{
 
 	return (
-		<div className='productCard col l-6'>
+		<div className='productCard col l-6 c-12'>
 			<div><Image src={'/'+props.imgSrc +'.png'} width={360} height={160} alt='img'></Image></div>
 
 			<h4 className='name'>{props.name}</h4>
@@ -53,28 +56,12 @@ const Product = (props:IProduct) =>{
 			<h6 className="pricing">{formatPrice(props.price)} VNĐ</h6>
 
 			<div className="ctnButtons">
-				<Link  href="/services/product" className='btnSeeMore'>Xem thêm</Link>
+				<Link href={`/services/${props.slug}`} className='btnSeeMore'>Xem thêm</Link>
 				<Link className='inline-flex gap-4' href={`/services/${props.slug}/order`}>Mua ngay <Icon src='arrow-right'></Icon></Link>
 			</div>
 		</div>
 	)
 }
-
-const ToggleSwitch = () => {
-	const [checked, setChecked] = useState<'macbook'|'thinkpad'>('macbook')
-
-
-	console.log(checked);
-	return(
-		<div className="switchBtn l-6">
-			<button onClick={()=>{setChecked('macbook')}}  className={checked =='macbook' ?'btnChecked' :''}>Macbook</button>
-			<button onClick={()=>{setChecked('thinkpad')}} className={checked =='thinkpad' ?'btnChecked' :''}>Thinkpad</button>
-
-			<div className="checked checkedRight"></div>
-		</div>
-
-	)
-  };
 
 
 

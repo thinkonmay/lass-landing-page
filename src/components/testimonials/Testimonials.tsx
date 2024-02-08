@@ -59,7 +59,7 @@ function Testimonials() {
 
 						<div className="wrapperFeedback grid wide">
 							{discord.map(x => 
-								<div className='feedback l-6'>
+								<div className='feedback l-6 c-12'>
 									<p className='text'>
 										{x.feedback.map(y => <> 
 											- {y} <br/><br/>
