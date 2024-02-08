@@ -14,7 +14,7 @@ export default function Contact() {
 			<Breadcrumb></Breadcrumb>
 			<div className='contact '>
 				<div className="feedbackForm grid wide">
-						<div className="img l-4">
+						<div className="img l-4 c-0">
 							<div className="thinkmay">
 								<div className='logo'>
 									<Icon width={158} height={78} src='logo-black'></Icon>
@@ -34,7 +34,7 @@ export default function Contact() {
 							</div>
 						</div>
 
-						<div className="form l-8">
+						<div className="form l-8 c-12">
 							<div className="top">
 								<h2 className='title'>Liên hệ với chúng tôi</h2>
 								<p>
