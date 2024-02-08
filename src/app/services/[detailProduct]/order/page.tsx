@@ -95,6 +95,7 @@ type SelectedOption = {
 }
 export default function Order(props: IOrder) {
 	const { params: { detailProduct } } = props
+	const [statusOrder, setSatusOrder] = useState<'fail' | 'success'>('fail')
 	const foundProduct = getProduct(detailProduct)
 	const [totalPrice, setTotalPrice] = useState<number>(foundProduct.price)
 
@@ -153,139 +154,148 @@ export default function Order(props: IOrder) {
 	return (
 
 		<>
-			<Breadcrumb></Breadcrumb>
-			<div className='order grid wide'>
-				<div className="mainContent ">
-					<div className="left">
-						<div className="form ">
-							<div className="top">
-								<h2 className='title'>Thông tin nhận hàng</h2>
-								<p>
-									Vui lòng điền thông tin của bạn vào form bên dưới và chúng tôi sẽ liên lạc ngay cho bạn để xác nhận và hướng dẫn thêm về đơn hàng.
-								</p>
+			{
+				statusOrder == 'success' ?
+				<Success></Success>
+				:
+					<>
+						<Breadcrumb></Breadcrumb>
+						<div className='order grid wide'>
+							<div className="mainContent ">
+								<div className="left">
+									<div className="form ">
+										<div className="top">
+											<h2 className='title'>Thông tin nhận hàng</h2>
+											<p>
+												Vui lòng điền thông tin của bạn vào form bên dưới và chúng tôi sẽ liên lạc ngay cho bạn để xác nhận và hướng dẫn thêm về đơn hàng.
+											</p>
 
-							</div>
-
-							<form className='wrapperInputs' action="">
-								<input type="text" placeholder='Họ và tên *' />
-								<input type="text" placeholder='Email*' />
-								<input type="text" placeholder='SĐT*' />
-								<input type="text" placeholder='Địa chỉ của bạn *' />
-								<input type="text" className='bigInput' placeholder='Ghi chú thêm cho chúng tôi (nếu có)' />
-
-							</form>
-
-
-						</div>
-
-					</div>
-					<div className="center">
-						<div className="stick"></div>
-					</div>
-					<div className="right">
-						<div className="cart">
-							<div className='title'>
-								<Icon src='shopping-cart' />
-								Giỏ hàng
-							</div>
-
-							<div className='info'>
-
-
-								<div className="spec">
-									<div className="img">
-										<Image src={"/" + foundProduct.imgSrc + ".png"} width={80} height={80} alt='img' />
-									</div>
-									<div className='detail'>
-										<h5 className="name">{foundProduct.name}</h5>
-
-										<div className='subInfo'>
-											<span className='text'>Màu: Đồng</span>
-											<div className='ctnStick'><div className="stick"></div></div>
-											<span className='text'>Số lượng: 01</span>
 										</div>
+
+										<form className='wrapperInputs' action="">
+											<input type="text" placeholder='Họ và tên *' />
+											<input type="text" placeholder='Email*' />
+											<input type="text" placeholder='SĐT*' />
+											<input type="text" placeholder='Địa chỉ của bạn *' />
+											<input type="text" className='bigInput' placeholder='Ghi chú thêm cho chúng tôi (nếu có)' />
+
+										</form>
+
+
 									</div>
+
 								</div>
-
-								<span className="price">
-									{formatPrice(foundProduct.price)}VNĐ
-								</span>
-							</div>
-
-						</div>
-
-						<hr />
-
-
-						<div className="options">
-
-							<h5 className='title'>
-								Lựa chọn thêm các gói dịch vụ riêng lẻ (không bắt buộc)
-							</h5>
-							<p className='subTitle'>
-								Tuỳ chỉnh thoải mái, tạo ra chiếc Laptop dành riêng cho bạn.
-							</p>
-
-
-							<div className="ctnOptions">
-								{
-									listOptions.map(option => (
-										<Option
-											handleSelectOption={() => handleSelectOption(option)}
-											//handleSelectOption={()=>{}} 
-											status={checkStatusOption(option.id)}
-											{...option}
-										></Option>
-
-									))
-								}
-								<div
-									className={checkStatusOption('all') == 'disable' ? 'option disable' : 'option'}
-									onClick={() => handleSelectOption(specialOption)}
-								>
-
-									<h6 className='name'>{specialOption.option}</h6>
-
-									<div className={checkStatusOption('all') == 'chose' ? 'content chose' : 'content'}>
-										<div className="info">
-											{specialOption.info.main}
-
-											<span className='subInfo'>{specialOption.info.sub}</span>
+								<div className="center">
+									<div className="stick"></div>
+								</div>
+								<div className="right">
+									<div className="cart">
+										<div className='title'>
+											<Icon src='shopping-cart' />
+											Giỏ hàng
 										</div>
 
-										<div className="price">
-											+
+										<div className='info'>
+
+
+											<div className="spec">
+												<div className="img">
+													<Image src={"/" + foundProduct.imgSrc + ".png"} width={80} height={80} alt='img' />
+												</div>
+												<div className='detail'>
+													<h5 className="name">{foundProduct.name}</h5>
+
+													<div className='subInfo'>
+														<span className='text'>Màu: Đồng</span>
+														<div className='ctnStick'><div className="stick"></div></div>
+														<span className='text'>Số lượng: 01</span>
+													</div>
+												</div>
+											</div>
+
+											<span className="price">
+												{formatPrice(foundProduct.price)}VNĐ
+											</span>
+										</div>
+
+									</div>
+
+									<hr />
+
+
+									<div className="options">
+
+										<h5 className='title'>
+											Lựa chọn thêm các gói dịch vụ riêng lẻ (không bắt buộc)
+										</h5>
+										<p className='subTitle'>
+											Tuỳ chỉnh thoải mái, tạo ra chiếc Laptop dành riêng cho bạn.
+										</p>
+
+
+										<div className="ctnOptions">
 											{
-												formatPrice(specialOption.info.price)
+												listOptions.map(option => (
+													<Option
+														handleSelectOption={() => handleSelectOption(option)}
+														//handleSelectOption={()=>{}} 
+														status={checkStatusOption(option.id)}
+														{...option}
+													></Option>
+
+												))
 											}
-											VNĐ
-											{/*Tiết kiệm 1.000.000*/}
+											<div
+												className={checkStatusOption('all') == 'disable' ? 'option disable' : 'option'}
+												onClick={() => handleSelectOption(specialOption)}
+											>
+
+												<h6 className='name'>{specialOption.option}</h6>
+
+												<div className={checkStatusOption('all') == 'chose' ? 'content chose' : 'content'}>
+													<div className="info">
+														{specialOption.info.main}
+
+														<span className='subInfo'>{specialOption.info.sub}</span>
+													</div>
+
+													<div className="price">
+														+
+														{
+															formatPrice(specialOption.info.price)
+														}
+														VNĐ
+														{/*Tiết kiệm 1.000.000*/}
+													</div>
+
+												</div>
+											</div>
+
 										</div>
 
+										<hr className='my-[32px]' />
+
+										<div className="totalPrice">
+											<h6 className="text">Tổng thanh toán:</h6>
+											<div className='ctnPrice'>
+												<h5 className='price'>{formatPrice(totalPrice)} VNĐ</h5>
+												<p className="subText">*Chưa bao gồm phí vận chuyển</p>
+											</div>
+										</div>
+
+										<button onClick={()=>setSatusOrder('success')} className="btn-buy">Xác nhận mua hàng <Icon src='shopping-cart'></Icon></button>
 									</div>
 								</div>
 
+
+
 							</div>
 
-							<hr className='my-[32px]' />
-
-							<div className="totalPrice">
-								<h6 className="text">Tổng thanh toán:</h6>
-								<div className='ctnPrice'>
-									<h5 className='price'>{formatPrice(totalPrice)} VNĐ</h5>
-									<p className="subText">*Chưa bao gồm phí vận chuyển</p>
-								</div>
-							</div>
-
-							<button className="btn-buy">Xác nhận mua hàng <Icon src='shopping-cart'></Icon></button>
 						</div>
-					</div>
+					</>
 
+			}
 
-
-				</div>
-
-			</div>
 
 		</>
 	)
