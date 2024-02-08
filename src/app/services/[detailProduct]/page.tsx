@@ -16,12 +16,14 @@ interface IDetailProduct {
 }
 const getProduct =  (slug: string) =>{
 	const res =  findProduct(slug)
-	if(!res) notFound()
+	if(!res) {
+		console.log('wrong');
+	}
 	return res
 }
 export default function DetailProduct(props: IDetailProduct) {
 	const {params:{detailProduct}} = props
-
+	
 	const foundProduct = getProduct(detailProduct)
 	return (
 

@@ -87,7 +87,7 @@ const Product = (props: IProduct) => {
 			<h6 className="pricing">{formatPrice(props.price)} VNĐ</h6>
 
 			<div className="ctnButtons">
-				<Link href="/services/product" className='btnSeeMore'>Xem thêm</Link>
+				<Link href={`/services/${props.slug}`} className='btnSeeMore'>Xem thêm</Link>
 				<Link className='inline-flex gap-4' href={`/services/${props.slug}/order`}>Mua ngay <Icon src='arrow-right'></Icon></Link>
 			</div>
 			<hr />
