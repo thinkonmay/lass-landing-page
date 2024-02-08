@@ -374,3 +374,41 @@
 	}
 }
 
+@media (1px < width < 768px) {
+	.successScreen{
+		padding: 0 var(--gutter-mobile);
+		padding-bottom: 15rem;
+		.mainContent{
+			margin: 0 auto;
+			display: flex;
+			flex-direction: column;
+			gap: 1.6rem;
+			align-items: center;
+	
+			h2{
+				//styleName: Display md/Bold;
+				font-size: var(--font-display-xs);
+				font-weight: 700;
+				line-height: 32px;
+				letter-spacing: 0em;
+				text-align: center;
+
+				color: var(--Neutral-900);
+	
+			}
+	
+			p{
+				//styleName: Text lg/Medium;
+				color: var(--Neutral-600);
+				font-size: var(--font-size-md);
+				font-weight: 500;
+				line-height: 24px;
+				letter-spacing: 0em;
+				text-align: center;
+
+			}
+	
+		}
+	}
+	
+}
