@@ -10,5 +10,56 @@
 	line-height: 20px;
 	letter-spacing: 0em;
 	text-align: left;
+	.mainContent{
+		display: flex;
+		align-items: center;
+		gap: 8px;
+
+		.link{
+			color: var(--Neutral-900);
+			//styleName: Text sm/Semibold;
+			font-size: var(--font-size-sm);
+			font-weight: 600;
+			line-height: 20px;
+			letter-spacing: 0em;
+			text-align: left;
+
+		}
+		.disableLink{
+			//styleName: Text sm/Semibold;
+			font-size: var(--font-size-sm);
+			font-weight: 600;
+			line-height: 20px;
+			letter-spacing: 0em;
+			text-align: left;
+			color: var(--Neutral-500)
+		}
+	}	
+
+}
+
+
+@media (1px < width < 768px ) {
+
+	.breadcrumb{
+		
+		padding: 0 var(--gutter-mobile);
+		padding-top: 6.4rem;
+		padding-bottom: 6.4rem;
+		border-top: 1px solid var(--Neutral-200);
+	
+		//styleName: Text sm/Semibold;
+		font-size: var(--font-size-sm);
+		font-weight: 600;
+		line-height: 20px;
+		letter-spacing: 0em;
+		text-align: left;
+		
+
+		.mainContent{
+			display: flex;
+			gap: 8px;
+		}			
+	}
 
 }
