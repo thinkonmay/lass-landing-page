@@ -8,7 +8,7 @@ import { IGuide, guides } from '../../../../components/guide/guide'
 import { findProduct } from '../../../../utils/findProduct'
 import { notFound } from 'next/navigation'
 import { formatPrice } from '../../../../utils/formatPrice'
-import { useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 
 
 interface Option {
@@ -330,10 +330,13 @@ const Option = (props: IOptionProps) => {
 
 const Success = () => {
 
+	useLayoutEffect(()=>{
+		window.scrollTo(0,0)
+	},[])
 
 	return (
 		<div className='successScreen grid wide'>
-			<Breadcrumb></Breadcrumb>
+			<Breadcrumb isTurnBackHomePage={true}></Breadcrumb>
 
 			<div className="mainContent l-9">
 				<Icon src='payment-success' width={176} height={176}></Icon>
