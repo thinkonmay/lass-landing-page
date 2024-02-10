@@ -34,8 +34,11 @@ const renderPathName = (input: keyof slugType) => {
 	return pathName
 }
 
-function Breadcrumb() {
-
+interface Props {
+	isTurnBackHomePage?: boolean
+}
+function Breadcrumb(props: Props) {
+	const {isTurnBackHomePage = false} = props
 	const pathname = usePathname()
 	const pathNameSplit = pathname.split('/')
 
@@ -67,10 +70,22 @@ function Breadcrumb() {
 
 	return (
 		<div className='breadcrumb'>
-			<div className='mainContent grid wide'>
-				<Link className='link' href={'/'}>Trang chủ</Link>
-				<Icon src='arrow-right'></Icon>
-				{renderLink()}
+			<div className='breadCrumbContent grid wide'>
+
+				{
+					!isTurnBackHomePage ?
+					<>
+					<Link className='link' href={'/'}>Trang chủ</Link>
+					<Icon src='arrow-right'></Icon>
+					{renderLink()}
+					</>
+					:
+					<>
+						<Icon src='arrow-left'></Icon>
+						<Link className='link' href={'/'}>Quay lại Trang chủ</Link>
+					</>
+				}
+				
 			</div>
 		</div>
 	);
