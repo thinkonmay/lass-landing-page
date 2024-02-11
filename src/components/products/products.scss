@@ -371,9 +371,8 @@
 	background: radial-gradient(607.72% 252.81% at 8.68% 5.79%, #01000B 34.29%, rgba(10, 3, 77, 0.80) 100%);
 	.table{
 		overflow: auto;
-
-		padding: 10rem;
-		padding-left:  var(--gutter-mobile);
+		min-width: 627px;
+		padding: 10rem var(--gutter-mobile);
 		h2{
 			padding-left: var(--gutter-mobile) ;
 			padding-right: var(--gutter-mobile) ;
