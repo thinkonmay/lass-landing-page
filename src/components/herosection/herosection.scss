@@ -56,6 +56,7 @@
 				position: absolute;
 				right: -25%;
 				top: 0;
+				display: block;
 				.subBg1{
 					position: absolute;
 					width: 454px;
@@ -148,19 +149,20 @@
 
 				}
 		
-				.right{
-					position: absolute;
-					right: -25%;
-					top: 0;
-					.subBg1{
-						display: none;
-					}
-					.subBg2{
-						display: none;
-				}
-			}
+				
 		}
-	
+		.right{
+			position: absolute;
+			right: -25%;
+			top: 0;
+			display: none;
+			.subBg1{
+				display: none;
+			}
+			.subBg2{
+				display: none;
+		}
+	}
 		.textTransform{
 			background: linear-gradient(177deg, #12CCC7 66.72%, #102644 141.37%);
 			background-clip: text;
@@ -172,7 +174,22 @@
 			letter-spacing: 0em;
 		}
 	}
-}
+	}
 
 	}
+}
+
+/* Tablet - PC low resolution */
+@media (min-width: 740px) and (max-width: 1023px) {
+   
+.heroSection{
+	.slide1{
+		.mainContent{
+			.right{
+				display: none;
+			}
+		}
+
+	}
+}
 }

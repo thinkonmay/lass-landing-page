@@ -25,7 +25,7 @@ function HeroSection() {
 
 						<Link href={"/services"}  style={{paddingLeft: 32, paddingRight: 32}} className="btn-explore pl-[32px] pr-[32px] btn">Khám phá ngay <Icon src='shopping-cart'></Icon></Link>
 					</div>
-					<div className="right l-6 m-0 c-0">
+					<div className="right">
 						<Image alt='Hero section image' width={793} height={480} src={'/macbook.png'}/>
 
 						<div className="subBg1"></div>
