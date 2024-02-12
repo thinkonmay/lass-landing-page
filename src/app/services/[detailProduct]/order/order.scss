@@ -17,6 +17,9 @@
 	}
 	.left{ 
 		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 4.4rem;
 		.form{
 			position: relative;
 			border-radius: 20px;
@@ -84,6 +87,19 @@
 	
 			
 		}
+		.btnOpenGuide{
+			//styleName: Text md/Medium;
+			font-size: var(--font-size-md);
+			font-weight: 500;
+			line-height: 24px;
+			letter-spacing: 0em;
+			text-align: left;
+			color: #0066CC;
+			:hover{
+				opacity: 0.7;
+			}
+		}
+		
 	}
 
 	
@@ -340,7 +356,11 @@
 		width: 100%;
 		background: var(--Neutral-300);
 	}
+
+	
 }
+
+
 
 .successScreen{
 	padding-bottom: 15rem;
@@ -376,7 +396,62 @@
 
 	}
 }
+.guideModal{ 
+	
+	overflow-y:auto;
+	padding: 4.4rem;
+	
+	.title{
+		margin: 0 auto;
 
+		margin-bottom: 5.6rem;
+		h2{
+			font-size: var(--font-display-md);
+			font-weight: 700;
+			line-height: 44px;
+			letter-spacing: -0.02em;
+			text-align: center;
+			color: var(--Neutral-900);
+		}
+		p{
+			//styleName: Text md/Medium;
+			font-size: var(--font-size-md);
+			font-weight: 500;
+			line-height: 24px;
+			letter-spacing: 0em;
+			text-align: center;
+			color: var(--Neutral-700);
+
+		}
+	}
+
+	.guideModalContent{
+		margin-bottom: 2.4rem;
+		.titleGuide{
+			//styleName: Text xl/Bold;
+			font-size: var(--font-size-xl);
+			font-weight: 700;
+			line-height: 30px;
+			letter-spacing: 0em;
+			color: var(--Neutral-900);
+
+		}
+
+		ul{
+			padding-left: 2.4rem;
+			list-style-type: disc;
+			li{
+				//styleName: Text md/Medium;
+				font-size: var(--font-size-md);
+				font-weight: 400;
+				line-height: 24px;
+				letter-spacing: 0em;
+
+			}
+
+		}
+	}
+}
 @media (1px < width < 768px) {
 	.successScreen{
 		padding: 0 var(--gutter-mobile);
@@ -432,6 +507,9 @@
 		}
 		.left{ 
 			flex: 1;
+			display: flex;
+			flex-direction: column-reverse;
+			gap: 1.6rem;
 			.form{
 				position: relative;
 				border-radius: 20px;
@@ -770,5 +848,65 @@
 			background: var(--Neutral-300);
 		}
 	}
+	.guideModal{ 
 	
+		overflow-y:auto;
+		padding: 2.4rem var(--gutter-mobile);
+		
+		.title{
+			margin: 0 auto;
+	
+			margin-bottom: 5.6rem;
+			h2{
+				font-size: var(--font-display-xs);
+				font-weight: 700;
+				line-height: 32px;
+				letter-spacing: 0em;
+				text-align: center;
+
+				color: var(--Neutral-900);
+				margin-bottom: 1.2rem;
+			}
+			p{
+				//styleName: Text md/Medium;
+				font-size: var(--font-size-md);
+				font-weight: 500;
+				line-height: 24px;
+				letter-spacing: 0em;
+				text-align: center;
+
+	
+			}
+		}
+	
+		.guideModalContent{
+			margin-bottom: 2.4rem;
+			.titleGuide{
+				//styleName: Text xl/Bold;
+				font-size: var(--font-size-lg);
+				font-weight: 700;
+				line-height: 28px;
+				letter-spacing: 0em;
+				color: var(--Neutral-900);
+	
+			}
+	
+			ul{
+				padding-left: 2.4rem;
+				list-style-type: disc;
+				li{
+					//styleName: Text md/Medium;
+					color: var(--Neutral-800);
+					//styleName: Text md/Medium;
+					font-size: var(--font-size-md);
+					font-weight: 500;
+					line-height: 24px;
+					letter-spacing: 0em;
+					text-align: left;
+
+				}
+	
+			}
+		}
+	}
 }

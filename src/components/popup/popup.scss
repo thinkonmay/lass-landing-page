@@ -10,71 +10,56 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	height: auto;
-	width: auto;
+	height: 700px;
+	width:  768px;
 	transform: translate(-50%, -50%);
 	background-color: white;
 	border-radius: 20px;
 	outline: none;
 	overflow: hidden;
+
+
+	.toolbar{
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+		padding: 1.6rem 2.4rem;
+		background: var(--Neutral-50);
+	}
   }
-.guideModal{ 
-	width: 800px;
-	height: 700px;
-	overflow-y:auto;
-	padding: 4.4rem;
+
+  @media (1px < width < 768px) {
+	.modalOverlay{
+		position: fixed;
+		inset: 0px;
+		background: #000000B2;
 	
-	.title{
-		margin: 0 auto;
-
-		margin-bottom: 8.8rem;
-		h2{
-			font-size: var(--font-display-md);
-			font-weight: 700;
-			line-height: 44px;
-			letter-spacing: -0.02em;
-			text-align: center;
-			color: var(--Neutral-900);
+	  }
+	  .modalContent {
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		height: 100vh;
+		width: 100vw;
+		transform: translate(-50%, -50%);
+		background-color: white;
+		border-radius: unset;
+		outline: none;
+		overflow: hidden;
+	
+	
+		.toolbar{
+			width: 100%;
+			display: flex;
+			justify-content: flex-end;
+			padding: 1.6rem 2.4rem;
+			background: var(--Neutral-50);
 		}
-		p{
-			//styleName: Text md/Medium;
-			font-size: var(--font-size-md);
-			font-weight: 500;
-			line-height: 24px;
-			letter-spacing: 0em;
-			text-align: center;
-			color: var(--Neutral-700);
-
-		}
-	}
-
-	.guide{
-		margin-bottom: 2.4rem;
-		.titleGuide{
-			//styleName: Text xl/Bold;
-			font-size: var(--font-size-xl);
-			font-weight: 700;
-			line-height: 30px;
-			letter-spacing: 0em;
-			color: var(--Neutral-900);
-
-		}
-
-		ul{
-			padding-left: 2.4rem;
-			list-style-type: disc;
-			li{
-				//styleName: Text md/Medium;
-				font-size: var(--font-size-md);
-				font-weight: 500;
-				line-height: 24px;
-				letter-spacing: 0em;
-
-			}
-
-		}
-	}
-}
+	  }
+	
+  }
 
 
 

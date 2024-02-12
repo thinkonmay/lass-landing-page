@@ -4,11 +4,12 @@ import Image from 'next/image'
 import './order.scss'
 import Breadcrumb from '../../../../components/breadcrumb/Breadcumb'
 import Icon from '../../../../components/icon'
-import { IGuide, guides } from '../../../../components/guide/guide'
+import Guide, { IGuide, guides } from '../../../../components/guide/guide'
 import { findProduct } from '../../../../utils/findProduct'
 import { notFound } from 'next/navigation'
 import { formatPrice } from '../../../../utils/formatPrice'
 import { useLayoutEffect, useState } from 'react'
+import Popup from '../../../../components/popup/popup'
 
 
 interface Option {
@@ -100,7 +101,7 @@ export default function Order(props: IOrder) {
 	const [totalPrice, setTotalPrice] = useState<number>(foundProduct.price)
 
 	const [selectedOptions, setSelectedOptions] = useState<SelectedOption>({ 0: 0 })
-
+	const [openGuide, setOpenGuide] = useState(false)
 
 	const handleSelectOption = (option: Option) => {
 		// Calculate the new total price
@@ -156,8 +157,8 @@ export default function Order(props: IOrder) {
 		<>
 			{
 				statusOrder == 'success' ?
-				<Success></Success>
-				:
+					<Success></Success>
+					:
 					<>
 						<Breadcrumb></Breadcrumb>
 						<div className='order grid wide'>
@@ -184,6 +185,7 @@ export default function Order(props: IOrder) {
 
 									</div>
 
+									<p className='btnOpenGuide' onClick={() => setOpenGuide(true)}>Xem Hướng dẫn Vận chuyển - Thanh toán</p>
 								</div>
 								<div className="center">
 									<div className="stick"></div>
@@ -283,7 +285,7 @@ export default function Order(props: IOrder) {
 											</div>
 										</div>
 
-										<button onClick={()=>setSatusOrder('success')} className="btn-buy">Xác nhận mua hàng <Icon src='shopping-cart'></Icon></button>
+										<button onClick={() => setSatusOrder('success')} className="btn-buy">Xác nhận mua hàng <Icon src='shopping-cart'></Icon></button>
 									</div>
 								</div>
 
@@ -291,7 +293,11 @@ export default function Order(props: IOrder) {
 
 							</div>
 
+
 						</div>
+						<Popup open={openGuide} setOpen={setOpenGuide}>
+							<GuideModal></GuideModal>
+						</Popup>
 					</>
 
 			}
@@ -330,9 +336,9 @@ const Option = (props: IOptionProps) => {
 
 const Success = () => {
 
-	useLayoutEffect(()=>{
-		window.scrollTo(0,0)
-	},[])
+	useLayoutEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
 
 	return (
 		<div className='successScreen grid wide'>
@@ -360,8 +366,8 @@ const GuideModal = () => {
 	const Content = (props: IGuide) => {
 		const { category, icon, contents, reverse } = props
 		return (
-			<div className='guide'>
-				<h5 className="title">{category}</h5>
+			<div className='guideModalContent'>
+				<h5 className="titleGuide">{category}</h5>
 				<ul>
 					{
 						contents.map((item) => (
@@ -374,7 +380,7 @@ const GuideModal = () => {
 	}
 
 	return (
-		<div className="guideModal">
+		<div className="guideModal thinkmayScroll">
 			<div className='title l-8'>
 				<h2>Vận chuyển - Thanh toán</h2>
 				<p>
@@ -383,7 +389,7 @@ const GuideModal = () => {
 				</p>
 			</div>
 
-			<div className="ctnGuides">
+			<div className="ctnGuides ">
 				{guides.map(guide => (
 					<Content {...guide}></Content>
 				))}
