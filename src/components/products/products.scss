@@ -371,9 +371,9 @@
 	background: radial-gradient(607.72% 252.81% at 8.68% 5.79%, #01000B 34.29%, rgba(10, 3, 77, 0.80) 100%);
 	.table{
 		overflow: auto;
-		min-width: 627px;
 		padding: 10rem var(--gutter-mobile);
-		h2{
+		h2{	
+			width: 100vw;
 			padding-left: var(--gutter-mobile) ;
 			padding-right: var(--gutter-mobile) ;
 			color:  #FFF;
@@ -401,6 +401,7 @@
 		.wrapperTable{
 			color: white;
 			border-radius: 12px;
+			min-width: 627px;
 			border: 1px solid var(--Neutral-500, #667085);
 			
 			&:first-child{
