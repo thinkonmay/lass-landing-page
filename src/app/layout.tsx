@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './grid.scss';
-import './globals.scss';
-import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
-import Popup from '../components/popup/popup';
+import Header from '../components/header/Header';
+import './globals.scss';
+import './grid.scss';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,7 +23,6 @@ export default function RootLayout({
                 <Header />
                 {children}
                 <Footer></Footer>
-                <Popup></Popup>
             </body>
         </html>
     );
