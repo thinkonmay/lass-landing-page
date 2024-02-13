@@ -1,81 +1,23 @@
 'use client';
 import Image from 'next/image';
 
-import './order.scss';
-import Breadcrumb from '../../../../components/breadcrumb/Breadcumb';
-import Icon from '../../../../components/icon';
-import Guide, { IGuide, guides } from '../../../../components/guide/guide';
-import { findProduct } from '../../../../utils/findProduct';
+import { Lines } from '@/data/lines';
+import { IOption, OptionID, listOptions } from '@/data/options';
 import { notFound } from 'next/navigation';
-import { formatPrice } from '../../../../utils/formatPrice';
 import { useLayoutEffect, useState } from 'react';
+import Breadcrumb from '../../../../components/breadcrumb/Breadcumb';
+import { IGuide, guides } from '../../../../components/guide/guide';
+import Icon from '../../../../components/icon';
 import Popup from '../../../../components/popup/popup';
+import { findProduct } from '../../../../utils/findProduct';
+import { formatPrice } from '../../../../utils/formatPrice';
+import './order.scss';
 
-interface Option {
-    option: string;
-    sub?: string;
-    id: number | 'all';
-    info: {
-        main: string;
-        sub: string;
-
-        price: number;
-    };
-}
-
-type StatusOption = 'chose' | 'disable' | 'normal';
-interface IOptionProps extends Option {
-    status?: StatusOption;
+type IOptionProps = IOption & {
+    status: boolean;
     handleSelectOption: () => void;
 }
-const listOptions: Option[] = [
-    {
-        option: 'Adobe Toolset for Graphic Design / Video Editor:',
-        id: 1,
-        info: {
-            main: '1 Năm bản quyền bộ công cụ Adobe ',
-            sub: '(Tài khoản được Thinkmay cung cấp)',
-            price: 2000000
-        }
-    },
-    {
-        option: 'Onedrive Cloud Storage và Office 365:',
-        id: 2,
-        info: {
-            main: '1 năm sử dụng dịch vụ OneDrive và Microsoft Office',
-            sub: '(Kích hoạt trên tài khoản Microsoft của người dùng)',
-            price: 500000
-        }
-    },
-    {
-        option: 'Steam Account - Cloud Gaming:',
-        id: 3,
-        info: {
-            main: '1 năm Steam bản quyền với tối đa 5 Game theo yêu cầu',
-            sub: ' (Sử dụng trên Thinkmay Cloud PC)',
-            price: 500000
-        }
-    },
-    {
-        option: 'Dịch vụ bảo hành',
-        id: 4,
-        sub: ' (khuyến khích với Laptop cũ):',
-        info: {
-            main: 'Sửa chữa tất cả các lỗi phần cứng trong 1 năm',
-            sub: ' (Bao gồm cả lỗi do người dùng gây ra) (Người dùng chịu 25% chi phí sửa chữa)',
-            price: 2000000
-        }
-    }
-];
-const specialOption: Option = {
-    option: 'Tất cả các gói dịch vụ Thinkmay:',
-    id: 'all',
-    info: {
-        main: 'Tất cả các gói dịch vụ trong 1 năm',
-        sub: '(Bao gồm tất cả các dịch vụ đã được liệt kê ở trên)',
-        price: 4000000
-    }
-};
+
 interface IOrder {
     params: {
         detailProduct: string;
@@ -87,72 +29,58 @@ const getProduct = (slug: string) => {
     return res;
 };
 
-type SelectedOption =
-    | {
-          [id: number]: number;
-      }
-    | {
-          all: number;
-      };
 export default function Order(props: IOrder) {
-    const {
-        params: { detailProduct }
-    } = props;
-    const [statusOrder, setSatusOrder] = useState<'fail' | 'success'>('fail');
-    const foundProduct = getProduct(detailProduct);
-    const [totalPrice, setTotalPrice] = useState<number>(foundProduct.price);
+    const { params: { detailProduct } } = props;
+    const { type, slug, price, name, imgSrc } = getProduct(detailProduct);
 
-    const [selectedOptions, setSelectedOptions] = useState<SelectedOption>({
-        0: 0
-    });
+    const [statusOrder, setSatusOrder] = useState<'fail' | 'success'>('fail');
+
+    const def = listOptions.find(x => x.id == OptionID.THINKMAY)
+    if (def == undefined)
+        throw ''
+
+    const [selectedOptions, setSelectedOptions] = useState<OptionID[]>(
+        slug == 'adobe'
+            ? [OptionID.ADOBE, OptionID.THINKMAY]
+            : [OptionID.THINKMAY]);
     const [openGuide, setOpenGuide] = useState(false);
 
-    const handleSelectOption = (option: Option) => {
-        // Calculate the new total price
-        let newTotalPrice = totalPrice;
+    const totalPrice = () => {
+        let total = 0
+        listOptions
+            .filter(x => selectedOptions.includes(x.id))
+            .forEach(x => total += x.info.price)
+        return total
+    }
 
-        // Remove option if it's already selected
-        if (option.id in selectedOptions) {
-            //@ts-ignore
-            const { [option.id]: removedOptionPrice, ...updatedOptions } =
-                selectedOptions;
-            setSelectedOptions(updatedOptions);
-            newTotalPrice -= removedOptionPrice;
+
+    const handleSelectOption = (option: IOption) => {
+        const selection = listOptions.find(x => x.id == option.id)
+        if (selection == undefined || option.id == OptionID.THINKMAY)
+            return
+
+        const selected = selectedOptions.includes(option.id)
+
+        if (option.id == OptionID.ALL) {
+            if (selected)
+                setSelectedOptions([OptionID.THINKMAY]);
+            else
+                setSelectedOptions([OptionID.ALL]);
+        } else if (selectedOptions.includes(OptionID.ALL)) {
+            setSelectedOptions([OptionID.THINKMAY, option.id]);
         } else {
-            // Add the price of the selected option
-            if (option.id === 'all') {
-                // For the 'all' option
-                setSelectedOptions({ all: 4000000 });
-                newTotalPrice = 4000000 + foundProduct.price;
-            } else {
-                if ('all' in selectedOptions) {
-                    setSelectedOptions({ [option.id]: option.info.price });
-                    newTotalPrice = option.info.price + foundProduct.price;
-                } else {
-                    newTotalPrice += option.info.price;
-                    setSelectedOptions((prev) => ({
-                        ...prev,
-                        [option.id]: option.info.price
-                    }));
-                }
-            }
-        }
+            let temp = [...selectedOptions]
+            if (selected)
+                temp = temp.filter(x => x != option.id)
+            else
+                temp.push(option.id)
 
-        // Update the total price
-        setTotalPrice(newTotalPrice);
-    };
-    const checkStatusOption = (id: 'all' | number) => {
-        let status: StatusOption = 'normal';
-        if (id in selectedOptions) {
-            status = 'chose';
+            setSelectedOptions(temp);
         }
-        if (typeof id == 'number' && 'all' in selectedOptions) {
-            status = 'disable';
-        } else if (id == 'all' && !('all' in selectedOptions)) {
-            status = 'disable';
-        }
-        return status;
     };
+
+    const checkStatusOption = (id: OptionID) =>
+        selectedOptions.includes(id)
     return (
         <>
             {statusOrder == 'success' ? (
@@ -209,53 +137,56 @@ export default function Order(props: IOrder) {
                                 <div className="stick"></div>
                             </div>
                             <div className="right">
-                                <div className="cart">
-                                    <div className="title">
-                                        <Icon src="shopping-cart" />
-                                        Giỏ hàng
-                                    </div>
-
-                                    <div className="info">
-                                        <div className="spec">
-                                            <div className="img">
-                                                <Image
-                                                    src={ '/' + foundProduct.imgSrc }
-                                                    width={80}
-                                                    height={80}
-                                                    alt="img"
-                                                />
+                                {
+                                    type != Lines.SOFTWARE
+                                        ? <div className="cart">
+                                            <div className="title">
+                                                <Icon src="shopping-cart" />
+                                                Giỏ hàng
                                             </div>
-                                            <div className="detail">
-                                                <h5 className="name">
-                                                    {foundProduct.name}
-                                                </h5>
 
-                                                <div className="subInfo">
-                                                    <span className="text">
-                                                        Màu: Đồng
-                                                    </span>
-                                                    <div className="ctnStick">
-                                                        <div className="stick"></div>
+                                            <div className="info">
+                                                <div className="spec">
+                                                    <div className="img">
+                                                        <Image
+                                                            src={'/' + imgSrc}
+                                                            width={80}
+                                                            height={80}
+                                                            alt="img"
+                                                        />
                                                     </div>
-                                                    <span className="text">
-                                                        Số lượng: 01
-                                                    </span>
+                                                    <div className="detail">
+                                                        <h5 className="name">
+                                                            {name}
+                                                        </h5>
+
+                                                        <div className="subInfo">
+                                                            <span className="text">
+                                                                Màu: Đồng
+                                                            </span>
+                                                            <div className="ctnStick">
+                                                                <div className="stick"></div>
+                                                            </div>
+                                                            <span className="text">
+                                                                Số lượng: 01
+                                                            </span>
+                                                        </div>
+                                                    </div>
                                                 </div>
+
+                                                <span className="price">
+                                                    {formatPrice(price)}VNĐ
+                                                </span>
                                             </div>
                                         </div>
+                                        : null
+                                }
 
-                                        <span className="price">
-                                            {formatPrice(foundProduct.price)}VNĐ
-                                        </span>
-                                    </div>
-                                </div>
 
                                 <hr />
-
                                 <div className="options">
                                     <h5 className="title">
                                         Lựa chọn thêm các gói dịch vụ riêng lẻ
-                                        (không bắt buộc)
                                     </h5>
                                     <p className="subTitle">
                                         Tuỳ chỉnh thoải mái, tạo ra chiếc Laptop
@@ -265,59 +196,11 @@ export default function Order(props: IOrder) {
                                     <div className="ctnOptions">
                                         {listOptions.map((option) => (
                                             <Option
-                                                handleSelectOption={() =>
-                                                    handleSelectOption(option)
-                                                }
-                                                //handleSelectOption={()=>{}}
-                                                status={checkStatusOption(
-                                                    option.id
-                                                )}
+                                                handleSelectOption={() => handleSelectOption(option)}
+                                                status={checkStatusOption(option.id)}
                                                 {...option}
                                             ></Option>
                                         ))}
-                                        <div
-                                            className={
-                                                checkStatusOption('all') ==
-                                                'disable'
-                                                    ? 'option disable'
-                                                    : 'option'
-                                            }
-                                            onClick={() =>
-                                                handleSelectOption(
-                                                    specialOption
-                                                )
-                                            }
-                                        >
-                                            <h6 className="name">
-                                                {specialOption.option}
-                                            </h6>
-
-                                            <div
-                                                className={
-                                                    checkStatusOption('all') ==
-                                                    'chose'
-                                                        ? 'content chose'
-                                                        : 'content'
-                                                }
-                                            >
-                                                <div className="info">
-                                                    {specialOption.info.main}
-
-                                                    <span className="subInfo">
-                                                        {specialOption.info.sub}
-                                                    </span>
-                                                </div>
-
-                                                <div className="price">
-                                                    +
-                                                    {formatPrice(
-                                                        specialOption.info.price
-                                                    )}
-                                                    VNĐ
-                                                    {/*Tiết kiệm 1.000.000*/}
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
 
                                     <hr className="my-[32px]" />
@@ -328,7 +211,7 @@ export default function Order(props: IOrder) {
                                         </h6>
                                         <div className="ctnPrice">
                                             <h5 className="price">
-                                                {formatPrice(totalPrice)} VNĐ
+                                                {formatPrice(totalPrice())} VNĐ
                                             </h5>
                                             <p className="subText">
                                                 *Chưa bao gồm phí vận chuyển
@@ -362,13 +245,14 @@ const Option = (props: IOptionProps) => {
     return (
         <div
             onClick={handleSelectOption}
-            className={status == 'disable' ? 'option disable' : 'option'}
+            // className={status == 'disable' ? 'option disable' : 'option'}
+            className="option"
         >
             <h6 className="name">
                 {option} <span>{sub}</span>
             </h6>
 
-            <div className={status == 'chose' ? 'chose content ' : 'content '}>
+            <div className={status ? 'chose content ' : 'content '}>
                 <div className="info">
                     {info.main}
 
