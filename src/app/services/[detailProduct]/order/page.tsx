@@ -50,7 +50,7 @@ export default function Order(props: IOrder) {
         listOptions
             .filter(x => selectedOptions.includes(x.id))
             .forEach(x => total += x.info.price)
-        return total
+        return total + (type == Lines.SOFTWARE ? 0 : price)
     }
 
 
