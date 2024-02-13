@@ -77,7 +77,7 @@ export const products: IProduct[] = [
         ]
     },
     {
-        imgSrc: 'adobe_with_txt.avif',
+        imgSrc: 'adobe_with_txt.png',
         type: Lines.SOFTWARE,
         slug: 'adobe',
         name: 'Adobe Creative Cloud',

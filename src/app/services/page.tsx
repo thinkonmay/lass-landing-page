@@ -92,7 +92,7 @@ const ThinkpadBanner = () => {
 					height={640}
 					alt="img"
 					// className="h-full"
-					src={'/thinkpad-x1-gen10.avif'}
+					src={'/thinkpad-x1-gen10.png'}
 				/>
 			</div>
 		</div>
