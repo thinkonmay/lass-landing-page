@@ -1,22 +1,32 @@
-import { Dispatch, SetStateAction } from "react";
+import { Lines, lines } from '@/data/lines';
+import { Dispatch, SetStateAction } from 'react';
 
 interface ISwitchBtn {
-	productShow: 'macbook' | 'thinkpad',
-	setProductShow: Dispatch<SetStateAction<"macbook" | "thinkpad">>
+	productShow: Lines
+	setProductShow: Dispatch<SetStateAction<Lines>>;
 }
- const SwitchBtn = (props: ISwitchBtn) => {
-	const { productShow, setProductShow } = props
-
-
+const SwitchBtn = (props: ISwitchBtn) => {
+	const { productShow, setProductShow } = props;
 	return (
-		<div className="switchBtn l-6">
-			<button onClick={() => { setProductShow('macbook') }} className={productShow == 'macbook' ? 'btnChecked' : ''}>Macbook</button>
-			<button onClick={() => { setProductShow('thinkpad') }} className={productShow == 'thinkpad' ? 'btnChecked' : ''}>Thinkpad</button>
+		<div className="switchBtn l-6" >
+			{lines.map(x =>
+				<button
+					key={x.id}
+					className={productShow == x.id ? 'btnChecked' : ''}
+					onClick={() => setProductShow(x.id)}
+				>
+					{x.title}
+				</button>
+			)}
 
-			<div className={productShow == 'thinkpad' ? "checked checkedRight" : "checked"}></div>
+			<div className='checked'
+				style={{
+					width: `${100 / lines.length}%`,
+					transform: `translateX(${lines.findIndex(x => x.id == productShow) * 100}%)`
+				}}
+			></div>
 		</div>
+	);
+};
 
-	)
-}
-
-export default SwitchBtn
+export default SwitchBtn;
