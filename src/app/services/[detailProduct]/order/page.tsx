@@ -219,11 +219,7 @@ export default function Order(props: IOrder) {
                                         <div className="spec">
                                             <div className="img">
                                                 <Image
-                                                    src={
-                                                        '/' +
-                                                        foundProduct.imgSrc +
-                                                        '.png'
-                                                    }
+                                                    src={ '/' + foundProduct.imgSrc }
                                                     width={80}
                                                     height={80}
                                                     alt="img"

@@ -53,7 +53,7 @@ const Product = (props: IProduct) => {
 		<div className="productCard col l-6 c-12">
 			<div>
 				<Image
-					src={'/' + props.imgSrc + '.png'}
+					src={'/' + props.imgSrc }
 					width={360}
 					height={160}
 					alt="img"

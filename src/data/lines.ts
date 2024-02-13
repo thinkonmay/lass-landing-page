@@ -17,9 +17,9 @@ export const lines: ILine[] = [{
     id: Lines.THINKPAD,
     title: 'thinkpad',
 },{
-    id: Lines.SOFTWARE,
-    title: 'software',
-},{
     id: Lines.MINI_PC,
     title: 'mini pc',
+},{
+    id: Lines.SOFTWARE,
+    title: 'software',
 }];

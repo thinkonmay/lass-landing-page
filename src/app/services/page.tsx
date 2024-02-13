@@ -54,8 +54,8 @@ const MacbookBanner = () => {
 		<div className="ctnImages">
 			<div className="l-5">
 				<Image
-					width={510}
-					height={476}
+					width={1400}
+					height={420}
 					alt="img"
 					className="h-full"
 					src={'/services-macbook-1.png'}
@@ -79,20 +79,20 @@ const ThinkpadBanner = () => {
 		<div className="ctnImages">
 			<div className="l-6">
 				<Image
-					width={620}
-					height={476}
+					width={1280}
+					height={640}
 					alt="img"
-					className="h-full"
-					src={'/thinkpad-banner-1.png'}
+					// className="h-full"
+					src={'/thinkpad-x1-gen10.jpg'}
 				/>
 			</div>
 			<div className="l-6">
 				<Image
-					width={620}
-					height={476}
+					width={1280}
+					height={640}
 					alt="img"
-					className="h-full"
-					src={'/thinkpad-banner-2.png'}
+					// className="h-full"
+					src={'/thinkpad-x1-gen10.avif'}
 				/>
 			</div>
 		</div>
@@ -103,7 +103,7 @@ const Product = (props: IProduct) => {
 		<div className="productCard col ">
 			<div>
 				<Image
-					src={'/' + props.imgSrc + '.png'}
+					src={'/' + props.imgSrc }
 					width={360}
 					height={160}
 					alt="img"

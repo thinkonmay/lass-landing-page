@@ -1,14 +1,13 @@
 'use client';
 import Image from 'next/image';
 
-import './detail-product.scss';
-import Icon from '../../../components/icon';
-import Breadcrumb from '../../../components/breadcrumb/Breadcumb';
+import Link from 'next/link';
 import { useState } from 'react';
-import { notFound } from 'next/navigation';
+import Breadcrumb from '../../../components/breadcrumb/Breadcumb';
+import Icon from '../../../components/icon';
 import { findProduct } from '../../../utils/findProduct';
 import { formatPrice } from '../../../utils/formatPrice';
-import Link from 'next/link';
+import './detail-product.scss';
 interface IDetailProduct {
     params: {
         detailProduct: string;
@@ -39,7 +38,7 @@ export default function DetailProduct(props: IDetailProduct) {
                                     width={600}
                                     height={600}
                                     alt="img"
-                                    src={'/' + foundProduct.imgSrc + '.png'}
+                                    src={'/' + foundProduct.imgSrc}
                                 ></Image>
                             </div>
 
