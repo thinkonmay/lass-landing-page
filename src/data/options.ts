@@ -62,7 +62,7 @@ export const listOptions: IOption[] = [
         info: {
             main: 'Tất cả các gói dịch vụ trong 1 năm',
             sub: '(Bao gồm tất cả các dịch vụ đã được liệt kê ở trên)',
-            price: 4000000
+            price: 6000000
         }
     }
 ];

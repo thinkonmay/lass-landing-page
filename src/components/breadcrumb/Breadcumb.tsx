@@ -49,17 +49,17 @@ function Breadcrumb(props: Props) {
 
             if (index + 1 == pathNameSplit.length) {
                 return (
-                    <span className="disableLink">{renderPathName(pN)}</span>
+                    <span key={index} className="disableLink">{renderPathName(pN)}</span>
                 );
             }
             return (
-                <>
+                <div key={index}>
                     <Link className="link" href={prevLink}>
                         {renderPathName(pN)}
                     </Link>
 
                     <Icon src="arrow-right"></Icon>
-                </>
+                </div>
             );
         });
     };

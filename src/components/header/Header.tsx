@@ -31,15 +31,15 @@ function Header() {
                         </Link>
                     </li>
                     <li>
-                        <Link className="link" href="/#">
-                            Về Thinkmay
-                        </Link>
-                    </li>
-                    <li>
                         <Link className="link" href="/contact">
                             Liên hệ
                         </Link>
                     </li>
+                    {/* <li>
+                        <Link className="link" href="/#">
+                            Về Thinkmay
+                        </Link>
+                    </li> */}
                     <Link
                         href="https://dev-thinkmay.netlify.app"
                         className="btn btn-link"
@@ -71,15 +71,15 @@ function Header() {
                                 </Link>
                             </li>
                             <li>
-                                <Link className="link" href="/#">
-                                    Về Thinkmay
-                                </Link>
-                            </li>
-                            <li>
                                 <Link className="link" href="/contact">
                                     Liên hệ
                                 </Link>
                             </li>
+                            {/* <li>
+                                <Link className="link" href="/#">
+                                    Về Thinkmay
+                                </Link>
+                            </li> */}
                             <Link
                                 href="https://dev-thinkmay.netlify.app"
                                 className="btn btn-link"

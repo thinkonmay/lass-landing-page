@@ -60,7 +60,7 @@ function Footer() {
                             <ul>
                                 <li>
                                     <Icon src="phone" width={32} height={32} />
-                                    +960 798 5454
+                                    (+84) 347 961 231
                                 </li>
                                 <li>
                                     <Icon src="mail" width={32} height={32} />
