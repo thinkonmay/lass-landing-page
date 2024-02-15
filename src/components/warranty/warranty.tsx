@@ -153,6 +153,7 @@ export default function Warranty() {
                         if (typeof ctn === 'object' && ctn !== null) {
                             return (
                                 <Content
+                                    key={i}
                                     category={ctn.category}
                                     contents={ctn.contents}
                                     type={ctn?.type}
@@ -185,8 +186,9 @@ export default function Warranty() {
                     </div>
 
                     <div className="wrapperPolicys">
-                        {policys.map((plc) => (
+                        {policys.map((plc, index) => (
                             <Content
+                                key={index}
                                 category={plc.category}
                                 contents={plc.contents}
                                 type={plc.type}

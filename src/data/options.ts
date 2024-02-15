@@ -3,7 +3,7 @@ export enum OptionID {
     THINKMAY,
     ADOBE,
     STEAM,
-    LAPTOP_WARRANTY,
+    LAPTOP_WARRANTY
 }
 
 export interface IOption {
@@ -56,7 +56,6 @@ export const listOptions: IOption[] = [
         }
     },
     {
-
         option: 'Tất cả các gói dịch vụ Thinkmay:',
         id: OptionID.ALL,
         info: {

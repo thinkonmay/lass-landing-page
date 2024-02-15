@@ -1,4 +1,4 @@
-import { Lines } from "./lines";
+import { Lines } from './lines';
 
 export interface IProduct {
     imgSrc?: string;
@@ -72,9 +72,7 @@ export const products: IProduct[] = [
         name: 'T9 plus',
         subText: 'Base line (New)',
         price: 3000000,
-        spec: [
-            ''
-        ]
+        spec: ['']
     },
     {
         imgSrc: 'adobe_with_txt.png',
@@ -83,9 +81,7 @@ export const products: IProduct[] = [
         name: 'Adobe Creative Cloud',
         subText: '1 year subscription',
         price: 2000000,
-        spec: [
-            ''
-        ]
+        spec: ['']
     },
     {
         imgSrc: 'thinkmay-1year.png',
@@ -94,10 +90,8 @@ export const products: IProduct[] = [
         name: 'Thinkmay cloud PC',
         subText: '1 year subscription',
         price: 4000000,
-        spec: [
-            ''
-        ]
-    },
-]
+        spec: ['']
+    }
+];
 
-products.sort((a,b) => a.price - b.price);
+products.sort((a, b) => a.price - b.price);

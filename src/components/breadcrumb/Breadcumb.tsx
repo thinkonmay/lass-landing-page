@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import './breadcrumb.scss';
 
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { products } from '../../data/products';
 import Icon from '../icon';
 
@@ -47,20 +47,21 @@ function Breadcrumb(props: Props) {
             if (index == 0) return null;
             prevLink += pN + '/';
 
-            if (index + 1 == pathNameSplit.length) {
+            if (index + 1 == pathNameSplit.length)
                 return (
-                    <span key={index} className="disableLink">{renderPathName(pN)}</span>
-                );
-            }
-            return (
-                <>
-                    <Link className="link" href={prevLink}>
+                    <span key={index} className="disableLink">
                         {renderPathName(pN)}
-                    </Link>
-
-                    <Icon src="arrow-right"></Icon>
-                </>
-            );
+                    </span>
+                );
+            else
+                return (
+                    <div className="breadCrumbContent" key={index}>
+                        <Link key={index} className="link" href={prevLink}>
+                            {renderPathName(pN)}
+                        </Link>
+                        <Icon key={index + 100} src="arrow-right"></Icon>
+                    </div>
+                );
         });
     };
 

@@ -87,8 +87,8 @@ const Reason = () => {
                 </div>
                 <div className="bottom ">
                     <div className="ctnCards grid wide ">
-                        {reasons.map((x) => (
-                            <div className="card l-4 m-12 c-12">
+                        {reasons.map((x, index) => (
+                            <div key={index} className="card l-4 m-12 c-12">
                                 <div>
                                     <Icon
                                         src={x.icon}
@@ -101,8 +101,8 @@ const Reason = () => {
                                             {x.subtitle}
                                         </span>
                                         <h3 className="title">{x.title}</h3>
-                                        {x.content.map((y) => (
-                                            <p className="text">
+                                        {x.content.map((y, index) => (
+                                            <p key={index} className="text">
                                                 {y}
                                                 <br />
                                             </p>

@@ -69,8 +69,8 @@ export default function Guide() {
                 <ul
                     className={contents.length > 1 ? 'listTypeDisc' : 'deteils'}
                 >
-                    {contents.map((ctn) => (
-                        <li>{ctn}</li>
+                    {contents.map((ctn, index) => (
+                        <li key={index}>{ctn}</li>
                     ))}
 
                     <div

@@ -16,7 +16,7 @@ import './order.scss';
 type IOptionProps = IOption & {
     status: boolean;
     handleSelectOption: () => void;
-}
+};
 
 interface IOrder {
     params: {
@@ -30,57 +30,52 @@ const getProduct = (slug: string) => {
 };
 
 export default function Order(props: IOrder) {
-    const { params: { detailProduct } } = props;
+    const {
+        params: { detailProduct }
+    } = props;
     const { type, slug, price, name, imgSrc } = getProduct(detailProduct);
 
     const [statusOrder, setSatusOrder] = useState<'fail' | 'success'>('fail');
 
-    const def = listOptions.find(x => x.id == OptionID.THINKMAY)
-    if (def == undefined)
-        throw ''
+    const def = listOptions.find((x) => x.id == OptionID.THINKMAY);
+    if (def == undefined) throw '';
 
     const [selectedOptions, setSelectedOptions] = useState<OptionID[]>(
         slug == 'adobe'
             ? [OptionID.ADOBE, OptionID.THINKMAY]
-            : [OptionID.THINKMAY]);
+            : [OptionID.THINKMAY]
+    );
     const [openGuide, setOpenGuide] = useState(false);
 
     const totalPrice = () => {
-        let total = 0
+        let total = 0;
         listOptions
-            .filter(x => selectedOptions.includes(x.id))
-            .forEach(x => total += x.info.price)
-        return total + (type == Lines.SOFTWARE ? 0 : price)
-    }
-
+            .filter((x) => selectedOptions.includes(x.id))
+            .forEach((x) => (total += x.info.price));
+        return total + (type == Lines.SOFTWARE ? 0 : price);
+    };
 
     const handleSelectOption = (option: IOption) => {
-        const selection = listOptions.find(x => x.id == option.id)
-        if (selection == undefined || option.id == OptionID.THINKMAY)
-            return
+        const selection = listOptions.find((x) => x.id == option.id);
+        if (selection == undefined || option.id == OptionID.THINKMAY) return;
 
-        const selected = selectedOptions.includes(option.id)
+        const selected = selectedOptions.includes(option.id);
 
         if (option.id == OptionID.ALL) {
-            if (selected)
-                setSelectedOptions([OptionID.THINKMAY]);
-            else
-                setSelectedOptions([OptionID.ALL]);
+            if (selected) setSelectedOptions([OptionID.THINKMAY]);
+            else setSelectedOptions([OptionID.ALL]);
         } else if (selectedOptions.includes(OptionID.ALL)) {
             setSelectedOptions([OptionID.THINKMAY, option.id]);
         } else {
-            let temp = [...selectedOptions]
-            if (selected)
-                temp = temp.filter(x => x != option.id)
-            else
-                temp.push(option.id)
+            let temp = [...selectedOptions];
+            if (selected) temp = temp.filter((x) => x != option.id);
+            else temp.push(option.id);
 
             setSelectedOptions(temp);
         }
     };
 
-    const checkStatusOption = (id: OptionID) =>
-        selectedOptions.includes(id)
+    const checkStatusOption = (id: OptionID) => selectedOptions.includes(id);
     return (
         <>
             {statusOrder == 'success' ? (
@@ -137,51 +132,48 @@ export default function Order(props: IOrder) {
                                 <div className="stick"></div>
                             </div>
                             <div className="right">
-                                {
-                                    type != Lines.SOFTWARE
-                                        ? <div className="cart">
-                                            <div className="title">
-                                                <Icon src="shopping-cart" />
-                                                Giỏ hàng
-                                            </div>
+                                {type != Lines.SOFTWARE ? (
+                                    <div className="cart">
+                                        <div className="title">
+                                            <Icon src="shopping-cart" />
+                                            Giỏ hàng
+                                        </div>
 
-                                            <div className="info">
-                                                <div className="spec">
-                                                    <div className="img">
-                                                        <Image
-                                                            src={'/' + imgSrc}
-                                                            width={80}
-                                                            height={80}
-                                                            alt="img"
-                                                        />
-                                                    </div>
-                                                    <div className="detail">
-                                                        <h5 className="name">
-                                                            {name}
-                                                        </h5>
+                                        <div className="info">
+                                            <div className="spec">
+                                                <div className="img">
+                                                    <Image
+                                                        src={'/' + imgSrc}
+                                                        width={80}
+                                                        height={80}
+                                                        alt="img"
+                                                    />
+                                                </div>
+                                                <div className="detail">
+                                                    <h5 className="name">
+                                                        {name}
+                                                    </h5>
 
-                                                        <div className="subInfo">
-                                                            <span className="text">
-                                                                Màu: Đồng
-                                                            </span>
-                                                            <div className="ctnStick">
-                                                                <div className="stick"></div>
-                                                            </div>
-                                                            <span className="text">
-                                                                Số lượng: 01
-                                                            </span>
+                                                    <div className="subInfo">
+                                                        <span className="text">
+                                                            Màu: Đồng
+                                                        </span>
+                                                        <div className="ctnStick">
+                                                            <div className="stick"></div>
                                                         </div>
+                                                        <span className="text">
+                                                            Số lượng: 01
+                                                        </span>
                                                     </div>
                                                 </div>
-
-                                                <span className="price">
-                                                    {formatPrice(price)}VNĐ
-                                                </span>
                                             </div>
-                                        </div>
-                                        : null
-                                }
 
+                                            <span className="price">
+                                                {formatPrice(price)}VNĐ
+                                            </span>
+                                        </div>
+                                    </div>
+                                ) : null}
 
                                 <hr />
                                 <div className="options">
@@ -194,10 +186,15 @@ export default function Order(props: IOrder) {
                                     </p>
 
                                     <div className="ctnOptions">
-                                        {listOptions.map((option) => (
+                                        {listOptions.map((option, index) => (
                                             <Option
-                                                handleSelectOption={() => handleSelectOption(option)}
-                                                status={checkStatusOption(option.id)}
+                                                key={index}
+                                                handleSelectOption={() =>
+                                                    handleSelectOption(option)
+                                                }
+                                                status={checkStatusOption(
+                                                    option.id
+                                                )}
                                                 {...option}
                                             ></Option>
                                         ))}
@@ -302,8 +299,8 @@ const GuideModal = () => {
             <div className="guideModalContent">
                 <h5 className="titleGuide">{category}</h5>
                 <ul>
-                    {contents.map((item) => (
-                        <li>{item}</li>
+                    {contents.map((item, index) => (
+                        <li key={index}>{item}</li>
                     ))}
                 </ul>
             </div>

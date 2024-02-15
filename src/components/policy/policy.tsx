@@ -1,7 +1,4 @@
-import Image from 'next/image';
-
 import './policy.scss';
-import Breadcrumb from '../breadcrumb/Breadcumb';
 
 export default function Policy() {
     const policys = [
@@ -51,7 +48,7 @@ export default function Policy() {
 
                 <ul>
                     {contents.map((ctn, i) => (
-                        <li>
+                        <li key={i}>
                             {i + 1}. {ctn}
                         </li>
                     ))}
@@ -76,8 +73,9 @@ export default function Policy() {
                     </div>
 
                     <div className="wrapperPolicys">
-                        {policys.map((plc) => (
+                        {policys.map((plc, index) => (
                             <Content
+                                key={index}
                                 category={plc.category}
                                 contents={plc.contents}
                             ></Content>
