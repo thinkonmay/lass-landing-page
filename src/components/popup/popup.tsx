@@ -1,11 +1,8 @@
 'use client';
-import React, { Dispatch, ReactNode, SetStateAction } from 'react';
-import ReactDOM from 'react-dom';
+import { Dispatch, ReactNode, SetStateAction } from 'react';
 import Modal from 'react-modal';
-import './popup.scss';
-import Guide from '../guide/guide';
-import exp from 'constants';
 import Icon from '../icon';
+import './popup.scss';
 
 interface Props {
     open: boolean;
@@ -14,10 +11,8 @@ interface Props {
 }
 function Popup(props: Props) {
     const { open, setOpen, children } = props;
+    const closeModal = () => setOpen(false);
 
-    function closeModal() {
-        setOpen(false);
-    }
     return (
         <div>
             <Modal

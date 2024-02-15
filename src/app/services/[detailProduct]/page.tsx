@@ -61,16 +61,10 @@ export default function DetailProduct(props: IDetailProduct) {
 
                             <ul className="bonus">
                                 <h4>Dịch vụ miễn phí đi kèm:</h4>
-
                                 <li>
-                                    1 năm sử dụng dịch vụ Thinkmay Cloud PC
-                                    3.500.000 VNĐ
+                                    {' '}
+                                    1 miếng dán Laptop (Trị giá: 300.000 VNĐ){' '}
                                 </li>
-                                <li>
-                                    1 miếng dán Laptop (Trị giá: 300.000 VNĐ)
-                                </li>
-                                <li>Bảo dưỡng phần cứng</li>
-                                <li>Cài đặt phần mềm</li>
                             </ul>
 
                             <Link

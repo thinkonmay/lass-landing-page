@@ -1,12 +1,17 @@
 'use client';
+import Link from 'next/link';
 import { useState } from 'react';
 import Icon from '../icon';
 import './header.scss';
-import Image from 'next/image';
-import Link from 'next/link';
 
 function Header() {
     const [openNav, setOpenNav] = useState(false);
+    const open = () => {
+        setOpenNav(true);
+    };
+    const close = () => {
+        setOpenNav(false);
+    };
 
     return (
         <div className="header ">
@@ -27,7 +32,7 @@ function Header() {
                 <ul className="rightDesktop">
                     <li>
                         <Link className="link" href="/services">
-                            Dịch vụ
+                            Laptop
                         </Link>
                     </li>
                     <li>
@@ -50,7 +55,7 @@ function Header() {
                 </ul>
 
                 <div className="rightMobile">
-                    <button onClick={() => setOpenNav(true)}>
+                    <button onClick={open}>
                         <Icon src="3-line"></Icon>
                     </button>
 
@@ -59,19 +64,27 @@ function Header() {
                             <Link className="link bold" href="/">
                                 Trang chủ
                             </Link>
-                            <button onClick={() => setOpenNav(false)}>
+                            <button onClick={close}>
                                 <Icon src="x"></Icon>
                             </button>
                         </div>
 
                         <ul>
                             <li>
-                                <Link className="link" href="/services">
-                                    Dịch vụ
+                                <Link
+                                    className="link"
+                                    href="/services"
+                                    onClick={close}
+                                >
+                                    Laptop
                                 </Link>
                             </li>
                             <li>
-                                <Link className="link" href="/contact">
+                                <Link
+                                    className="link"
+                                    href="/contact"
+                                    onClick={close}
+                                >
                                     Liên hệ
                                 </Link>
                             </li>
