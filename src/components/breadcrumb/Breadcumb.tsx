@@ -53,13 +53,13 @@ function Breadcrumb(props: Props) {
                 );
             }
             return (
-                <div key={index}>
+                <>
                     <Link className="link" href={prevLink}>
                         {renderPathName(pN)}
                     </Link>
 
                     <Icon src="arrow-right"></Icon>
-                </div>
+                </>
             );
         });
     };
