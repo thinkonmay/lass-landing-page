@@ -31,7 +31,7 @@ export const listOptions: IOption[] = [
         option: 'Adobe Toolset for Graphic Design / Video Editor:',
         id: OptionID.ADOBE,
         info: {
-            main: '1 Năm bản quyền bộ công cụ Adobe ',
+            main: '1 Năm bản quyền bộ công cụ Adobe',
             sub: '(Tài khoản được Thinkmay cung cấp)',
             price: 2000000
         }
@@ -41,7 +41,7 @@ export const listOptions: IOption[] = [
         id: OptionID.STEAM,
         info: {
             main: '1 năm Steam bản quyền với tối đa 5 Game theo yêu cầu',
-            sub: ' (Sử dụng trên Thinkmay Cloud PC)',
+            sub: '(Sử dụng trên Thinkmay Cloud PC)',
             price: 500000
         }
     },

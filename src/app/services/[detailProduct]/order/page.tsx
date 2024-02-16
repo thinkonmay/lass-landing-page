@@ -252,7 +252,7 @@ const Option = (props: IOptionProps) => {
             <div className={status ? 'chose content ' : 'content '}>
                 <div className="info">
                     {info.main}
-
+                    {" "}
                     <span className="subInfo">{info.sub}</span>
                 </div>
 
