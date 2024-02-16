@@ -135,7 +135,7 @@ export default function Order(props: IOrder) {
                                 {type != Lines.SOFTWARE ? (
                                     <div className="cart">
                                         <div className="title">
-                                            <Icon src="shopping-cart" />
+                                                <Icon src="shopping-cart-black" />
                                             Giỏ hàng
                                         </div>
 
@@ -221,7 +221,7 @@ export default function Order(props: IOrder) {
                                         className="btn-buy"
                                     >
                                         Xác nhận mua hàng{' '}
-                                        <Icon src="shopping-cart"></Icon>
+                                            <Icon src="shopping-cart"></Icon>
                                     </button>
                                 </div>
                             </div>
