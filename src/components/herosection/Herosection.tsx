@@ -1,8 +1,8 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import Icon from '../icon';
 import './herosection.scss';
-import Image from 'next/image';
 import TextTransform from './textTransform';
-import Link from 'next/link';
 
 function HeroSection() {
     return (
@@ -40,6 +40,7 @@ function HeroSection() {
                             width={793}
                             height={480}
                             src={'/macbook.png'}
+                            priority={true}
                         />
 
                         <div className="subBg1"></div>
