@@ -1,7 +1,18 @@
+"use client"
+
+import { useState } from 'react';
 import Icon from '../icon';
+import Popup from '../popup/popup';
 import './testimonials.scss';
-import Image from 'next/image';
-const discord = [
+
+interface IFeedback {
+    name: string
+    img: string
+    job: string
+    feedback: string[]
+
+}
+const discord: IFeedback[] = [
     {
         name: 'Hoang Phu',
         img: '',
@@ -52,7 +63,58 @@ const discord = [
     }
 ];
 
+interface IModalState {
+    isOpen: boolean,
+    content?: IFeedback
+
+}
 function Testimonials() {
+    const [modalContent, setModalContent] = useState<IFeedback>({
+        name: 'Dat Do',
+        img: '',
+        job: 'Sinh viên',
+        feedback: [
+            'Test thử 1 tuần trên Edge, Cloud chất lượng, độ delay thì hơn hẵng những cloud khác mừng từng xài như Geforce Now, Xbox Cloud. Tùy còn vài lỗi linh tinh nhưng cũng không ảnh hưởng lắm. Mong team sẽ hoàn thiện cloud hơn nữa và được mọi người ủng hộ.'
+        ]
+    })
+    const [isOpenModal, setOpenModal] = useState(false)
+
+    const seeMoreFeedback = (input: IFeedback) => {
+        setOpenModal(true)
+        setModalContent(input)
+    }
+
+    const renderFeedbacks = () => {
+
+        return (
+            <div className="wrapperFeedback grid wide">
+                {
+                    discord.map((x, index) => (
+                        <div key={index} className=" feedback l-6 c-12">
+                            <p className="text">
+                                {x.feedback.map((y) => (
+                                    <>
+                                        - {y} <br />
+                                        <br />
+                                    </>
+                                ))}
+                            </p>
+                            <button onClick={() => seeMoreFeedback(x)} className='seeMore'>Xem Thêm</button>
+                            <div className="user">
+                                <div className="img">
+                                    <Icon src="user"></Icon>
+                                </div>
+                                <div className="info">
+                                    <h6 className="name">{x.name}</h6>
+                                    <p className="job">{x.job}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        )
+    }
     return (
         <div className="testimonials">
             <div className="feedbacks">
@@ -65,29 +127,10 @@ function Testimonials() {
                             </h2>
                         </div>
 
-                        <div className="wrapperFeedback grid wide">
-                            {discord.map((x) => (
-                                <div className="feedback l-6 c-12">
-                                    <p className="text">
-                                        {x.feedback.map((y) => (
-                                            <>
-                                                - {y} <br />
-                                                <br />
-                                            </>
-                                        ))}
-                                    </p>
-                                    <div className="user">
-                                        <div className="img">
-                                            <Icon src="user"></Icon>
-                                        </div>
-                                        <div className="info">
-                                            <h6 className="name">{x.name}</h6>
-                                            <p className="job">{x.job}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                        {
+                            renderFeedbacks()
+                        }
+
                     </div>
                 </div>
 
@@ -131,8 +174,40 @@ function Testimonials() {
                     </div>
                 </div>
             </div>
+            <Popup open={isOpenModal} setOpen={setOpenModal}>
+                <FeedbackModal {...modalContent}></FeedbackModal>
+            </Popup>
         </div>
     );
 }
 
 export default Testimonials;
+
+
+const FeedbackModal = (props: IFeedback) => {
+
+
+    console.log(props);
+    return (
+        <div className="feedbackModal thinkmayScroll">
+            <div className="user">
+                <div className="img">
+                    <Icon src="user"></Icon>
+                </div>
+                <div className="info">
+                    <h6 className="name">{props.name}</h6>
+                    <p className="job">{props.job}</p>
+                </div>
+            </div>
+
+            <p className="text">
+                {props?.feedback?.map((y) => (
+                    <>
+                        - {y} <br />
+                        <br />
+                    </>
+                ))}
+            </p>
+        </div>
+    );
+};
