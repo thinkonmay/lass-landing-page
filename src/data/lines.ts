@@ -13,18 +13,18 @@ export interface ILine {
 export const lines: ILine[] = [
     {
         id: Lines.MACBOOK,
-        title: 'macbook'
+        title: 'Macbook'
     },
     {
         id: Lines.THINKPAD,
-        title: 'thinkpad'
+        title: 'Thinkpad'
     },
     {
         id: Lines.MINI_PC,
-        title: 'mini pc'
+        title: 'Mini pc'
     },
     {
         id: Lines.SOFTWARE,
-        title: 'software'
+        title: 'Software'
     }
 ];
