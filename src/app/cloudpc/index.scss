@@ -85,15 +85,20 @@
 
 		background: var(--Neutral-50);
 		.mainContent{
+			padding: 10rem 0;
 
 			
 			.cards{
 				display: flex;
 				justify-content: space-between;
+				margin-top: 48px;
 				.card{
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
 					padding: 32px 24px 32px 24px;
 					border-radius: 2rem;
-
+					height: 320px;
 					background-color: #ffffff;
 
 					.title{
@@ -112,6 +117,19 @@
 						line-height: 28px;
 						letter-spacing: 0em;
 						text-align: left;
+
+					}
+
+					.btn-link{
+						display: flex;
+						gap: 4px;
+						//styleName: Text lg/Semibold;
+						font-size: var(--font-size-lg);
+						font-weight: 600;
+						line-height: 28px;
+						letter-spacing: 0em;
+						text-align: center;
+						color: #0066CC;
 
 					}
 				}
