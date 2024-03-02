@@ -1,0 +1,247 @@
+
+
+.cloudPc{
+
+
+
+	.heroSection{	
+		height: 800px;
+		padding-top: 80px;
+		
+		background-image:  url('/hero-cloudPC.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		.brand{
+			color: var(--Neutral-200, #667085);
+			font-size: var(--font-size-lg);
+			
+		}
+		
+		h1{
+			margin: 12px 0 24px 0;
+
+			color: var(--Neutral-25);
+			font-size: 36px;
+			font-weight: 700;
+			text-transform: uppercase;
+			line-height: 44px; 
+			letter-spacing: -0.72px;
+
+			span{
+				color: #28BCB8;
+				font-size:inherit;
+				font-weight:inherit;
+				text-transform:inherit;
+				line-height:inherit;
+				letter-spacing:inherit;
+			}
+		}
+		.subText{
+			max-width: 50ch;
+			margin-bottom: 44px;
+
+			color: var(--Neutral-50);
+			font-size: var(--font-size-md);
+			font-weight: 500;
+			line-height: 30px; /* 150% */
+		}
+	}
+
+	.wrapperTitle{
+		
+
+		.title{
+			font-size: 36px;
+			font-weight: 700;
+			line-height: 44px;
+			letter-spacing: -0.02em;
+			text-align: left;
+
+			.highlight{
+				color: #28BCB8;
+				font-size: inherit;
+				font-weight: inherit;
+				line-height: inherit;
+				letter-spacing: inherit;
+				text-align: inherit;
+
+
+			}
+		}
+
+		.subTitle{
+			//styleName: Text xl/Medium;
+			font-size: var(--font-size-xl);
+			font-weight: 500;
+			line-height: 30px;
+			letter-spacing: 0em;
+			text-align: left;
+
+		}
+	}
+
+	.reason{
+
+		background: var(--Neutral-50);
+		.mainContent{
+
+			
+			.cards{
+				display: flex;
+				justify-content: space-between;
+				.card{
+					padding: 32px 24px 32px 24px;
+					border-radius: 2rem;
+
+					background-color: #ffffff;
+
+					.title{
+						//styleName: Text xl/Semibold;
+						font-size: var(--font-size-xl);
+						margin: 1.2rem 0 2.4rem 0;
+						font-weight: 600;
+						line-height: 30px;
+						letter-spacing: 0em;
+						text-align: left;
+					}
+					.text{
+						//styleName: Text lg/Medium;
+						font-size: var(--font-size-lg);
+						font-weight: 500;
+						line-height: 28px;
+						letter-spacing: 0em;
+						text-align: left;
+
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (1px < width < 768px) {
+	.contact{
+		padding: 0 var(--gutter-mobile);
+		.logo{
+			display: flex;
+			align-items: flex-end;
+			gap: 4px;
+			margin-bottom: 4.4rem;
+			span{
+				color: var(--Neutral-900);
+				font-size: var(--font-size-lg);
+				font-style: italic;
+				font-weight: 400;
+				line-height: 18.75px; /* 100% */
+			}
+		}
+	
+		h6{
+			color: var(--Neutral-900, #101828);
+			font-size: var(--font-size-xl);
+			font-weight: 700;
+		}
+		ul{
+			margin-top: 24px;
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+			color: var(--Neutral-900, #101828);
+	
+			//styleName: Text xl/Regular;
+			font-size: 2rem;
+			font-weight: 400;
+			line-height: 30px;
+			letter-spacing: 0em;
+			text-align: left;
+	
+			li{
+				display: flex;
+				gap: 0.8rem
+			}
+	
+		}
+		.feedbackForm{
+			display: flex;
+			margin: 10rem auto;
+			margin-top: 0;
+			.img{
+				
+			}
+	
+	
+			.form{
+				position: relative;
+				border-radius: 20px;
+				background: var(--Neutral-100, #F2F4F7);
+				padding: 2.4rem 1.6rem;
+				.top{
+					.title{
+						color:  #101828;
+						font-size: var(--font-display-xs);
+						font-weight: 700;
+						line-height: 32px;
+						letter-spacing: 0em;
+						text-align: center;
+
+						margin-bottom: 0;
+						span{
+							background: linear-gradient(176deg, #28BCB8 3.29%, #060544 260.18%);
+							background-clip: text;
+							-webkit-background-clip: text;
+							-webkit-text-fill-color: transparent;
+							font-size: var(--font-display-md);
+							font-weight: 700;
+							line-height: 44px;
+							letter-spacing: -0.72px;
+							text-transform: uppercase;
+						}
+					}
+		
+					p{
+						color: var(--Neutral-600, #475467);
+		
+						font-size: var(--font-size-md);
+						font-weight: 500;
+						line-height: 24px;
+						letter-spacing: 0em;
+						text-align: center;
+					}
+				}
+				
+				
+		
+				.wrapperInputs{
+					display: flex;
+					flex-direction: column;
+					align-items: flex-start;
+					gap: 1.8rem;
+					margin-top: 4.4rem;
+					input{
+						border-radius: 8px;
+						background: #fff;
+						padding: 1.2rem 2.8rem;
+						width: 100%;
+						outline: none;
+					}
+					.bigInput{
+						height: 156px;
+					}
+					.btn-send{
+						padding: 1.4rem 3.2rem;
+						/* Text lg/Medium */
+						font-size: var(--font-size-lg);
+						font-weight: 500;
+						line-height: 28px; /* 155.556% */
+						margin-top: 2.6rem;
+					}
+				}
+	
+				
+			}
+	
+		}
+	}
+		
+}
