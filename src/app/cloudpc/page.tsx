@@ -441,35 +441,16 @@ const SecureReason = () => {
 
 
     return (
-        <div className="appReason">
-            <div className="grid wide mainContent">
-                <div className=" left l-6 col">
+        <div className="secureReason">
+            <div className="grid wide ">
+                <div className="mainContent l-12 col">
                     <div className="wrapperTitle text-center ">
                         <p className='subTitle'>Làm việc chung dễ dàng</p>
                         <h2 className='title'>Cải thiện <span className="highlight"> hiệu suất </span> làm việc</h2>
                     </div>
 
 
-                    <div className="listProductive">
-                        {
-                            listProductiveReason.map(rea => (
-                                <div key={rea} className='item'>
-                                    <Icon src='check'></Icon>
-                                    <p className='text'>{rea}</p>
-                                </div>
-                            ))
-                        }
-
-                    </div>
-
                     <button className='btn  ctaBtn'>Tư vấn setup</button>
-                </div>
-
-                <div className="right l-6 col">
-                    <div className='img'>
-                        <Image alt={''} width={768} height={500} src='/work-together.png' />
-
-                    </div>
                 </div>
 
             </div>
@@ -480,37 +461,58 @@ const SecureReason = () => {
 const FeatureReason = () => {
 
     return (
-        <div className="appReason">
+        <div className="featureReason">
             <div className="grid wide mainContent">
-                <div className=" left l-6 col">
-                    <div className="wrapperTitle text-center ">
-                        <p className='subTitle'>Làm việc chung dễ dàng</p>
-                        <h2 className='title'>Cải thiện <span className="highlight"> hiệu suất </span> làm việc</h2>
-                    </div>
-
-
-                    <div className="listProductive">
-                        {
-                            listProductiveReason.map(rea => (
-                                <div key={rea} className='item'>
-                                    <Icon src='check'></Icon>
-                                    <p className='text'>{rea}</p>
-                                </div>
-                            ))
-                        }
-
-                    </div>
-
-                    <button className='btn  ctaBtn'>Tư vấn setup</button>
+                <div className="wrapperTitle text-center ">
+                    <h2 className='title'>Tùy chọn tính năng theo gói
+                        <span className="highlight"></span>
+                    </h2>
                 </div>
 
-                <div className="right l-6 col">
-                    <div className='img'>
-                        <Image alt={''} width={768} height={500} src='/work-together.png' />
-
+                <div className="wrapperTable">
+                    <div className="rowContent" style={{ borderTop: 'unset' }}>
+                        <div className="columnContent">TÍNH NĂNG</div>
+                        <div className="columnContent">GÓI THÁNG</div>
+                        <div className="columnContent">GÓI NĂM</div>
+                        <div className="columnContent">DOANH NGHIỆP</div>
+                    </div>
+                    <div className="rowContent">
+                        <div className="columnContent">HD</div>
+                        <div className="columnContent"><Icon src='check'></Icon></div>
+                        <div className="columnContent"><Icon src='check'></Icon></div>
+                        <div className="columnContent"><Icon src='check'></Icon></div>
+                    </div>
+                    <div className="rowContent">
+                        <div className="columnContent">4K</div>
+                        <div className="columnContent">-</div>
+                        <div className="columnContent"><Icon src='check'></Icon></div>
+                        <div className="columnContent"><Icon src='check'></Icon></div>
+                    </div>
+                    <div className="rowContent">
+                        <div className="columnContent">2 Màn hình</div>
+                        <div className="columnContent"><Icon src='check'></Icon></div>
+                        <div className="columnContent"><Icon src='check'></Icon></div>
+                        <div className="columnContent"><Icon src='check'></Icon></div>
+                    </div>
+                    <div className="rowContent">
+                        <div className="columnContent">2 Màn hình</div>
+                        <div className="columnContent"><Icon src='check'></Icon></div>
+                        <div className="columnContent"><Icon src='check'></Icon></div>
+                        <div className="columnContent"><Icon src='check'></Icon></div>
+                    </div>
+                    <div className="rowContent">
+                        <div className="columnContent">Số giờ sử dụng</div>
+                        <div className="columnContent">160h/tháng</div>
+                        <div className="columnContent">200h/tháng</div>
+                        <div className="columnContent">Không giới hạn</div>
+                    </div>
+                    <div className="rowContent">
+                        <div className="columnContent">Yêu cầu thêm tính năng</div>
+                        <div className="columnContent">Thấp</div>
+                        <div className="columnContent">Vừa</div>
+                        <div className="columnContent">Cao</div>
                     </div>
                 </div>
-
             </div>
         </div>
     )
