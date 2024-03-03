@@ -97,7 +97,7 @@ const Reason = () => {
                         </p>
                     </div>
 
-                    <a className='btn-link'>Chi tiết thiết bị <Icon src='arrow-right'></Icon></a>
+                    <a className='btn-link'>Chi tiết  <Icon src='arrow-right'></Icon></a>
 
                 </div>
             </div>
@@ -124,7 +124,7 @@ const listSubscriptions = [
         name: 'Gói tháng',
         price: '299K',
         subPrice: '/tháng',
-        subName: 'Giới hạn thời gian sử dụng',
+        subName: 'Giới hạn 160h/tháng',
         specs: [
             { icon: 'gpu', text: 'Nvidia RTX 3060Ti' },
             { icon: 'ram', text: '12Gb Ram' },
@@ -135,9 +135,9 @@ const listSubscriptions = [
     },
     {
         name: 'Gói năm',
-        price: '299K',
+        price: '3999K',
         subPrice: '/năm',
-        subName: 'Giới hạn thời gian sử dụng',
+        subName: 'Giới hạn 200h/tháng',
         specs: [
             { icon: 'gpu', text: 'Nvidia RTX 3060Ti' },
             { icon: 'ram', text: '12Gb Ram' },
@@ -198,6 +198,19 @@ const Subscriptions = () => {
                         <button className="btn-checkout  ctaBtn">Thanh toán</button>
                         <a className="btn-link">Chi tiết</a>
                     </div>
+
+
+                    {
+                        sub.name == 'Gói năm' ? (
+                            <div className="banner">
+                                Phổ Biến
+                            </div>
+                        ) :
+
+
+                            ''
+                    }
+
                 </div>
             </div>
 
@@ -317,7 +330,7 @@ const ProductiveReason = () => {
 
                     </div>
 
-                    <Link href={'/contact-us'} className='btn  ctaBtn'>Tư vấn setup</Link>
+                    <Link href={'/contact'} className='btn  ctaBtn'>Tư vấn setup</Link>
                 </div>
 
                 <div className="right l-6 col">
@@ -457,7 +470,7 @@ const SecureReason = () => {
                     </div>
 
 
-                    <Link href={'contact-us'} className='btn-checkout  ctaBtn'>Tư vấn setup</Link>
+                    <Link href={'contact'} className='btn-checkout  ctaBtn'>Tư vấn setup</Link>
                 </div>
 
             </div>
