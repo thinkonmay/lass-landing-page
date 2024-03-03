@@ -40,16 +40,16 @@ function Header() {
                             Liên hệ
                         </Link>
                     </li>
-                    {/* <li>
-                        <Link className="link" href="/#">
-                            Về Thinkmay
+                    <li>
+                        <Link className="link" href="/cloudpc">
+                            CloudPC là gì?
                         </Link>
-                    </li> */}
+                    </li>
                     <Link
                         href="https://dev-thinkmay.netlify.app"
                         className="btn btn-link"
                     >
-                        CloudPC portal
+                        CloudPC website
                         <Icon className={'mb-[1px]'} src="game" />{' '}
                     </Link>
                 </ul>

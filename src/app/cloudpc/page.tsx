@@ -33,7 +33,7 @@ const HeroSection = () => {
                     <span className="brand">Cloud PC</span>
 
                     <h1>
-                        Chiếc Windown Pc <span>mạnh mẽ</span>của bạn trên Cloud. Mọi nhu cầu, mọi lúc & mọi nơi
+                        Chiếc Windown Pc <span>mạnh mẽ</span> của bạn trên Cloud. Mọi nhu cầu, mọi lúc & mọi nơi
                     </h1>
 
                     <p className="subText">
@@ -88,7 +88,9 @@ const Reason = () => {
             <div className='l-3 col '>
                 <div className="card">
                     <div className="">
-                        <Icon src={rea.icon} width={30} height={30} />
+                        <div className='max-w-max'>
+                            <Icon src={rea.icon} width={30} height={30} />
+                        </div>
                         <h5 className="title">
                             {rea.title}
                         </h5>
