@@ -14,6 +14,9 @@ export default function CloudPC() {
                 <Subscriptions></Subscriptions>
                 <ConnectReason></ConnectReason>
                 <ProductiveReason></ProductiveReason>
+                <AppReason></AppReason>
+                <SecureReason></SecureReason>
+                <FeatureReason></FeatureReason>
             </div>
         </>
     );
@@ -294,6 +297,190 @@ const ProductiveReason = () => {
 
     return (
         <div className="productiveReason">
+            <div className="grid wide mainContent">
+                <div className=" left l-6 col">
+                    <div className="wrapperTitle text-center ">
+                        <p className='subTitle'>Làm việc chung dễ dàng</p>
+                        <h2 className='title'>Cải thiện <span className="highlight"> hiệu suất </span> làm việc</h2>
+                    </div>
+
+
+                    <div className="listProductive">
+                        {
+                            listProductiveReason.map(rea => (
+                                <div key={rea} className='item'>
+                                    <Icon src='check'></Icon>
+                                    <p className='text'>{rea}</p>
+                                </div>
+                            ))
+                        }
+
+                    </div>
+
+                    <button className='btn  ctaBtn'>Tư vấn setup</button>
+                </div>
+
+                <div className="right l-6 col">
+                    <div className='img'>
+                        <Image alt={''} width={768} height={500} src='/work-together.png' />
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    )
+}
+
+
+
+
+const listSupportApp = [
+    {
+        icon: 'pts',
+        name: 'Adobe photoshop'
+    },
+    {
+        icon: 'lr',
+        name: 'Adobe lightroom'
+    },
+    {
+        icon: 'adobe-pr',
+        name: 'Adobe premiere pro'
+    },
+    {
+        icon: 'davinci',
+        name: 'Davinci resolve'
+    },
+    {
+        icon: 'ae',
+        name: 'Adobe effect'
+    },
+    {
+        icon: 'ai',
+        name: 'Adobe illustrator'
+    },
+    {
+        icon: 'rihno3d',
+        name: 'Rihno 3d'
+    },
+    {
+        icon: 'nvidia-cuda',
+        name: 'Nvidia Cuda'
+    },
+    {
+        icon: 'archicad',
+        name: 'Archicad'
+    },
+    {
+        icon: 'ansys',
+        name: 'ANSYS'
+    },
+    {
+        icon: 'keyshot',
+        name: 'Key shot'
+    },
+    {
+        icon: 'twin-motion',
+        name: 'Twinmotion',
+    },
+    {
+        icon: 'cinema4d',
+        name: 'Cinema 4d'
+    },
+    {
+        icon: 'Maya',
+        name: 'maya'
+    },
+    {
+        icon: 'autocad',
+        name: 'Autocad'
+    },
+    {
+        icon: 'unity',
+        name: 'Unity'
+    }
+]
+const AppReason = () => {
+
+
+
+    return (
+        <div className="appReason">
+            <div className="grid wide mainContent">
+                <div className=" top col">
+                    <div className="wrapperTitle text-center ">
+                        <h2 className='title'>  <span className="highlight"> Đa dạng </span> Phầm mềm bản quyền</h2>
+                        <p className='text'>Toàn bộ đều đã cài sẵn và  mua bản quyền. <br /> Bạn sử dụng hoàn toàn miễn phí</p>
+                    </div>
+
+
+
+                </div>
+                <div className="listApp col l-10 m-auto">
+                    {
+                        listSupportApp.map(app => (
+                            <div key={app.name} className='item'>
+                                <Image alt='img' width={40} height={40} src={'/logo-app/' + app.icon + '.png'}></Image>
+                                <p className='text'>{app.name}</p>
+                            </div>
+                        ))
+                    }
+
+                </div>
+
+            </div>
+        </div>
+    )
+}
+
+
+
+const SecureReason = () => {
+
+
+
+    return (
+        <div className="appReason">
+            <div className="grid wide mainContent">
+                <div className=" left l-6 col">
+                    <div className="wrapperTitle text-center ">
+                        <p className='subTitle'>Làm việc chung dễ dàng</p>
+                        <h2 className='title'>Cải thiện <span className="highlight"> hiệu suất </span> làm việc</h2>
+                    </div>
+
+
+                    <div className="listProductive">
+                        {
+                            listProductiveReason.map(rea => (
+                                <div key={rea} className='item'>
+                                    <Icon src='check'></Icon>
+                                    <p className='text'>{rea}</p>
+                                </div>
+                            ))
+                        }
+
+                    </div>
+
+                    <button className='btn  ctaBtn'>Tư vấn setup</button>
+                </div>
+
+                <div className="right l-6 col">
+                    <div className='img'>
+                        <Image alt={''} width={768} height={500} src='/work-together.png' />
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    )
+}
+
+const FeatureReason = () => {
+
+    return (
+        <div className="appReason">
             <div className="grid wide mainContent">
                 <div className=" left l-6 col">
                     <div className="wrapperTitle text-center ">
