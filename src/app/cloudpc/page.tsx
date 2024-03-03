@@ -1,4 +1,5 @@
 
+import Image from 'next/image';
 import Link from 'next/link';
 import Icon from '../../components/icon';
 import './index.scss';
@@ -10,8 +11,9 @@ export default function CloudPC() {
             <div className="cloudPc ">
                 <HeroSection />
                 <Reason />
-
-
+                <Subscriptions></Subscriptions>
+                <ConnectReason></ConnectReason>
+                <ProductiveReason></ProductiveReason>
             </div>
         </>
     );
@@ -55,22 +57,22 @@ const listReason = [
     {
         title: 'Mọi thiết bị, mọi nơi',
         text: 'Biến bất kì chiếc laptop, Điện thoai, thậm chí cả tivi thành 1 chiếc PC mạnh mẽ. ',
-        icon: '',
+        icon: 'mi-laptop',
     },
     {
         title: 'Chỉ từ 299k/tháng',
         text: 'Gia hạn mỗi tháng. Hủy ngay lập tức khi bạn muốn.',
-        icon: '',
+        icon: 'credit-card',
     },
     {
         title: 'Phầm mềm bản quyền',
         text: 'Đều đã được cài sẵn & có bản quyền. Không mất thời gian download & crack.',
-        icon: '',
+        icon: 'award',
     },
     {
         title: 'Bảo mật tuyệt đối',
         text: 'Mọi dữ liệu đều được lưu trên cloud, không còn nỗi lo mất data.',
-        icon: '',
+        icon: 'shield',
     },
 
 ]
@@ -83,7 +85,7 @@ const Reason = () => {
             <div className='l-3 col '>
                 <div className="card">
                     <div className="">
-                        <Icon src='laptop' />
+                        <Icon src={rea.icon} width={30} height={30} />
                         <h5 className="title">
                             {rea.title}
                         </h5>
@@ -110,6 +112,218 @@ const Reason = () => {
                 <div className="cards row">
                     {renderCard()}
                 </div>
+            </div>
+        </div>
+    )
+}
+const listSubscriptions = [
+    {
+        name: 'Gói tháng',
+        price: '299K',
+        subPrice: '/tháng',
+        subName: 'Giới hạn thời gian sử dụng',
+        specs: [
+            { icon: 'gpu', text: 'Nvidia RTX 3060Ti' },
+            { icon: 'ram', text: '12Gb Ram' },
+            { icon: 'cpu', text: 'Xeon™ (up to 3.1 GHz) 8 vCores' },
+            { icon: 'hard-drive-white', text: '20GB(* Phầm mềm đã có sẵn)' },
+            { icon: 'os-win', text: 'Window 10' },
+        ],
+    },
+    {
+        name: 'Gói năm',
+        price: '299K',
+        subPrice: '/năm',
+        subName: 'Giới hạn thời gian sử dụng',
+        specs: [
+            { icon: 'gpu', text: 'Nvidia RTX 3060Ti' },
+            { icon: 'ram', text: '12Gb Ram' },
+            { icon: 'cpu', text: 'Xeon™ (up to 3.1 GHz) 8 vCores' },
+            { icon: 'hard-drive-white', text: '1TB(* Phầm mềm đã có sẵn)' },
+            { icon: 'os-win', text: 'Window 10' },
+        ],
+    },
+    {
+        name: 'Doanh Nghiệp ',
+        price: 'Liên Hệ',
+        subPrice: '',
+        subName: 'Không giới hạn thời gian sử dụng',
+        specs: [
+            { icon: 'gpu', text: '-Tùy chỉnh' },
+            { icon: 'ram', text: '-Tùy chỉnh' },
+            { icon: 'cpu', text: '-Tùy chỉnh' },
+            { icon: 'hard-drive-white', text: '-Tùy chỉnh' },
+            { icon: 'os-win', text: 'Windown 10, 11' },
+        ],
+    }
+
+]
+
+const Subscriptions = () => {
+
+    const renderCard = () => {
+
+        return listSubscriptions.map(sub => (
+            <div className='l-3 col '>
+                <div className="subscription">
+                    <div className="ctnName">
+                        <h6 className="name">{sub.name}</h6>
+                        <p className='subName'>{sub.subName}</p>
+                    </div>
+
+                    <div className="ctnPrice">
+                        <h5 className="price">{sub.price}</h5>
+                        <p className="subPrice">{sub.subPrice}</p>
+                    </div>
+
+                    <div className="ctnSpec">
+
+                        {
+                            sub.specs.map(spec => (
+                                <div className="spec">
+                                    <Icon src={spec.icon}></Icon>
+                                    <p className='text'>{spec.text}</p>
+                                </div>
+
+                            ))
+                        }
+
+
+                    </div>
+
+                    <div className="ctnBtn">
+                        <button className="btn-checkout  ctaBtn">Thanh toán</button>
+                        <a className="btn-link">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+
+        ))
+    }
+
+    return (
+        <div className="subscriptions">
+            <div className="grid wide mainContent">
+                <div className="wrapperTitle text-center">
+                    <h2 className='title'>Đa dạng gói đáp ứng
+                        <span className="highlight"> mọi nhu cầu của bạn</span></h2>
+                    <p className="subTitle"></p>
+                </div>
+
+                <div className="cards row">
+                    {renderCard()}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+const listOs = [
+    {
+        icon: 'android',
+        name: 'Android'
+    },
+    {
+        icon: 'ubuntu',
+        name: 'Ubuntu'
+    },
+    {
+        icon: 'ios',
+        name: 'IOS'
+    },
+    {
+        icon: 'os-win-bold',
+        name: 'Window'
+    }
+]
+const ConnectReason = () => {
+
+
+
+    return (
+        <div className="connectReason">
+            <div className="grid wide mainContent">
+
+                <div className=" l-6 col">
+                    <div className='img'>
+                        <Image alt={''} width={768} height={500} src='/multiple-devices.png' />
+
+                    </div>
+                </div>
+
+                <div className="right l-6 col">
+                    <div className="wrapperTitle text-center ">
+                        <p className='subTitle'>Linh hoạt & tiện lợi</p>
+                        <h2 className='title'>Kết nối<span className="highlight"> mọi nơi, mọi thiết bị  </span></h2>
+                        <p className="text">Truy cập Thinkmay CloudPC ngay trên trình duyệt tại bất kỳ đâu, bất kỳ lúc nào. Tận hưởng sự linh hoạt và tự do làm việc mà không bị ràng buộc.
+                        </p>
+                    </div>
+
+                    <div className="ctnOs">
+                        <p className='title'>Ngay trên broswer:</p>
+
+                        <div className="listOs">
+                            {
+                                listOs.map(os => (
+                                    <div key={os.name} className='os'>
+                                        <Icon src={os.icon}></Icon>
+                                        <p>{os.name}</p>
+                                    </div>
+                                ))
+                            }
+
+                        </div>
+                    </div>
+
+                    <button className='btn ctaBtn'>Truy cập website</button>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+
+const listProductiveReason = [
+    'Làm việc từ xa, hợp tác giữa các văn phòng.',
+    'Nhiều người cùng làm việc trên một máy tính ảo.',
+    'Chia sẻ dữ liệu đến mọi nơi.'
+]
+const ProductiveReason = () => {
+
+
+
+    return (
+        <div className="productiveReason">
+            <div className="grid wide mainContent">
+                <div className=" left l-6 col">
+                    <div className="wrapperTitle text-center ">
+                        <p className='subTitle'>Làm việc chung dễ dàng</p>
+                        <h2 className='title'>Cải thiện <span className="highlight"> hiệu suất </span> làm việc</h2>
+                    </div>
+
+
+                    <div className="listProductive">
+                        {
+                            listProductiveReason.map(rea => (
+                                <div key={rea} className='item'>
+                                    <Icon src='check'></Icon>
+                                    <p className='text'>{rea}</p>
+                                </div>
+                            ))
+                        }
+
+                    </div>
+
+                    <button className='btn  ctaBtn'>Tư vấn setup</button>
+                </div>
+
+                <div className="right l-6 col">
+                    <div className='img'>
+                        <Image alt={''} width={768} height={500} src='/work-together.png' />
+
+                    </div>
+                </div>
+
             </div>
         </div>
     )
