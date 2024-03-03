@@ -43,11 +43,11 @@ const HeroSection = () => {
                     </p>
 
                     <Link
-                        href={'/services'}
+                        href={'#subscriptions'}
                         style={{ paddingLeft: 32, paddingRight: 32 }}
                         className="btn-explore pl-[32px] pr-[32px] btn"
                     >
-                        Tìm hiểu ngay <Icon src="shopping-cart"></Icon>
+                        Xem các gói <Icon src="shopping-cart"></Icon>
                     </Link>
                 </div>
 
@@ -205,8 +205,8 @@ const Subscriptions = () => {
     }
 
     return (
-        <div className="subscriptions">
-            <div className="grid wide mainContent">
+        <div className="subscriptions" id='subscriptions'>
+            <div className="grid wide mainContent" >
                 <div className="wrapperTitle text-center">
                     <h2 className='title'>Đa dạng gói đáp ứng
                         <span className="highlight"> mọi nhu cầu của bạn</span></h2>
@@ -263,7 +263,7 @@ const ConnectReason = () => {
                     </div>
 
                     <div className="ctnOs">
-                        <p className='title'>Ngay trên broswer:</p>
+                        <p className='title'>Ngay trên <a className='underline' target='_blank' href="https://app.thinkmay.net/">broswer:</a></p>
 
                         <div className="listOs">
                             {
@@ -278,7 +278,7 @@ const ConnectReason = () => {
                         </div>
                     </div>
 
-                    <button className='btn ctaBtn'>Truy cập website</button>
+                    <a className='btn ctaBtn' href="https://app.thinkmay.net/">Truy cập website</a>
                 </div>
             </div>
         </div>
@@ -296,7 +296,7 @@ const ProductiveReason = () => {
 
 
     return (
-        <div className="productiveReason">
+        <div id='productiveReason' className="productiveReason">
             <div className="grid wide mainContent">
                 <div className=" left l-6 col">
                     <div className="wrapperTitle text-center ">
@@ -317,7 +317,7 @@ const ProductiveReason = () => {
 
                     </div>
 
-                    <button className='btn  ctaBtn'>Tư vấn setup</button>
+                    <Link href={'/contact-us'} className='btn  ctaBtn'>Tư vấn setup</Link>
                 </div>
 
                 <div className="right l-6 col">
@@ -441,16 +441,23 @@ const SecureReason = () => {
 
 
     return (
-        <div className="secureReason">
+        <div className="secureReason" id='secureReason'>
             <div className="grid wide ">
                 <div className="mainContent l-12 col">
                     <div className="wrapperTitle text-center ">
-                        <p className='subTitle'>Làm việc chung dễ dàng</p>
-                        <h2 className='title'>Cải thiện <span className="highlight"> hiệu suất </span> làm việc</h2>
+                        <h2 className='title'>
+                            dữ liệu bảo mật tuyệt đối
+                        </h2>
+                        <p className="text">
+                            Lưu trữ dữ liệu trên đám mây giúp bảo vệ tuyệt đối.
+                            <br />An ninh và tiện lợi, để công việc diễn ra mượt mà
+                            <br />không lo lắng về mất mát dữ liệu.
+
+                        </p>
                     </div>
 
 
-                    <button className='btn  ctaBtn'>Tư vấn setup</button>
+                    <Link href={'contact-us'} className='btn-checkout  ctaBtn'>Tư vấn setup</Link>
                 </div>
 
             </div>
@@ -461,7 +468,7 @@ const SecureReason = () => {
 const FeatureReason = () => {
 
     return (
-        <div className="featureReason">
+        <div className="featureReason" id='featureReason'>
             <div className="grid wide mainContent">
                 <div className="wrapperTitle text-center ">
                     <h2 className='title'>Tùy chọn tính năng theo gói
