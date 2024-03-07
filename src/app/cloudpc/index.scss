@@ -5,15 +5,29 @@
 
 
 	.heroSection{	
-		height: 800px;
-		padding-top: 80px;
+		height: 680px;
+		padding-top: 100px;
 		
-		background-image:  url('/hero-cloudPC.png');
+		//background-image:  url('/hero-cloudPC.png');
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center;
+
+		.mainContent{
+			display: flex;
+			align-items: center;
+
+			.right{
+				padding-left: 4.8rem;
+				.img{
+					display: flex;
+					border-radius: 20px;
+					overflow: hidden;
+				}
+			}
+		}
 		.brand{
-			color: var(--Neutral-200, #667085);
+			color: var(--Neutral-700);
 			font-size: var(--font-size-lg);
 			
 		}
@@ -27,6 +41,7 @@
 			text-transform: uppercase;
 			line-height: 44px; 
 			letter-spacing: -0.72px;
+			color: var(--Neutral-900);
 
 			span{
 				color: #28BCB8;
@@ -40,8 +55,8 @@
 		.subText{
 			max-width: 50ch;
 			margin-bottom: 44px;
+			color: var(--Neutral-700);
 
-			color: var(--Neutral-50);
 			font-size: var(--font-size-md);
 			font-weight: 500;
 			line-height: 30px; /* 150% */
@@ -140,7 +155,7 @@
 
 	.subscriptions{
 		padding: 10rem 0;
-		background: hsl(210, 100%, 14%);
+		background: #020218;
 
 		
 		.wrapperTitle{
@@ -183,9 +198,10 @@
 			justify-content: space-between;
 		}
 		.subscription{
+			color: var(--Neutral-500);
 			padding: 2.4rem 3.2rem;
 			padding-bottom: 4rem;
-			border: 2px solid var(--Neutral-500);
+			border: 2px solid currentColor;
 			border-radius: 16px;
 			width: 353px;
 			position: relative;
@@ -224,7 +240,7 @@
 					line-height: 18px;
 					letter-spacing: 0em;
 					text-align: right;
-					padding-right: 48%;
+					padding-right: 45%;
 				}
 			}
 

@@ -50,7 +50,12 @@ const HeroSection = () => {
                         Xem các gói <Icon src="shopping-cart"></Icon>
                     </Link>
                 </div>
-
+                <div className='right col l-6'>
+                    <div className='img'
+                    >
+                        <Image priority={true} src={'/cloudpc-hero2.jpg'} width={768} height={500} alt='img'></Image>
+                    </div>
+                </div>
             </div>
         </div>
     )
@@ -166,11 +171,17 @@ const listSubscriptions = [
 
 const Subscriptions = () => {
 
+    const isSpecial = (subName: string) => {
+
+        return subName == 'Gói năm' ? true : false
+    }
     const renderCard = () => {
 
         return listSubscriptions.map(sub => (
             <div className='l-3 col '>
-                <div className="subscription">
+                <div className="subscription"
+                    style={{ color: isSpecial(sub.name) ? '#AD00FF' : '' }}
+                >
                     <div className="ctnName">
                         <h6 className="name">{sub.name}</h6>
                         <p className='subName'>{sub.subName}</p>
@@ -203,7 +214,7 @@ const Subscriptions = () => {
 
 
                     {
-                        sub.name == 'Gói năm' ? (
+                        isSpecial(sub.name) ? (
                             <div className="banner">
                                 Phổ Biến
                             </div>
