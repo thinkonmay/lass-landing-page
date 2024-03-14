@@ -24,16 +24,16 @@ function Header() {
                                 height={58}
                                 src="logo-black"
                             ></Icon>
-                            <span className="">Laptop as a Service</span>
+                            {/*<span className="">Laptop as a Service</span>*/}
                         </Link>
                     </div>
                 </div>
 
                 <ul className="rightDesktop">
                     <li>
-                        <Link className="link" href="/services">
+                        {/*<Link className="link" href="/services">
                             Laptop
-                        </Link>
+                        </Link>*/}
                     </li>
                     <li>
                         <Link className="link" href="/contact">
@@ -41,8 +41,8 @@ function Header() {
                         </Link>
                     </li>
                     <li>
-                        <Link className="link" href="/cloudpc">
-                            CloudPC là gì?
+                        <Link className="link" href="/lass">
+                            Laptop as a service
                         </Link>
                     </li>
                     <Link
