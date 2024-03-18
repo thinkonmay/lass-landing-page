@@ -29,7 +29,7 @@ const HeroSection = () => {
     return (
         <div className="heroSection">
             <div className="mainContent grid wide">
-                <div className="left col l-6">
+                <div className="left col l-6 c-12">
                     <span className="brand">Cloud PC</span>
 
                     <h1>
@@ -104,7 +104,7 @@ const Reason = () => {
                         </p>
                     </div>
 
-                    <a className='btn-link'>Chi tiết  <Icon src='arrow-right'></Icon></a>
+                    <a className='btn-link'>Chi tiết   <Icon src='arrow-right'></Icon></a>
 
                 </div>
             </div>
@@ -178,7 +178,7 @@ const Subscriptions = () => {
     const renderCard = () => {
 
         return listSubscriptions.map(sub => (
-            <div className='l-3 col '>
+            <div className='l-4 col '>
                 <div className="subscription"
                     style={{ color: isSpecial(sub.name) ? '#AD00FF' : '' }}
                 >
@@ -209,7 +209,7 @@ const Subscriptions = () => {
 
                     <div className="ctnBtn">
                         <button className="btn-checkout  ctaBtn">Thanh toán</button>
-                        <a className="btn-link">Chi tiết</a>
+                        <a href='#featureReason' className="btn-link">Chi tiết</a>
                     </div>
 
 
