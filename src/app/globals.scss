@@ -18,7 +18,9 @@
 $breakpoint-tablet: 768px;
 $breakpoint-mobile: 576px;
 
-
+html{
+  scroll-behavior: smooth;
+}
 :root {
   --font-size-xs: 1.2rem;
   --font-size-sm: 1.4rem;
