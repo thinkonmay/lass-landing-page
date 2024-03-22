@@ -175,7 +175,7 @@
 				line-height: 44px;
 				letter-spacing: -0.02em;
 				text-align: left;
-				color: #fff;
+				color: var(--Neutral-50);
 
 				.highlight {
 					color: #28BCB8;
@@ -196,6 +196,7 @@
 				line-height: 30px;
 				letter-spacing: 0em;
 				text-align: left;
+				color: #fff;
 
 			}
 		}
@@ -676,7 +677,7 @@
 	}
 
 	.secureReason {
-		padding: 10rem 0;
+		padding: 6rem 0;
 
 		.mainContent {
 			height: 700px;
@@ -768,13 +769,14 @@
 		.wrapperTitle {
 
 
+			margin-bottom: 3.6rem;
+
 			.title {
-				margin-bottom: 5.6rem;
 				font-size: 36px;
 				font-weight: 700;
 				line-height: 44px;
 				letter-spacing: -0.02em;
-				text-align: center;
+				text-align: left;
 				text-transform: uppercase;
 				color: #fff;
 
@@ -792,7 +794,7 @@
 
 			.subTitle {
 				//styleName: Text lg/Regular;
-				color: var(--Neutral-500);
+				color: var(--Neutral-100);
 				font-size: 18px;
 				font-weight: 400;
 				line-height: 28px;
@@ -827,6 +829,50 @@
 			.rowContent {
 				display: grid;
 				grid-template-columns: repeat(4, 1fr);
+				border-top: 1px solid var(--Neutral-500, #667085);
+				font-size: 16px;
+
+
+				.columnContent {
+					padding: 2rem 3.2rem;
+					text-align: center;
+					font-weight: 500;
+					line-height: 24px;
+					font-size: var(--font-size-md);
+
+					display: flex;
+					justify-content: center;
+
+					&:nth-child(1) {
+						text-align: left;
+						justify-content: start;
+						display: flex;
+						align-items: start;
+						font-size: var(--font-size-md);
+						font-style: normal;
+						font-weight: 700;
+						line-height: 24px;
+						/* 150% */
+					}
+
+				}
+			}
+		}
+
+		.wrapperTable2 {
+			color: white;
+			background: #002447;
+			width: max-content;
+			border-radius: 12px;
+			border: 1px solid var(--Neutral-500, #667085);
+
+			&:first-child {
+				border-bottom: 1px solid var(--Neutral-500, #667085);
+			}
+
+			.rowContent {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
 				border-top: 1px solid var(--Neutral-500, #667085);
 				font-size: 16px;
 
@@ -1060,6 +1106,7 @@
 					line-height: 30px;
 					letter-spacing: 0em;
 					text-align: left;
+					color: var(--Neutral-50);
 
 				}
 			}
@@ -1633,8 +1680,9 @@
 			.wrapperTitle {
 
 
+				margin-bottom: 3.6rem;
+
 				.title {
-					margin-bottom: 3.6rem;
 					font-size: 36px;
 					font-weight: 700;
 					line-height: 44px;
@@ -1657,7 +1705,7 @@
 
 				.subTitle {
 					//styleName: Text lg/Regular;
-					color: var(--Neutral-500);
+					color: var(--Neutral-100);
 					font-size: 18px;
 					font-weight: 400;
 					line-height: 28px;

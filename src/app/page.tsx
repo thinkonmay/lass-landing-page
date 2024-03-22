@@ -42,13 +42,13 @@ const HeroSection = () => {
                         Chọn cấu hình phù hợp nhất với nhu cầu của bạn. <br />
                     </p>
 
-                    <Link
+                    <a
                         href={'#subscriptions'}
                         style={{ paddingLeft: 32, paddingRight: 32 }}
                         className="btn-explore pl-[32px] pr-[32px] btn"
                     >
                         Xem các gói <Icon src="shopping-cart"></Icon>
-                    </Link>
+                    </a>
                 </div>
                 <div className='right col l-6'>
                     <div className='img'
@@ -66,21 +66,26 @@ const listReason = [
         title: 'Mọi thiết bị, mọi nơi',
         text: 'Biến bất kì chiếc laptop, Điện thoai, thậm chí cả tivi thành 1 chiếc PC mạnh mẽ. ',
         icon: 'mi-laptop',
+
+        href: '#connectReason'
     },
     {
         title: 'Chỉ từ 299k/tháng',
         text: 'Gia hạn mỗi tháng. Hủy ngay lập tức khi bạn muốn.',
         icon: 'credit-card',
+        href: '#subscriptions'
     },
     {
         title: 'Phầm mềm bản quyền',
         text: 'Đều đã được cài sẵn & có bản quyền. Không mất thời gian download & crack.',
         icon: 'award',
+        href: '#appReason'
     },
     {
         title: 'Bảo mật tuyệt đối',
         text: 'Mọi dữ liệu đều được lưu trên cloud, không còn nỗi lo mất data.',
         icon: 'shield',
+        href: '#secureReason'
     },
 
 ]
@@ -104,7 +109,7 @@ const Reason = () => {
                         </p>
                     </div>
 
-                    <a className='btn-link'>Chi tiết   <Icon src='arrow-right'></Icon></a>
+                    <a href={rea.href} className='btn-link'>Chi tiết   <Icon src='arrow-right'></Icon></a>
 
                 </div>
             </div>
@@ -128,10 +133,40 @@ const Reason = () => {
 }
 const listSubscriptions = [
     {
-        name: 'Gói tháng',
+        name: 'Cơ bản',
         price: '299K',
         subPrice: '/tháng',
-        subName: 'Giới hạn 160h/tháng',
+        subName: 'Giới hạn 110h/tháng',
+        isSpecial: false,
+
+        specs: [
+            { icon: 'gpu', text: 'Nvidia RTX 3060Ti' },
+            { icon: 'ram', text: '8Gb Ram' },
+            { icon: 'cpu', text: 'Xeon™ (up to 3.1 GHz) 8 vCores' },
+            { icon: 'hard-drive-white', text: '5GB(* Phầm mềm đã có sẵn)' },
+            { icon: 'os-win', text: 'Window 10' },
+        ],
+    },
+    {
+        name: 'Tiêu chuẩn',
+        price: '369k',
+        subPrice: '/tháng',
+        subName: 'Giới hạn 140h/tháng',
+        isSpecial: true,
+        specs: [
+            { icon: 'gpu', text: 'Nvidia RTX 3060Ti' },
+            { icon: 'ram', text: '12Gb Ram' },
+            { icon: 'cpu', text: 'Xeon™ (up to 3.1 GHz) 8 vCores' },
+            { icon: 'hard-drive-white', text: '10GB(* Phầm mềm đã có sẵn)' },
+            { icon: 'os-win', text: 'Window 10' },
+        ],
+    },
+    {
+        name: 'Supper',
+        price: '899k',
+        subPrice: '/3 tháng',
+        subName: 'Giới hạn 125h/tháng',
+        isSpecial: false,
         specs: [
             { icon: 'gpu', text: 'Nvidia RTX 3060Ti' },
             { icon: 'ram', text: '12Gb Ram' },
@@ -140,47 +175,18 @@ const listSubscriptions = [
             { icon: 'os-win', text: 'Window 10' },
         ],
     },
-    {
-        name: 'Gói năm',
-        price: '3999K',
-        subPrice: '/năm',
-        subName: 'Giới hạn 200h/tháng',
-        specs: [
-            { icon: 'gpu', text: 'Nvidia RTX 3060Ti' },
-            { icon: 'ram', text: '12Gb Ram' },
-            { icon: 'cpu', text: 'Xeon™ (up to 3.1 GHz) 8 vCores' },
-            { icon: 'hard-drive-white', text: '1TB(* Phầm mềm đã có sẵn)' },
-            { icon: 'os-win', text: 'Window 10' },
-        ],
-    },
-    {
-        name: 'Doanh Nghiệp ',
-        price: 'Liên Hệ',
-        subPrice: '',
-        subName: 'Không giới hạn thời gian sử dụng',
-        specs: [
-            { icon: 'gpu', text: '-Tùy chỉnh' },
-            { icon: 'ram', text: '-Tùy chỉnh' },
-            { icon: 'cpu', text: '-Tùy chỉnh' },
-            { icon: 'hard-drive-white', text: '-Tùy chỉnh' },
-            { icon: 'os-win', text: 'Windown 10, 11' },
-        ],
-    }
 
 ]
 
 const Subscriptions = () => {
 
-    const isSpecial = (subName: string) => {
 
-        return subName == 'Gói năm' ? true : false
-    }
     const renderCard = () => {
 
         return listSubscriptions.map(sub => (
             <div className='l-4 col '>
                 <div className="subscription"
-                    style={{ color: isSpecial(sub.name) ? '#AD00FF' : '' }}
+                    style={{ color: sub.isSpecial ? '#AD00FF' : '' }}
                 >
                     <div className="ctnName">
                         <h6 className="name">{sub.name}</h6>
@@ -214,13 +220,11 @@ const Subscriptions = () => {
 
 
                     {
-                        isSpecial(sub.name) ? (
+                        sub.isSpecial ? (
                             <div className="banner">
                                 Phổ Biến
                             </div>
                         ) :
-
-
                             ''
                     }
 
@@ -236,7 +240,7 @@ const Subscriptions = () => {
                 <div className="wrapperTitle text-center">
                     <h2 className='title'>Đa dạng gói đáp ứng
                         <span className="highlight"> mọi nhu cầu của bạn</span></h2>
-                    <p className="subTitle"></p>
+                    <p className="subTitle">*Hoàn tiền 100% với bất kì lí do trong vòng 24h sau khi đăng kí</p>
                 </div>
 
                 <div className="cards row">
@@ -270,7 +274,7 @@ const ConnectReason = () => {
 
 
     return (
-        <div className="connectReason">
+        <div id='connectReason' className="connectReason">
             <div className="grid wide mainContent">
 
                 <div className=" l-6 col">
@@ -432,7 +436,7 @@ const AppReason = () => {
 
 
     return (
-        <div className="appReason">
+        <div id='appReason' className="appReason">
             <div className="grid wide mainContent">
                 <div className=" top col">
                     <div className="wrapperTitle text-center ">
@@ -496,54 +500,60 @@ const FeatureReason = () => {
     return (
         <div className="featureReason" id='featureReason'>
             <div className="grid wide mainContent">
-                <div className="wrapperTitle text-center ">
-                    <h2 className='title'>Tùy chọn tính năng theo gói
-                        <span className="highlight"></span>
-                    </h2>
-                </div>
+                <div>
+                    <div className="wrapperTitle text-center ">
+                        <h2 className='title'>Tính năng theo gói
+                            <span className="highlight"></span>
+                        </h2>
+                    </div>
 
-                <div className="wrapperTable">
-                    <div className="rowContent" style={{ borderTop: 'unset' }}>
-                        <div className="columnContent">TÍNH NĂNG</div>
-                        <div className="columnContent">GÓI THÁNG</div>
-                        <div className="columnContent">GÓI NĂM</div>
-                        <div className="columnContent">DOANH NGHIỆP</div>
+                    <div className="wrapperTable">
+                        <div className="rowContent" style={{ borderTop: 'unset' }}>
+                            <div className="columnContent"></div>
+                            <div className="columnContent">CƠ BẢN</div>
+                            <div className="columnContent">TIÊU CHUẨN</div>
+                            <div className="columnContent">SUPPER</div>
+                        </div>
+
+                        <div className="rowContent">
+                            <div className="columnContent">Số giờ sử dụng</div>
+                            <div className="columnContent">110/tháng</div>
+                            <div className="columnContent">140/tháng</div>
+                            <div className="columnContent">125/tháng</div>
+                        </div>
+                        <div className="rowContent">
+                            <div className="columnContent">Request game</div>
+                            <div className="columnContent">Thấp</div>
+                            <div className="columnContent">Vừa</div>
+                            <div className="columnContent">Cao</div>
+                        </div>
                     </div>
-                    <div className="rowContent">
-                        <div className="columnContent">HD</div>
-                        <div className="columnContent"><Icon src='check'></Icon></div>
-                        <div className="columnContent"><Icon src='check'></Icon></div>
-                        <div className="columnContent"><Icon src='check'></Icon></div>
+                </div>
+                <div className='mt-[8rem]'>
+                    <div className="wrapperTitle text-center ">
+                        <h2 className='title'>Option mua thêm
+                            <span className="highlight"></span>
+                        </h2>
+                        <p className="subTitle">
+                            *Yêu cầu mua kèm theo gói
+                        </p>
                     </div>
-                    <div className="rowContent">
-                        <div className="columnContent">4K</div>
-                        <div className="columnContent">-</div>
-                        <div className="columnContent"><Icon src='check'></Icon></div>
-                        <div className="columnContent"><Icon src='check'></Icon></div>
-                    </div>
-                    <div className="rowContent">
-                        <div className="columnContent">2 Màn hình</div>
-                        <div className="columnContent"><Icon src='check'></Icon></div>
-                        <div className="columnContent"><Icon src='check'></Icon></div>
-                        <div className="columnContent"><Icon src='check'></Icon></div>
-                    </div>
-                    <div className="rowContent">
-                        <div className="columnContent">2 Màn hình</div>
-                        <div className="columnContent"><Icon src='check'></Icon></div>
-                        <div className="columnContent"><Icon src='check'></Icon></div>
-                        <div className="columnContent"><Icon src='check'></Icon></div>
-                    </div>
-                    <div className="rowContent">
-                        <div className="columnContent">Số giờ sử dụng</div>
-                        <div className="columnContent">160h/tháng</div>
-                        <div className="columnContent">200h/tháng</div>
-                        <div className="columnContent">Không giới hạn</div>
-                    </div>
-                    <div className="rowContent">
-                        <div className="columnContent">Yêu cầu thêm tính năng</div>
-                        <div className="columnContent">Thấp</div>
-                        <div className="columnContent">Vừa</div>
-                        <div className="columnContent">Cao</div>
+
+                    <div className="wrapperTable2">
+                        <div className="rowContent" style={{ borderTop: 'unset' }}>
+                            <div className="columnContent">Option</div>
+                            <div className="columnContent">Giá/tháng</div>
+
+                        </div>
+
+                        <div className="rowContent">
+                            <div className="columnContent">10h</div>
+                            <div className="columnContent">35k</div>
+                        </div>
+                        <div className="rowContent">
+                            <div className="columnContent">10G Storage</div>
+                            <div className="columnContent">30k</div>
+                        </div>
                     </div>
                 </div>
             </div>
