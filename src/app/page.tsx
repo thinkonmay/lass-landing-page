@@ -41,7 +41,6 @@ const HeroSection = () => {
                         <br />
                         Chọn cấu hình phù hợp nhất với nhu cầu của bạn. <br />
                     </p>
-
                     <a
                         href={'#subscriptions'}
                         style={{ paddingLeft: 32, paddingRight: 32 }}
@@ -214,7 +213,7 @@ const Subscriptions = () => {
                     </div>
 
                     <div className="ctnBtn">
-                        <button className="btn-checkout  ctaBtn">Thanh toán</button>
+                        <a href='https://fb.com/thinkonmay' target='_blank' className="btn-checkout  ctaBtn">Thanh toán</a>
                         <a href='#featureReason' className="btn-link">Chi tiết</a>
                     </div>
 
