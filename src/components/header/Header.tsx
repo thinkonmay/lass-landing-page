@@ -4,6 +4,21 @@ import { useState } from 'react';
 import Icon from '../icon';
 import './header.scss';
 
+const listNav = [
+    {
+        name: 'Liên hệ',
+        link: '/contact'
+    },
+    {
+        name: 'Laptop as a service',
+        link: '/lass'
+    },
+    {
+        name: 'Download',
+        link: '/download'
+    }
+]
+
 function Header() {
     const [openNav, setOpenNav] = useState(false);
     const open = () => {
@@ -30,21 +45,17 @@ function Header() {
                 </div>
 
                 <ul className="rightDesktop">
-                    <li>
-                        {/*<Link className="link" href="/services">
-                            Laptop
-                        </Link>*/}
-                    </li>
-                    <li>
-                        <Link className="link" href="/contact">
-                            Liên hệ
-                        </Link>
-                    </li>
-                    <li>
-                        <Link className="link" href="/lass">
-                            Laptop as a service
-                        </Link>
-                    </li>
+                    {
+                        listNav.map(item => (
+                            <li>
+                                <Link className="link" href={item.link} >
+                                    {item.name}
+                                </Link>
+                            </li>
+
+                        ))
+                    }
+
                     <Link
                         href="https://dev-thinkmay.netlify.app"
                         className="btn btn-link"
@@ -70,29 +81,20 @@ function Header() {
                         </div>
 
                         <ul>
-                            <li>
-                                <Link
-                                    className="link"
-                                    href="/services"
-                                    onClick={close}
-                                >
-                                    Laptop
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    className="link"
-                                    href="/contact"
-                                    onClick={close}
-                                >
-                                    Liên hệ
-                                </Link>
-                            </li>
-                            {/* <li>
-                                <Link className="link" href="/#">
-                                    Về Thinkmay
-                                </Link>
-                            </li> */}
+                            {
+                                listNav.map(item => (
+                                    <li>
+                                        <Link
+                                            className="link"
+                                            href={item.link}
+                                            onClick={close}
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    </li>
+
+                                ))
+                            }
                             <Link
                                 href="https://dev-thinkmay.netlify.app"
                                 className="btn btn-link"
