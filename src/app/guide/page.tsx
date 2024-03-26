@@ -209,14 +209,13 @@ const OptimizeSetting = () => {
                     <div className={openMobile ? 'content  mobile show' : 'content  mobile'}>
                         <div className="left">
                             <p className='text'>
-                                Truy cập  Store trên App, hoặc website: App.thinkmay.net <br />
-                                Chọn game bạn yêu thích & cài đặt
+                                Góc trên bên phải: Chỉnh bitrate, mở Gamepad ảo
                             </p>
 
 
                            
                             <p className='text'>
-                                <b>Đọc thêm:</b> Cách backup fill save khi chơi bằng account Steam Offline
+                            <b>Bitrate:</b> Tăng/giảm chất lượng hình ảnh. Mạng yếu gây tình trạng delay thì cần giảm 
                             </p>
                         </div>
                         
