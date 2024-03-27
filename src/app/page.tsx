@@ -457,6 +457,7 @@ const AppReason = () => {
                     }
 
                 </div>
+                <a href={'https://app.thinkmay.net/'} target='_blank' className='btn mx-auto mt-[3.2rem] ctaBtn'>Khám phá kho game</a>
 
             </div>
         </div>
