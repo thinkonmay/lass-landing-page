@@ -61,7 +61,7 @@ export default function Download() {
                                 <div className="ctnBoxs">
                                     {
                                         device.listOs.map(os => (
-                                            <div className="box">
+                                            <div key={os.text} className="box">
                                                 <div className="left">
                                                     <Icon width={60} height={60} src={os.icon}></Icon>
                                                     <p className='text'>{os.name}</p>

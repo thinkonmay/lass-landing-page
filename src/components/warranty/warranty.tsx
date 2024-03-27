@@ -162,7 +162,7 @@ export default function Warranty() {
                         }
 
                         return (
-                            <li>
+                            <li key={i}>
                                 {type == 'first' ? `${i + 1}.` : ''} {ctn}
                             </li>
                         );

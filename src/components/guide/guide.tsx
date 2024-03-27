@@ -3,6 +3,7 @@ import Image from 'next/image';
 import './guide.scss';
 import Icon from '../icon';
 import Breadcrumb from '../breadcrumb/Breadcumb';
+import React from 'react';
 
 export interface IGuide {
     category: string;
@@ -94,7 +95,7 @@ export default function Guide() {
 
                 <ul>
                     {contents.map((ctn, i) => (
-                        <li>
+                        <li key={i}>
                             {i + 1}. {ctn}
                         </li>
                     ))}
@@ -119,7 +120,7 @@ export default function Guide() {
 
                     <div className="wrapperGuidesDesktop">
                         {guides.map((guide, i) => (
-                            <>
+                            <React.Fragment key={i}>
                                 <div className="space">
                                     <div
                                         className={
@@ -133,13 +134,13 @@ export default function Guide() {
                                     category={guide.category}
                                     contents={guide.contents}
                                 ></Content>
-                            </>
+                            </React.Fragment>
                         ))}
                     </div>
 
                     <div className="wrapperGuidesMobile">
                         {guides.map((guide, i) => (
-                            <ContentMobile {...guide}></ContentMobile>
+                            <ContentMobile key={i} {...guide}></ContentMobile>
                         ))}
                     </div>
                 </div>

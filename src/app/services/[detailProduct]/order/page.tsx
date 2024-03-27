@@ -320,7 +320,7 @@ const GuideModal = () => {
 
             <div className="ctnGuides ">
                 {guides.map((guide) => (
-                    <Content {...guide}></Content>
+                    <Content key={guide.icon} {...guide}></Content>
                 ))}
             </div>
         </div>

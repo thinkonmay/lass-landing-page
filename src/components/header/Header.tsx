@@ -51,7 +51,7 @@ function Header() {
                 <ul className="rightDesktop">
                     {
                         listNav.map(item => (
-                            <li>
+                            <li key={item.name}>
                                 <Link className="link" href={item.link} >
                                     {item.name}
                                 </Link>
@@ -87,7 +87,7 @@ function Header() {
                         <ul>
                             {
                                 listNav.map(item => (
-                                    <li>
+                                    <li key={item.name}>
                                         <Link
                                             className="link"
                                             href={item.link}

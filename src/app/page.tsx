@@ -94,7 +94,7 @@ const Reason = () => {
     const renderCard = () => {
 
         return listReason.map(rea => (
-            <div className='l-3 col '>
+            <div key={rea.text} className='l-3 col '>
                 <div className="card">
                     <div className="">
                         <div className='max-w-max'>
@@ -183,7 +183,7 @@ const Subscriptions = () => {
     const renderCard = () => {
 
         return listSubscriptions.map(sub => (
-            <div className='l-4 col '>
+            <div key={sub.name} className='l-4 col '>
                 <div className="subscription"
                     style={{ color: sub.isSpecial ? '#AD00FF' : '' }}
                 >
@@ -201,7 +201,7 @@ const Subscriptions = () => {
 
                         {
                             sub.specs.map(spec => (
-                                <div className="spec">
+                                <div key={spec.text} className="spec">
                                     <Icon src={spec.icon}></Icon>
                                     <p className='text'>{spec.text}</p>
                                 </div>

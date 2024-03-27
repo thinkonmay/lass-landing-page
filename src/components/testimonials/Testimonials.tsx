@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Icon from '../icon';
 import Popup from '../popup/popup';
 import './testimonials.scss';
@@ -93,10 +93,10 @@ function Testimonials() {
                         <div key={index} className=" feedback l-6 c-12">
                             <p className="text">
                                 {x.feedback.map((y) => (
-                                    <>
+                                    <React.Fragment>
                                         - {y} <br />
                                         <br />
-                                    </>
+                                    </React.Fragment>
                                 ))}
                             </p>
                             <button onClick={() => seeMoreFeedback(x)} className='seeMore'>Xem Thêm</button>
@@ -202,10 +202,10 @@ const FeedbackModal = (props: IFeedback) => {
 
             <p className="text">
                 {props?.feedback?.map((y) => (
-                    <>
+                    <React.Fragment>
                         - {y} <br />
                         <br />
-                    </>
+                    </React.Fragment>
                 ))}
             </p>
         </div>
