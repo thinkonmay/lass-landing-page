@@ -103,7 +103,7 @@ function Header() {
                                 href="https://dev-thinkmay.netlify.app"
                                 className="btn btn-link"
                             >
-                                CloudPC portal
+                                CloudPC website
                                 <Icon className={'mb-[1px]'} src="game" />{' '}
                             </Link>
                         </ul>
