@@ -14,6 +14,10 @@ const listNav = [
         link: '/lass'
     },
     {
+        name: 'Hướng dẫn',
+        link: '/guide'
+    },
+    {
         name: 'Download',
         link: '/download'
     }

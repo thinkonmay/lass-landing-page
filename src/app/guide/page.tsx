@@ -125,7 +125,8 @@ const ConnectToPc = () => {
 
                         </p>
                         <p className='text'>
-                            <b>Đọc thêm:</b> Cách backup fill save khi chơi bằng account Steam Offline
+                            <b>Đọc thêm:</b>
+                            <a href="https://docs.google.com/document/d/1PvQz3FruZMI6NWe5DSARs_G8OIdhudsWDb6cK6ZhtQs/edit?usp=sharing"> Backup file save khi chơi bằng account Steam Offline</a>
                         </p>
                     </div>
                     <div className="right">
@@ -213,12 +214,15 @@ const OptimizeSetting = () => {
                             </p>
 
 
-                           
+
                             <p className='text'>
-                            <b>Bitrate:</b> Tăng/giảm chất lượng hình ảnh. Mạng yếu gây tình trạng delay thì cần giảm 
+                                <b>Bitrate:</b> Tăng/giảm chất lượng hình ảnh. Mạng yếu gây tình trạng delay thì cần giảm
                             </p>
                         </div>
-                        
+                        <div className="right">
+                            <Image alt='qr-code' width={320} height={180} src='/setting-mobile.png'></Image>
+
+                        </div>
                     </div>
 
 
