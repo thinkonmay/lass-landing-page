@@ -103,6 +103,8 @@
 	.subscribe {
 		display: flex;
 		column-gap: 120px;
+		flex-wrap: wrap-reverse;
+
 	}
 
 	.content {
@@ -128,7 +130,7 @@
 	.connectToPc {
 		display: flex;
 		gap: 120px;
-
+		flex-wrap: wrap-reverse;
 	}
 
 	.optimize {
@@ -142,6 +144,7 @@
 		.mobile {
 			display: flex;
 			gap: 120px;
+			flex-wrap: wrap-reverse;
 
 		}
 
@@ -184,8 +187,8 @@
 
 
 @media (1px < width < 768px) {
-	.download {
-		padding: 4rem var(--gutter-mobile);
+	.cloudPcGuide {
+		padding: 6rem var(--gutter-mobile);
 
 		.wrapperTitle {
 
@@ -212,6 +215,7 @@
 			}
 
 			.subTitle {
+				//styleName: Text lg/Regular;
 				color: var(--Neutral-100);
 				font-size: var(--font-size-sm);
 				font-weight: 400;
@@ -222,7 +226,6 @@
 			}
 
 			.text {
-				//styleName: Text xl/Medium;
 				font-size: var(--font-size-lg);
 				font-weight: 500;
 				line-height: 30px;
@@ -235,12 +238,11 @@
 
 
 		.mainContent {
-			margin-top: 3.2rem;
+			margin-top: 2.4rem;
 
 			.title {
-				font-size: var(--font-display-xs);
-				font-weight: bold;
-				text-transform: uppercase;
+				font-size: var(--font-size-xl);
+				font-weight: 600;
 
 				a {
 					font-size: inherit;
@@ -255,55 +257,107 @@
 				font-style: italic;
 				font-weight: 500;
 			}
+
+			.text {
+				font-size: var(--font-size-lg);
+				max-width: 550px;
+			}
+
+			ul {
+				list-style: disc;
+				font-size: inherit;
+				text-transform: inherit;
+				padding-left: 1.6rem;
+
+				li {
+					font-size: inherit;
+					text-transform: inherit;
+				}
+			}
+
+			b {
+				font-size: inherit;
+				font-weight: bold;
+				text-transform: inherit;
+
+			}
 		}
 
 		.section {
 
-			margin-top: 3rem;
+			margin-top: 1.2rem;
+		}
 
-			.ctnBoxs {
-				margin-left: 120px;
+		.subscribe {
+			display: flex;
+			column-gap: 120px;
+			flex-wrap: wrap-reverse;
+
+		}
+
+		.content {
+			transition: all 0.1s linear;
+			opacity: 0;
+			height: 0;
+			margin-top: 0.8rem;
+
+			.left {
+				padding-left: 24px;
 				display: flex;
-				flex-wrap: wrap;
-				row-gap: 32px;
+				flex-direction: column;
+				gap: 4px;
+			}
+
+			.right {
+				overflow: hidden;
+				border-radius: 12px;
+				margin: 0 auto;
+			}
+		}
+
+		.connectToPc {
+			display: flex;
+			column-gap: 120px;
+			flex-wrap: wrap-reverse;
+		}
+
+		.optimize {
+			padding-left: 3.2rem;
+
+			h3 {
+				font-size: var(--font-size-xl);
+				font-weight: 500;
+			}
+
+			.mobile {
+				display: flex;
 				column-gap: 120px;
+				flex-wrap: wrap-reverse;
 
-				.box {
-					display: flex;
-					gap: 24px;
-					min-width: 320px;
-					border: 4px solid #28BCB8;
-					border-radius: 16px;
-					padding: 16px 32px;
-
-
-					.left {
-						display: flex;
-						flex-direction: column;
-						align-items: center;
-
-						.text {
-							color: var(--Neutral-500)
-						}
-					}
-
-					.right {
-						margin: auto;
-
-						.text {
-							font-size: var(--font-size-lg);
-							font-weight: bold;
-						}
-
-						.subText {
-							font-size: var(--font-size-xs);
-						}
-					}
-				}
 			}
 
 		}
 
+		.btnTitle {
+			display: flex;
+			gap: 8px;
+			align-items: center;
+
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+
+		.hide {
+			animation: fadeOut ease-in-out 0.5s;
+			height: 0;
+		}
+
+		.show {
+			animation: fadeIn ease-in-out 0.5s;
+			height: auto;
+			opacity: 1;
+		}
 	}
 
 }

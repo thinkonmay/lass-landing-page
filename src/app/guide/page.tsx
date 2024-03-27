@@ -107,7 +107,7 @@ const ConnectToPc = () => {
             <button className='btnTitle' onClick={() => setOpen(old => !old)}>
                 {open ? <ArrowUp style={{ strokeWidth: '2px', stroke: 'black' }} ></ArrowUp> : <ArrowDown style={{ strokeWidth: '4px', stroke: 'black' }} ></ArrowDown>}
                 <h2 className="title" >
-                    Kết nối đến chiếc cloudPC của bạn
+                    Kết nối chiếc CloudPC của bạn
                 </h2>
             </button>
             {
@@ -234,15 +234,13 @@ const OptimizeSetting = () => {
                     </button>
                     <div className={openDesktop ? 'content  mobile show' : 'content  mobile'}>
                         <div className="left">
-                            <p className='text'>
-                                <ul>
-                                    <li><b>Làm mới liên tục:</b> Bật tăng độ mượt(cần mạng mạnh & ổn định), tắt nếu gặp tình trạng giật hình</li>
-                                    <li><b>Fix lỗi phím:</b> Bật với 1 số game không nhận phím</li>
-                                    <li><b>Chế độ gaming:</b> Tắt chuột khi chơi game</li>
-                                    <li><b>MBps:</b> Tăng/giảm chất lượng hình ảnh. Mạng yếu gây tình trạng delay thì cần giảm </li>
-                                    <li><b>Fps:</b> Tăng giảm số khung hình trên giây. Mạng không ổn định gây tình trạng drop fps thì cần giảm</li>
-                                </ul>
-                            </p>
+                            <ul className='text'>
+                                <li><b>Làm mới liên tục:</b> Bật tăng độ mượt(cần mạng mạnh & ổn định), tắt nếu gặp tình trạng giật hình</li>
+                                <li><b>Fix lỗi phím:</b> Bật với 1 số game không nhận phím</li>
+                                <li><b>Chế độ gaming:</b> Tắt chuột khi chơi game</li>
+                                <li><b>MBps:</b> Tăng/giảm chất lượng hình ảnh. Mạng yếu gây tình trạng delay thì cần giảm </li>
+                                <li><b>Fps:</b> Tăng giảm số khung hình trên giây. Mạng không ổn định gây tình trạng drop fps thì cần giảm</li>
+                            </ul>
                         </div>
                         <div className="right">
                             <Image alt='qr-code' width={320} height={180} src='/setting.png'></Image>
