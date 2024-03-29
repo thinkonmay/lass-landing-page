@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Icon from '../icon';
 import './header.scss';
+import { cloudPcLink } from '@/data/constant';
 
 const listNav = [
     {
@@ -61,7 +62,7 @@ function Header() {
                     }
 
                     <Link
-                        href="https://supabase.thinkmay.net/"
+                        href={cloudPcLink}
                         className="btn btn-link"
                     >
                         CloudPC website
@@ -100,7 +101,7 @@ function Header() {
                                 ))
                             }
                             <Link
-                                href="https://supabase.thinkmay.net/"
+                                href={cloudPcLink}
                                 className="btn btn-link"
                             >
                                 CloudPC website

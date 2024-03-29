@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Icon from '../components/icon';
 import './index.scss';
+import { cloudPcLink } from '@/data/constant';
 
 export default function CloudPC() {
     return (
@@ -292,7 +293,7 @@ const ConnectReason = () => {
                     </div>
 
                     <div className="ctnOs">
-                        <p className='title'>Ngay trên <a className='underline' target='_blank' href="https://supabase.thinkmay.net/">broswer:</a></p>
+                        <p className='title'>Ngay trên <a className='underline' target='_blank' href={cloudPcLink}>broswer:</a></p>
 
                         <div className="listOs">
                             {
@@ -307,7 +308,7 @@ const ConnectReason = () => {
                         </div>
                     </div>
 
-                    <a className='btn ctaBtn' href="https://supabase.thinkmay.net/">Truy cập website</a>
+                    <a className='btn ctaBtn' href={cloudPcLink}>Truy cập website</a>
                 </div>
             </div>
         </div>
@@ -457,7 +458,7 @@ const AppReason = () => {
                     }
 
                 </div>
-                <a href={'https://supabase.thinkmay.net/'} target='_blank' className='btn mx-auto mt-[3.2rem] ctaBtn'>Khám phá kho game</a>
+                <a href={cloudPcLink} target='_blank' className='btn mx-auto mt-[3.2rem] ctaBtn'>Khám phá kho game</a>
 
             </div>
         </div>

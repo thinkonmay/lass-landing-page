@@ -1,4 +1,5 @@
 
+import { cloudPcLink } from '@/data/constant';
 import Icon from '../../components/icon';
 import './index.scss';
 
@@ -81,7 +82,7 @@ export default function Download() {
 
                     <div className="section">
                         <h2 className="title">
-                            dùng trực tiếp trên website <a href="https://supabase.thinkmay.net/" target='_blank'>tại đây</a> cho mọi thiết bị
+                            dùng trực tiếp trên website <a href={cloudPcLink} target='_blank'>tại đây</a> cho mọi thiết bị
                         </h2>
                         <p className='subTitle'>*Mở trên trình duyệt Chrome để có trải nghiệm tốt nhất</p>
 
