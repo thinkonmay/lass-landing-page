@@ -61,7 +61,7 @@ function Header() {
                     }
 
                     <Link
-                        href="https://dev-thinkmay.netlify.app"
+                        href="https://supabase.thinkmay.net/"
                         className="btn btn-link"
                     >
                         CloudPC website
@@ -100,7 +100,7 @@ function Header() {
                                 ))
                             }
                             <Link
-                                href="https://dev-thinkmay.netlify.app"
+                                href="https://supabase.thinkmay.net/"
                                 className="btn btn-link"
                             >
                                 CloudPC website

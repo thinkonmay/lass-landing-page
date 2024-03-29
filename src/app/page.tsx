@@ -292,7 +292,7 @@ const ConnectReason = () => {
                     </div>
 
                     <div className="ctnOs">
-                        <p className='title'>Ngay trên <a className='underline' target='_blank' href="https://app.thinkmay.net/">broswer:</a></p>
+                        <p className='title'>Ngay trên <a className='underline' target='_blank' href="https://supabase.thinkmay.net/">broswer:</a></p>
 
                         <div className="listOs">
                             {
@@ -307,7 +307,7 @@ const ConnectReason = () => {
                         </div>
                     </div>
 
-                    <a className='btn ctaBtn' href="https://app.thinkmay.net/">Truy cập website</a>
+                    <a className='btn ctaBtn' href="https://supabase.thinkmay.net/">Truy cập website</a>
                 </div>
             </div>
         </div>
@@ -457,7 +457,7 @@ const AppReason = () => {
                     }
 
                 </div>
-                <a href={'https://app.thinkmay.net/'} target='_blank' className='btn mx-auto mt-[3.2rem] ctaBtn'>Khám phá kho game</a>
+                <a href={'https://supabase.thinkmay.net/'} target='_blank' className='btn mx-auto mt-[3.2rem] ctaBtn'>Khám phá kho game</a>
 
             </div>
         </div>

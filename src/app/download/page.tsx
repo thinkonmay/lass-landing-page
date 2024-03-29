@@ -1,8 +1,6 @@
-import Image from 'next/image';
 
-import './index.scss';
 import Icon from '../../components/icon';
-import Breadcrumb from '../../components/breadcrumb/Breadcumb';
+import './index.scss';
 
 
 const listDevices = [
@@ -83,7 +81,7 @@ export default function Download() {
 
                     <div className="section">
                         <h2 className="title">
-                            dùng trực tiếp trên website <a href="https://app.thinkmay.net/" target='_blank'>tại đây</a> cho mọi thiết bị 
+                            dùng trực tiếp trên website <a href="https://supabase.thinkmay.net/" target='_blank'>tại đây</a> cho mọi thiết bị
                         </h2>
                         <p className='subTitle'>*Mở trên trình duyệt Chrome để có trải nghiệm tốt nhất</p>
 
