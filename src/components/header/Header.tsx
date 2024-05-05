@@ -1,9 +1,10 @@
 'use client';
+import { cloudPcLink } from '@/data/constant';
+import { UserEvents } from '@/utils/analytics';
 import Link from 'next/link';
 import { useState } from 'react';
 import Icon from '../icon';
 import './header.scss';
-import { cloudPcLink } from '@/data/constant';
 
 const listNav = [
     {
@@ -32,6 +33,12 @@ function Header() {
     const close = () => {
         setOpenNav(false);
     };
+    const redirectWin11 = () => {
+        UserEvents({
+            type: 'USER_ACTION',
+            payload: `click and go to ${cloudPcLink}`
+        })
+    }
 
     return (
         <div className="header ">
@@ -63,6 +70,8 @@ function Header() {
 
                     <Link
                         href={cloudPcLink}
+                        target='_blank'
+                        onClick={redirectWin11}
                         className="btn btn-link"
                     >
                         CloudPC website
@@ -102,6 +111,8 @@ function Header() {
                             }
                             <Link
                                 href={cloudPcLink}
+                                onClick={redirectWin11}
+                                target='_blank'
                                 className="btn btn-link"
                             >
                                 CloudPC website

@@ -9,6 +9,7 @@
     "prettier": "prettier --write \"./**/*.{jsx,ts,js,tsx}\""
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.43.1",
     "next": "14.0.3",
     "prettier": "^3.2.5",
     "react": "^18",

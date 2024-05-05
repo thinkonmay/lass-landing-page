@@ -1,11 +1,14 @@
-
+'use client'
 import Image from 'next/image';
 import Link from 'next/link';
 import Icon from '../components/icon';
 import './index.scss';
 import { cloudPcLink } from '@/data/constant';
+import { useEffect } from 'react';
+import { UserEvents, UserSession } from '@/utils/analytics';
 
 export default function CloudPC() {
+    useEffect(() => { UserSession() },[])
     return (
         <>
             {/*<Breadcrumb></Breadcrumb>*/}
@@ -179,10 +182,16 @@ const listSubscriptions = [
 ]
 
 const Subscriptions = () => {
+    const payment = () => {
+        UserEvents({
+            type: "payment",
+            payload: "User click on payment"
+        })
+    }
+
 
 
     const renderCard = () => {
-
         return listSubscriptions.map(sub => (
             <div key={sub.name} className='l-4 col '>
                 <div className="subscription"
@@ -214,7 +223,7 @@ const Subscriptions = () => {
                     </div>
 
                     <div className="ctnBtn">
-                        <a href='https://fb.com/thinkonmay' target='_blank' className="btn-checkout  ctaBtn">Thanh toán</a>
+                        <a href='https://fb.com/thinkonmay' onClick={payment} target='_blank' className="btn-checkout  ctaBtn">Thanh toán</a>
                         <a href='#featureReason' className="btn-link">Chi tiết</a>
                     </div>
 
