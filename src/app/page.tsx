@@ -1,14 +1,14 @@
 'use client'
+import { cloudPcLink } from '@/data/constant';
+import { UserEvents, UserSession } from '@/utils/analytics';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect } from 'react';
 import Icon from '../components/icon';
 import './index.scss';
-import { cloudPcLink } from '@/data/constant';
-import { useEffect } from 'react';
-import { UserEvents, UserSession } from '@/utils/analytics';
 
 export default function CloudPC() {
-    useEffect(() => { UserSession() },[])
+    useEffect(() => { UserSession() }, [])
     return (
         <>
             {/*<Breadcrumb></Breadcrumb>*/}
@@ -20,7 +20,7 @@ export default function CloudPC() {
                 <ProductiveReason></ProductiveReason>
                 <AppReason></AppReason>
                 <SecureReason></SecureReason>
-                <FeatureReason></FeatureReason>
+                {/*<FeatureReason></FeatureReason>*/}
             </div>
         </>
     );
@@ -37,7 +37,7 @@ const HeroSection = () => {
                     <span className="brand">Cloud PC</span>
 
                     <h1>
-                        Chiếc Windown Pc <span>mạnh mẽ</span> của bạn trên Cloud. Mọi nhu cầu, mọi lúc & mọi nơi
+                        Chiếc Windown Pc <span>mạnh mẽ</span> của bạn trên Cloud chỉ với 299k!
                     </h1>
 
                     <p className="subText">
@@ -79,9 +79,9 @@ const listReason = [
         href: '#subscriptions'
     },
     {
-        title: 'Phầm mềm bản quyền',
-        text: 'Đều đã được cài sẵn & có bản quyền. Không mất thời gian download & crack.',
-        icon: 'award',
+        title: 'PC riêng biệt',
+        text: 'Bạn có thể tải hầu hết các game yêu thích, chơi & làm những việc mình yêu thích trên PC',
+        icon: 'mi-laptop',
         href: '#appReason'
     },
     {
@@ -144,9 +144,9 @@ const listSubscriptions = [
 
         specs: [
             { icon: 'gpu', text: 'Nvidia RTX 3060Ti' },
-            { icon: 'ram', text: '8Gb Ram' },
+            { icon: 'ram', text: '16Gb Ram' },
             { icon: 'cpu', text: 'Xeon™ (up to 3.1 GHz) 8 vCores' },
-            { icon: 'hard-drive-white', text: '5GB(* Phầm mềm đã có sẵn)' },
+            { icon: 'hard-drive-white', text: '130GB' },
             { icon: 'os-win', text: 'Window 10' },
         ],
     },
@@ -154,27 +154,27 @@ const listSubscriptions = [
         name: 'Tiêu chuẩn',
         price: '369k',
         subPrice: '/tháng',
-        subName: 'Giới hạn 140h/tháng',
+        subName: 'Giới hạn 160h/tháng',
         isSpecial: true,
         specs: [
             { icon: 'gpu', text: 'Nvidia RTX 3060Ti' },
-            { icon: 'ram', text: '12Gb Ram' },
+            { icon: 'ram', text: '16Gb Ram' },
             { icon: 'cpu', text: 'Xeon™ (up to 3.1 GHz) 8 vCores' },
-            { icon: 'hard-drive-white', text: '10GB(* Phầm mềm đã có sẵn)' },
+            { icon: 'hard-drive-white', text: '200GB' },
             { icon: 'os-win', text: 'Window 10' },
         ],
     },
     {
-        name: 'Supper',
+        name: 'Super',
         price: '899k',
         subPrice: '/3 tháng',
         subName: 'Giới hạn 125h/tháng',
         isSpecial: false,
         specs: [
             { icon: 'gpu', text: 'Nvidia RTX 3060Ti' },
-            { icon: 'ram', text: '12Gb Ram' },
+            { icon: 'ram', text: '16Gb Ram' },
             { icon: 'cpu', text: 'Xeon™ (up to 3.1 GHz) 8 vCores' },
-            { icon: 'hard-drive-white', text: '20GB(* Phầm mềm đã có sẵn)' },
+            { icon: 'hard-drive-white', text: '130GB' },
             { icon: 'os-win', text: 'Window 10' },
         ],
     },
@@ -450,7 +450,6 @@ const AppReason = () => {
                 <div className=" top col">
                     <div className="wrapperTitle text-center ">
                         <h2 className='title'>  <span className="highlight"> Đa dạng </span> Phầm mềm bản quyền</h2>
-                        <p className='text'>Toàn bộ đều đã cài sẵn và  mua bản quyền. <br /> Bạn sử dụng hoàn toàn miễn phí</p>
                     </div>
 
 
@@ -467,7 +466,7 @@ const AppReason = () => {
                     }
 
                 </div>
-                <a href={cloudPcLink} target='_blank' className='btn mx-auto mt-[3.2rem] ctaBtn'>Khám phá kho game</a>
+                <a href={'https://www.facebook.com/thinkonmay'} target='_blank' className='btn mx-auto mt-[3.2rem] ctaBtn'>Đặt lịch trải nghiệm miễn phí</a>
 
             </div>
         </div>
