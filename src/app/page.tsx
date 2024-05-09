@@ -269,10 +269,10 @@ const listOs = [
         icon: 'ubuntu',
         name: 'Ubuntu'
     },
-    {
-        icon: 'ios',
-        name: 'IOS'
-    },
+    //{
+    //    icon: 'ios',
+    //    name: 'IOS'
+    //},
     {
         icon: 'os-win-bold',
         name: 'Window'
@@ -440,6 +440,21 @@ const listSupportApp = [
         name: 'Unity'
     }
 ]
+const listUnSupporttedApp = [
+    {
+        icon: 'lol',
+        name: 'League of Legends'
+    },
+    {
+        icon: 'val-logo',
+        name: 'Valorant'
+    },
+    {
+        icon: 'fc24-logo',
+        name: 'FC 24'
+    },
+]
+
 const AppReason = () => {
 
 
@@ -449,22 +464,18 @@ const AppReason = () => {
             <div className="grid wide mainContent">
                 <div className=" top col">
                     <div className="wrapperTitle text-center ">
-                        <h2 className='title'>  <span className="highlight"> Đa dạng </span> Phầm mềm bản quyền</h2>
+                        <h2 className='title'>  Danh sách  game chưa<span className="highlight"> support </span> </h2>
                     </div>
-
-
-
                 </div>
                 <div className="listApp col l-10 m-auto">
                     {
-                        listSupportApp.map(app => (
+                        listUnSupporttedApp.map(app => (
                             <div key={app.name} className='item'>
-                                <Image alt='img' width={40} height={40} src={'/logo-app/' + app.icon + '.png'}></Image>
+                                <Image alt='img' width={80} height={80} src={'/logo-app/' + app.icon + '.png'}></Image>
                                 <p className='text'>{app.name}</p>
                             </div>
                         ))
                     }
-
                 </div>
                 <a href={'https://www.facebook.com/thinkonmay'} target='_blank' className='btn mx-auto mt-[3.2rem] ctaBtn'>Đặt lịch trải nghiệm miễn phí</a>
 
