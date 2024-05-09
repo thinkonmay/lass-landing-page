@@ -7,10 +7,10 @@ import Icon from '../icon';
 import './header.scss';
 
 const listNav = [
-    {
-        name: 'Liên hệ',
-        link: '/contact'
-    },
+    //{
+    //    name: 'Liên hệ',
+    //    link: '/contact'
+    //},
     {
         name: 'Laptop as a service',
         link: '/lass'
@@ -19,9 +19,13 @@ const listNav = [
         name: 'Hướng dẫn',
         link: '/guide'
     },
+    //{
+    //    name: 'Download',
+    //    link: '/download'
+    //}
     {
-        name: 'Download',
-        link: '/download'
+        name: 'Danh sách game chưa support',
+        link: '#appReason'
     }
 ]
 
