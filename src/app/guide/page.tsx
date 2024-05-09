@@ -1,11 +1,9 @@
 "use client"
-import './index.scss';
-import Icon from '../../components/icon';
-import Breadcrumb from '../../components/breadcrumb/Breadcumb';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import { ArrowDown, ArrowUp } from '../../../public/icon';
-import Link from 'next/link';
+import './index.scss';
 
 const listDevices = [
     {
@@ -114,23 +112,17 @@ const ConnectToPc = () => {
                 <div className={open ? 'content connectToPc show' : 'content connectToPc'}>
                     <div className="left">
                         <p className='text'>
-                            Truy cập  Store trên App, hoặc website: App.thinkmay.net <br />
-                            Chọn game bạn yêu thích & cài đặt
+                            Truy cập  Connect YourPC trên App, hoặc website <br />
+                            Ấn connect & đợi
                         </p>
 
-
-                        <p className="text">
-                            <b>Lưu ý: </b> Game có sẵn trong ổ D
-                            Dữ liệu ổ C sẽ bị xoá sau khi tắt máy, vui lòng chỉ lưu ở ổ D
-
-                        </p>
-                        <p className='text'>
+                        {/*<p className='text'>
                             <b>Đọc thêm:</b>
                             <a href="https://docs.google.com/document/d/1PvQz3FruZMI6NWe5DSARs_G8OIdhudsWDb6cK6ZhtQs/edit?usp=sharing"> Backup file save khi chơi bằng account Steam Offline</a>
-                        </p>
+                        </p>*/}
                     </div>
                     <div className="right">
-                        <Image alt='qr-code' width={320} height={180} src='/install-game.png'></Image>
+                        <Image alt='qr-code' width={320} height={180} src='/connect-pc.png'></Image>
                     </div>
                 </div>
             }
@@ -167,8 +159,8 @@ const RightWayShutdown = () => {
                             <b>Lưu ý: </b> Không ấn shutdown trong máy remote
                         </p>
                     </div>
-                    <div className="">
-                        <Image alt='qr-code' width={320} height={180} src='/right-way-shutdown.png'></Image>
+                    <div className="rounded-lg overflow-hidden">
+                        <Image alt='qr-code' width={320} height={180} src='/shutdown.png'></Image>
                     </div>
                 </div>
             }
@@ -201,45 +193,18 @@ const OptimizeSetting = () => {
                         <br />
                         <b>Nhắn tin</b> qua fanpage để được support khi gặp tình trạng giật hình, delay
                     </p>
-                    <button className='btnTitle' onClick={() => setOpenMobile(old => !old)}>
-                        {openMobile ? <ArrowUp style={{ strokeWidth: '1px', stroke: 'black' }} ></ArrowUp> : <ArrowDown style={{ strokeWidth: '3px', stroke: 'black' }} ></ArrowDown>}
-                        <h3 >
-                            Trên mobile
-                        </h3>
-                    </button>
-                    <div className={openMobile ? 'content  mobile show' : 'content  mobile'}>
-                        <div className="left">
-                            <p className='text'>
-                                Góc trên bên phải: Chỉnh bitrate, mở Gamepad ảo
-                            </p>
 
 
 
-                            <p className='text'>
-                                <b>Bitrate:</b> Tăng/giảm chất lượng hình ảnh. Mạng yếu gây tình trạng delay thì cần giảm
-                            </p>
-                        </div>
-                        <div className="right">
-                            <Image alt='qr-code' width={320} height={180} src='/setting-mobile.png'></Image>
 
-                        </div>
-                    </div>
-
-
-                    <button className='btnTitle' onClick={() => setOpenDesktop(old => !old)}>
-                        {openDesktop ? <ArrowUp style={{ strokeWidth: '1px', stroke: 'black' }} ></ArrowUp> : <ArrowDown style={{ strokeWidth: '3px', stroke: 'black' }} ></ArrowDown>}
-                        <h3 >
-                            Trên Desktop
-                        </h3>
-                    </button>
-                    <div className={openDesktop ? 'content  mobile show' : 'content  mobile'}>
+                    <div className={'content  mobile show'}>
                         <div className="left">
                             <ul className='text'>
-                                <li><b>Làm mới liên tục:</b> Bật tăng độ mượt(cần mạng mạnh & ổn định), tắt nếu gặp tình trạng giật hình</li>
-                                <li><b>Fix lỗi phím:</b> Bật với 1 số game không nhận phím</li>
-                                <li><b>Chế độ gaming:</b> Tắt chuột khi chơi game</li>
-                                <li><b>MBps:</b> Tăng/giảm chất lượng hình ảnh. Mạng yếu gây tình trạng delay thì cần giảm </li>
-                                <li><b>Fps:</b> Tăng giảm số khung hình trên giây. Mạng không ổn định gây tình trạng drop fps thì cần giảm</li>
+                                <li><b>Fix lỗi phím: </b> Bật với 1 số game không nhận phím</li>
+                                <li><b>Share Lonk: </b>Chia sẻ link để bạn bè chơi chung</li>
+                                <li><b>Chế độ gaming: </b> Tắt chuột khi chơi game</li>
+                                <li><b>Bitrate: </b>Giảm nếu gặp tình trạng delay</li>
+                                <li><b>Fps: </b>Thử tất các các mức để tìm ra mức fps phù hợp</li>
                             </ul>
                         </div>
                         <div className="right">
