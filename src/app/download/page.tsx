@@ -15,6 +15,12 @@ const listDevices = [
                 subText: 'for Window'
             },
             {
+                name: 'Linux',
+                icon: 'ubuntu',
+                text: 'Download',
+                subText: 'for Linux'
+            },
+            {
                 name: 'MacOs',
                 icon: 'ios',
                 text: 'Download',

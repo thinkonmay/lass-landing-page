@@ -19,14 +19,14 @@ const listNav = [
         name: 'Hướng dẫn',
         link: '/guide'
     },
-    //{
-    //    name: 'Download',
-    //    link: '/download'
-    //}
     {
-        name: 'Danh sách game chưa support',
-        link: '#appReason'
-    }
+        name: 'Download',
+        link: '/download'
+    },
+    //{
+    //    name: 'Danh sách game chưa support',
+    //    link: '/#appReason'
+    //}
 ]
 
 function Header() {
