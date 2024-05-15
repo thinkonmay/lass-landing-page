@@ -37,7 +37,7 @@ const HeroSection = () => {
                     <span className="brand">Cloud PC</span>
 
                     <h1>
-                        Chiếc Windown Pc <span>mạnh mẽ</span> của bạn trên Cloud chỉ với 299k!
+                        Chiếc Windows Pc <span>mạnh mẽ</span> của bạn trên Cloud chỉ với 299k!
                     </h1>
 
                     <p className="subText">

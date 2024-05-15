@@ -1,30 +1,50 @@
-
+'use client'
 import { cloudPcLink } from '@/data/constant';
 import Icon from '../../components/icon';
 import './index.scss';
+import { useEffect } from 'react';
 
+type Device = {
+    name: string;
+    listOs: OS[];
+}
 
-const listDevices = [
+type OS = {
+    name: string,
+    icon: string,
+    text: string,
+    subText: string,
+    link?: string,
+    platform?: string
+}
+
+const listDevices: Device[] = [
     {
         name: 'Desktop',
         listOs: [
             {
                 name: 'Window',
                 icon: 'os-win-bold',
-                text: 'Download',
-                subText: 'for Window'
+                text: 'Tải xuống',
+                subText: 'cho Window',
+                platform: 'windows-x86_64'
             },
             {
                 name: 'Linux',
                 icon: 'ubuntu',
-                text: 'Download',
-                subText: 'for Linux'
+                // text: 'Tải xuống',
+                // subText: 'cho Linux'
+                text: 'Sắp ra mắt...',
+                subText: '',
+                platform: 'linux-x86_64'
             },
             {
                 name: 'MacOs',
                 icon: 'ios',
-                text: 'Download',
-                subText: 'for macOs'
+                // text: 'Tải xuống',
+                // subText: 'cho MacOS'
+                text: 'Sắp ra mắt...',
+                subText: ''
             }
         ]
     },
@@ -34,25 +54,45 @@ const listDevices = [
             {
                 name: 'Android',
                 icon: 'android',
-                text: 'Incoming...',
+                text: 'Sắp ra mắt...',
                 subText: ''
             },
             {
                 name: 'IOS',
                 icon: 'ios',
-                text: 'Incoming...',
+                text: 'Sắp ra mắt...',
                 subText: ''
             }
         ]
     },
 ]
 export default function Download() {
+
+
+    async function fetchDownloadList(){
+        const downloadList = await fetch(`https://gist.github.com/epitchi/85b62c4b7084ed8e9818992ef2501102`)
+
+        const data = await downloadList.json()
+
+        const listApp = JSON.stringify(data['platforms'])
+
+        for (let i = 0; i < listDevices[0].listOs.length; i++){
+            if(listDevices[0].listOs[0].platform != undefined && listDevices[0].listOs[0].platform != null){
+                const platform: string = listDevices[0].listOs[0].platform;
+                listDevices[0].listOs[0].link = JSON.parse(listApp)[platform].url
+            }
+        }
+    }
+
+
+    useEffect(() => {fetchDownloadList()}, [])
+
     return (
         <>
             <div className="download grid wide">
                 <div className="wrapperTitle">
                     <h1 className="title">
-                        Download <span className="highlight">Thinkmay</span>
+                        Tải xuống <span className="highlight">Thinkmay</span>
                     </h1>
                 </div>
 
@@ -66,7 +106,13 @@ export default function Download() {
                                 <div className="ctnBoxs">
                                     {
                                         device.listOs.map(os => (
-                                            <div key={os.text} className="box">
+                                            <div key={os.name} 
+                                                className="box" 
+                                                onClick={() => {	window.open(
+                                                    `${os.link}`,
+                                                    '_blank'
+                                                )}}
+                                                style={{backgroundColor: os.subText != "" ? "white": "#DDDDDD"}}>
                                                 <div className="left">
                                                     <Icon width={60} height={60} src={os.icon}></Icon>
                                                     <p className='text'>{os.name}</p>

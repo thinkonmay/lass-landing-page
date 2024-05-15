@@ -20,7 +20,7 @@ const listNav = [
         link: '/guide'
     },
     {
-        name: 'Download',
+        name: 'Tải xuống',
         link: '/download'
     },
     //{
