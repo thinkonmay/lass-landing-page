@@ -70,16 +70,26 @@ export default function Download() {
 
 
     async function fetchDownloadList(){
-        const downloadList = await fetch(`https://gist.github.com/epitchi/85b62c4b7084ed8e9818992ef2501102`)
+        const downloadList = await fetch(` https://api.github.com/gists/85b62c4b7084ed8e9818992ef2501102`,
+            {
+                headers: {
+                    'Accept': "application/vnd.github+json",
+                    'X-GitHub-Api-Version': '2022-11-28'
+                }
+            }
+        )
 
         const data = await downloadList.json()
 
-        const listApp = JSON.stringify(data['platforms'])
+        const listApp = JSON.parse(data.files['thinkmay-tauri-app.json']['content'])
+
+
+        const platforms = listApp['platforms']
 
         for (let i = 0; i < listDevices[0].listOs.length; i++){
             if(listDevices[0].listOs[0].platform != undefined && listDevices[0].listOs[0].platform != null){
                 const platform: string = listDevices[0].listOs[0].platform;
-                listDevices[0].listOs[0].link = JSON.parse(listApp)[platform].url
+                listDevices[0].listOs[0].link = platforms[platform].url
             }
         }
     }
