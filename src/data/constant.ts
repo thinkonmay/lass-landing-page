@@ -1,3 +1,3 @@
 
 
-export const cloudPcLink = 'https://supabase.thinkmay.net/'
+export const cloudPcLink = 'https://play.thinkmay.net/'
