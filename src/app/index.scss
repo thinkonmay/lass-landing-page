@@ -209,6 +209,9 @@
 
 		.subscription {
 			color: var(--Neutral-500);
+			min-height: 525px;
+			display: flex;
+			flex-direction: column;
 			padding: 2.4rem 2.6rem;
 			padding-bottom: 4rem;
 			border: 2px solid currentColor;
@@ -248,7 +251,7 @@
 
 				.subName {
 					color: white;
-					font-size: 1rem;
+					font-size: 1.2rem;
 					font-style: italic;
 					font-weight: 400;
 					line-height: 18px;
@@ -317,7 +320,7 @@
 			}
 
 			.ctnBtn {
-				margin-top: 4.8rem;
+				margin-top: auto;
 				display: flex;
 
 				align-items: center;
@@ -762,7 +765,7 @@
 	}
 
 	.featureReason {
-		padding: 10rem 0;
+		padding: 2rem 0 10rem 0;
 		background: #020218;
 
 		.mainContent {}
@@ -1121,6 +1124,9 @@
 			.subscription {
 				color: var(--Neutral-500);
 				padding: 2.4rem 3.2rem;
+				min-height: 525px;
+				display: flex;
+				flex-direction: column;
 				padding-bottom: 4rem;
 				border: 2px solid currentColor;
 				border-radius: 16px;
@@ -1158,7 +1164,7 @@
 
 					.subName {
 						color: white;
-						font-size: 1rem;
+						font-size: 1.2rem;
 						font-style: italic;
 						font-weight: 400;
 						line-height: 18px;
@@ -1227,7 +1233,7 @@
 				}
 
 				.ctnBtn {
-					margin-top: 4.8rem;
+					margin-top: auto;
 					display: flex;
 
 					align-items: center;
@@ -1672,7 +1678,7 @@
 		}
 
 		.featureReason {
-			padding: 6rem var(--gutter-mobile);
+			padding: 4rem var(--gutter-mobile);
 			background: #020218;
 			overflow: auto;
 

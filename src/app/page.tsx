@@ -16,11 +16,11 @@ export default function CloudPC() {
                 <HeroSection />
                 <Reason />
                 <Subscriptions></Subscriptions>
+                <FeatureReason></FeatureReason>
                 <ConnectReason></ConnectReason>
                 <ProductiveReason></ProductiveReason>
                 <AppReason></AppReason>
                 <SecureReason></SecureReason>
-                {/*<FeatureReason></FeatureReason>*/}
             </div>
         </>
     );
@@ -136,10 +136,10 @@ const Reason = () => {
 }
 const listSubscriptions = [
     {
-        name: 'Cơ bản',
-        price: '299K',
-        subPrice: '/tháng',
-        subName: 'Giới hạn 110h/tháng',
+        name: 'Gói giờ',
+        price: '8K',
+        subPrice: '/h',
+        subName: 'Lần đầu mua ít nhất 20h',
         isSpecial: false,
 
         specs: [
@@ -147,35 +147,46 @@ const listSubscriptions = [
             { icon: 'ram', text: '16Gb Ram' },
             { icon: 'cpu', text: 'Xeon™ (up to 3.1 GHz) 8 vCores' },
             { icon: 'hard-drive-white', text: '130GB' },
-            { icon: 'os-win', text: 'Window 10' },
+            //{ icon: 'os-win', text: 'Window 10' },
+            { icon: 'check', text: 'Cloud-save dữ liệu sau khi tắt máy' },
         ],
     },
     {
-        name: 'Tiêu chuẩn',
-        price: '369k',
+        name: 'Tiết kiệm',
+        price: '299k',
         subPrice: '/tháng',
-        subName: 'Giới hạn 160h/tháng',
+        subName: 'Giới hạn 150h/tháng',
         isSpecial: true,
         specs: [
-            { icon: 'gpu', text: 'Nvidia RTX 3060Ti' },
-            { icon: 'ram', text: '16Gb Ram' },
-            { icon: 'cpu', text: 'Xeon™ (up to 3.1 GHz) 8 vCores' },
-            { icon: 'hard-drive-white', text: '200GB' },
-            { icon: 'os-win', text: 'Window 10' },
+            //{ icon: 'gpu', text: 'Nvidia RTX 3060Ti' },
+            //{ icon: 'ram', text: '16Gb Ram' },
+            //{ icon: 'cpu', text: 'Xeon™ (up to 3.1 GHz) 8 vCores' },
+            //{ icon: 'hard-drive-white', text: '150GB' },
+            //{ icon: 'os-win', text: 'Window 10' },
+            { icon: 'hard-drive-white', text: '150GB' },
+            { icon: 'check', text: 'Cấu hình tương tự gói giờ' },
+            { icon: 'check', text: 'Không giới hạn thời gian mỗi session' },
+            { icon: 'check', text: 'Cloud-save' },
+
         ],
     },
     {
-        name: 'Super',
-        price: '899k',
-        subPrice: '/3 tháng',
-        subName: 'Giới hạn 125h/tháng',
+        name: 'Unlimited',
+        price: '1699k',
+        subPrice: '/tháng',
+        subName: 'Unlimited thời gian sử dụng',
         isSpecial: false,
         specs: [
-            { icon: 'gpu', text: 'Nvidia RTX 3060Ti' },
-            { icon: 'ram', text: '16Gb Ram' },
-            { icon: 'cpu', text: 'Xeon™ (up to 3.1 GHz) 8 vCores' },
-            { icon: 'hard-drive-white', text: '130GB' },
-            { icon: 'os-win', text: 'Window 10' },
+            //{ icon: 'gpu', text: 'Nvidia RTX 3060Ti' },
+            //{ icon: 'ram', text: '16Gb Ram' },
+            //{ icon: 'cpu', text: 'Xeon™ (up to 3.1 GHz) 8 vCores' },
+            //{ icon: 'os-win', text: 'Window 10' },
+            { icon: 'hard-drive-white', text: '250GB' },
+            { icon: 'check', text: 'Cấu hình tương tự gói giờ' },
+            { icon: 'check', text: 'Không hàng chờ' },
+            { icon: 'check', text: 'Không giới hạn thời gian mỗi session' },
+            { icon: 'check', text: 'Cloud-save' },
+
         ],
     },
 
@@ -222,7 +233,7 @@ const Subscriptions = () => {
 
                     </div>
 
-                    <div className="ctnBtn">
+                    <div className="ctnBtn mt-auto">
                         <a href='https://fb.com/thinkonmay' onClick={payment} target='_blank' className="btn-checkout  ctaBtn">Thanh toán</a>
                         <a href='#featureReason' className="btn-link">Chi tiết</a>
                     </div>
@@ -520,7 +531,7 @@ const FeatureReason = () => {
     return (
         <div className="featureReason" id='featureReason'>
             <div className="grid wide mainContent">
-                <div>
+                {/*<div>
                     <div className="wrapperTitle text-center ">
                         <h2 className='title'>Tính năng theo gói
                             <span className="highlight"></span>
@@ -548,8 +559,8 @@ const FeatureReason = () => {
                             <div className="columnContent">Cao</div>
                         </div>
                     </div>
-                </div>
-                <div className='mt-[8rem]'>
+                </div>*/}
+                <div className='mt-2'>
                     <div className="wrapperTitle text-center ">
                         <h2 className='title'>Option mua thêm
                             <span className="highlight"></span>
@@ -567,12 +578,12 @@ const FeatureReason = () => {
                         </div>
 
                         <div className="rowContent">
-                            <div className="columnContent">10h</div>
-                            <div className="columnContent">35k</div>
+                            <div className="columnContent">50GB</div>
+                            <div className="columnContent">70k</div>
                         </div>
                         <div className="rowContent">
-                            <div className="columnContent">10G Storage</div>
-                            <div className="columnContent">30k</div>
+                            <div className="columnContent">100GB</div>
+                            <div className="columnContent">120k</div>
                         </div>
                     </div>
                 </div>
