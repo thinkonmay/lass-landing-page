@@ -137,22 +137,25 @@ const Reason = () => {
 const listSubscriptions = [
     {
         name: 'Gói giờ',
+        id: 'hours',
         price: '8K',
         subPrice: '/h',
-        subName: 'Lần đầu mua ít nhất 20h',
+        //subName: 'Lần đầu mua ít nhất 20h',
         isSpecial: false,
 
         specs: [
+            { icon: 'check', text: 'Chơi các game đã được tải sẵn' },
+            { icon: 'check', text: 'Không lưu dữ liệu khi tắt máy' },
             { icon: 'gpu', text: 'Nvidia RTX 3060Ti' },
             { icon: 'ram', text: '16Gb Ram' },
             { icon: 'cpu', text: 'Xeon™ (up to 3.1 GHz) 8 vCores' },
-            { icon: 'hard-drive-white', text: '130GB' },
+            //{ icon: 'hard-drive-white', text: '130GB' },
             //{ icon: 'os-win', text: 'Window 10' },
-            { icon: 'check', text: 'Cloud-save dữ liệu sau khi tắt máy' },
         ],
     },
     {
         name: 'Tiết kiệm',
+        id: 'month',
         price: '299k',
         subPrice: '/tháng',
         subName: 'Giới hạn 150h/tháng',
@@ -163,16 +166,19 @@ const listSubscriptions = [
             //{ icon: 'cpu', text: 'Xeon™ (up to 3.1 GHz) 8 vCores' },
             //{ icon: 'hard-drive-white', text: '150GB' },
             //{ icon: 'os-win', text: 'Window 10' },
-            { icon: 'hard-drive-white', text: '150GB' },
+            { icon: 'check', text: 'Sỡ hữu PC cá nhân' },
             { icon: 'check', text: 'Cấu hình tương tự gói giờ' },
+            { icon: 'hard-drive-white', text: '150GB' },
+            { icon: 'check', text: 'Có lưu dữ liệu khi tắt máy' },
+
             { icon: 'check', text: 'Không giới hạn thời gian mỗi session' },
-            { icon: 'check', text: 'Cloud-save' },
 
         ],
     },
     {
         name: 'Unlimited',
         price: '1699k',
+        id: 'unlimited',
         subPrice: '/tháng',
         subName: 'Unlimited thời gian sử dụng',
         isSpecial: false,
@@ -181,11 +187,12 @@ const listSubscriptions = [
             //{ icon: 'ram', text: '16Gb Ram' },
             //{ icon: 'cpu', text: 'Xeon™ (up to 3.1 GHz) 8 vCores' },
             //{ icon: 'os-win', text: 'Window 10' },
-            { icon: 'hard-drive-white', text: '250GB' },
+            { icon: 'check', text: 'Sỡ hữu PC cá nhân' },
             { icon: 'check', text: 'Cấu hình tương tự gói giờ' },
+            { icon: 'hard-drive-white', text: '250GB' },
+            { icon: 'check', text: 'Có lưu dữ liệu khi tắt máy' },
             { icon: 'check', text: 'Không hàng chờ' },
             { icon: 'check', text: 'Không giới hạn thời gian mỗi session' },
-            { icon: 'check', text: 'Cloud-save' },
 
         ],
     },
@@ -235,7 +242,13 @@ const Subscriptions = () => {
 
                     <div className="ctnBtn mt-auto">
                         <a href='https://fb.com/thinkonmay' onClick={payment} target='_blank' className="btn-checkout  ctaBtn">Thanh toán</a>
-                        <a href='#featureReason' className="btn-link">Chi tiết</a>
+                        {
+                            sub.id == 'hours' ?
+                                <a href='https://play.thinkmay.net/' target='_blank' className="btn-link">List game</a>
+                                :
+                                <a href='#featureReason' className="btn-link">Chi tiết</a>
+
+                        }
                     </div>
 
 
@@ -464,6 +477,10 @@ const listUnSupporttedApp = [
         icon: 'fc24-logo',
         name: 'FC 24'
     },
+    {
+        icon: 'parsec',
+        name: 'Parsec'
+    },
 ]
 
 const AppReason = () => {
@@ -475,7 +492,7 @@ const AppReason = () => {
             <div className="grid wide mainContent">
                 <div className=" top col">
                     <div className="wrapperTitle text-center ">
-                        <h2 className='title'>  Danh sách  game chưa<span className="highlight"> support </span> </h2>
+                        <h2 className='title'>  Danh sách  app/game chưa<span className="highlight"> support </span> </h2>
                     </div>
                 </div>
                 <div className="listApp col l-10 m-auto">
