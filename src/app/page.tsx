@@ -478,6 +478,10 @@ const listUnSupporttedApp = [
         name: 'FC 24'
     },
     {
+        icon: 'pubg',
+        name: 'PUBG PC'
+    },
+    {
         icon: 'parsec',
         name: 'Parsec'
     },
