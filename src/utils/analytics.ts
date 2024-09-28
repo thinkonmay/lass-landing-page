@@ -46,7 +46,7 @@ export function UserEvents(content: { type: string; payload: any }) {
     });
 }
 
-export async function UserSession(email: string) {
+export async function UserSession(email?: string) {
     if (window.location.href.includes('localhost')) return;
 
     let ip = '';
