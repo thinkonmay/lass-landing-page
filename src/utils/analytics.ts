@@ -1,24 +1,10 @@
 'use client'
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = 'https://eznzbrvwojejubnxlcaq.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV6bnpicnZ3b2planVibnhsY2FxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTE5NTU4MDAsImV4cCI6MjAyNzUzMTgwMH0.EAYuqXU7i_D1HOscFgYve1LtCzzfAyhefppchiRdBuc';
-export const supabase = createClient(supabaseUrl, supabaseKey);
-
-export function getResolution(): {
-    width: number;
-    height: number;
-    screen_width: number;
-    screen_height: number;
-} {
-    return {
-        width: document.documentElement.scrollWidth,
-        height: document.documentElement.scrollHeight,
-        screen_width: window.screen.width,
-        screen_height: window.screen.height
-    };
-}
-
+const supabaseLocal = createClient(
+    'https://play.thinkmay.net',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ewogICJyb2xlIjogImFub24iLAogICJpc3MiOiAic3VwYWJhc2UiLAogICJpYXQiOiAxNzIzMTM2NDAwLAogICJleHAiOiAxODgwOTAyODAwCn0.SdW2AcXzhRFNBt9HmJw6sKa7lWDmVjbXdRF1mIjrDao'
+)
 
 export function getOS() {
     let OSName = 'unknown';
@@ -51,7 +37,7 @@ export function getBrowser() {
     return 'unknown';
 }
 
-const stack : any[] = [];
+const stack : {content:any,timestamp: string}[]= [];
 let current_stack_length = 0;
 export function UserEvents(content: { type: string; payload: any }) {
     stack.push({
@@ -60,7 +46,7 @@ export function UserEvents(content: { type: string; payload: any }) {
     });
 }
 
-export async function UserSession(email?: string) {
+export async function UserSession(email: string) {
     if (window.location.href.includes('localhost')) return;
 
     let ip = '';
@@ -78,29 +64,50 @@ export async function UserSession(email?: string) {
         os: getOS(),
         browser: getBrowser(),
         resolution: getResolution(),
-        email: email ?? 'unknown',
         url: window.location.href
     };
-    const { data, error } = await supabase
+
+    const { data, error } = await supabaseLocal
         .from('generic_events')
         .insert({
             value,
-            name: `new session ${window.location.href}`,
+            name: email ?? 'unknown',
             type: 'ANALYTICS'
         })
         .select('id');
     if (error || data?.length == 0) return;
 
     const session = data.at(0)?.id;
-    setInterval(async () => {
+    const analytics_report = async () => {
         if (stack.length == current_stack_length) return;
 
         value.stack = stack;
-        await supabase
+        await supabaseLocal
             .from('generic_events')
             .update({ value })
             .eq('id', session);
 
         current_stack_length = stack.length;
-    }, 10 * 1000);
+    };
+
+    setTimeout(analytics_report, 5 * 1000);
+    setTimeout(analytics_report, 10 * 1000);
+    setTimeout(analytics_report, 20 * 1000);
+    setTimeout(analytics_report, 30 * 1000);
+    setTimeout(analytics_report, 45 * 1000);
+    setInterval(analytics_report, 60 * 1000);
+}
+
+function getResolution(): {
+    width: number;
+    height: number;
+    screen_width: number;
+    screen_height: number;
+} {
+    return {
+        width: document.documentElement.scrollWidth,
+        height: document.documentElement.scrollHeight,
+        screen_width: window.screen.width,
+        screen_height: window.screen.height
+    };
 }
