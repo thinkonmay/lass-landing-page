@@ -8,14 +8,18 @@ const TextTransform = () => {
             preRenderFirstString={true}
             sequence={[
                 500,
-                'làm đồ họa', // initially rendered starting point
-                1000,
-                'dựng phim',
-                1000,
+                'Wukong', 
+                2000,
+                'God of War',
+                2000,
+                'Elden ring',
+                2000,
                 'thiết kế kiến trúc',
-                1000,
-                'và chơi game',
-                500,
+                2000,
+                'làm đồ họa',
+                2000,
+                'train AI',
+                2000,
             ]}
             speed={50}
             //style={{ fontSize: '2em' }}

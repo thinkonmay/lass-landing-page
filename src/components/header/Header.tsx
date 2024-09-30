@@ -7,26 +7,14 @@ import Icon from '../icon';
 import './header.scss';
 
 const listNav = [
-    //{
-    //    name: 'Liên hệ',
-    //    link: '/contact'
-    //},
     {
-        name: 'Laptop as a service',
-        link: '/lass'
+       name: 'Liên hệ',
+       link: '/contact'
     },
     {
         name: 'Hướng dẫn',
         link: '/guide'
     },
-    {
-        name: 'Tải xuống',
-        link: '/download'
-    },
-    //{
-    //    name: 'Danh sách game chưa support',
-    //    link: '/#appReason'
-    //}
 ]
 
 function Header() {
@@ -78,7 +66,7 @@ function Header() {
                         onClick={redirectWin11}
                         className="btn btn-link"
                     >
-                        CloudPC website
+                        Đăng nhập
                         <Icon className={'mb-[1px]'} src="game" />{' '}
                     </Link>
                 </ul>
@@ -119,7 +107,7 @@ function Header() {
                                 target='_blank'
                                 className="btn btn-link"
                             >
-                                CloudPC website
+                                Đăng nhập
                                 <Icon className={'mb-[1px]'} src="game" />{' '}
                             </Link>
                         </ul>

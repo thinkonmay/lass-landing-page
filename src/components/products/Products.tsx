@@ -1,6 +1,7 @@
 'use client';
 import { Lines } from '@/data/lines';
 import { IProduct, products } from '@/data/products';
+import { UserEvents } from '@/utils/analytics';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -85,53 +86,39 @@ const Product = (props: IProduct) => {
 export const Introduce = () => {
     return (
         <div className="introduce">
-            <div className="table grid wide">
-                <h2>
-                    Lựa chọn laptop <span>hoàn hảo nhất</span> <br /> trong tầm
-                    giá 10 đến 25 triệu
-                </h2>
-
-                <div className="wrapperTable">
-                    <div className="rowContent" style={{ borderTop: 'unset' }}>
-                        <div className="columnContent">Tiêu chí</div>
-                        <div className="columnContent">ULTRABOOK</div>
-                        <div className="columnContent">LAPTOP GAMING</div>
-                        <div className="columnContent">THINKMAY</div>
+            <Subscriptions></Subscriptions>
+            <div className="titleContent">
+                <div className="ctnText">
+                    <div className="text">
+                        <Icon src="check" width={36} height={36} />{' '}
+                        <h3>Hiệu năng</h3>
                     </div>
-                    <div className="rowContent">
-                        <div className="columnContent">Hiệu năng đồ họa</div>
-                        <div className="columnContent">Không có GPU</div>
-                        <div className="columnContent">GPU di động</div>
-                        <div className="columnContent">GPU mạnh mẽ</div>
+                    <div className="text">
+                        <Icon src="check" width={36} height={36} />{' '}
+                        <h3>Ổn định</h3>
                     </div>
-                    <div className="rowContent">
-                        <div className="columnContent">Trọng lượng</div>
-                        <div className="columnContent">Mỏng nhẹ </div>
-                        <div className="columnContent">Dày và Nặng </div>
-                        <div className="columnContent">Mỏng Nhẹ</div>
-                    </div>
-                    <div className="rowContent">
-                        <div className="columnContent">Thời lượng Pin</div>
-                        <div className="columnContent">Cao (10h)</div>
-                        <div className="columnContent">Thấp (2 - 3h)</div>
-                        <div className="columnContent">Cao (10h)</div>
-                    </div>
-                    <div className="rowContent">
-                        <div className="columnContent">
-                            Chất lượng hoàn thiện
-                        </div>
-                        <div className="columnContent">Tuyệt vời</div>
-                        <div className="columnContent">Trung bình - thấp</div>
-                        <div className="columnContent">Tuyệt vời</div>
+                    <div className="text">
+                        <Icon src="check" width={36} height={36} />{' '}
+                        <h3>Tiện dụng</h3>
                     </div>
                 </div>
+                <h2>
+                    Với Thinkmay Cloud PC, bạn có
+                    <br />
+                    <span className="specialText">RTX 3060 Ti</span> <br />
+                    <span className="specialText"> 16GB RAM </span> <br />
+                    <span className="specialText"> 16 vCPU </span> <br />
+                    <span className="specialText"> 4k 120fps </span>
+                    <br />
+                    ngay trên <span className="specialText"> Chrome </span>
+                </h2>
             </div>
 
             <div className="imgBg">
                 <div className="logo">
                     <div className="wrapperLogo">
                         <Icon width={105} height={58} src="logo-white"></Icon>
-                        <span className="">Laptop as a Service</span>
+                        <span className="">Cloud PC</span>
                     </div>
                 </div>
                 <Image
@@ -143,41 +130,118 @@ export const Introduce = () => {
                 ></Image>
             </div>
 
-            <div className="titleContent">
-                <div className="ctnText">
-                    <div className="text">
-                        <Icon src="check" width={36} height={36} />{' '}
-                        <h3>Sức mạnh</h3>
-                    </div>
-                    <div className="text">
-                        <Icon src="check" width={36} height={36} />{' '}
-                        <h3>Hoàn thiện</h3>
-                    </div>
-                    <div className="text">
-                        <Icon src="check" width={36} height={36} />{' '}
-                        <h3>Mức giá</h3>
-                    </div>
-                </div>
-                <h2>
-                    Với Thinkmay Laptop as a Service, bạn có tất cả trong một.{' '}
-                    <br />
-                    Giá cả <span className="specialText">phù hợp</span>, <br />
-                    sức mạnh <span className="specialText">
-                        vượt trội
-                    </span>, <br />
-                    hoàn thiện <span className="specialText">
-                        cao cấp
-                    </span>, <br />
-                    trọng lượng <span className="specialText">
-                        siêu nhẹ
-                    </span>, <br />
-                    thời lượng pin <span className="specialText">
-                        lâu dài
-                    </span>, <br />
-                    màn hình <span className="specialText"> sắc nét</span>,{' '}
-                    <br />
-                </h2>
-            </div>
         </div>
     );
 };
+
+const Subscriptions = () => {
+    const listSubscriptions = [
+        {
+            name: 'Gói giờ',
+            id: 'hours',
+            price: '8K',
+            subPrice: '/giờ',
+            subName: 'Chỉ từ 100k',
+            isSpecial: false,
+
+            specs: [
+                { icon: 'check', text: 'Chơi các game trong kho game' },
+                { icon: 'hard-drive-white', text: 'Không lưu dữ liệu' },
+            ],
+        },
+        {
+            name: 'Tiết kiệm',
+            id: 'month',
+            price: '299k',
+            subPrice: '/tháng',
+            subName: 'Giới hạn 150h/tháng',
+            isSpecial: true,
+            specs: [
+                { icon: 'check', text: 'Hỗ trợ tất cả các tựa game' },
+                { icon: 'hard-drive-white', text: '150GB dữ liệu cá nhân' },
+            ],
+        },
+        {
+            name: 'Unlimited',
+            price: '1699k',
+            id: 'unlimited',
+            subPrice: '/tháng',
+            subName: 'Unlimited thời gian sử dụng',
+            isSpecial: false,
+            specs: [
+                { icon: 'check', text: 'Không hàng chờ' },
+                { icon: 'hard-drive-white', text: '250GB dữ liệu cá nhân' },
+            ],
+        },
+
+    ]
+
+
+    const renderCard = () => {
+        return listSubscriptions.map(sub => (
+            <div key={sub.name} className='l-4 col '>
+                <div className="subscription"
+                    style={{ color: sub.isSpecial ? '#AD00FF' : '' }}
+                >
+                    <div className="ctnName">
+                        <h6 className="name">{sub.name}</h6>
+                        <p className='subName'>{sub.subName}</p>
+                    </div>
+
+                    <div className="ctnPrice">
+                        <h5 className="price">{sub.price}</h5>
+                        <p className="subPrice">{sub.subPrice}</p>
+                    </div>
+
+                    <div className="ctnSpec">
+
+                        {
+                            sub.specs.map(spec => (
+                                <div key={spec.text} className="spec">
+                                    <Icon src={spec.icon}></Icon>
+                                    <p className='text'>{spec.text}</p>
+                                </div>
+
+                            ))
+                        }
+
+
+                    </div>
+
+                    <div className="ctnBtn mt-auto">
+                        <a href='https://play.thinkmay.net' target='_blank' className="btn-checkout  ctaBtn">Thanh toán</a>
+                    </div>
+
+
+                    {
+                        sub.isSpecial ? (
+                            <div className="banner">
+                                Phổ Biến
+                            </div>
+                        ) :
+                            ''
+                    }
+
+                </div>
+            </div>
+
+        ))
+    }
+
+    return (
+        <div className="subscriptions" id='subscriptions'>
+            <div className="grid wide mainContent" >
+                <div className="wrapperTitle text-center">
+                    <h2 className='title'>Các gói dịch vụ
+                        <span className="highlight"> Cloud PC</span></h2>
+                    <p className="subTitle">*Hỗ trợ hoàn tiền 100% trong 24h</p>
+                </div>
+
+                <div className="cards row">
+                    {renderCard()}
+                </div>
+            </div>
+        </div>
+    )
+}
+
