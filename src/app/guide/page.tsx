@@ -201,7 +201,7 @@ const OptimizeSetting = () => {
                         <div className="left">
                             <ul className='text'>
                                 <li><b>Fix lỗi phím: </b> Bật với 1 số game không nhận phím</li>
-                                <li><b>Share Lonk: </b>Chia sẻ link để bạn bè chơi chung</li>
+                                <li><b>Share link: </b>Chia sẻ link để bạn bè chơi chung</li>
                                 <li><b>Chế độ gaming: </b> Tắt chuột khi chơi game</li>
                                 <li><b>Bitrate: </b>Giảm nếu gặp tình trạng delay</li>
                                 <li><b>Fps: </b>Thử tất các các mức để tìm ra mức fps phù hợp</li>
