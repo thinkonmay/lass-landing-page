@@ -141,7 +141,7 @@ const Subscriptions = () => {
             id: 'hours',
             price: '8K',
             subPrice: '/giờ',
-            subName: 'Chỉ từ 100k',
+            subName: 'Cần mua tối thiểu 5h',
             isSpecial: false,
 
             specs: [
