@@ -1,11 +1,15 @@
+'use client'
 import { reasons } from '@/data/reasons';
 import HeroSection from '../components/herosection/Herosection';
 import Icon from '../components/icon';
 import { Introduce } from '../components/products/Products';
 import Testimonials from '../components/testimonials/Testimonials';
 import './page.scss';
+import { useEffect } from 'react';
+import { UserSession } from '@/utils/analytics';
 
 export default function Home() {
+    useEffect(() => { UserSession() },[])
     return (
         <main className="main">
             <div className="content">
