@@ -1,12 +1,14 @@
 'use client'
 import { reasons } from '@/data/reasons';
+import { UserSession } from '@/utils/analytics';
+import Image from 'next/image';
+import { useEffect } from 'react';
 import HeroSection from '../components/herosection/Herosection';
 import Icon from '../components/icon';
 import { Introduce } from '../components/products/Products';
 import Testimonials from '../components/testimonials/Testimonials';
+import './index.scss';
 import './page.scss';
-import { useEffect } from 'react';
-import { UserSession } from '@/utils/analytics';
 
 export default function Home() {
     useEffect(() => { UserSession() },[])
@@ -16,6 +18,7 @@ export default function Home() {
                 <HeroSection></HeroSection>
                 <Reason></Reason>
                 <Introduce></Introduce>
+                <AppReason></AppReason>
                 <Testimonials></Testimonials>
             </div>
         </main>
@@ -70,3 +73,81 @@ const Reason = () => {
         </div>
     );
 };
+
+
+const AppReason = () => {
+    const supported = [
+        {
+            icon: 'wukong',
+            name: 'Wukong'
+        },
+        {
+            icon: 'fconline',
+            name: 'FC Online'
+        },
+    ]
+    const unsupported = [
+        {
+            icon: 'lol',
+            name: 'League of Legends'
+        },
+        {
+            icon: 'val-logo',
+            name: 'Valorant'
+        },
+        {
+            icon: 'fc24-logo',
+            name: 'FC 24'
+        },
+        {
+            icon: 'pubg',
+            name: 'PUBG PC'
+        },
+    ]
+    return (
+        <div id='appReason' className="appReason">
+            <div className="grid wide mainContent">
+                <div className=" top col">
+                    <div className="wrapperTitle text-center ">
+                        <h2 className='title'>  
+                            Game 
+                            <span className="highlight"> đang được chơi nhiều </span> 
+                        </h2>
+                    </div>
+                </div>
+                <div className="listApp col l-10 m-auto">
+                    {
+                        supported.map(app => (
+                            <div key={app.name} className='item'>
+                                <Image alt='img' width={80} height={80} src={'/logo-app/' + app.icon + '.png'}></Image>
+                                <p className='text'>{app.name}</p>
+                            </div>
+                        ))
+                    }
+                </div>
+                <div className=" top col">
+                    <div className="wrapperTitle text-center ">
+                        <h2 className='title'>  Game <span className="highlight">chưa hỗ trợ</span> </h2>
+                    </div>
+                </div>
+                <div className="listApp col l-10 m-auto">
+                    {
+                        unsupported.map(app => (
+                            <div key={app.name} className='item'>
+                                <Image  alt='img' width={80} height={80} src={'/logo-app/' + app.icon + '.png'}></Image>
+                                <p className='text'>{app.name}</p>
+                            </div>
+                        ))
+                    }
+                </div>
+                <a  href={'https://play.thinkmay.net'} 
+                    target='_self' 
+                    className='btn mx-auto mt-[3.2rem] ctaBtn max-w-3xl'>
+                        Dùng thử ngay
+                </a>
+            </div>
+        </div>
+    )
+}
+
+

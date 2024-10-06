@@ -1,7 +1,6 @@
 'use client';
 import { Lines } from '@/data/lines';
 import { IProduct, products } from '@/data/products';
-import { UserEvents } from '@/utils/analytics';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -87,6 +86,7 @@ export const Introduce = () => {
     return (
         <div className="introduce">
             <Subscriptions></Subscriptions>
+            <FeatureReason></FeatureReason>
             <div className="titleContent">
                 <div className="ctnText">
                     <div className="text">
@@ -209,7 +209,7 @@ const Subscriptions = () => {
                     </div>
 
                     <div className="ctnBtn mt-auto">
-                        <a href='https://play.thinkmay.net' target='_blank' className="btn-checkout  ctaBtn">Thanh toán</a>
+                        <a href='https://play.thinkmay.net' target='_self' className="btn-checkout  ctaBtn">Thanh toán</a>
                     </div>
 
 
@@ -245,3 +245,39 @@ const Subscriptions = () => {
     )
 }
 
+
+const FeatureReason = () => {
+    return (
+        <div className="featureReason" id='featureReason'>
+            <div className="grid wide mainContent">
+                <div className='mt-2'>
+                    <div className="wrapperTitle text-center ">
+                        <h2 className='title'>Gói mở rộng
+                            <span className="highlight"></span>
+                        </h2>
+                        <p className="subTitle">
+                            khi mua kèm gói tháng
+                        </p>
+                    </div>
+
+                    <div className="wrapperTable2">
+                        <div className="rowContent" style={{ borderTop: 'unset' }}>
+                            <div className="columnContent">Dung lượng</div>
+                            <div className="columnContent">Giá</div>
+
+                        </div>
+
+                        <div className="rowContent">
+                            <div className="columnContent">50GB</div>
+                            <div className="columnContent">70k</div>
+                        </div>
+                        <div className="rowContent">
+                            <div className="columnContent">100GB</div>
+                            <div className="columnContent">120k</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
