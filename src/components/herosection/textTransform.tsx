@@ -7,12 +7,12 @@ const TextTransform = () => {
         <TypeAnimation
             preRenderFirstString={true}
             sequence={[
-                500,
-                'Wukong', 
+                300,
+                'Chiến black myth wukong',
+                1000,
+                'Chiến God of War',
                 2000,
-                'God of War',
-                2000,
-                'Elden ring',
+                'Chiến Elden ring',
                 2000,
                 'thiết kế kiến trúc',
                 2000,
