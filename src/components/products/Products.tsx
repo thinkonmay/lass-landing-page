@@ -142,11 +142,14 @@ const Subscriptions = () => {
             id: 'hours',
             price: '8K',
             subPrice: '/giờ',
-            subName: 'Chỉ từ 100k',
+            subName: 'Cần mua tối thiểu 5h',
             isSpecial: false,
 
             specs: [
                 { icon: 'check', text: 'Chơi các game trong kho game' },
+                { icon: 'check', text: 'LƯU Ý:' },
+                { icon: 'check', text: 'Cần tài khoản đã mua game để chơi' },
+                { icon: 'check', text: 'Không áp dụng chính sách hoàn tiền' },
                 { icon: 'hard-drive-white', text: 'Không lưu dữ liệu' },
             ],
         },
@@ -158,7 +161,8 @@ const Subscriptions = () => {
             subName: 'Giới hạn 150h/tháng',
             isSpecial: true,
             specs: [
-                { icon: 'check', text: 'Hỗ trợ tất cả các tựa game' },
+                { icon: 'check', text: 'Có hàng chờ' },
+                { icon: 'check', text: 'Có lưu dữ liệu khi tắt máy' },
                 { icon: 'hard-drive-white', text: '150GB dữ liệu cá nhân' },
             ],
         },
@@ -170,7 +174,9 @@ const Subscriptions = () => {
             subName: 'Unlimited thời gian sử dụng',
             isSpecial: false,
             specs: [
+                { icon: 'check', text: 'Sở hữu PC riêng' },
                 { icon: 'check', text: 'Không hàng chờ' },
+                { icon: 'check', text: 'Có lưu dữ liệu khi tắt máy' },
                 { icon: 'hard-drive-white', text: '250GB dữ liệu cá nhân' },
             ],
         },
@@ -235,7 +241,8 @@ const Subscriptions = () => {
                 <div className="wrapperTitle text-center">
                     <h2 className='title'>Các gói dịch vụ
                         <span className="highlight"> Cloud PC</span></h2>
-                    <p className="subTitle">*Hỗ trợ hoàn tiền 100% trong 24h</p>
+                    <p className="subTitle !mt-4">*Dịch vụ chỉ cho thuê PC, không kèm tài khoản game</p>
+                    <p className="subTitle">*Hỗ trợ hoàn tiền <span className='subTitle !text-[#AD00FF]'>100%</span> trong 24h</p>
                 </div>
 
                 <div className="cards row">

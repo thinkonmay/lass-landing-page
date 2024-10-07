@@ -16,12 +16,12 @@ function HeroSection() {
 
                         <h1>
                             Bạn muốn  <TextTransform></TextTransform>
-                            <br/>
+                            <br />
                             trên mọi thiết bị
                         </h1>
 
                         <p className="subText">
-                            Chúng tôi cung cấp Cloud PC và phần mềm bản quyền.
+                            Chúng tôi cung cấp dịch vụ Cloud PC và phần mềm bản quyền.
                             <br />
                         </p>
 
