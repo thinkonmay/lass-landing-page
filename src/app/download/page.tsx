@@ -1,8 +1,8 @@
 'use client'
-import { cloudPcLink } from '@/data/constant';
+import { APP_DOMAIN } from '@/utils/analytics';
+import { useEffect } from 'react';
 import Icon from '../../components/icon';
 import './index.scss';
-import { useEffect } from 'react';
 
 type Device = {
     name: string;
@@ -17,7 +17,7 @@ type OS = {
     link?: string,
     platform?: string
 }
-
+APP_DOMAIN
 const listDevices: Device[] = [
     {
         name: 'Desktop',
@@ -144,7 +144,7 @@ export default function Download() {
 
                     <div className="section">
                         <h2 className="title">
-                            dùng trực tiếp trên website <a href={cloudPcLink} target='_blank'>tại đây</a> cho mọi thiết bị
+                            dùng trực tiếp trên website <a href={APP_DOMAIN} target='_blank'>tại đây</a> cho mọi thiết bị
                         </h2>
                         <p className='subTitle'>*Mở trên trình duyệt Chrome để có trải nghiệm tốt nhất</p>
 

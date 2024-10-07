@@ -1,10 +1,9 @@
 'use client'
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseLocal = createClient(
-    'https://play.thinkmay.net',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ewogICJyb2xlIjogImFub24iLAogICJpc3MiOiAic3VwYWJhc2UiLAogICJpYXQiOiAxNzIzMTM2NDAwLAogICJleHAiOiAxODgwOTAyODAwCn0.SdW2AcXzhRFNBt9HmJw6sKa7lWDmVjbXdRF1mIjrDao'
-)
+export const APP_DOMAIN = 'https://play.0.thinkmay.net'
+const APP_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ewogICJyb2xlIjogImFub24iLAogICJpc3MiOiAic3VwYWJhc2UiLAogICJpYXQiOiAxNzIzMTM2NDAwLAogICJleHAiOiAxODgwOTAyODAwCn0.SdW2AcXzhRFNBt9HmJw6sKa7lWDmVjbXdRF1mIjrDao'
+const supabaseLocal = createClient( APP_DOMAIN, APP_KEY)
 
 export function getOS() {
     let OSName = 'unknown';
@@ -111,3 +110,5 @@ function getResolution(): {
         screen_height: window.screen.height
     };
 }
+
+

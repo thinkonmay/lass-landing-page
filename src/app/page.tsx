@@ -1,6 +1,6 @@
 'use client'
 import { reasons } from '@/data/reasons';
-import { UserSession } from '@/utils/analytics';
+import { APP_DOMAIN, UserSession } from '@/utils/analytics';
 import Image from 'next/image';
 import { useEffect } from 'react';
 import HeroSection from '../components/herosection/Herosection';
@@ -140,7 +140,7 @@ const AppReason = () => {
                         ))
                     }
                 </div>
-                <a  href={'https://play.thinkmay.net'} 
+                <a  href={APP_DOMAIN} 
                     target='_self' 
                     className='btn mx-auto mt-[3.2rem] ctaBtn max-w-3xl'>
                         Dùng thử ngay

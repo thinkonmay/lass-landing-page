@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Icon from '../icon';
 import './herosection.scss';
 import TextTransform from './textTransform';
+import { APP_DOMAIN } from '@/utils/analytics';
 
 function HeroSection() {
     return (
@@ -25,7 +26,7 @@ function HeroSection() {
                         </p>
 
                         <Link
-                            href={'https://play.thinkmay.net'}
+                            href={APP_DOMAIN}
                             style={{ paddingLeft: 32, paddingRight: 32 }}
                             className="btn-explore pl-[32px] pr-[32px] btn"
                         >

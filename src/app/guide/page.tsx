@@ -115,11 +115,6 @@ const ConnectToPc = () => {
                             Truy cập  Connect YourPC trên App, hoặc website <br />
                             Ấn connect & đợi
                         </p>
-
-                        {/*<p className='text'>
-                            <b>Đọc thêm:</b>
-                            <a href="https://docs.google.com/document/d/1PvQz3FruZMI6NWe5DSARs_G8OIdhudsWDb6cK6ZhtQs/edit?usp=sharing"> Backup file save khi chơi bằng account Steam Offline</a>
-                        </p>*/}
                     </div>
                     <div className="right">
                         <Image alt='qr-code' width={320} height={180} src='/connect-pc.png'></Image>

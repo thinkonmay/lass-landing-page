@@ -1,6 +1,5 @@
 'use client';
-import { cloudPcLink } from '@/data/constant';
-import { UserEvents } from '@/utils/analytics';
+import { APP_DOMAIN, UserEvents } from '@/utils/analytics';
 import Link from 'next/link';
 import { useState } from 'react';
 import Icon from '../icon';
@@ -28,7 +27,7 @@ function Header() {
     const redirectWin11 = () => {
         UserEvents({
             type: 'USER_ACTION',
-            payload: `click and go to ${cloudPcLink}`
+            payload: `click and go to ${APP_DOMAIN}`
         })
     }
 
@@ -61,7 +60,7 @@ function Header() {
                     }
 
                     <Link
-                        href={cloudPcLink}
+                        href={APP_DOMAIN}
                         target='_blank'
                         onClick={redirectWin11}
                         className="btn btn-link"
@@ -102,7 +101,7 @@ function Header() {
                                 ))
                             }
                             <Link
-                                href={cloudPcLink}
+                                href={APP_DOMAIN}
                                 onClick={redirectWin11}
                                 target='_blank'
                                 className="btn btn-link"

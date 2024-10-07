@@ -8,6 +8,7 @@ import { formatPrice } from '../../utils/formatPrice';
 import SwitchBtn from '../btn/SwitchBtn';
 import Icon from '../icon';
 import './products.scss';
+import { APP_DOMAIN } from '@/utils/analytics';
 
 function Products() {
     const [productShow, setProductShow] = useState<Lines>(Lines.MACBOOK);
@@ -209,7 +210,7 @@ const Subscriptions = () => {
                     </div>
 
                     <div className="ctnBtn mt-auto">
-                        <a href='https://play.thinkmay.net' target='_self' className="btn-checkout  ctaBtn">Thanh toán</a>
+                        <a href={APP_DOMAIN} target='_self' className="btn-checkout  ctaBtn">Thanh toán</a>
                     </div>
 
 
