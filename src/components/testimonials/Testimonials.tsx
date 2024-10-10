@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Icon from '../icon';
 import Popup from '../popup/popup';
 import './testimonials.scss';
+import { UserEvents } from '@/utils/analytics';
 
 interface IFeedback {
     name: string
@@ -84,7 +85,15 @@ function Testimonials() {
         setModalContent(input)
     }
 
-    const renderFeedbacks = () => {
+
+    const send = (data: FormData) => {
+        const payload : any = {}
+        data.keys().forEach(key => payload[key] = data.get(key))
+        UserEvents({ type: 'contact_us/message', payload })
+    }
+
+
+    const FeedBacks = () => {
 
         return (
             <div className="wrapperFeedback grid wide">
@@ -92,8 +101,8 @@ function Testimonials() {
                     discord.map((x, index) => (
                         <div key={index} className=" feedback l-6 c-12">
                             <p className="text">
-                                {x.feedback.map((y) => (
-                                    <React.Fragment>
+                                {x.feedback.map((y,index) => (
+                                    <React.Fragment key={index}>
                                         - {y} <br />
                                         <br />
                                     </React.Fragment>
@@ -126,11 +135,7 @@ function Testimonials() {
                                 <span className="specicalText">Thinkmay</span>
                             </h2>
                         </div>
-
-                        {
-                            renderFeedbacks()
-                        }
-
+                        <FeedBacks/>
                     </div>
                 </div>
 
@@ -142,34 +147,32 @@ function Testimonials() {
                     <div className="form">
                         <div className="top">
                             <h2 className="title">
-                                <span>Thinkmay</span> luôn ở đây để hỗ trợ bạn
-                                24/7.
+                                Liên hệ với <span>Thinkmay</span> 
                             </h2>
                             <p>
-                                Sự hài lòng của bạn là ưu tiên hàng đầu của
-                                chúng tôi, và chúng tôi luôn sẵn sàng hỗ trợ
-                                bạn!
+                                Bạn muốn liên hệ với chúng mình, chúng mình luôn sẵn sàng hỗ trợ!
                             </p>
                         </div>
 
-                        <form className="wrapperInputs  l-6" action="">
-                            <input type="text" placeholder="Tên của bạn *" />
-                            <input type="text" placeholder="Email của bạn *" />
-                            <input type="text" placeholder="SĐT của bạn *" />
+                        <form className="wrapperInputs  l-6" action={send}>
+                            <input name="name" type="text" placeholder="Tên của bạn *" />
+                            <input name="email" type="text" placeholder="Email của bạn *" />
+                            <input name="phone" type="text" placeholder="SĐT của bạn *" />
                             <input
                                 type="text"
+                                name="content"
                                 className="bigInput"
                                 placeholder="Ghi chú thêm cho chúng tôi (nếu có)"
                             />
 
-                            <button className="btn btn-send">
+                            <button className="btn btn-send" >
                                 Gửi <Icon src="send" />
                             </button>
                         </form>
 
                         <div className="logo">
                             <Icon width={105} height={51} src="logo-black" />
-                            <span>Laptop as a Service</span>
+                            <span>Cloud PC</span>
                         </div>
                     </div>
                 </div>

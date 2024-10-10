@@ -39,6 +39,7 @@ export function getBrowser() {
 const stack : {content:any,timestamp: string}[]= [];
 let current_stack_length = 0;
 export function UserEvents(content: { type: string; payload: any }) {
+    if (window.location.href.includes('localhost')) console.log(content);
     stack.push({
         content,
         timestamp: new Date().toISOString()
@@ -89,12 +90,9 @@ export async function UserSession(email?: string) {
         current_stack_length = stack.length;
     };
 
-    setTimeout(analytics_report, 5 * 1000);
-    setTimeout(analytics_report, 10 * 1000);
-    setTimeout(analytics_report, 20 * 1000);
-    setTimeout(analytics_report, 30 * 1000);
-    setTimeout(analytics_report, 45 * 1000);
-    setInterval(analytics_report, 60 * 1000);
+    setTimeout(analytics_report, 1 * 1000);
+    setTimeout(analytics_report, 3 * 1000);
+    setInterval(analytics_report, 5 * 1000);
 }
 
 function getResolution(): {

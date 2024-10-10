@@ -16,9 +16,8 @@ export default function Home() {
         <main className="main">
             <div className="content">
                 <HeroSection></HeroSection>
-                <Reason></Reason>
-                <Introduce></Introduce>
                 <AppReason></AppReason>
+                <Introduce></Introduce>
                 <Testimonials></Testimonials>
             </div>
         </main>
