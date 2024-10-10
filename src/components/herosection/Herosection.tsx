@@ -12,17 +12,20 @@ function HeroSection() {
                 <div className="mainContent grid wide">
                     <div className="left col l-6">
                         <Icon width={105} height={58} src="logo-black"></Icon>
-                        <span className="brand">Cloud PC</span>
 
                         <h1>
-                            Bạn muốn  <TextTransform></TextTransform>
+                            Bạn muốn
                             <br />
-                            trên mọi thiết bị
+                            <TextTransform></TextTransform>
+                            <br />
+                            trên Cloud PC
                         </h1>
 
                         <p className="subText">
-                            Chúng tôi cung cấp dịch vụ Cloud PC và phần mềm bản quyền.
                             <br />
+                            Chơi game và làm việc trên đám mây.
+                            <br />
+                            Kết nối và sử dụng trên mọi thiết bị.
                         </p>
 
                         <Link
@@ -30,7 +33,7 @@ function HeroSection() {
                             style={{ paddingLeft: 32, paddingRight: 32 }}
                             className="btn-explore pl-[32px] pr-[32px] btn"
                         >
-                            Dùng thử ngay <Icon src="shopping-cart"></Icon>
+                            Sử dụng  <Icon src="shopping-cart"></Icon>
                         </Link>
                     </div>
                     <div className="right">

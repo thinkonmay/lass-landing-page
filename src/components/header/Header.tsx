@@ -42,6 +42,7 @@ function Header() {
                                 height={58}
                                 src="logo-black"
                             ></Icon>
+                            <span className="brand">Cloud PC</span>
                             {/*<span className="">Laptop as a Service</span>*/}
                         </Link>
                     </div>

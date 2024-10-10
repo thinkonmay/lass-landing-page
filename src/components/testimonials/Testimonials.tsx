@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Icon from '../icon';
 import Popup from '../popup/popup';
 import './testimonials.scss';
-import { UserEvents } from '@/utils/analytics';
+import { APP_DOMAIN, UserEvents } from '@/utils/analytics';
 
 interface IFeedback {
     name: string
@@ -88,7 +88,7 @@ function Testimonials() {
 
     const send = (data: FormData) => {
         const payload : any = {}
-        data.keys().forEach(key => payload[key] = data.get(key))
+        data.forEach((val,key) => payload[key] = val)
         UserEvents({ type: 'contact_us/message', payload })
     }
 
@@ -172,7 +172,11 @@ function Testimonials() {
 
                         <div className="logo">
                             <Icon width={105} height={51} src="logo-black" />
-                            <span>Cloud PC</span>
+                            <a  href={APP_DOMAIN} 
+                                target='_self' 
+                                className='btn mx-auto mt-[1.2rem] ctaBtn max-w-3xl'>
+                                    Dùng thử ngay
+                            </a>
                         </div>
                     </div>
                 </div>
