@@ -216,7 +216,7 @@ const Subscriptions = () => {
                     </div>
 
                     <div className="ctnBtn mt-auto">
-                        <a href={APP_DOMAIN} target='_self' className="btn-checkout  ctaBtn">Thanh toán</a>
+                        <a href={`${APP_DOMAIN}/payment`} target='_self' className="btn-checkout  ctaBtn">Thanh toán</a>
                     </div>
 
 
