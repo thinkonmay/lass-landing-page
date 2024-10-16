@@ -6,6 +6,8 @@
         padding: 6rem 0;
 
         .mainContent {
+            max-width: fit-content !important;
+            width: 100% !important;
 
             .img {
                 border-radius: 4rem;
@@ -241,9 +243,11 @@
         .appReason {
             border-top: 1px solid #E6E6EC;
             border-bottom: 1px solid #E6E6EC;
-            padding: 6rem var(--gutter-mobile);
+            padding: 6rem 0;
 
             .mainContent {
+                max-width: fit-content !important;
+                width: 100% !important;
 
                 .img {
                     border-radius: 4rem;
