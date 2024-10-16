@@ -1,10 +1,8 @@
 'use client';
-import { reasons } from '@/data/reasons';
-import { APP_REDIRECT, UserSession } from '@/utils/analytics';
+import { APP_REDIRECT, supabaseLocal, UserSession } from '@/utils/analytics';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import HeroSection from '../components/herosection/Herosection';
-import Icon from '../components/icon';
 import { Introduce } from '../components/products/Products';
 import Testimonials from '../components/testimonials/Testimonials';
 import './index.scss';
@@ -18,7 +16,6 @@ export default function Home() {
         <main className="main">
             <div className="content">
                 <HeroSection></HeroSection>
-                {/*<Loop></Loop>*/}
                 <AppReason></AppReason>
                 <Introduce></Introduce>
                 <Testimonials></Testimonials>
@@ -27,84 +24,10 @@ export default function Home() {
     );
 }
 
-const Reason = () => {
-    return (
-        <div className="reason">
-            <div className="mainContent">
-                <div className="top  grid wide ">
-                    <h2 className="l-6 c-12 ">
-                        {' '}
-                        Điều gì khiến{' '}
-                        <span className="specialText">Thinkmay</span> khác biệt?
-                    </h2>
-                    <div className="l-2 c-0">
-                        <a className=" inline-flex gap-4" href="#">
-                            Xem Dịch vụ <Icon src="arrow-right"></Icon>
-                        </a>
-                    </div>
-                </div>
-                <div className="bottom ">
-                    <div className="ctnCards grid wide ">
-                        {reasons.map((x, index) => (
-                            <div key={index} className="card l-4 m-12 c-12">
-                                <div>
-                                    <Icon
-                                        src={x.icon}
-                                        className="text-black"
-                                        width={66}
-                                        height={66}
-                                    />
-                                    <div className="info">
-                                        <span className="subTitle">
-                                            {x.subtitle}
-                                        </span>
-                                        <h3 className="title">{x.title}</h3>
-                                        {x.content.map((y, index) => (
-                                            <p key={index} className="text">
-                                                {y}
-                                                <br />
-                                            </p>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
-
 const AppReason = () => {
-    const supported = [
-        {
-            icon: 'wukong',
-            name: 'Black Myth: Wukong',
-            img: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2358720/ss_415397426d4c939ebb8a93ac66831f28ee7199be.600x338.jpg?t=1725007201'
-        },
-        {
-            icon: 'fconline',
-            name: 'FC Online',
-            img: 'https://cdn.vn.garenanow.com/web/fo4vn//Khoa/2023/T8/FOUNDER/son.jpg'
-        },
-        {
-            icon: 'wukong',
-            name: 'Black Myth: Wukong',
-            img: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2358720/ss_86c4b7462bba219a0d0b89931a35812b9f188976.1920x1080.jpg?t=1725007201'
-        },
+    const initial = [ 'https://cdn.vn.garenanow.com/web/fo4vn//Khoa/2023/T8/FOUNDER/son.jpg' ];
+    const [supported, setSupported] = useState<string[]>([]);
 
-        {
-            icon: 'wukong',
-            name: 'Black Myth: Wukong',
-            img: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2358720/ss_d9391ab31a4d15dddf7ba4949bfa44f5d9170580.1920x1080.jpg?t=1725007201'
-        },
-        {
-            icon: 'wukong',
-            name: 'Black Myth: Wukong',
-            img: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2358720/ss_524a39da392ee83dde091033562bc719d46b5838.1920x1080.jpg?t=1725007201'
-        }
-    ];
     const unsupported = [
         {
             icon: 'lol',
@@ -124,18 +47,45 @@ const AppReason = () => {
         }
     ];
 
+    const rand = (arr: any[]) => arr
+                    .map((value) => ({ value, sort: Math.random() }))
+                    .sort((a, b) => a.sort - b.sort)
+                    .map(({ value }) => value);
+
+    useEffect(() => {
+        supabaseLocal
+            .from('stores')
+            .select('metadata->screenshots')
+            .eq('management->landingpage',true)
+            .then(({ data, error }) => {
+                if (error) return;
+
+                const images: string[] = [];
+                data?.forEach(({ screenshots }) =>
+                    images.push(
+                        ...((screenshots ?? []) as { path_full: string }[])
+                            .splice(0, 2)
+                            .map((y) => y.path_full)
+                    )
+                );
+
+                setSupported([...initial, ...images]);
+            });
+    }, []);
+
     useEffect(() => {
         if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches)
             document
                 .querySelectorAll('.scroller__inner')
                 .forEach((scrollerInner) =>
-                    Array.from(scrollerInner.children).forEach((item) =>
+                    Array.from(scrollerInner.children)
+                    .forEach((item) =>
                         scrollerInner.appendChild(
                             item.cloneNode(true) as Element
                         )
                     )
                 );
-    }, []);
+    },[supported])
 
     return (
         <div id="appReason" className="appReason">
@@ -155,14 +105,14 @@ const AppReason = () => {
                     <div
                         key={pos}
                         className="scroller mx-auto"
-                        data-direction={pos % 2 ? "left" : "right"}
+                        data-direction={pos % 2 ? 'left' : 'right'}
                         data-animated="yes"
-                        data-speed={pos % 2 ? "slow" : "fast"}
+                        data-speed={'slow'}
                     >
                         <ul className="tag-list scroller__inner listAppSupport">
-                            {supported.map((app) => (
+                            {rand(supported).map((app, index) => (
                                 <li
-                                    key={app.name}
+                                    key={index}
                                     className="item"
                                     aria-hidden="true"
                                 >
@@ -170,7 +120,7 @@ const AppReason = () => {
                                         alt="img"
                                         width={520}
                                         height={280}
-                                        src={app.img}
+                                        src={app}
                                     ></img>
                                 </li>
                             ))}
