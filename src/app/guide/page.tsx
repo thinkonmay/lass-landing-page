@@ -1,6 +1,5 @@
 "use client"
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
 import { ArrowDown, ArrowUp } from '../../../public/icon';
 import './index.scss';
@@ -182,7 +181,8 @@ const OptimizeSetting = () => {
             </button>
             {
                 <div className={open ? 'content optimize show' : 'content optimize'}>
-                    <p className='text my-[12px]'> <b>Khuyến nghị:</b> dùng qua App <Link href={'/download'}>tải xuống</Link>
+                    <p className='text my-[12px]'>
+                        {/*<b>Khuyến nghị:</b> dùng qua App <Link href={'/download'}>tải xuống</Link>*/}
                         <br />
                         Mở trên Chrome nếu dùng trên website để có trải nghiệm tốt nhất
                         <br />

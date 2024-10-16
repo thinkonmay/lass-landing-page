@@ -147,7 +147,6 @@ const Subscriptions = () => {
 
             specs: [
                 { icon: 'check', text: 'Chơi các game trong kho game' },
-                { icon: 'check', text: 'LƯU Ý:' },
                 { icon: 'check', text: 'Cần tài khoản đã mua game để chơi' },
                 { icon: 'check', text: 'Không áp dụng chính sách hoàn tiền' },
                 { icon: 'hard-drive-white', text: 'Không lưu dữ liệu' },
