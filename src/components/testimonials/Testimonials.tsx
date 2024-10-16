@@ -1,10 +1,10 @@
 "use client"
 
+import { APP_REDIRECT, UserEvents } from '@/utils/analytics';
 import React, { useState } from 'react';
 import Icon from '../icon';
 import Popup from '../popup/popup';
 import './testimonials.scss';
-import { APP_DOMAIN, UserEvents } from '@/utils/analytics';
 
 interface IFeedback {
     name: string
@@ -87,8 +87,8 @@ function Testimonials() {
 
 
     const send = (data: FormData) => {
-        const payload : any = {}
-        data.forEach((val,key) => payload[key] = val)
+        const payload: any = {}
+        data.forEach((val, key) => payload[key] = val)
         UserEvents({ type: 'contact_us/message', payload })
     }
 
@@ -101,7 +101,7 @@ function Testimonials() {
                     discord.map((x, index) => (
                         <div key={index} className=" feedback l-6 c-12">
                             <p className="text">
-                                {x.feedback.map((y,index) => (
+                                {x.feedback.map((y, index) => (
                                     <React.Fragment key={index}>
                                         - {y} <br />
                                         <br />
@@ -135,7 +135,7 @@ function Testimonials() {
                                 <span className="specicalText">Thinkmay</span>
                             </h2>
                         </div>
-                        <FeedBacks/>
+                        <FeedBacks />
                     </div>
                 </div>
 
@@ -147,7 +147,7 @@ function Testimonials() {
                     <div className="form">
                         <div className="top">
                             <h2 className="title">
-                                Liên hệ với <span>Thinkmay</span> 
+                                Liên hệ với <span>Thinkmay</span>
                             </h2>
                             <p>
                                 Bạn muốn liên hệ với chúng mình, chúng mình luôn sẵn sàng hỗ trợ!
@@ -172,10 +172,10 @@ function Testimonials() {
 
                         <div className="logo">
                             <Icon width={105} height={51} src="logo-black" />
-                            <a  href={APP_DOMAIN} 
-                                target='_self' 
+                            <a href={APP_REDIRECT}
+                                target='_self'
                                 className='btn mx-auto mt-[1.2rem] ctaBtn max-w-3xl'>
-                                    Dùng thử ngay
+                                Dùng thử ngay
                             </a>
                         </div>
                     </div>

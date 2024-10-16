@@ -1,9 +1,10 @@
 'use client'
 import { createClient } from "@supabase/supabase-js";
 
+export const APP_REDIRECT = 'https://play.thinkmay.net'
 export const APP_DOMAIN = 'https://play.0.thinkmay.net'
 const APP_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ewogICJyb2xlIjogImFub24iLAogICJpc3MiOiAic3VwYWJhc2UiLAogICJpYXQiOiAxNzIzMTM2NDAwLAogICJleHAiOiAxODgwOTAyODAwCn0.SdW2AcXzhRFNBt9HmJw6sKa7lWDmVjbXdRF1mIjrDao'
-const supabaseLocal = createClient( APP_DOMAIN, APP_KEY)
+const supabaseLocal = createClient(APP_DOMAIN, APP_KEY)
 
 export function getOS() {
     let OSName = 'unknown';
@@ -36,7 +37,7 @@ export function getBrowser() {
     return 'unknown';
 }
 
-const stack : {content:any,timestamp: string}[]= [];
+const stack: { content: any, timestamp: string }[] = [];
 let current_stack_length = 0;
 export function UserEvents(content: { type: string; payload: any }) {
     if (window.location.href.includes('localhost')) console.log(content);
@@ -56,7 +57,7 @@ export async function UserSession(email?: string) {
             (await (await fetch('https://icanhazip.com/')).text())
                 .split('\n')
                 .at(0) ?? '';
-    } catch {}
+    } catch { }
 
     const value = {
         ip,

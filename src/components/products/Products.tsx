@@ -1,6 +1,7 @@
 'use client';
 import { Lines } from '@/data/lines';
 import { IProduct, products } from '@/data/products';
+import { APP_REDIRECT } from '@/utils/analytics';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -8,7 +9,6 @@ import { formatPrice } from '../../utils/formatPrice';
 import SwitchBtn from '../btn/SwitchBtn';
 import Icon from '../icon';
 import './products.scss';
-import { APP_DOMAIN } from '@/utils/analytics';
 
 function Products() {
     const [productShow, setProductShow] = useState<Lines>(Lines.MACBOOK);
@@ -216,7 +216,7 @@ const Subscriptions = () => {
                     </div>
 
                     <div className="ctnBtn mt-auto">
-                        <a href={`${APP_DOMAIN}/payment`} target='_self' className="btn-checkout  ctaBtn">Thanh toán</a>
+                        <a href={`${APP_REDIRECT}/payment`} target='_self' className="btn-checkout  ctaBtn">Thanh toán</a>
                     </div>
 
 

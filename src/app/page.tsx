@@ -1,6 +1,6 @@
 'use client'
 import { reasons } from '@/data/reasons';
-import { APP_DOMAIN, UserSession } from '@/utils/analytics';
+import { APP_REDIRECT, UserSession } from '@/utils/analytics';
 import Image from 'next/image';
 import { useEffect } from 'react';
 import HeroSection from '../components/herosection/Herosection';
@@ -11,7 +11,7 @@ import './index.scss';
 import './page.scss';
 
 export default function Home() {
-    useEffect(() => { UserSession() },[])
+    useEffect(() => { UserSession() }, [])
     return (
         <main className="main">
             <div className="content">
@@ -108,9 +108,9 @@ const AppReason = () => {
             <div className="grid wide mainContent">
                 <div className=" top col">
                     <div className="wrapperTitle text-center ">
-                        <h2 className='title'>  
-                            Game 
-                            <span className="highlight"> đang được chơi nhiều </span> 
+                        <h2 className='title'>
+                            Game
+                            <span className="highlight"> đang được chơi nhiều </span>
                         </h2>
                     </div>
                 </div>
@@ -133,16 +133,16 @@ const AppReason = () => {
                     {
                         unsupported.map(app => (
                             <div key={app.name} className='item'>
-                                <Image  alt='img' width={80} height={80} src={'/logo-app/' + app.icon + '.png'}></Image>
+                                <Image alt='img' width={80} height={80} src={'/logo-app/' + app.icon + '.png'}></Image>
                                 <p className='text'>{app.name}</p>
                             </div>
                         ))
                     }
                 </div>
-                <a  href={APP_DOMAIN} 
-                    target='_self' 
+                <a href={APP_REDIRECT}
+                    target='_self'
                     className='btn mx-auto mt-[3.2rem] ctaBtn max-w-3xl'>
-                        Dùng thử ngay
+                    Dùng thử ngay
                 </a>
             </div>
         </div>

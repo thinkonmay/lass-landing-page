@@ -1,5 +1,5 @@
 'use client';
-import { APP_DOMAIN, UserEvents } from '@/utils/analytics';
+import { APP_REDIRECT, UserEvents } from '@/utils/analytics';
 import Link from 'next/link';
 import { useState } from 'react';
 import Icon from '../icon';
@@ -7,8 +7,8 @@ import './header.scss';
 
 const listNav = [
     {
-       name: 'Liên hệ',
-       link: '/contact'
+        name: 'Liên hệ',
+        link: '/contact'
     },
     {
         name: 'Hướng dẫn',
@@ -27,7 +27,7 @@ function Header() {
     const redirectWin11 = () => {
         UserEvents({
             type: 'USER_ACTION',
-            payload: `click and go to ${APP_DOMAIN}`
+            payload: `click and go to ${APP_REDIRECT}`
         })
     }
 
@@ -61,7 +61,7 @@ function Header() {
                     }
 
                     <Link
-                        href={APP_DOMAIN}
+                        href={APP_REDIRECT}
                         target='_blank'
                         onClick={redirectWin11}
                         className="btn btn-link"
@@ -102,7 +102,7 @@ function Header() {
                                 ))
                             }
                             <Link
-                                href={APP_DOMAIN}
+                                href={APP_REDIRECT}
                                 onClick={redirectWin11}
                                 target='_blank'
                                 className="btn btn-link"

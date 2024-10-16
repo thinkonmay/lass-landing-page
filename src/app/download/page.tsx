@@ -1,5 +1,5 @@
 'use client'
-import { APP_DOMAIN } from '@/utils/analytics';
+import { APP_REDIRECT } from '@/utils/analytics';
 import { useEffect } from 'react';
 import Icon from '../../components/icon';
 import './index.scss';
@@ -17,7 +17,7 @@ type OS = {
     link?: string,
     platform?: string
 }
-APP_DOMAIN
+APP_REDIRECT
 const listDevices: Device[] = [
     {
         name: 'Desktop',
@@ -69,7 +69,7 @@ const listDevices: Device[] = [
 export default function Download() {
 
 
-    async function fetchDownloadList(){
+    async function fetchDownloadList() {
         const downloadList = await fetch(` https://api.github.com/gists/85b62c4b7084ed8e9818992ef2501102`,
             {
                 headers: {
@@ -86,8 +86,8 @@ export default function Download() {
 
         const platforms = listApp['platforms']
 
-        for (let i = 0; i < listDevices[0].listOs.length; i++){
-            if(listDevices[0].listOs[0].platform != undefined && listDevices[0].listOs[0].platform != null){
+        for (let i = 0; i < listDevices[0].listOs.length; i++) {
+            if (listDevices[0].listOs[0].platform != undefined && listDevices[0].listOs[0].platform != null) {
                 const platform: string = listDevices[0].listOs[0].platform;
                 listDevices[0].listOs[0].link = platforms[platform].url
             }
@@ -95,7 +95,7 @@ export default function Download() {
     }
 
 
-    useEffect(() => {fetchDownloadList()}, [])
+    useEffect(() => { fetchDownloadList() }, [])
 
     return (
         <>
@@ -116,13 +116,15 @@ export default function Download() {
                                 <div className="ctnBoxs">
                                     {
                                         device.listOs.map(os => (
-                                            <div key={os.name} 
-                                                className="box" 
-                                                onClick={() => {	window.open(
-                                                    `${os.link}`,
-                                                    '_blank'
-                                                )}}
-                                                style={{backgroundColor: os.subText != "" ? "white": "#DDDDDD"}}>
+                                            <div key={os.name}
+                                                className="box"
+                                                onClick={() => {
+                                                    window.open(
+                                                        `${os.link}`,
+                                                        '_blank'
+                                                    )
+                                                }}
+                                                style={{ backgroundColor: os.subText != "" ? "white" : "#DDDDDD" }}>
                                                 <div className="left">
                                                     <Icon width={60} height={60} src={os.icon}></Icon>
                                                     <p className='text'>{os.name}</p>
@@ -144,7 +146,7 @@ export default function Download() {
 
                     <div className="section">
                         <h2 className="title">
-                            dùng trực tiếp trên website <a href={APP_DOMAIN} target='_blank'>tại đây</a> cho mọi thiết bị
+                            dùng trực tiếp trên website <a href={APP_REDIRECT} target='_blank'>tại đây</a> cho mọi thiết bị
                         </h2>
                         <p className='subTitle'>*Mở trên trình duyệt Chrome để có trải nghiệm tốt nhất</p>
 
