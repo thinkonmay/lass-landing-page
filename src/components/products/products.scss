@@ -312,7 +312,7 @@
 		.cards {
 			display: flex;
 			justify-content: center;
-			row-gap: 1.6rem;
+			row-gap: 3.6rem;
 		}
 
 		.subscription {
@@ -732,18 +732,30 @@
 		overflow: hidden;
 		background: radial-gradient(607.72% 252.81% at 8.68% 5.79%, #01000B 34.29%, rgba(10, 3, 77, 0.80) 100%);
 
+		.subscriptions {
+			padding: 5rem var(--gutter-mobile);
+
+			.wrapperTitle {
+
+				.title {
+					//font-size: 24px;
+					margin-bottom: 2.4rem;
+				}
+			}
+		}
+
 		.featureReason {
-			padding: 2rem 0 10rem 0;
+			padding: 2rem var(--gutter-mobile) 4rem var(--gutter-mobile);
 
 			.mainContent {}
 
 			.wrapperTitle {
 
 
-				margin-bottom: 3.6rem;
+				margin-bottom: 2.4rem;
 
 				.title {
-					font-size: 36px;
+					font-size: 24px;
 					font-weight: 700;
 					line-height: 44px;
 					letter-spacing: -0.02em;

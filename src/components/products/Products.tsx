@@ -147,8 +147,8 @@ const Subscriptions = () => {
 
             specs: [
                 { icon: 'check', text: 'Chơi các game trong kho game' },
-                { icon: 'check', text: 'Cần tài khoản đã mua game để chơi' },
-                { icon: 'check', text: 'Không áp dụng chính sách hoàn tiền' },
+                { icon: 'check', text: 'Không có sẵn tài khoản game' },
+                { icon: 'check', text: 'Không áp dụng hoàn tiền' },
                 { icon: 'hard-drive-white', text: 'Không lưu dữ liệu' },
             ],
         },
@@ -184,8 +184,8 @@ const Subscriptions = () => {
 
 
     const renderCard = () => {
-        return listSubscriptions.map(sub => (
-            <div key={sub.name} className='l-4 col '>
+        return listSubscriptions.map((sub, index) => (
+            <div key={sub.name} className={`l-4  order-${index + 1}`}>
                 <div className="subscription"
                     style={{ color: sub.isSpecial ? '#AD00FF' : '' }}
                 >
@@ -259,7 +259,7 @@ const FeatureReason = () => {
             <div className="grid wide mainContent">
                 <div className='mt-2'>
                     <div className="wrapperTitle text-center ">
-                        <h2 className='title'>Gói mở rộng
+                        <h2 className='title'>Dung lượng mở rộng
                             <span className="highlight"></span>
                         </h2>
                         <p className="subTitle">
