@@ -13,8 +13,8 @@ const listNav = [
     {
         name: 'Hướng dẫn',
         link: '/guide'
-    },
-]
+    }
+];
 
 function Header() {
     const [openNav, setOpenNav] = useState(false);
@@ -28,8 +28,8 @@ function Header() {
         UserEvents({
             type: 'USER_ACTION',
             payload: `click and go to ${APP_REDIRECT}`
-        })
-    }
+        });
+    };
 
     return (
         <div className="header ">
@@ -49,20 +49,17 @@ function Header() {
                 </div>
 
                 <ul className="rightDesktop">
-                    {
-                        listNav.map(item => (
-                            <li key={item.name}>
-                                <Link className="link" href={item.link} >
-                                    {item.name}
-                                </Link>
-                            </li>
-
-                        ))
-                    }
+                    {listNav.map((item) => (
+                        <li key={item.name}>
+                            <Link className="link" href={item.link}>
+                                {item.name}
+                            </Link>
+                        </li>
+                    ))}
 
                     <Link
                         href={APP_REDIRECT}
-                        target='_blank'
+                        target="_blank"
                         onClick={redirectWin11}
                         className="btn btn-link"
                     >
@@ -87,24 +84,21 @@ function Header() {
                         </div>
 
                         <ul>
-                            {
-                                listNav.map(item => (
-                                    <li key={item.name}>
-                                        <Link
-                                            className="link"
-                                            href={item.link}
-                                            onClick={close}
-                                        >
-                                            {item.name}
-                                        </Link>
-                                    </li>
-
-                                ))
-                            }
+                            {listNav.map((item) => (
+                                <li key={item.name}>
+                                    <Link
+                                        className="link"
+                                        href={item.link}
+                                        onClick={close}
+                                    >
+                                        {item.name}
+                                    </Link>
+                                </li>
+                            ))}
                             <Link
                                 href={APP_REDIRECT}
                                 onClick={redirectWin11}
-                                target='_blank'
+                                target="_blank"
                                 className="btn btn-link"
                             >
                                 Đăng nhập

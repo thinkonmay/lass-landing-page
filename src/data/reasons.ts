@@ -4,7 +4,7 @@ export const reasons = [
         icon: 'mi-laptop',
         title: 'Độ trễ tuyệt vời',
         content: [
-            'Cloud PC - công nghệ giúp bạn có thể kết nối với những chiếc "siêu máy tính" từ xa thông qua internet',
+            'Cloud PC - công nghệ giúp bạn có thể kết nối với những chiếc "siêu máy tính" từ xa thông qua internet'
         ]
     },
     {

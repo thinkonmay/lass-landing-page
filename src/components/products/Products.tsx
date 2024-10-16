@@ -130,7 +130,6 @@ export const Introduce = () => {
                     src={'/macbook-mockup.png'}
                 ></Image>
             </div>
-
         </div>
     );
 };
@@ -149,8 +148,8 @@ const Subscriptions = () => {
                 { icon: 'check', text: 'Chơi các game trong kho game' },
                 { icon: 'check', text: 'Không có sẵn tài khoản game' },
                 { icon: 'check', text: 'Không áp dụng hoàn tiền' },
-                { icon: 'hard-drive-white', text: 'Không lưu dữ liệu' },
-            ],
+                { icon: 'hard-drive-white', text: 'Không lưu dữ liệu' }
+            ]
         },
         {
             name: 'Tiết kiệm',
@@ -162,8 +161,8 @@ const Subscriptions = () => {
             specs: [
                 { icon: 'check', text: 'Có hàng chờ' },
                 { icon: 'check', text: 'Có lưu dữ liệu khi tắt máy' },
-                { icon: 'hard-drive-white', text: '150GB dữ liệu cá nhân' },
-            ],
+                { icon: 'hard-drive-white', text: '150GB dữ liệu cá nhân' }
+            ]
         },
         {
             name: 'Unlimited',
@@ -176,22 +175,21 @@ const Subscriptions = () => {
                 { icon: 'check', text: 'Sở hữu PC riêng' },
                 { icon: 'check', text: 'Không hàng chờ' },
                 { icon: 'check', text: 'Có lưu dữ liệu khi tắt máy' },
-                { icon: 'hard-drive-white', text: '250GB dữ liệu cá nhân' },
-            ],
-        },
-
-    ]
-
+                { icon: 'hard-drive-white', text: '250GB dữ liệu cá nhân' }
+            ]
+        }
+    ];
 
     const renderCard = () => {
         return listSubscriptions.map((sub, index) => (
             <div key={sub.name} className={`l-4  order-${index + 1}`}>
-                <div className="subscription"
+                <div
+                    className="subscription"
                     style={{ color: sub.isSpecial ? '#AD00FF' : '' }}
                 >
                     <div className="ctnName">
                         <h6 className="name">{sub.name}</h6>
-                        <p className='subName'>{sub.subName}</p>
+                        <p className="subName">{sub.subName}</p>
                     </div>
 
                     <div className="ctnPrice">
@@ -200,78 +198,78 @@ const Subscriptions = () => {
                     </div>
 
                     <div className="ctnSpec">
-
-                        {
-                            sub.specs.map(spec => (
-                                <div key={spec.text} className="spec">
-                                    <Icon src={spec.icon}></Icon>
-                                    <p className='text'>{spec.text}</p>
-                                </div>
-
-                            ))
-                        }
-
-
+                        {sub.specs.map((spec) => (
+                            <div key={spec.text} className="spec">
+                                <Icon src={spec.icon}></Icon>
+                                <p className="text">{spec.text}</p>
+                            </div>
+                        ))}
                     </div>
 
                     <div className="ctnBtn mt-auto">
-                        <a href={`${APP_REDIRECT}/payment`} target='_self' className="btn-checkout  ctaBtn">Thanh toán</a>
+                        <a
+                            href={`${APP_REDIRECT}/payment`}
+                            target="_self"
+                            className="btn-checkout  ctaBtn"
+                        >
+                            Thanh toán
+                        </a>
                     </div>
 
-
-                    {
-                        sub.isSpecial ? (
-                            <div className="banner">
-                                Phổ Biến
-                            </div>
-                        ) :
-                            ''
-                    }
-
+                    {sub.isSpecial ? (
+                        <div className="banner">Phổ Biến</div>
+                    ) : (
+                        ''
+                    )}
                 </div>
             </div>
-
-        ))
-    }
+        ));
+    };
 
     return (
-        <div className="subscriptions" id='subscriptions'>
-            <div className="grid wide mainContent" >
+        <div className="subscriptions" id="subscriptions">
+            <div className="grid wide mainContent">
                 <div className="wrapperTitle text-center">
-                    <h2 className='title'>Các gói dịch vụ
-                        <span className="highlight"> Cloud PC</span></h2>
-                    <p className="subTitle !mt-4">*Dịch vụ chỉ cho thuê PC, không kèm tài khoản game</p>
-                    <p className="subTitle">*Hỗ trợ hoàn tiền <span className='subTitle !text-[#AD00FF]'>100%</span> trong 24h</p>
+                    <h2 className="title">
+                        Các gói dịch vụ
+                        <span className="highlight"> Cloud PC</span>
+                    </h2>
+                    <p className="subTitle !mt-4">
+                        *Dịch vụ chỉ cho thuê PC, không kèm tài khoản game
+                    </p>
+                    <p className="subTitle">
+                        *Hỗ trợ hoàn tiền{' '}
+                        <span className="subTitle !text-[#AD00FF]">100%</span>{' '}
+                        trong 24h
+                    </p>
                 </div>
 
-                <div className="cards row">
-                    {renderCard()}
-                </div>
+                <div className="cards row">{renderCard()}</div>
             </div>
         </div>
-    )
-}
-
+    );
+};
 
 const FeatureReason = () => {
     return (
-        <div className="featureReason" id='featureReason'>
+        <div className="featureReason" id="featureReason">
             <div className="grid wide mainContent">
-                <div className='mt-2'>
+                <div className="mt-2">
                     <div className="wrapperTitle text-center ">
-                        <h2 className='title'>Dung lượng mở rộng
+                        <h2 className="title">
+                            Dung lượng mở rộng
                             <span className="highlight"></span>
                         </h2>
-                        <p className="subTitle">
-                            khi mua kèm gói tháng
-                        </p>
+                        <p className="subTitle">khi mua kèm gói tháng</p>
                     </div>
 
                     <div className="wrapperTable2">
-                        <div className="rowContent" style={{ borderTop: 'unset' }}>
+                        <div
+                            className="rowContent"
+                            style={{ borderTop: 'unset' }}
+                        >
                             <div className="columnContent">Dung lượng</div>
                             <div className="columnContent">Giá</div>
-
                         </div>
 
                         <div className="rowContent">
@@ -286,5 +284,5 @@ const FeatureReason = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};

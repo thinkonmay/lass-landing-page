@@ -1,6 +1,5 @@
-"use client"
-import { TypeAnimation } from "react-type-animation";
-
+'use client';
+import { TypeAnimation } from 'react-type-animation';
 
 const TextTransform = () => {
     return (
@@ -19,7 +18,7 @@ const TextTransform = () => {
                 'làm đồ họa',
                 2000,
                 'train AI',
-                2000,
+                2000
             ]}
             speed={50}
             //style={{ fontSize: '2em' }}

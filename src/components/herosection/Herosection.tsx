@@ -33,7 +33,7 @@ function HeroSection() {
                             style={{ paddingLeft: 32, paddingRight: 32 }}
                             className="btn-explore pl-[32px] pr-[32px] btn"
                         >
-                            Sử dụng  <Icon src="shopping-cart"></Icon>
+                            Sử dụng <Icon src="shopping-cart"></Icon>
                         </Link>
                     </div>
                     <div className="right">

@@ -135,7 +135,7 @@ export default function Order(props: IOrder) {
                                 {type != Lines.SOFTWARE ? (
                                     <div className="cart">
                                         <div className="title">
-                                                <Icon src="shopping-cart-black" />
+                                            <Icon src="shopping-cart-black" />
                                             Giỏ hàng
                                         </div>
 
@@ -221,7 +221,7 @@ export default function Order(props: IOrder) {
                                         className="btn-buy"
                                     >
                                         Xác nhận mua hàng{' '}
-                                            <Icon src="shopping-cart"></Icon>
+                                        <Icon src="shopping-cart"></Icon>
                                     </button>
                                 </div>
                             </div>
@@ -251,9 +251,7 @@ const Option = (props: IOptionProps) => {
 
             <div className={status ? 'chose content ' : 'content '}>
                 <div className="info">
-                    {info.main}
-                    {" "}
-                    <span className="subInfo">{info.sub}</span>
+                    {info.main} <span className="subInfo">{info.sub}</span>
                 </div>
 
                 <div className="price"> +{formatPrice(info.price)} VNĐ</div>

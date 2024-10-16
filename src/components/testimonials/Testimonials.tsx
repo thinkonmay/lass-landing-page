@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import { APP_REDIRECT, UserEvents } from '@/utils/analytics';
 import React, { useState } from 'react';
@@ -7,11 +7,10 @@ import Popup from '../popup/popup';
 import './testimonials.scss';
 
 interface IFeedback {
-    name: string
-    img: string
-    job: string
-    feedback: string[]
-
+    name: string;
+    img: string;
+    job: string;
+    feedback: string[];
 }
 const discord: IFeedback[] = [
     {
@@ -65,9 +64,8 @@ const discord: IFeedback[] = [
 ];
 
 interface IModalState {
-    isOpen: boolean,
-    content?: IFeedback
-
+    isOpen: boolean;
+    content?: IFeedback;
 }
 function Testimonials() {
     const [modalContent, setModalContent] = useState<IFeedback>({
@@ -77,53 +75,53 @@ function Testimonials() {
         feedback: [
             'Test thử 1 tuần trên Edge, Cloud chất lượng, độ delay thì hơn hẵng những cloud khác mừng từng xài như Geforce Now, Xbox Cloud. Tùy còn vài lỗi linh tinh nhưng cũng không ảnh hưởng lắm. Mong team sẽ hoàn thiện cloud hơn nữa và được mọi người ủng hộ.'
         ]
-    })
-    const [isOpenModal, setOpenModal] = useState(false)
+    });
+    const [isOpenModal, setOpenModal] = useState(false);
 
     const seeMoreFeedback = (input: IFeedback) => {
-        setOpenModal(true)
-        setModalContent(input)
-    }
-
+        setOpenModal(true);
+        setModalContent(input);
+    };
 
     const send = (data: FormData) => {
-        const payload: any = {}
-        data.forEach((val, key) => payload[key] = val)
-        UserEvents({ type: 'contact_us/message', payload })
-    }
-
+        const payload: any = {};
+        data.forEach((val, key) => (payload[key] = val));
+        UserEvents({ type: 'contact_us/message', payload });
+    };
 
     const FeedBacks = () => {
-
         return (
             <div className="wrapperFeedback grid wide">
-                {
-                    discord.map((x, index) => (
-                        <div key={index} className=" feedback l-6 c-12">
-                            <p className="text">
-                                {x.feedback.map((y, index) => (
-                                    <React.Fragment key={index}>
-                                        - {y} <br />
-                                        <br />
-                                    </React.Fragment>
-                                ))}
-                            </p>
-                            <button onClick={() => seeMoreFeedback(x)} className='seeMore'>Xem Thêm</button>
-                            <div className="user">
-                                <div className="img">
-                                    <Icon src="user"></Icon>
-                                </div>
-                                <div className="info">
-                                    <h6 className="name">{x.name}</h6>
-                                    <p className="job">{x.job}</p>
-                                </div>
+                {discord.map((x, index) => (
+                    <div key={index} className=" feedback l-6 c-12">
+                        <p className="text">
+                            {x.feedback.map((y, index) => (
+                                <React.Fragment key={index}>
+                                    - {y} <br />
+                                    <br />
+                                </React.Fragment>
+                            ))}
+                        </p>
+                        <button
+                            onClick={() => seeMoreFeedback(x)}
+                            className="seeMore"
+                        >
+                            Xem Thêm
+                        </button>
+                        <div className="user">
+                            <div className="img">
+                                <Icon src="user"></Icon>
+                            </div>
+                            <div className="info">
+                                <h6 className="name">{x.name}</h6>
+                                <p className="job">{x.job}</p>
                             </div>
                         </div>
-                    ))
-                }
+                    </div>
+                ))}
             </div>
-        )
-    }
+        );
+    };
     return (
         <div className="testimonials">
             <div className="feedbacks">
@@ -150,14 +148,27 @@ function Testimonials() {
                                 Liên hệ với <span>Thinkmay</span>
                             </h2>
                             <p>
-                                Bạn muốn liên hệ với chúng mình, chúng mình luôn sẵn sàng hỗ trợ!
+                                Bạn muốn liên hệ với chúng mình, chúng mình luôn
+                                sẵn sàng hỗ trợ!
                             </p>
                         </div>
 
                         <form className="wrapperInputs  l-6" action={send}>
-                            <input name="name" type="text" placeholder="Tên của bạn *" />
-                            <input name="email" type="text" placeholder="Email của bạn *" />
-                            <input name="phone" type="text" placeholder="SĐT của bạn *" />
+                            <input
+                                name="name"
+                                type="text"
+                                placeholder="Tên của bạn *"
+                            />
+                            <input
+                                name="email"
+                                type="text"
+                                placeholder="Email của bạn *"
+                            />
+                            <input
+                                name="phone"
+                                type="text"
+                                placeholder="SĐT của bạn *"
+                            />
                             <input
                                 type="text"
                                 name="content"
@@ -165,16 +176,18 @@ function Testimonials() {
                                 placeholder="Ghi chú thêm cho chúng tôi (nếu có)"
                             />
 
-                            <button className="btn btn-send" >
+                            <button className="btn btn-send">
                                 Gửi <Icon src="send" />
                             </button>
                         </form>
 
                         <div className="logo">
                             <Icon width={105} height={51} src="logo-black" />
-                            <a href={APP_REDIRECT}
-                                target='_self'
-                                className='btn mx-auto mt-[1.2rem] ctaBtn max-w-3xl'>
+                            <a
+                                href={APP_REDIRECT}
+                                target="_self"
+                                className="btn mx-auto mt-[1.2rem] ctaBtn max-w-3xl"
+                            >
                                 Dùng thử ngay
                             </a>
                         </div>
@@ -190,10 +203,7 @@ function Testimonials() {
 
 export default Testimonials;
 
-
 const FeedbackModal = (props: IFeedback) => {
-
-
     console.log(props);
     return (
         <div className="feedbackModal thinkmayScroll">
