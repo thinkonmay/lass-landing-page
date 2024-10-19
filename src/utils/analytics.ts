@@ -1,7 +1,7 @@
 'use client';
 import { createClient } from '@supabase/supabase-js';
 
-export const APP_REDIRECT = 'https://play.thinkmay.net';
+export const APP_REDIRECT = 'https://play.0.thinkmay.net';
 export const APP_DOMAIN = 'https://play.0.thinkmay.net';
 const APP_KEY =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ewogICJyb2xlIjogImFub24iLAogICJpc3MiOiAic3VwYWJhc2UiLAogICJpYXQiOiAxNzIzMTM2NDAwLAogICJleHAiOiAxODgwOTAyODAwCn0.SdW2AcXzhRFNBt9HmJw6sKa7lWDmVjbXdRF1mIjrDao';
