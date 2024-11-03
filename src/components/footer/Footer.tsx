@@ -14,7 +14,7 @@ const listLinks = [
     },
     {
         icon: 'discord',
-        link: 'https://discord.gg/fGdU9DQpej'
+        link: 'https://discord.gg/wbHXT93jHf'
     },
     {
         icon: 'linkedin',
