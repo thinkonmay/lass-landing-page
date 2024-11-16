@@ -137,18 +137,17 @@ export const Introduce = () => {
 const Subscriptions = () => {
     const listSubscriptions = [
         {
-            name: 'Gói giờ',
+            name: 'Gói Tuần',
             id: 'hours',
-            price: '8K',
-            subPrice: '/giờ',
-            subName: 'Cần mua tối thiểu 5h',
+            price: '99k',
+            subPrice: '/tuần',
+            subName: 'Giới hạn 25h/tuần',
             isSpecial: false,
 
             specs: [
-                { icon: 'check', text: 'Chơi các game trong kho game' },
-                { icon: 'check', text: 'Không có sẵn tài khoản game' },
-                { icon: 'check', text: 'Không áp dụng hoàn tiền' },
-                { icon: 'hard-drive-white', text: 'Không lưu dữ liệu' }
+                { icon: 'check', text: 'Có hàng chờ' },
+                { icon: 'check', text: 'Có lưu dữ liệu khi tắt máy' },
+                { icon: 'hard-drive-white', text: '150GB dữ liệu cá nhân' }
             ]
         },
         {
