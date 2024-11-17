@@ -239,7 +239,7 @@ const Subscriptions = () => {
                     <p className="subTitle">
                         *Hỗ trợ hoàn tiền{' '}
                         <span className="subTitle !text-[#AD00FF]">100%</span>{' '}
-                        trong 24h
+                        trong 24h cho 2 gói 299k & 1699k
                     </p>
                 </div>
 
