@@ -46,14 +46,13 @@ export default function Guide() {
             <div className="cloudPcGuide grid wide">
                 <div className="wrapperTitle">
                     <h1 className="title">Hướng dẫn sử dụng</h1>
+                    <p>
+                        Nếu gặp bất kì lỗi gì trong quá trình sử dụng, vui lòng nhắn tin cho tụi mình qua Fanpage để được support kịp thời nhất!
+                    </p>
                 </div>
 
                 <div className="mainContent">
-                    <Subscribe></Subscribe>
-
-                    <ConnectToPc></ConnectToPc>
-                    <RightWayShutdown></RightWayShutdown>
-                    <OptimizeSetting></OptimizeSetting>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/asrq0ArmCY4?si=l1SMpH73jcc2RIdY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
         </>

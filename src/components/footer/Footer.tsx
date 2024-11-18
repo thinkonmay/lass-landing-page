@@ -33,7 +33,7 @@ function Footer() {
                                 height={68}
                                 src="logo-black"
                             ></Icon>
-                            <span>Laptop as a Service</span>
+                            <span>Cloud PC</span>
                         </div>
 
                         <div className="email">
@@ -72,7 +72,7 @@ function Footer() {
                                         width={32}
                                         height={32}
                                     />
-                                    Hoa Lac, Ha Noi, Viet Nam
+                                    Ho Chi Minh, Viet Nam
                                 </li>
 
                                 <div className="flex gap-4">
@@ -93,21 +93,21 @@ function Footer() {
 
                             <ul>
                                 {/*<li><Link href={"/conntact"}>Về chúng tôi</Link></li>*/}
-                                <li>
+                                {/*<li>
                                     <Link href={'/procedure'}>
                                         Hướng dẫn mua hàng
                                     </Link>
-                                </li>
+                                </li>*/}
                                 <li>
                                     <Link href={'/warranty-policy'}>
-                                        Chính sách bảo hành
+                                        Chính sách hoàn tiền
                                     </Link>
                                 </li>
-                                <li>
+                                {/*<li>
                                     <Link href={'/shipping-policy'}>
                                         Chính sách vận chuyển
                                     </Link>
-                                </li>
+                                </li>*/}
                                 <li>
                                     <Link href={'/contact'}>Liên hệ</Link>
                                 </li>

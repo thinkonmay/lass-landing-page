@@ -1,6 +1,13 @@
 .cloudPcGuide {
 	padding: 8rem 0;
 
+	iframe {
+		width: 720px;
+		height: 380px;
+		margin: auto;
+		border-radius: 4px;
+	}
+
 	.wrapperTitle {
 
 
@@ -10,8 +17,9 @@
 			font-weight: 700;
 			line-height: 44px;
 			letter-spacing: -0.02em;
-			text-align: left;
-			text-transform: uppercase;
+			text-align: center;
+			color: var(--Neutral-900);
+			margin-bottom: 1.2rem;
 
 			.highlight {
 				color: #28BCB8;
@@ -23,6 +31,15 @@
 
 
 			}
+		}
+
+		p {
+			font-size: var(--font-size-md);
+			font-weight: 500;
+			line-height: 24px;
+			letter-spacing: 0em;
+			text-align: center;
+			color: var(--Neutral-700);
 		}
 
 		.subTitle {
@@ -194,16 +211,21 @@
 	.cloudPcGuide {
 		padding: 6rem var(--gutter-mobile);
 
+		iframe {
+			width: 320px;
+			height: 180px;
+		}
+
 		.wrapperTitle {
 
 
 
 			.title {
-				font-size: var(--font-display-sm);
+				font-size: var(--font-display-xs);
 				font-weight: 700;
 				line-height: 44px;
 				letter-spacing: -0.02em;
-				text-align: left;
+				text-align: center;
 				text-transform: uppercase;
 
 				.highlight {
@@ -216,6 +238,15 @@
 
 
 				}
+			}
+
+			p {
+				font-size: var(--font-size-md);
+				font-weight: 500;
+				line-height: 24px;
+				letter-spacing: 0em;
+				text-align: center;
+				color: var(--Neutral-700);
 			}
 
 			.subTitle {
