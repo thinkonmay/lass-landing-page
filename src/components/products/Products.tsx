@@ -239,11 +239,10 @@ const Subscriptions = () => {
                     <p className="subTitle">
                         *Hỗ trợ hoàn tiền{' '}
                         <span className="subTitle !text-[#AD00FF]">100%</span>{' '}
-                        (
+
                         <Link href={'/warranty-policy'}>
-                            Chi tiết
+                            {'(Chi tiết)'}
                         </Link>
-                        )
                     </p>
                 </div>
 
