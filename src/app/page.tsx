@@ -2,6 +2,7 @@
 import { APP_REDIRECT, supabaseLocal, UserSession } from '@/utils/analytics';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import FAQ from '../components/faq/FAQ';
 import HeroSection from '../components/herosection/Herosection';
 import { Introduce } from '../components/products/Products';
 import Testimonials from '../components/testimonials/Testimonials';
@@ -18,6 +19,8 @@ export default function Home() {
                 <HeroSection></HeroSection>
                 <AppReason></AppReason>
                 <Introduce></Introduce>
+                <FAQ />
+
                 <Testimonials></Testimonials>
             </div>
         </main>
@@ -25,7 +28,7 @@ export default function Home() {
 }
 
 const AppReason = () => {
-    const initial = [ 'https://cdn.vn.garenanow.com/web/fo4vn//Khoa/2023/T8/FOUNDER/son.jpg' ];
+    const initial = ['https://cdn.vn.garenanow.com/web/fo4vn//Khoa/2023/T8/FOUNDER/son.jpg'];
     const [supported, setSupported] = useState<string[]>([]);
 
     const unsupported = [
@@ -48,15 +51,15 @@ const AppReason = () => {
     ];
 
     const rand = (arr: any[]) => arr
-                    .map((value) => ({ value, sort: Math.random() }))
-                    .sort((a, b) => a.sort - b.sort)
-                    .map(({ value }) => value);
+        .map((value) => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value);
 
     useEffect(() => {
         supabaseLocal
             .from('stores')
             .select('metadata->screenshots')
-            .eq('management->landingpage',true)
+            .eq('management->landingpage', true)
             .then(({ data, error }) => {
                 if (error) return;
 
@@ -79,13 +82,13 @@ const AppReason = () => {
                 .querySelectorAll('.scroller__inner')
                 .forEach((scrollerInner) =>
                     Array.from(scrollerInner.children)
-                    .forEach((item) =>
-                        scrollerInner.appendChild(
-                            item.cloneNode(true) as Element
+                        .forEach((item) =>
+                            scrollerInner.appendChild(
+                                item.cloneNode(true) as Element
+                            )
                         )
-                    )
                 );
-    },[supported])
+    }, [supported])
 
     return (
         <div id="appReason" className="appReason">
@@ -162,3 +165,5 @@ const AppReason = () => {
         </div>
     );
 };
+
+
