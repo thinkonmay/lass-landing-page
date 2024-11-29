@@ -56,6 +56,8 @@ export default function Guide() {
                         src="https://www.youtube.com/embed/asrq0ArmCY4?si=l1SMpH73jcc2RIdY" title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         //@ts-ignore
+
+
                         referrerpolicy="strict-origin-when-cross-origin"
                         allowfullscreen></iframe>
                 </div>

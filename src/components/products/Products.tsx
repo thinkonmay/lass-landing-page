@@ -155,7 +155,7 @@ const Subscriptions = () => {
             id: 'month',
             price: '299k',
             subPrice: '/tháng',
-            subName: 'Giới hạn 150h/tháng',
+            subName: 'Giới hạn 120h/tháng',
             isSpecial: true,
             specs: [
                 { icon: 'check', text: 'Có hàng chờ' },
@@ -262,7 +262,7 @@ const FeatureReason = () => {
                             Dung lượng mở rộng
                             <span className="highlight"></span>
                         </h2>
-                        <p className="subTitle">khi mua kèm gói tháng</p>
+                        {/*<p className="subTitle">khi mua kèm gói tháng</p>*/}
                     </div>
 
                     <div className="wrapperTable2">
@@ -271,16 +271,19 @@ const FeatureReason = () => {
                             style={{ borderTop: 'unset' }}
                         >
                             <div className="columnContent">Dung lượng</div>
-                            <div className="columnContent">Giá</div>
+                            <div className="columnContent">Mua lần đầu</div>
+                            <div className="columnContent">Gia hạn</div>
                         </div>
 
                         <div className="rowContent">
                             <div className="columnContent">50GB</div>
-                            <div className="columnContent">70k</div>
+                            <div className="columnContent">60k/tháng</div>
+                            <div className="columnContent">40k/tháng</div>
                         </div>
                         <div className="rowContent">
                             <div className="columnContent">100GB</div>
-                            <div className="columnContent">120k</div>
+                            <div className="columnContent">110k/tháng</div>
+                            <div className="columnContent">80k/tháng</div>
                         </div>
                     </div>
                 </div>
