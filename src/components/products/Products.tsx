@@ -108,7 +108,7 @@ export const Introduce = () => {
                     <br />
                     <span className="specialText">RTX 3060 Ti</span> <br />
                     <span className="specialText"> 16GB RAM </span> <br />
-                    <span className="specialText"> 16 vCPU </span> <br />
+                    {/*<span className="specialText"> 16 vCPU </span> <br />*/}
                     <span className="specialText"> 4k 120fps </span>
                     <br />
                     ngay trên <span className="specialText"> Chrome </span>
@@ -133,6 +133,9 @@ export const Introduce = () => {
         </div>
     );
 };
+
+
+
 
 const Subscriptions = () => {
     const listSubscriptions = [
@@ -183,7 +186,7 @@ const Subscriptions = () => {
         return listSubscriptions.map((sub, index) => (
             <div key={sub.name} className={`l-4  order-${index + 1}`}>
                 <div
-                    className="subscription"
+                    className="subscription shadow-md shadow-[#2b2c2c]"
                     style={{ color: sub.isSpecial ? '#AD00FF' : '' }}
                 >
                     <div className="ctnName">

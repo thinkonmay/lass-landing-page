@@ -322,7 +322,7 @@
 			padding: 2.4rem 2.6rem;
 			padding-bottom: 4rem;
 			border: 2px solid currentColor;
-			border-radius: 16px;
+			border-radius: 20px;
 			max-width: 353px;
 			min-width: 320px;
 			position: relative;
@@ -435,10 +435,14 @@
 
 				.btn-checkout {
 					display: flex;
-					width: max-content;
-					border-radius: 999px;
+					align-items: center;
+					justify-content: center;
+					width: 100%;
+					border-radius: 8px;
 					padding: 12px 24px 12px 24px;
-					background: #E6F0FA;
+					text-align: center;
+					background: #0066CC;
+					color: #fff;
 
 					font-size: var(--font-size-lg);
 					font-weight: 500;
