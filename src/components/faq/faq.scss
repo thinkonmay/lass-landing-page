@@ -70,6 +70,7 @@
 				.wrapperQuestion {
 					display: flex;
 					gap: 8px;
+					margin-bottom: 16px;
 
 					.btnToggle {
 						margin-left: auto;
@@ -91,12 +92,12 @@
 
 				hr {
 					width: 100%;
-					margin-top: 16px;
-					margin-bottom: 16px;
+					margin-top: 32px;
+					//margin-bottom: 16px;
 				}
 
 				.answer {
-					font-size: var(--font-size-xl);
+					font-size: var(--font-size-lg);
 					//font-weight: 500;
 					line-height: 36px;
 					letter-spacing: 0em;

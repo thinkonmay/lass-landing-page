@@ -8,36 +8,53 @@ import './faq.scss';
 const listQA: IQA[] = [
     {
         question: 'Cloud PC tại Thinkmay là gì, và ưu điểm nổi bật là gì?',
-        answer: 'Dịch vụ Cloud PC của Thinkmay cung cấp khả năng truy cập máy tính cấu hình cao từ xa qua internet. Đây là giải pháp giúp người dùng tiết kiệm chi phí đầu tư phần cứng và dễ dàng nâng cấp tài nguyên theo nhu cầu. Ưu điểm nổi bật bao gồm: giá cả phải chăng, khả năng tùy chỉnh linh hoạt, và hỗ trợ kỹ thuật chuyên nghiệp.        '
+        answer: <>Dịch vụ Cloud PC của Thinkmay cung cấp khả năng truy cập máy tính cấu hình cao từ xa qua Internet, giúp người dùng sở hữu "máy tính trên mây" cấu hình cao mà không cần chi phí đầu tư phần cứng, cùng như dễ dàng nâng cấp tài nguyên theo nhu cầu.
+            <br />
+            Ưu điểm nổi bật của Thinkmay Cloud PC bao gồm:
+            <br />
+            - Giá cả phải chăng, chỉ từ 299K VNĐ/ tháng
+            <br />
+
+            - Cho phép lưu hành trình game và mod game
+            <br />
+
+            - Tùy chỉnh linh hoạt core và RAM theo nhu cầu
+            <br />
+
+            - Hỗ trợ khách hàng 24/7
+        </>
     },
+
     {
-        question: 'Cần chuẩn bị gì để sử dụng?	',
-        answer: 'Một thiết bị có kết nối internet (máy tính, điện thoại, hoặc máy tính bảng) và đường truyền ổn định. Thinkmay sẽ cung cấp phần mềm hoặc thông tin kết nối.        '
-    },
-    {
-        question: 'Dịch vụ có an toàn không?	',
-        answer: 'Cam kết bảo mật dữ liệu bằng mã hóa, sao lưu tự động và hệ thống tường lửa hiện đại, đạt chuẩn quốc tế.        '
-    },
-    {
-        question: 'Làm sao để nâng cấp tài nguyên?	',
-        answer: 'Liên hệ đội ngũ hỗ trợ Thinkmay để nâng cấp CPU, RAM, hoặc dung lượng trong vài phút, không ảnh hưởng đến dữ liệu.'
+        question: 'Các thiết bị nào thì dùng được Cloud PC? Tôi có cần đầu tư thiết bị gì không?',
+        answer: <>Mọi thiết bị thông minh (điện thoại, laptop, máy tính bảng, TV...) với kết nối Internet đều có thể sử dụng Cloud PC. Thiết bị quan trọng nhất bạn cần chuẩn bị là thiết bị phát wifi có tốc độ và đường truyền ổn định. {<br />} Ngoài ra, để tăng trải nghiệm sử dụng Cloud PC, đặc biệt khi chơi game, bạn có thể mua thêm tay cầm, chuột & bàn phím (khi chơi trên điện thoại) tùy theo nhu cầu.</>
     },
     {
         question: 'Hỗ trợ hệ điều hành nào?	',
-        answer: 'Hỗ trợ cả Windows và Linux, Android, IOS, MacOs '
+        answer: 'Hỗ trợ cả Windows Linux, Android, IOS và MacOs '
     },
     {
-        question: 'Chi phí dịch vụ được tính như thế nào?	',
-        answer: 'Theo giờ sử dụng thực tế hoặc gói cước cố định hàng tháng, đảm bảo linh hoạt và tiết kiệm.        '
+        question: 'Trên Thinkmay có thể chơi những game nào?',
+        answer: 'Hầu hết các game đều chơi được trên Thinkmay, trừ 1 số tựa game cấm máy ảo như: League of Legends, PUBG, Val, vv'
+    },
+
+    {
+        question: 'Cài đặt Cloud PC trên điện thoại như thế nào?',
+        answer: <>
+            Bạn có thể chơi trực tiếp ngay trên website
+            <br />
+
+            Thêm website về màn hình chính cho thuận tiện sử dụng
+        </>
     },
     {
         question: 'Có được chơi thử không? Chơi thử như thế nào?',
         answer: 'Bạn có thể nhắn tin qua Fanpage để được trải nghiệm miễn phí trong 15 phút'
     },
-    //{
-    //    question: '',
-    //    answer: ''
-    //},
+    {
+        question: 'Tôi phải làm gì gì gặp lỗi và bị giật/lag?',
+        answer: 'Vui lòng liên hệ Fanpage để được hỗ trợ kịp thời nhất'
+    },
     //{
     //    question: '',
     //    answer: ''
@@ -89,7 +106,7 @@ export default FAQ;
 
 interface IQA {
     question: string,
-    answer: string
+    answer: any
 }
 const QA = ({ question, answer }: IQA) => {
     const [open, setOpen] = useState(false)
@@ -101,10 +118,9 @@ const QA = ({ question, answer }: IQA) => {
                     {question}
                 </p>
                 <button onClick={() => { setOpen(old => !old) }} className='btnToggle'>
-                    {open ? <Icon src="arrow-down" className='icon' /> : <Icon src="arrow-up" />}
+                    {open ? <Icon src="arrow-down" className='icon' /> : <Icon src="arrow-left" />}
                 </button>
             </div>
-            <hr />
             {
                 open ?
                     <p className={open ? 'answer' : ''}>
@@ -112,6 +128,7 @@ const QA = ({ question, answer }: IQA) => {
                     </p> : null
 
             }
+            <hr />
 
         </div>
     )
