@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import FAQ from '../components/faq/FAQ';
 import HeroSection from '../components/herosection/Herosection';
 import { Introduce } from '../components/products/Products';
+import Profit from '../components/profit/profit';
 import Testimonials from '../components/testimonials/Testimonials';
 import './index.scss';
 import './page.scss';
@@ -17,6 +18,8 @@ export default function Home() {
         <main className="main">
             <div className="content">
                 <HeroSection></HeroSection>
+                <Profit></Profit>
+
                 <AppReason></AppReason>
                 <Introduce></Introduce>
                 <FAQ />
