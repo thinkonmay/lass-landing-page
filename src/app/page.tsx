@@ -102,7 +102,7 @@ const AppReason = () => {
                             Game
                             <span className="highlight">
                                 {' '}
-                                đang được chơi nhiều{' '}
+                                được chơi nhiều{' '}
                             </span>
                         </h2>
                     </div>

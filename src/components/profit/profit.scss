@@ -106,4 +106,113 @@
 }
 
 
-@media (1px < width < 768px) {}
+@media (1px < width < 768px) {
+	.profit {
+		//background: var(--Neutral-25, #FCFCFD);
+		padding-bottom: 6rem;
+		margin-bottom: 6rem;
+		padding: 5rem var(--gutter-mobile);
+		padding-top: 10rem;
+
+		.mainContent {
+
+			.wrapperTitle {
+
+
+				margin-bottom: 3.6rem;
+
+				.title {
+					font-size: 24px;
+					font-weight: 700;
+					line-height: 44px;
+					letter-spacing: -0.02em;
+					text-align: center;
+					color: #171616;
+
+					.highlight {
+						color: #28BCB8;
+						font-size: inherit;
+						font-weight: inherit;
+						line-height: inherit;
+						letter-spacing: inherit;
+						text-align: inherit;
+
+
+					}
+				}
+
+				.subTitle {
+					//styleName: Text lg/Regular;
+					display: block;
+					max-width: 85ch;
+					color: var(--Neutral-800);
+					font-size: 16px;
+					font-weight: 400;
+					line-height: 28px;
+					letter-spacing: 0em;
+					text-align: center;
+					margin: auto;
+
+				}
+
+				.text {
+					//styleName: Text xl/Medium;
+					font-size: var(--font-size-sm);
+					font-weight: 500;
+					line-height: 30px;
+					letter-spacing: 0em;
+					text-align: left;
+					color: var(--Neutral-800);
+
+				}
+			}
+
+			.wrapperProfits {
+
+				display: flex;
+				flex-wrap: wrap;
+				column-gap: 16px;
+				row-gap: 16px;
+				margin-top: 60px;
+				justify-content: center;
+
+				.profitCard {
+					flex: 1;
+					display: flex;
+					flex-direction: column;
+
+					border-radius: 20px;
+					padding: 32px 24px;
+					border: 1px solid var(--Neutral-100);
+					min-width: 280px;
+					max-width: 320px;
+
+					.title {
+						color: var(--Neutral-Black, #000);
+						/* Text xl/Semibold */
+						font-size: 22px;
+						font-style: normal;
+						font-weight: 600;
+						line-height: 30px;
+						margin-top: 16px;
+						margin-bottom: 16px;
+						/* 150% */
+					}
+
+					.subTitle {
+						color: var(--Neutral-900, #101828);
+						/* Text lg/Medium */
+						font-size: 16px;
+						font-style: normal;
+						//font-weight: 500;
+						line-height: 28px;
+					}
+
+				}
+			}
+		}
+
+
+	}
+
+}

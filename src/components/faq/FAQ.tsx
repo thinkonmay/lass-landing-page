@@ -113,11 +113,11 @@ const QA = ({ question, answer }: IQA) => {
 
     return (
         <div className='ctnQA'>
-            <div className='wrapperQuestion'>
+            <div onClick={() => { setOpen(old => !old) }} className='wrapperQuestion'>
                 <p className='question'>
                     {question}
                 </p>
-                <button onClick={() => { setOpen(old => !old) }} className='btnToggle'>
+                <button className='btnToggle'>
                     {open ? <Icon src="arrow-down" className='icon' /> : <Icon src="arrow-left" />}
                 </button>
             </div>
