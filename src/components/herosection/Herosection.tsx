@@ -18,14 +18,15 @@ function HeroSection() {
                             <br />
                             <TextTransform></TextTransform>
                             <br />
-                            trên Cloud PC
+                            trên mọi thiết bị với Cloud PC
                         </h1>
 
                         <p className="subText">
                             <br />
-                            Chơi game và làm việc trên đám mây.
+                            Mọi thiết bị ở mọi cấu hình đều có thể
                             <br />
-                            Kết nối và sử dụng trên mọi thiết bị.
+                            chiến game xịn và làm đồ hoạ, chỉ với Cloud PC và Internet.      
+                            {/*Kết nối và sử dụng trên mọi thiết bị.*/}
                         </p>
 
                         <Link
@@ -39,14 +40,14 @@ function HeroSection() {
                     <div className="right">
                         <Image
                             alt="Hero section image"
-                            width={793}
-                            height={480}
-                            src={'/macbook.png'}
+                            width={900}
+                            height={500}
+                            src={'/hero_img.png'}
                             priority={true}
                         />
 
-                        <div className="subBg1"></div>
-                        <div className="subBg2"></div>
+                        {/*<div className="subBg1"></div>*/}
+                        {/*<div className="subBg2"></div>*/}
                     </div>
                 </div>
             </div>
