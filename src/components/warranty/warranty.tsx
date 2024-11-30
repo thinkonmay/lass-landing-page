@@ -6,16 +6,55 @@ interface IContent {
     contents: (IContent | string)[];
     type?: 'first' | 'second' | 'third' | undefined;
 }
+//{
+//            category:
+//                '2.1. Tư vấn hỗ trợ kiểm tra sản phẩm trước khi mua',
+//            type: 'second',
 
+//            contents: [
+//                'Kiểm tra màu sắc, cấu hình, và chứng thực máy trước khi mua.',
+//                'Máy chưa active là máy chưa kích hoạt bảo hành theo tình trạng kiểm tra trực tiếp trên trang chủ Apple/ Lenovo'
+//            ]
+//        },
 export default function Warranty() {
     const policys: IContent[] = [
         {
-            category: 'Đối tượng - Thời gian - Điều kiện áp dụng ',
+            category: 'Điều kiện áp dụng',
             type: 'first',
             contents: [
-                'Đối tượng: Khách hàng mua gói tháng',
-                'Thời gian: Trong vòng 24h sau khi được cấp máy.',
-                'Số giờ sử dụng: Dưới 5h.'
+                {
+                    category: 'Với gói tháng:',
+                    type: 'second',
+                    contents: [
+                        'Thời gian: Trong vòng 5 ngày kể từ khi được cấp máy.',
+                        'Số giờ sử dụng: không quá 12h.'
+                    ]
+                },
+                {
+                    category: 'Với gói tuần:',
+                    type: 'second',
+                    contents: [
+                        'Thời gian: Trong vòng 2 ngày kể từ khi được cấp máy.',
+                        'Số giờ sử dụng: không quá 3h.'
+                    ]
+                },
+            ]
+        },
+        {
+            category: 'Quy trình yêu cầu hoàn tiền:',
+            type: 'first',
+            contents: [
+                'Liên hệ qua Fanpage chính thức của Thinkmay.',
+                'Cung cấp thông tin tài khoản, lý do yêu cầu hoàn tiền',
+                'Yêu cầu sẽ được xử lý trong vòng 1 ngày làm việc.'
+            ]
+        },
+        {
+            category: 'Lưu ý:',
+            type: 'first',
+            contents: [
+                'Chính sách không áp dụng cho các trường hợp vi phạm điều khoản sử dụng dịch vụ hoặc cố ý gây lỗi.',
+                'Hãy trải nghiệm dịch vụ miễn phí trước khi đưa ra quyết định mua!'
             ]
         },
         //{
@@ -174,7 +213,7 @@ export default function Warranty() {
             <div className="warrantyPolicy ">
                 <div className="mainContent grid wide">
                     <div className="title l-8">
-                        <h2>Chính sách hoàn 100% tiền</h2>
+                        <h2>Chính sách hoàn lại 80% tiền</h2>
                         <p>
                             Do tính chất đặc thù của dịch vụ CloudPC là có độ trễ về đường truyền và mong muốn mọi người có trải nghiệm tốt nhất khi sử dụng, Thinkmay khuyến khích bạn liên hệ qua Fanpage để được hỗ trợ xử lý hoặc hoàn tiền nếu sau khi sử dụng, bạn cảm thấy không hài lòng vì bất kỳ lý do nào.
 
