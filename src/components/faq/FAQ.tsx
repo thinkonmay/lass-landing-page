@@ -6,24 +6,24 @@ import './faq.scss';
 
 
 const listQA: IQA[] = [
-    {
-        question: 'Cloud PC tại Thinkmay là gì, và ưu điểm nổi bật là gì?',
-        answer: <>Dịch vụ Cloud PC của Thinkmay cung cấp khả năng truy cập máy tính cấu hình cao từ xa qua Internet, giúp người dùng sở hữu "máy tính trên mây" cấu hình cao mà không cần chi phí đầu tư phần cứng, cùng như dễ dàng nâng cấp tài nguyên theo nhu cầu.
-            <br />
-            Ưu điểm nổi bật của Thinkmay Cloud PC bao gồm:
-            <br />
-            - Giá cả phải chăng, chỉ từ 299K VNĐ/ tháng
-            <br />
+    //{
+    //    question: 'Cloud PC tại Thinkmay là gì, và ưu điểm nổi bật là gì?',
+    //    answer: <>Dịch vụ Cloud PC của Thinkmay cung cấp khả năng truy cập máy tính cấu hình cao từ xa qua Internet, giúp người dùng sở hữu "máy tính trên mây" cấu hình cao mà không cần chi phí đầu tư phần cứng, cùng như dễ dàng nâng cấp tài nguyên theo nhu cầu.
+    //        <br />
+    //        Ưu điểm nổi bật của Thinkmay Cloud PC bao gồm:
+    //        <br />
+    //        - Giá cả phải chăng, chỉ từ 299K VNĐ/ tháng
+    //        <br />
 
-            - Cho phép lưu hành trình game và mod game
-            <br />
+    //        - Cho phép lưu hành trình game và mod game
+    //        <br />
 
-            - Tùy chỉnh linh hoạt core và RAM theo nhu cầu
-            <br />
+    //        - Tùy chỉnh linh hoạt core và RAM theo nhu cầu
+    //        <br />
 
-            - Hỗ trợ khách hàng 24/7
-        </>
-    },
+    //        - Hỗ trợ khách hàng 24/7
+    //    </>
+    //},
 
     {
         question: 'Các thiết bị nào thì dùng được Cloud PC? Tôi có cần đầu tư thiết bị gì không?',
@@ -79,7 +79,7 @@ function FAQ() {
 
 
     return (
-        <div className="faq">
+        <div className="faq" id='faqs'>
             <div className="mainContent grid wide">
                 <div className="wrapperTitle text-center">
                     <h2 className="title">

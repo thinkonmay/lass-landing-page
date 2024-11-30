@@ -6,13 +6,25 @@ import Icon from '../icon';
 import './header.scss';
 
 const listNav = [
+    //{
+    //    name: 'Liên hệ',
+    //    link: '/contact'
+    //},
     {
-        name: 'Liên hệ',
-        link: '/contact'
+        name: 'Bảng giá',
+        link: '/#subscriptions'
     },
+    //{
+    //    name: 'Chính sách hoàn tiền',
+    //    link: '/warranty-policy'
+    //},
     {
         name: 'Hướng dẫn',
         link: '/guide'
+    },
+    {
+        name: 'FAQs',
+        link: '/#faqs'
     }
 ];
 
@@ -32,7 +44,7 @@ function Header() {
     };
 
     return (
-        <div className="header ">
+        <div className="header isolate sticky">
             <div className="grid wide wrapperHeader">
                 <div className="left">
                     <div className="logo">
