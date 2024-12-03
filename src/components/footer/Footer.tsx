@@ -59,10 +59,6 @@ function Footer() {
                             <h6>Thinkmay</h6>
                             <ul>
                                 <li>
-                                    <Icon src="phone" width={32} height={32} />
-                                    (+84) 347 961 231
-                                </li>
-                                <li>
                                     <Icon src="mail" width={32} height={32} />
                                     huyhoangdo@contact.thinkmay.net
                                 </li>
