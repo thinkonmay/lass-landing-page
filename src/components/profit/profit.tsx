@@ -91,6 +91,7 @@ function Profit() {
                     {
                         profits.map((item, i) => (<Card
                             img={item.icon}
+                            key={item.title}
                             title={item.title}
                             subtitle={item.content}
                             href={item.link.href}

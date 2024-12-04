@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
     title: 'Thinkmay',
-    description: 'Thinkmay Landingp Page'
+    description: 'Thinkmay - Cloud PC in Viet Nam!'
 };
 
 export default function RootLayout({
