@@ -16,7 +16,7 @@ const profits = [
             'Laptop, điện thoại, TV,... ở mọi cấu hình đều có thể chơi game xịn, xử lý đồ họa,...'
         ],
         link: {
-            href: '#',
+            href: 'https://play.thinkmay.net/',
             name: 'Đăng ký ngay'
         }
     },
@@ -25,7 +25,7 @@ const profits = [
         icon: 'credit-card',
         title: '299k/tháng',
         link: {
-            href: '#',
+            href: '/warranty-policy',
             name: 'Chi tiết hoàn tiền'
         },
         content: <>
@@ -43,7 +43,7 @@ const profits = [
             Có thể mua thêm bộ nhớ bổ sung.
         </>,
         link: {
-            href: '',
+            href: '#subscriptions',
             name: 'Mua thêm dữ liệu'
         }
     },
@@ -56,7 +56,7 @@ const profits = [
             'Đội ngũ hỗ trợ khách hàng 24/7 nhanh chóng, tận tình.'
         ],
         link: {
-            href: '',
+            href: 'https://www.facebook.com/thinkonmay',
             name: 'Liên hệ ngay'
         }
     }
@@ -131,7 +131,7 @@ const Card = ({ img, title, subtitle, href, hrefName }: ICard) => {
             </p>
 
 
-            <Link className='mt-auto' href='#'>
+            <Link className='mt-auto' href={href}>
                 {hrefName}
             </Link>
         </div>
