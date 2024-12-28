@@ -74,7 +74,7 @@ const AppReason = () => {
             .then(x => x.json()
                 .then(y => 
                     setSupported([
-                        ...rand(y).splice(0,10).map(x => x.images),
+                        ...rand(y).splice(0,10).map(x => x.image),
                         initial
                     ])
                 )
