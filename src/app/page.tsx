@@ -1,6 +1,7 @@
 'use client';
-import { APP_REDIRECT, supabaseLocal, UserSession } from '@/utils/analytics';
+import { APP_REDIRECT, UserSession } from '@/utils/analytics';
 import Image from 'next/image';
+import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import FAQ from '../components/faq/FAQ';
 import HeroSection from '../components/herosection/Herosection';
@@ -9,7 +10,6 @@ import Profit from '../components/profit/profit';
 import Testimonials from '../components/testimonials/Testimonials';
 import './index.scss';
 import './page.scss';
-import Script from 'next/script';
 
 export default function Home() {
     useEffect(() => {
@@ -70,24 +70,15 @@ const AppReason = () => {
         .map(({ value }) => value);
 
     useEffect(() => {
-        supabaseLocal
-            .from('stores')
-            .select('metadata->screenshots')
-            .eq('management->landingpage', true)
-            .then(({ data, error }) => {
-                if (error) return;
-
-                const images: string[] = [];
-                data?.forEach(({ screenshots }) =>
-                    images.push(
-                        ...((screenshots ?? []) as { path_full: string }[])
-                            .splice(0, 2)
-                            .map((y) => y.path_full)
-                    )
-                );
-
-                setSupported([...initial, ...images]);
-            });
+        fetch('/images.json')
+            .then(x => x.json()
+                .then(y => 
+                    setSupported([
+                        ...rand(y).splice(0,10).map(x => x.images),
+                        initial
+                    ])
+                )
+            )
     }, []);
 
     useEffect(() => {

@@ -5,7 +5,6 @@ export const APP_REDIRECT = 'https://play.thinkmay.net';
 export const APP_DOMAIN = 'https://play.thinkmay.net';
 const APP_KEY =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ewogICJyb2xlIjogImFub24iLAogICJpc3MiOiAic3VwYWJhc2UiLAogICJpYXQiOiAxNzIzMTM2NDAwLAogICJleHAiOiAxODgwOTAyODAwCn0.SdW2AcXzhRFNBt9HmJw6sKa7lWDmVjbXdRF1mIjrDao';
-export const supabaseLocal = createClient(APP_DOMAIN, APP_KEY);
 
 export function getOS() {
     let OSName = 'unknown';
@@ -69,6 +68,7 @@ export async function UserSession(email?: string) {
         url: window.location.href
     };
 
+    const supabaseLocal = createClient(APP_DOMAIN, APP_KEY);
     const { data, error } = await supabaseLocal
         .from('generic_events')
         .insert({
