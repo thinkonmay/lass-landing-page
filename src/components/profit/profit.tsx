@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Icon from '../icon';
 import './profit.scss';
+import { APP_REDIRECT } from '@/utils/analytics';
 
 
 
@@ -16,7 +17,7 @@ const profits = [
             'Laptop, điện thoại, TV,... ở mọi cấu hình đều có thể chơi game xịn, xử lý đồ họa,...'
         ],
         link: {
-            href: 'https://play.thinkmay.net/',
+            href: APP_REDIRECT,
             name: 'Đăng ký ngay'
         }
     },
@@ -63,14 +64,7 @@ const profits = [
 ];
 
 
-function Profit() {
-
-
-
-
-
-
-
+function Benefits() {
     return (
         <div className="profit">
             <div className="mainContent grid wide">
@@ -104,7 +98,7 @@ function Profit() {
     );
 }
 
-export default Profit;
+export default Benefits;
 
 
 interface ICard {

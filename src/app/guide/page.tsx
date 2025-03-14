@@ -59,7 +59,8 @@ export default function Guide() {
 
 
                         referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen></iframe>
+                        allowFullScreen
+                    ></iframe>
                 </div>
             </div>
         </>
