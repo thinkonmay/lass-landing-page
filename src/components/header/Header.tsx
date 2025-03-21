@@ -1,17 +1,28 @@
 'use client';
 import { APP_REDIRECT, UserEvents } from '@/utils/analytics';
+import { LiveChatWidget } from '@livechat/widget-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Icon from '../icon';
 import './header.scss';
 
-function Header() {
-    const [showChat, setShowChat] = useState<boolean>(false);
-    useEffect(() => {
-        (window as any).LiveChatWidget?.call(
-            showChat ? 'maximize' : 'minimize'
+const isMobile = () => {
+    const userAgent = navigator?.userAgent?.toLowerCase();
+    const isMobile =
+        /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(
+            userAgent
         );
-    }, [showChat]);
+    const isTablet =
+        /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(
+            userAgent
+        );
+    return isMobile || isTablet;
+};
+
+function Header() {
+    useEffect(() => {
+        if (isMobile()) (window as any).LiveChatWidget?.call('minimize');
+    }, []);
 
     const [openNav, setOpenNav] = useState(false);
     const open = () => {
@@ -31,7 +42,7 @@ function Header() {
         {
             name: 'Liên hệ',
             link: undefined,
-            callback: () => setShowChat((old) => !old)
+            callback: () => (window as any).LiveChatWidget?.call('maximize')
         },
         {
             name: 'Bảng giá',
@@ -45,6 +56,7 @@ function Header() {
 
     return (
         <div className="header isolate sticky">
+            <LiveChatWidget license="19084863" visibility="maximized" />
             <div className="grid wide wrapperHeader">
                 <div className="left">
                     <div className="logo">

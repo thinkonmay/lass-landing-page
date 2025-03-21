@@ -1,6 +1,5 @@
 'use client';
 import { APP_REDIRECT, UserSession } from '@/utils/analytics';
-import { LiveChatWidget } from '@livechat/widget-react';
 import Image from 'next/image';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
@@ -18,7 +17,6 @@ export default function Home() {
     }, []);
     return (
         <main className="main">
-            <LiveChatWidget license="19084863" visibility="maximized" />
             <div className="content">
                 <HeroSection></HeroSection>
                 <Benefits></Benefits>

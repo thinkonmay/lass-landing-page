@@ -64,7 +64,6 @@ const profits = [
     }
 ];
 
-
 function Benefits() {
     return (
         <div className="profit">
