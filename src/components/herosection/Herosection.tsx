@@ -25,7 +25,8 @@ function HeroSection() {
                             <br />
                             Mọi thiết bị ở mọi cấu hình đều có thể
                             <br />
-                            chiến game xịn và làm đồ hoạ, chỉ với Cloud PC và Internet.      
+                            chiến game xịn và làm đồ hoạ, chỉ với Cloud PC và
+                            Internet.
                             {/*Kết nối và sử dụng trên mọi thiết bị.*/}
                         </p>
 

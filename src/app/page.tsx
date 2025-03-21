@@ -1,5 +1,6 @@
 'use client';
 import { APP_REDIRECT, UserSession } from '@/utils/analytics';
+import { LiveChatWidget } from '@livechat/widget-react';
 import Image from 'next/image';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
@@ -17,6 +18,7 @@ export default function Home() {
     }, []);
     return (
         <main className="main">
+            <LiveChatWidget license="19084863" visibility="maximized" />
             <div className="content">
                 <HeroSection></HeroSection>
                 <Benefits></Benefits>
@@ -27,7 +29,11 @@ export default function Home() {
 
                 <Testimonials></Testimonials>
             </div>
-            <Script async src="https://www.googletagmanager.com/gtag/js?id=G-M7MLPFDFXL" strategy="afterInteractive"></Script>
+            <Script
+                async
+                src="https://www.googletagmanager.com/gtag/js?id=G-M7MLPFDFXL"
+                strategy="afterInteractive"
+            ></Script>
             <Script strategy="afterInteractive">
                 {`
                     window.dataLayer = window.dataLayer || [];
@@ -42,7 +48,9 @@ export default function Home() {
 }
 
 const AppReason = () => {
-    const initial = ['https://cdn.vn.garenanow.com/web/fo4vn//Khoa/2023/T8/FOUNDER/son.jpg'];
+    const initial = [
+        'https://cdn.vn.garenanow.com/web/fo4vn//Khoa/2023/T8/FOUNDER/son.jpg'
+    ];
     const [supported, setSupported] = useState<string[]>([]);
 
     const unsupported = [
@@ -64,21 +72,23 @@ const AppReason = () => {
         }
     ];
 
-    const rand = (arr: any[]) => arr
-        .map((value) => ({ value, sort: Math.random() }))
-        .sort((a, b) => a.sort - b.sort)
-        .map(({ value }) => value);
+    const rand = (arr: any[]) =>
+        arr
+            .map((value) => ({ value, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(({ value }) => value);
 
     useEffect(() => {
-        fetch('/images.json')
-            .then(x => x.json()
-                .then(y => 
-                    setSupported([
-                        ...rand(y).splice(0,10).map(x => x.image),
-                        initial
-                    ])
-                )
+        fetch('/images.json').then((x) =>
+            x.json().then((y) =>
+                setSupported([
+                    ...rand(y)
+                        .splice(0, 10)
+                        .map((x) => x.image),
+                    initial
+                ])
             )
+        );
     }, []);
 
     useEffect(() => {
@@ -86,14 +96,13 @@ const AppReason = () => {
             document
                 .querySelectorAll('.scroller__inner')
                 .forEach((scrollerInner) =>
-                    Array.from(scrollerInner.children)
-                        .forEach((item) =>
-                            scrollerInner.appendChild(
-                                item.cloneNode(true) as Element
-                            )
+                    Array.from(scrollerInner.children).forEach((item) =>
+                        scrollerInner.appendChild(
+                            item.cloneNode(true) as Element
                         )
+                    )
                 );
-    }, [supported])
+    }, [supported]);
 
     return (
         <div id="appReason" className="appReason">
@@ -102,10 +111,7 @@ const AppReason = () => {
                     <div className="wrapperTitle text-center ">
                         <h2 className="title">
                             Game
-                            <span className="highlight">
-                                {' '}
-                                được chơi nhiều{' '}
-                            </span>
+                            <span className="highlight"> được chơi nhiều </span>
                         </h2>
                     </div>
                 </div>
@@ -170,5 +176,3 @@ const AppReason = () => {
         </div>
     );
 };
-
-

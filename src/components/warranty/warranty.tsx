@@ -1,4 +1,3 @@
-
 import './warranty.scss';
 
 interface IContent {
@@ -37,7 +36,7 @@ export default function Warranty() {
                         'Thời gian: Trong vòng 2 ngày kể từ khi được cấp máy.',
                         'Số giờ sử dụng: không quá 3h.'
                     ]
-                },
+                }
             ]
         },
         {
@@ -56,7 +55,7 @@ export default function Warranty() {
                 'Chính sách không áp dụng cho các trường hợp vi phạm điều khoản sử dụng dịch vụ hoặc cố ý gây lỗi.',
                 'Hãy trải nghiệm dịch vụ miễn phí trước khi đưa ra quyết định mua!'
             ]
-        },
+        }
         //{
         //    category: 'II. Chế độ bảo hành sản phẩm mới',
         //    type: 'first',
@@ -173,8 +172,8 @@ export default function Warranty() {
                         type == 'second'
                             ? 'secondTitle'
                             : type == 'third'
-                                ? 'thirdTitle'
-                                : ''
+                              ? 'thirdTitle'
+                              : ''
                     }
                 >
                     {category}
@@ -215,8 +214,12 @@ export default function Warranty() {
                     <div className="title l-8">
                         <h2>Chính sách hoàn lại 80% tiền</h2>
                         <p>
-                            Do tính chất đặc thù của dịch vụ CloudPC là có độ trễ về đường truyền và mong muốn mọi người có trải nghiệm tốt nhất khi sử dụng, Thinkmay khuyến khích bạn liên hệ qua Fanpage để được hỗ trợ xử lý hoặc hoàn tiền nếu sau khi sử dụng, bạn cảm thấy không hài lòng vì bất kỳ lý do nào.
-
+                            Do tính chất đặc thù của dịch vụ CloudPC là có độ
+                            trễ về đường truyền và mong muốn mọi người có trải
+                            nghiệm tốt nhất khi sử dụng, Thinkmay khuyến khích
+                            bạn liên hệ qua Fanpage để được hỗ trợ xử lý hoặc
+                            hoàn tiền nếu sau khi sử dụng, bạn cảm thấy không
+                            hài lòng vì bất kỳ lý do nào.
                         </p>
                     </div>
 

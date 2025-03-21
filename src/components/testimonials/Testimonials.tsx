@@ -3,7 +3,6 @@
 import { APP_REDIRECT, UserEvents } from '@/utils/analytics';
 import React, { useState } from 'react';
 import Icon from '../icon';
-import Popup from '../popup/popup';
 import './testimonials.scss';
 
 interface IFeedback {
@@ -14,48 +13,48 @@ interface IFeedback {
 }
 const discord: IFeedback[] = [
     {
-        "name": "Hoang Phu",
-        "img": "https://i.imgur.com/pQVKxrB.jpg",
-        "job": "Sinh Viên",
-        "feedback": [
-            "Giao diện đẹp, độ nhạy và phản hồi tốt. Dịch vụ chăm sóc khách hàng tốt. Vẫn còn một số lỗi nhỏ và chưa tối ưu hoàn toàn. Đánh giá 4.5/5.",
-            "Giá cloud khá cao, chưa phù hợp với người dùng trung bình. Truyền thông chưa nổi trội. Cộng đồng vui vẻ, dễ hòa nhập. Đánh giá 3.5/5.",
-            "Dự án có triển vọng, tiềm năng phát triển cao. Mong muốn phát triển hơn nữa trong năm mới."
+        name: 'Hoang Phu',
+        img: 'https://i.imgur.com/pQVKxrB.jpg',
+        job: 'Sinh Viên',
+        feedback: [
+            'Giao diện đẹp, độ nhạy và phản hồi tốt. Dịch vụ chăm sóc khách hàng tốt. Vẫn còn một số lỗi nhỏ và chưa tối ưu hoàn toàn. Đánh giá 4.5/5.',
+            'Giá cloud khá cao, chưa phù hợp với người dùng trung bình. Truyền thông chưa nổi trội. Cộng đồng vui vẻ, dễ hòa nhập. Đánh giá 3.5/5.',
+            'Dự án có triển vọng, tiềm năng phát triển cao. Mong muốn phát triển hơn nữa trong năm mới.'
         ]
     },
     {
-        "name": "Trang le",
-        "img": "https://i.imgur.com/X7zQUqR.jpg",
-        "job": "Freelancer",
-        "feedback": [
-            "Khuyến nghị gói 359k cho người muốn gắn bó dài hạn.",
-            "Trước đây phải chờ máy 75%, giờ đã cải thiện nhiều. Gói 359k giảm thiểu thời gian chờ đợi.",
-            "Gói ưu tiên cho cảm giác ổn định hơn. 160h chơi, chuyển được giờ thừa sang tháng sau. Giá rẻ hơn nhiều so với dịch vụ mạng khác."
+        name: 'Trang le',
+        img: 'https://i.imgur.com/X7zQUqR.jpg',
+        job: 'Freelancer',
+        feedback: [
+            'Khuyến nghị gói 359k cho người muốn gắn bó dài hạn.',
+            'Trước đây phải chờ máy 75%, giờ đã cải thiện nhiều. Gói 359k giảm thiểu thời gian chờ đợi.',
+            'Gói ưu tiên cho cảm giác ổn định hơn. 160h chơi, chuyển được giờ thừa sang tháng sau. Giá rẻ hơn nhiều so với dịch vụ mạng khác.'
         ]
     },
     {
-        "name": "Lee Anh",
-        "img": "https://i.imgur.com/dNiXHqK.jpg",
-        "job": "Sinh Viên",
-        "feedback": [
-            "Sau 1 tháng, dịch vụ ổn định hơn, delay tốt hơn. FPS không còn bị giới hạn ở 60, màn hình 144hz chơi khá ổn.",
-            "Thiếu tính năng rung của tay cầm so với các dịch vụ cloud khác."
+        name: 'Lee Anh',
+        img: 'https://i.imgur.com/dNiXHqK.jpg',
+        job: 'Sinh Viên',
+        feedback: [
+            'Sau 1 tháng, dịch vụ ổn định hơn, delay tốt hơn. FPS không còn bị giới hạn ở 60, màn hình 144hz chơi khá ổn.',
+            'Thiếu tính năng rung của tay cầm so với các dịch vụ cloud khác.'
         ]
     },
     {
-        "name": "Tan Tai",
-        "img": "https://i.imgur.com/JQ0h9SL.jpg",
-        "job": "Sinh Viên",
-        "feedback": [
-            "Cloud gaming mượt, không delay. Tay cầm tốt. Giá phù hợp, cấu hình mạnh. Nhân viên chất lượng 10/10."
+        name: 'Tan Tai',
+        img: 'https://i.imgur.com/JQ0h9SL.jpg',
+        job: 'Sinh Viên',
+        feedback: [
+            'Cloud gaming mượt, không delay. Tay cầm tốt. Giá phù hợp, cấu hình mạnh. Nhân viên chất lượng 10/10.'
         ]
     },
     {
-        "name": "Dat Do",
-        "img": "https://i.imgur.com/WqVjcVY.jpg",
-        "job": "Sinh Viên",
-        "feedback": [
-            "Trải nghiệm trên Edge, cloud chất lượng, delay tốt hơn Geforce Now và Xbox Cloud. Vài lỗi nhỏ không đáng kể. Mong team tiếp tục hoàn thiện."
+        name: 'Dat Do',
+        img: 'https://i.imgur.com/WqVjcVY.jpg',
+        job: 'Sinh Viên',
+        feedback: [
+            'Trải nghiệm trên Edge, cloud chất lượng, delay tốt hơn Geforce Now và Xbox Cloud. Vài lỗi nhỏ không đáng kể. Mong team tiếp tục hoàn thiện.'
         ]
     }
 ];
@@ -142,7 +141,7 @@ function Testimonials() {
                     <div className="form">
                         <div className="top">
                             <h2 className="title">
-                                Liên hệ với <span>Thinkmay</span>
+                                Liên hệ <span>Thinkmay</span>
                             </h2>
                             <p>
                                 Bạn muốn liên hệ với chúng mình, chúng mình luôn
@@ -154,46 +153,40 @@ function Testimonials() {
                             <input
                                 name="name"
                                 type="text"
+                                onChange={(e) =>
+                                    (window as any).LiveChatWidget.call(
+                                        'set_customer_name',
+                                        e.target.value
+                                    )
+                                }
                                 placeholder="Tên của bạn *"
                             />
                             <input
                                 name="email"
                                 type="text"
+                                onChange={(e) =>
+                                    (window as any).LiveChatWidget.call(
+                                        'set_customer_email',
+                                        e.target.value
+                                    )
+                                }
                                 placeholder="Email của bạn *"
                             />
-                            <input
-                                name="phone"
-                                type="text"
-                                placeholder="SĐT của bạn *"
-                            />
-                            <input
-                                type="text"
-                                name="content"
-                                className="bigInput"
-                                placeholder="Ghi chú thêm cho chúng tôi (nếu có)"
-                            />
-
-                            <button className="btn btn-send">
-                                Gửi <Icon src="send" />
+                            <button
+                                onClick={() =>
+                                    (window as any).LiveChatWidget?.call(
+                                        'maximize'
+                                    )
+                                }
+                                className="btn btn-send"
+                            >
+                                Gửi
+                                <Icon src="send" />
                             </button>
                         </form>
-
-                        <div className="logo">
-                            <Icon width={105} height={51} src="logo-black" />
-                            <a
-                                href={APP_REDIRECT}
-                                target="_self"
-                                className="btn mx-auto mt-[1.2rem] ctaBtn max-w-3xl"
-                            >
-                                Dùng thử ngay
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
-            <Popup open={isOpenModal} setOpen={setOpenModal}>
-                <FeedbackModal {...modalContent}></FeedbackModal>
-            </Popup>
         </div>
     );
 }

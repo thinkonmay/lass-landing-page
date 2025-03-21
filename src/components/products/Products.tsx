@@ -134,9 +134,6 @@ export const Introduce = () => {
     );
 };
 
-
-
-
 const Subscriptions = () => {
     const listSubscriptions = [
         {
@@ -242,10 +239,7 @@ const Subscriptions = () => {
                     <p className="subTitle">
                         *Hỗ trợ hoàn tiền{' '}
                         {/*<span className="subTitle !text-[#AD00FF]">100%</span>{' '}*/}
-
-                        <Link href={'/warranty-policy'}>
-                            {'(Chi tiết)'}
-                        </Link>
+                        <Link href={'/warranty-policy'}>{'(Chi tiết)'}</Link>
                     </p>
                 </div>
 

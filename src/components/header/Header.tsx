@@ -1,34 +1,18 @@
 'use client';
 import { APP_REDIRECT, UserEvents } from '@/utils/analytics';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Icon from '../icon';
 import './header.scss';
 
-const listNav = [
-    //{
-    //    name: 'Liên hệ',
-    //    link: '/contact'
-    //},
-    {
-        name: 'Bảng giá',
-        link: '/#subscriptions'
-    },
-    //{
-    //    name: 'Chính sách hoàn tiền',
-    //    link: '/warranty-policy'
-    //},
-    {
-        name: 'Hướng dẫn',
-        link: '/guide'
-    },
-    {
-        name: 'FAQs',
-        link: '/#faqs'
-    }
-];
-
 function Header() {
+    const [showChat, setShowChat] = useState<boolean>(false);
+    useEffect(() => {
+        (window as any).LiveChatWidget?.call(
+            showChat ? 'maximize' : 'minimize'
+        );
+    }, [showChat]);
+
     const [openNav, setOpenNav] = useState(false);
     const open = () => {
         setOpenNav(true);
@@ -43,6 +27,22 @@ function Header() {
         });
     };
 
+    const listNav = [
+        {
+            name: 'Liên hệ',
+            link: undefined,
+            callback: () => setShowChat((old) => !old)
+        },
+        {
+            name: 'Bảng giá',
+            link: '/#subscriptions'
+        },
+        {
+            name: 'FAQs',
+            link: '/#faqs'
+        }
+    ];
+
     return (
         <div className="header isolate sticky">
             <div className="grid wide wrapperHeader">
@@ -55,19 +55,34 @@ function Header() {
                                 src="logo-black"
                             ></Icon>
                             <span className="brand">Cloud PC</span>
-                            {/*<span className="">Laptop as a Service</span>*/}
                         </Link>
                     </div>
                 </div>
 
                 <ul className="rightDesktop">
-                    {listNav.map((item) => (
-                        <li key={item.name}>
-                            <Link className="link" href={item.link}>
-                                {item.name}
-                            </Link>
-                        </li>
-                    ))}
+                    {listNav.map((item) =>
+                        item.link ? (
+                            <li key={item.name}>
+                                <Link
+                                    className="link"
+                                    href={item.link}
+                                    onClick={close}
+                                >
+                                    {item.name}
+                                </Link>
+                            </li>
+                        ) : (
+                            <li key={item.name}>
+                                <Link
+                                    className="link"
+                                    href=""
+                                    onClick={item.callback}
+                                >
+                                    {item.name}
+                                </Link>
+                            </li>
+                        )
+                    )}
 
                     <Link
                         href={APP_REDIRECT}
@@ -96,17 +111,29 @@ function Header() {
                         </div>
 
                         <ul>
-                            {listNav.map((item) => (
-                                <li key={item.name}>
-                                    <Link
-                                        className="link"
-                                        href={item.link}
-                                        onClick={close}
-                                    >
-                                        {item.name}
-                                    </Link>
-                                </li>
-                            ))}
+                            {listNav.map((item) =>
+                                item.link != undefined ? (
+                                    <li key={item.name}>
+                                        <Link
+                                            className="link"
+                                            href={item.link}
+                                            onClick={close}
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    </li>
+                                ) : (
+                                    <li key={item.name}>
+                                        <Link
+                                            className="link"
+                                            href=""
+                                            onClick={item.callback}
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    </li>
+                                )
+                            )}
                             <Link
                                 href={APP_REDIRECT}
                                 onClick={redirectWin11}
