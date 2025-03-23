@@ -19,10 +19,6 @@ const listQA: IQA[] = [
         answer: 'Có, bạn có thể chọn cấu hình CPU, RAM, bộ nhớ lưu trữ, và các tùy chọn khác để phù hợp với nhu cầu sử dụng của mình. Chúng tôi cung cấp nhiều gói dịch vụ với các cấu hình linh hoạt để bạn lựa chọn.'
     },
     {
-        question: 'Thinkmay Cloud PC hỗ trợ hệ điều hành nào?',
-        answer: 'Thinkmay Cloud PC có thể sử dụng trên hầu hết các hệ điều hành phổ biến như Windows, macOS, Linux, và cả các thiết bị di động Android và iOS. Bạn chỉ cần truy cập qua trình duyệt web hoặc cài đặt phần mềm client tương thích.'
-    },
-    {
         question:
             'Các thiết bị nào thì dùng được Cloud PC? Tôi có cần đầu tư thiết bị gì không?',
         answer: (
@@ -41,6 +37,58 @@ const listQA: IQA[] = [
     {
         question: 'Trên Thinkmay có thể chơi những game nào?',
         answer: 'Hầu hết các game đều chơi được trên Thinkmay, trừ 1 số tựa game online như: League of Legends, PUBG, Valorant, vv'
+    },
+    {
+        question:
+            'Chính sách hoàn tiền của Thinkmay nếu người dùng dùng gặp lỗi là gì',
+        answer: (
+            <>
+                <h1>Chính sách hoàn 80% tiền</h1>
+                <p>
+                    Do tính chất đặc thù của dịch vụ CloudPC là có độ trễ về
+                    đường truyền và mong muốn mọi người có trải nghiệm tốt nhất
+                    khi sử dụng, Thinkmay khuyến khích bạn liên hệ qua Fanpage
+                    để được hỗ trợ xử lý hoặc hoàn tiền nếu sau khi sử dụng, bạn
+                    cảm thấy không hài lòng vì bất kỳ lý do nào.
+                </p>
+                <h2>Điều kiện áp dụng</h2>
+                <div>
+                    <div>
+                        <h3>Với gói tháng:</h3>
+                        <ul>
+                            <li>Thời gian: 5 ngày kể từ khi được cấp máy.</li>
+                            <li>Số giờ sử dụng: không quá 12h.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Với gói tuần:</h3>
+                        <ul>
+                            <li>Thời gian: 2 ngày kể từ khi được cấp máy.</li>
+                            <li>Số giờ sử dụng: không quá 3h.</li>
+                        </ul>
+                    </div>
+                </div>
+                <h2>Quy trình yêu cầu hoàn tiền:</h2>
+                <ul>
+                    <li> Liên hệ qua Fanpage chính thức của Thinkmay.</li>
+                    <li>
+                        Cung cấp thông tin tài khoản, lý do yêu cầu hoàn tiền
+                    </li>
+                    <li>Yêu cầu sẽ được xử lý trong vòng 1 ngày làm việc.</li>
+                </ul>
+                <h2>Lưu ý:</h2>
+                <ul>
+                    <li>
+                        Chính sách không áp dụng cho các trường hợp vi phạm điều
+                        khoản sử dụng dịch vụ hoặc cố ý gây lỗi.
+                    </li>
+                    <li>
+                        Hãy trải nghiệm dịch vụ miễn phí trước khi đưa ra quyết
+                        định mua!
+                    </li>
+                </ul>
+            </>
+        )
     },
     {
         question: 'Có được chơi thử không? Chơi thử như thế nào?',
