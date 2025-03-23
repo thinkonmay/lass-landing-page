@@ -55,7 +55,7 @@ function Header() {
     ];
 
     return (
-        <div className="header isolate sticky">
+        <div className="header ">
             <LiveChatWidget license="19084863" visibility="maximized" />
             <div className="grid wide wrapperHeader">
                 <div className="left">
