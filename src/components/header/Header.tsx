@@ -86,7 +86,7 @@ function Header() {
                                 <Link
                                     className="link"
                                     href=""
-                                    onClick={item.callback}
+                                //onClick={item.callback}
                                 >
                                     {item.name}
                                 </Link>
