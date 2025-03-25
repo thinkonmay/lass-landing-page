@@ -1,8 +1,7 @@
 'use client';
 import { APP_REDIRECT, UserEvents } from '@/utils/analytics';
-import { LiveChatWidget } from '@livechat/widget-react';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Icon from '../icon';
 import './header.scss';
 
@@ -20,13 +19,12 @@ const isMobile = () => {
 };
 
 function Header() {
-    useEffect(() => {
-        if (isMobile()) (window as any).LiveChatWidget?.call('minimize');
-    }, []);
+    //useEffect(() => {
+    //    if (isMobile()) (window as any).LiveChatWidget?.call('minimize');
+    //}, []);
 
     const [openNav, setOpenNav] = useState(false);
     const open = () => {
-        setOpenNav(true);
     };
     const close = () => {
         setOpenNav(false);
@@ -41,8 +39,8 @@ function Header() {
     const listNav = [
         {
             name: 'Liên hệ',
-            link: undefined,
-            callback: () => (window as any).LiveChatWidget?.call('maximize')
+            link: 'https://www.facebook.com/thinkonmay',
+            //callback: () => (window as any).LiveChatWidget?.call('maximize')
         },
         {
             name: 'Bảng giá',
@@ -56,7 +54,7 @@ function Header() {
 
     return (
         <div className="header ">
-            <LiveChatWidget license="19084863" visibility="maximized" />
+            {/*<LiveChatWidget license="19084863" visibility="maximized" />*/}
             <div className="grid wide wrapperHeader">
                 <div className="left">
                     <div className="logo">

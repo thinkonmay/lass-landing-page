@@ -1,6 +1,6 @@
 'use client';
 
-import { APP_REDIRECT, UserEvents } from '@/utils/analytics';
+import { UserEvents } from '@/utils/analytics';
 import React, { useState } from 'react';
 import Icon from '../icon';
 import './testimonials.scss';
@@ -149,7 +149,7 @@ function Testimonials() {
                             </p>
                         </div>
 
-                        <form className="wrapperInputs  l-6" action={send}>
+                        {/*<form className="wrapperInputs  l-6" action={send}>
                             <input
                                 name="name"
                                 type="text"
@@ -183,7 +183,7 @@ function Testimonials() {
                                 Gửi
                                 <Icon src="send" />
                             </button>
-                        </form>
+                        </form>*/}
                     </div>
                 </div>
             </div>
