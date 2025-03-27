@@ -149,41 +149,6 @@ function Testimonials() {
                             </p>
                         </div>
 
-                        {/*<form className="wrapperInputs  l-6" action={send}>
-                            <input
-                                name="name"
-                                type="text"
-                                onChange={(e) =>
-                                    (window as any).LiveChatWidget.call(
-                                        'set_customer_name',
-                                        e.target.value
-                                    )
-                                }
-                                placeholder="Tên của bạn *"
-                            />
-                            <input
-                                name="email"
-                                type="text"
-                                onChange={(e) =>
-                                    (window as any).LiveChatWidget.call(
-                                        'set_customer_email',
-                                        e.target.value
-                                    )
-                                }
-                                placeholder="Email của bạn *"
-                            />
-                            <button
-                                onClick={() =>
-                                    (window as any).LiveChatWidget?.call(
-                                        'maximize'
-                                    )
-                                }
-                                className="btn btn-send"
-                            >
-                                Gửi
-                                <Icon src="send" />
-                            </button>
-                        </form>*/}
                     </div>
                 </div>
             </div>

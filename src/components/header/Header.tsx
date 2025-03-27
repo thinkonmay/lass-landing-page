@@ -5,30 +5,10 @@ import { useState } from 'react';
 import Icon from '../icon';
 import './header.scss';
 
-const isMobile = () => {
-    const userAgent = navigator?.userAgent?.toLowerCase();
-    const isMobile =
-        /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(
-            userAgent
-        );
-    const isTablet =
-        /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(
-            userAgent
-        );
-    return isMobile || isTablet;
-};
-
 function Header() {
-    //useEffect(() => {
-    //    if (isMobile()) (window as any).LiveChatWidget?.call('minimize');
-    //}, []);
-
     const [openNav, setOpenNav] = useState(false);
-    const open = () => {
-    };
-    const close = () => {
-        setOpenNav(false);
-    };
+    const open = () => setOpenNav(true);
+    const close = () => setOpenNav(false);
     const redirectWin11 = () => {
         UserEvents({
             type: 'USER_ACTION',
@@ -39,8 +19,7 @@ function Header() {
     const listNav = [
         {
             name: 'Liên hệ',
-            link: 'https://www.facebook.com/thinkonmay',
-            //callback: () => (window as any).LiveChatWidget?.call('maximize')
+            link: 'https://www.facebook.com/thinkonmay'
         },
         {
             name: 'Bảng giá',
@@ -54,7 +33,6 @@ function Header() {
 
     return (
         <div className="header ">
-            {/*<LiveChatWidget license="19084863" visibility="maximized" />*/}
             <div className="grid wide wrapperHeader">
                 <div className="left">
                     <div className="logo">
@@ -83,11 +61,7 @@ function Header() {
                             </li>
                         ) : (
                             <li key={item.name}>
-                                <Link
-                                    className="link"
-                                    href=""
-                                //onClick={item.callback}
-                                >
+                                <Link className="link" href="">
                                     {item.name}
                                 </Link>
                             </li>
@@ -137,7 +111,6 @@ function Header() {
                                         <Link
                                             className="link"
                                             href=""
-                                        //onClick={item.callback}
                                         >
                                             {item.name}
                                         </Link>
