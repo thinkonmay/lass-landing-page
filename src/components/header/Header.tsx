@@ -4,15 +4,17 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Icon from '../icon';
 import './header.scss';
+import { useSearchParams } from 'next/navigation';
 
 function Header() {
     const [openNav, setOpenNav] = useState(false);
     const open = () => setOpenNav(true);
     const close = () => setOpenNav(false);
+    const params = useSearchParams();
     const redirectWin11 = () => {
         UserEvents({
             type: 'USER_ACTION',
-            payload: `click and go to ${APP_REDIRECT}`
+            payload: `click and go to ${APP_REDIRECT(params)}`
         });
     };
 
@@ -69,7 +71,7 @@ function Header() {
                     )}
 
                     <Link
-                        href={APP_REDIRECT}
+                        href={APP_REDIRECT(params)}
                         target="_blank"
                         onClick={redirectWin11}
                         className="btn btn-link"
@@ -115,7 +117,7 @@ function Header() {
                                 )
                             )}
                             <Link
-                                href={APP_REDIRECT}
+                                href={APP_REDIRECT(params)}
                                 onClick={redirectWin11}
                                 target="_blank"
                                 className="btn btn-link"

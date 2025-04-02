@@ -94,11 +94,11 @@ function Footer() {
                                         Hướng dẫn mua hàng
                                     </Link>
                                 </li>*/}
-                                <li>
+                                {/* <li>
                                     <Link href={'/warranty-policy'}>
                                         Chính sách hoàn tiền
                                     </Link>
-                                </li>
+                                </li> */}
                                 {/*<li>
                                     <Link href={'/shipping-policy'}>
                                         Chính sách vận chuyển

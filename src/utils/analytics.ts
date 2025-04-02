@@ -1,8 +1,20 @@
 'use client';
 import { createClient } from '@supabase/supabase-js';
+import { ReadonlyURLSearchParams } from 'next/navigation';
 
-export let APP_REDIRECT = 'https://win11.thinkmay.net';
-export const SET_APP_REDIRECT = (url: string) => (APP_REDIRECT = url);
+export const APP_REDIRECT = (originalparams: ReadonlyURLSearchParams) => {
+    const dest = 'https://win11.thinkmay.net';
+    const redirectURL = new URL('https://win11.thinkmay.net');
+    originalparams.forEach((val, key) =>
+        redirectURL.searchParams.set(key, val)
+    );
+    if (!originalparams.has('tutorial'))
+        redirectURL.searchParams.set('tutorial', 'on');
+    if (!originalparams.has('ref'))
+        redirectURL.searchParams.set('ref', 'landingpage');
+
+    return redirectURL.toString();
+};
 
 export function getOS() {
     let OSName = 'unknown';

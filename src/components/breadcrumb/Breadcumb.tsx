@@ -9,7 +9,7 @@ import Icon from '../icon';
 const listSlug: slugType = {
     services: 'Dịch vụ',
     order: 'Đặt hàng',
-    'warranty-policy': 'Chính sách hoàn tiền',
+    // 'warranty-policy': 'Chính sách hoàn tiền',
     contact: 'Liên hệ',
     procedure: 'Hướng dẫn mua hàng',
     'shipping-policy': 'Chính sách mua hàng'

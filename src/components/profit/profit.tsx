@@ -5,66 +5,67 @@ import { useState } from 'react';
 import Icon from '../icon';
 import './profit.scss';
 import { APP_REDIRECT } from '@/utils/analytics';
-
-const profits = [
-    {
-        subtitle: '',
-        icon: 'mi-laptop',
-        title: 'Mọi thiết bị, mọi nơi',
-        content: [
-            'Laptop, điện thoại, TV,... ở mọi cấu hình đều có thể chơi game xịn, xử lý đồ họa,...'
-        ],
-        link: {
-            href: APP_REDIRECT,
-            name: 'Đăng ký ngay'
-        }
-    },
-    {
-        subtitle: '',
-        icon: 'credit-card',
-        title: '299k/tháng',
-        link: {
-            href: '/warranty-policy',
-            name: 'Chi tiết hoàn tiền'
-        },
-        content: (
-            <>
-                Thay vì hàng chục triệu VNĐ nâng cấp thiết bị chơi game.,
-                <br />
-                Có chính sách hoàn tiền
-            </>
-        )
-    },
-    {
-        subtitle: '',
-        icon: 'shield',
-        title: 'Lưu dữ liệu',
-        content: (
-            <>
-                Mọi dự liệu sử dụng sau khi tắt máy sẽ lưu lại.
-                <br />
-                Có thể mua thêm bộ nhớ bổ sung.
-            </>
-        ),
-        link: {
-            href: '#subscriptions',
-            name: 'Mua thêm dữ liệu'
-        }
-    },
-
-    {
-        subtitle: '',
-        icon: 'bell-outline',
-        title: 'Hỗ trợ người dùng',
-        content: ['Đội ngũ hỗ trợ khách hàng 24/7 nhanh chóng, tận tình.'],
-        link: {
-            href: 'https://www.facebook.com/thinkonmay',
-            name: 'Liên hệ ngay'
-        }
-    }
-];
+import { useSearchParams } from 'next/navigation';
 
 function Benefits() {
+    const param = useSearchParams();
+    const benefits = [
+        {
+            subtitle: '',
+            icon: 'mi-laptop',
+            title: 'Mọi thiết bị, mọi nơi',
+            content: [
+                'Laptop, điện thoại, TV,... ở mọi cấu hình đều có thể chơi game xịn, xử lý đồ họa,...'
+            ],
+            link: {
+                href: APP_REDIRECT(param),
+                name: 'Đăng ký ngay'
+            }
+        },
+        {
+            subtitle: '',
+            icon: 'credit-card',
+            title: '299k/tháng',
+            link: {
+                href: '/warranty-policy',
+                name: 'Chi tiết hoàn tiền'
+            },
+            content: (
+                <>
+                    Thay vì hàng chục triệu VNĐ nâng cấp thiết bị chơi game.,
+                    <br />
+                    Có chính sách hoàn tiền
+                </>
+            )
+        },
+        {
+            subtitle: '',
+            icon: 'shield',
+            title: 'Lưu dữ liệu',
+            content: (
+                <>
+                    Mọi dự liệu sử dụng sau khi tắt máy sẽ lưu lại.
+                    <br />
+                    Có thể mua thêm bộ nhớ bổ sung.
+                </>
+            ),
+            link: {
+                href: '#subscriptions',
+                name: 'Mua thêm dữ liệu'
+            }
+        },
+
+        {
+            subtitle: '',
+            icon: 'bell-outline',
+            title: 'Hỗ trợ người dùng',
+            content: ['Đội ngũ hỗ trợ khách hàng 24/7 nhanh chóng, tận tình.'],
+            link: {
+                href: 'https://www.facebook.com/thinkonmay',
+                name: 'Liên hệ ngay'
+            }
+        }
+    ];
     return (
         <div className="profit">
             <div className="mainContent grid wide">
@@ -88,7 +89,7 @@ function Benefits() {
                     </h2>
                 </div>
                 <div className="wrapperProfits">
-                    {profits.map((item, i) => (
+                    {benefits.map((item, i) => (
                         <Card
                             img={item.icon}
                             key={item.title}

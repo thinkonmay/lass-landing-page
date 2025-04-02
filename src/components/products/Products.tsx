@@ -9,10 +9,10 @@ import { formatPrice } from '../../utils/formatPrice';
 import SwitchBtn from '../btn/SwitchBtn';
 import Icon from '../icon';
 import './products.scss';
+import { useSearchParams } from 'next/navigation';
 
 function Products() {
     const [productShow, setProductShow] = useState<Lines>(Lines.MACBOOK);
-
     return (
         <>
             <div className="products">
@@ -135,6 +135,7 @@ export const Introduce = () => {
 };
 
 const Subscriptions = () => {
+    const param = useSearchParams();
     const listSubscriptions = [
         {
             name: 'Gói Tuần',
@@ -207,7 +208,7 @@ const Subscriptions = () => {
 
                     <div className="ctnBtn mt-auto">
                         <a
-                            href={`${APP_REDIRECT}/payment`}
+                            href={`${APP_REDIRECT(param)}`}
                             target="_self"
                             className="btn-checkout  ctaBtn"
                         >
@@ -235,11 +236,6 @@ const Subscriptions = () => {
                     </h2>
                     <p className="subTitle !mt-4">
                         *Dịch vụ chỉ cho thuê PC, không kèm tài khoản game
-                    </p>
-                    <p className="subTitle">
-                        *Hỗ trợ hoàn tiền{' '}
-                        {/*<span className="subTitle !text-[#AD00FF]">100%</span>{' '}*/}
-                        <Link href={'/warranty-policy'}>{'(Chi tiết)'}</Link>
                     </p>
                 </div>
 

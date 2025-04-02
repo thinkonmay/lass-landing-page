@@ -1,5 +1,5 @@
 'use client';
-import { APP_REDIRECT, SET_APP_REDIRECT, UserSession } from '@/utils/analytics';
+import { APP_REDIRECT, UserSession } from '@/utils/analytics';
 import Image from 'next/image';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
@@ -10,21 +10,10 @@ import Benefits from '../components/profit/profit';
 import Testimonials from '../components/testimonials/Testimonials';
 import './index.scss';
 import './page.scss';
+import { useSearchParams } from 'next/navigation';
 
 export default function Home() {
     useEffect(() => {
-        const originalparams = new URL(window.location.href).searchParams;
-        const redirectURL = new URL('https://win11.thinkmay.net');
-        originalparams.forEach((val, key) =>
-            redirectURL.searchParams.set(key, val)
-        );
-        if (!originalparams.has('tutorial'))
-            redirectURL.searchParams.set('tutorial', 'on');
-        if (!originalparams.has('ref'))
-            redirectURL.searchParams.set('ref', 'landingpage');
-
-        SET_APP_REDIRECT(redirectURL.toString());
-
         UserSession();
     }, []);
     return (
@@ -91,6 +80,7 @@ const AppReason = () => {
         'https://cdn.vn.garenanow.com/web/fo4vn//Khoa/2023/T8/FOUNDER/son.jpg'
     ];
     const [supported, setSupported] = useState<string[]>([]);
+    const params = useSearchParams();
 
     const unsupported = [
         {
@@ -209,7 +199,7 @@ const AppReason = () => {
                 </div>
 
                 <a
-                    href={APP_REDIRECT}
+                    href={APP_REDIRECT(params)}
                     target="_self"
                     className="btn mx-auto mt-[3.2rem] ctaBtn max-w-3xl"
                 >

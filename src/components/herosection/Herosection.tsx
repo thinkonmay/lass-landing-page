@@ -4,8 +4,10 @@ import Link from 'next/link';
 import Icon from '../icon';
 import './herosection.scss';
 import TextTransform from './textTransform';
+import { useSearchParams } from 'next/navigation';
 
 function HeroSection() {
+    const params = useSearchParams();
     return (
         <div className="heroSection">
             <div className="slide1">
@@ -31,7 +33,7 @@ function HeroSection() {
                         </p>
 
                         <Link
-                            href={APP_REDIRECT}
+                            href={APP_REDIRECT(params)}
                             style={{ paddingLeft: 32, paddingRight: 32 }}
                             className="btn-explore pl-[32px] pr-[32px] btn"
                         >
