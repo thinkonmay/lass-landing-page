@@ -14,7 +14,7 @@ const listLinks = [
     },
     {
         icon: 'discord',
-        link: 'https://discord.gg/wbHXT93jHf'
+        link: 'https://discord.com/servers/thinkmay-cloud-pc-1085741898309849128'
     },
     {
         icon: 'linkedin',
