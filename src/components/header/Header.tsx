@@ -108,10 +108,7 @@ function Header() {
                                     </li>
                                 ) : (
                                     <li key={item.name}>
-                                        <Link
-                                            className="link"
-                                            href=""
-                                        >
+                                        <Link className="link" href="">
                                             {item.name}
                                         </Link>
                                     </li>

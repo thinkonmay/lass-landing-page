@@ -1,10 +1,15 @@
 'use client';
 import { createClient } from '@supabase/supabase-js';
 
-export const APP_REDIRECT = 'https://win11.thinkmay.net';
-export const APP_DOMAIN = 'https://play.thinkmay.net';
-const APP_KEY =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ewogICJyb2xlIjogImFub24iLAogICJpc3MiOiAic3VwYWJhc2UiLAogICJpYXQiOiAxNzIzMTM2NDAwLAogICJleHAiOiAxODgwOTAyODAwCn0.SdW2AcXzhRFNBt9HmJw6sKa7lWDmVjbXdRF1mIjrDao';
+const originalparams = new URL(window.location.href).searchParams;
+const redirectURL = new URL('https://win11.thinkmay.net');
+originalparams.forEach((val, key) => redirectURL.searchParams.set(key, val));
+if (!originalparams.has('tutorial')) 
+    redirectURL.searchParams.set('tutorial','on')
+if (!originalparams.has('ref')) 
+    redirectURL.searchParams.set('ref','landingpage')
+    
+export const APP_REDIRECT = redirectURL.toString();
 
 export function getOS() {
     let OSName = 'unknown';
@@ -68,7 +73,10 @@ export async function UserSession(email?: string) {
         url: window.location.href
     };
 
-    const supabaseLocal = createClient(APP_DOMAIN, APP_KEY);
+    const supabaseLocal = createClient(
+        'https://play.2.thinkmay.net:4432',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJhbm9uIiwKICAgICJpc3MiOiAic3VwYWJhc2UtZGVtbyIsCiAgICAiaWF0IjogMTY0MTc2OTIwMCwKICAgICJleHAiOiAxNzk5NTM1NjAwCn0.dc_X5iR_VP_qT0zsiyj_I_OZ2T9FtRU2BBNWN8Bu4GE'
+    );
     const { data, error } = await supabaseLocal
         .from('generic_events')
         .insert({
