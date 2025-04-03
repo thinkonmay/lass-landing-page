@@ -1,8 +1,6 @@
 .main {
 
     .appReason {
-        border-top: 1px solid #E6E6EC;
-        border-bottom: 1px solid #E6E6EC;
         padding: 6rem 0;
 
         .mainContent {
@@ -237,8 +235,6 @@
     .main {
 
         .appReason {
-            border-top: 1px solid #E6E6EC;
-            border-bottom: 1px solid #E6E6EC;
             padding: 6rem 0;
 
             .mainContent {
@@ -505,7 +501,7 @@
 }
 
 .scroller[data-speed="slow"] {
-    --_animation-duration: 60s;
+    --_animation-duration: 120s;
 }
 
 @keyframes scroll {

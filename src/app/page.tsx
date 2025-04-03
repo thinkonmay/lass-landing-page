@@ -138,11 +138,11 @@ const AppReason = () => {
     }, [supported]);
 
     return (
-        <div id="appReason" className="appReason">
+        <div id="appReason" className="appReason bg-black">
             <div className="grid wide mainContent">
                 <div className=" top col">
                     <div className="wrapperTitle text-center ">
-                        <h2 className="title">
+                        <h2 className="title text-white">
                             Game
                             <span className="highlight"> được chơi nhiều </span>
                         </h2>
@@ -160,11 +160,12 @@ const AppReason = () => {
                             {rand(supported).map((app, index) => (
                                 <li
                                     key={index}
-                                    className="item"
+                                    className="item ml-3"
                                     aria-hidden="true"
                                 >
                                     <img
                                         alt="img"
+                                        className="rounded-2xl"
                                         width={520}
                                         height={280}
                                         src={app}
@@ -176,8 +177,7 @@ const AppReason = () => {
                 ))}
                 <div className=" top col mt-16">
                     <div className="wrapperTitle text-center ">
-                        <h2 className="title !text-4xl">
-                            {' '}
+                        <h2 className="title !text-4xl text-white">
                             Game <span className="highlight">
                                 chưa hỗ trợ
                             </span>{' '}

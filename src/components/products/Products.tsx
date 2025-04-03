@@ -140,9 +140,9 @@ const Subscriptions = () => {
         {
             name: 'Gói Tuần',
             id: 'hours',
-            price: '99k',
-            subPrice: '/tuần',
-            subName: 'Giới hạn 25h/tuần',
+            price: '199k',
+            subPrice: '/2 tuần',
+            subName: 'Giới hạn 50h',
             isSpecial: false,
 
             specs: [

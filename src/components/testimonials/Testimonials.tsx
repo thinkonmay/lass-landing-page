@@ -133,23 +133,6 @@ function Testimonials() {
                     </div>
                 </div>
 
-                <div className="feedbackForm grid wide">
-                    <div className="img">
-                        <Icon width={95} height={95} src={'supporter'}></Icon>
-                    </div>
-
-                    <div className="form">
-                        <div className="top">
-                            <h2 className="title">
-                                Liên hệ <span>Thinkmay</span>
-                            </h2>
-                            <p>
-                                Bạn muốn liên hệ với chúng mình, chúng mình luôn
-                                sẵn sàng hỗ trợ!
-                            </p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     );
